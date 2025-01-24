@@ -25,7 +25,7 @@
                 <div class="menu-title">Dashboard</div>
             </a>
             <ul>
-                <li> <a href="index.html"><i class='bx bx-radio-circle'></i>Carousels</a>
+                <li> <a href="{{ url('admin/carousels') }}"><i class='bx bx-radio-circle'></i>Carousels</a>
                 </li>
                 <li> <a href="index2.html"><i class='bx bx-radio-circle'></i>Aru News</a>
                 </li>
