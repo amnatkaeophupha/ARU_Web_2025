@@ -33,7 +33,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="user-box dropdown px-3">
+            <div class="user-box dropdown px-3" style="font-family:'Chakra Petch', sans-serif;">
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     @if(Auth::user()->avatar <> null)
                     <img src="{{ asset('storage/avatars/'.Auth::user()->avatar) }}" alt="user avatar" class="user-img">

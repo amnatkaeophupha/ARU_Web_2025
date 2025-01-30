@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('2025_aru');}}/images/favicon-32x32.png" type="image/png" />
+	<link rel="icon" href="{{url('rocker');}}/aru_images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
 	<link href="{{url('rocker');}}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
@@ -37,7 +37,7 @@
 							<div class="card-body">
 								<div class="p-4">
 									<div class="mb-3 text-center">
-										<img src="{{url('2025_aru');}}/images/logo-icon.png" width="100" />
+										<img src="{{url('rocker');}}/aru_images/logo-icon.png" width="100" />
 									</div>
 									<div class="text-center mb-4" style="font-family:'Chakra Petch', sans-serif;">
 										<h5 class="">Web Admin</h5>

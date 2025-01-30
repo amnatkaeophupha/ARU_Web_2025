@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('2025_aru');}}/images/favicon-32x32.png" type="image/png" />
+	<link rel="icon" href="{{url('rocker');}}/aru_images/favicon-32x32.png" type="image/png" />
 	<!-- loader-->
 	<link href="{{url('rocker');}}/css/pace.min.css" rel="stylesheet" />
 	<script src="{{url('rocker');}}/js/pace.min.js"></script>
