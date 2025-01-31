@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\CustomVerificationController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::group([],base_path('routes/webaru.php'));
+
 
 Route::get('/signin', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -35,7 +37,12 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['throttle:6,1']);
 
 Route::group([],base_path('routes/admin.php'));
+
+
+
 Route::group([],base_path('routes/manager.php'));
+
+
 
 
 
