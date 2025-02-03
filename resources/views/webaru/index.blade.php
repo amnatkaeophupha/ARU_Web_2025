@@ -43,7 +43,7 @@
                     <div class="header-contact">
                         <ul>
                             <li><i class="fa fa-phone"></i> +66 3527 6555-9</li>
-                            <li><i class="fa fa-envelope-o"></i><a href="#">info@aru.ac.th</a></li>
+                            <li><i class="fa fa-envelope-o"></i><a href="#">saraban@aru.ac.th</a></li>
                         </ul>
                     </div>
                 </div>
@@ -73,13 +73,6 @@
                         <div class="main-menu" style="font-family: 'sarabun', sans-serif;">
                             <nav>
                                 <ul>
-                                    <li><a href="index.html"> หน้าแรก </a>
-                                        <ul class="submenu">
-                                            <li><a href="index.html">home version 1</a></li>
-                                            <li><a href="index-2.html">home version 2</a></li>
-                                            <li><a href="index-3.html">home version 3</a></li>
-                                        </ul>
-                                    </li>
                                     <li><a href="about-us.html"> สมัครเรียน  </a></li>
                                     <li><a href="#"> แนะนำมหาวิทยาลัย <i class="fa fa-angle-down"></i> </a>
                                         <ul class="submenu">
@@ -100,7 +93,23 @@
                                         <ul class="mega-menu">
                                             <li>
                                                 <ul>
-                                                    <li class="mega-menu-title"><a href="#">คณะ</a></li>
+                                                    <li class="mega-menu-title">สภา / สำนักงานอธิการบดี</li>
+                                                    <li><a href="#">สภามหาวิทยาลัย</a></li>
+                                                    <li><a href="#">สภาคณาจารย์และข้าราชการ</a></li>
+                                                    <li><a href="#">สำนักงานอธิการบดี </a></li>
+                                                    <li><a href="#"> + กองกลาง </a></li>
+                                                    <li><a href="#">&nbsp;&nbsp;&nbsp; - งานทรัพยากรบุคคล</a></li>
+                                                    <li><a href="#">&nbsp;&nbsp;&nbsp; - งานการเงินและบัญชี</a></li>
+                                                    <li><a href="#">&nbsp;&nbsp;&nbsp; - งานบริการวิชาการและจัดหารายได้</a></li>
+                                                    <li><a href="#">&nbsp;&nbsp;&nbsp; - งานพัสดุ</a></li>
+                                                    <li><a href="#"> + กองบริการการศึกษา </a></li>
+                                                    <li><a href="#"> + กองนโยบายและแผน </a></li>
+                                                    <li><a href="#"> + กองพัฒนานักศึกษา </a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="mega-menu-title" ">คณะ</li>
                                                     <li><a href="shop.html">คณะครุศาสตร์</a></li>
                                                     <li><a href="shop.html">คณะมนุษยศาสตร์และสังคมศาสตร์</a></li>
                                                     <li><a href="shop.html">คณะวิทยาศาสตร์และเทคโนโลยี</a></li>
@@ -111,36 +120,20 @@
                                             </li>
                                             <li>
                                                 <ul>
-                                                    <li class="mega-menu-title"><a href="#">สภา/สำนัก/สถาบัน</a></li>
-                                                    <li><a href="#">สภามหาวิทยาลัย</a></li>
-                                                    <li><a href="#">สภาคณาจารย์และข้าราชการ</a></li>
-                                                    <li><a href="#">สำนักงานอธิการบดี</a></li>
-                                                    <li><a href="#">สำนักวิทยบริการและเทคโนโลยีสารสนเทศ</a></li>
+                                                    <li class="mega-menu-title">หน่วยงานสนับสนุนและบริการ</li>
                                                     <li><a href="#">สถาบันวิจัยและพัฒนา </a></li>
                                                     <li><a href="#">สถาบันอยุธยาศึกษา </a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">ศูนย์/กอง</a></li>
-                                                    <li><a href="#">ศูนย์ภาษาและการศึกษานานาชาติ</a></li>
-                                                    <li><a href="#">ศูนย์บ่มเพาะวิสาหกิจ(ARUBI)</a></li>
-                                                    <li><a href="#">ศูนย์ฝึกปฏิบัติการวิชาชีพธุรกิจ อาคารสวนหลวง</a></li>
+                                                    <li><a href="#">สำนักวิทยบริการและเทคโนโลยีสารสนเทศ</a></li>
+                                                    <li><a href="#">ศูนย์ภาษาและการศึกษานานาชาติ </a></li>
+                                                    <li><a href="#">ศูนย์บ่มเพาะวิสาหกิจ(ARUBI) </a></li>
+                                                    <li><a href="#">ศูนย์ฝึกปฏิบัติการวิชาชีพธุรกิจ </a></li>
                                                     <li><a href="#">ศูนย์นวัตกรรมและดิจิทัลเพื่อการเรียนรู้</a></li>
                                                     <li><a href="#">ศูนย์สหกิจศึกษา </a></li>
-                                                    <li><a href="#">กองกลาง สำนักงานอธิการบดี </a></li>
-                                                    <li><a href="#">กองบริการการศึกษา สำนักงานอธิการบดี</a></li>
-                                                    <li><a href="#">กองนโยบายและแผน สำนักงานอธิการบดี </a></li>
-                                                    <li><a href="#">กองพัฒนานักศึกษา สำนักงานอธิการบดี </a></li>
                                                 </ul>
                                             </li>
                                             <li>
                                                 <ul>
-                                                    <li class="mega-menu-title"><a href="#">งาน/อื่นๆ</a></li>
-                                                    <li><a href="#">งานทรัพยากรบุคคล กองกลาง สำนักงานอธิการบดี</a></li>
-                                                    <li><a href="#">งานพัสดุ กองกลาง สำนักงานอธิการบดี</a></li>
-                                                    <li><a href="#">งานการเงินและบัญชี กองกลาง สำนักงานอธิการบดี</a></li>
-                                                    <li><a href="#">งานบริการวิชาการและจัดหารายได้</a></li>
+                                                    <li class="mega-menu-title">งาน/อื่นๆ</li>
                                                     <li><a href="#">มหาวิทยาลัยสีเขียว (Green ARU) </a></li>
                                                 </ul>
                                             </li>
@@ -1345,61 +1338,43 @@
     </div>
 </div> --}}
 <footer class="footer-area">
-    <div class="footer-top bg-img default-overlay pt-130 pb-80" style="background-image:url(assets/img/bg/bg-4.jpg);">
+    <div class="footer-top bg-img default-overlay pt-130 pb-80" style="background-image:url({{ url('glaxdu') }}/assets/img/bg/bg-4.jpg);">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer-widget mb-40">
                         <div class="footer-title">
-                            <h4>ABOUT US</h4>
+                            <h4>ติดต่อเรา</h4>
                         </div>
                         <div class="footer-about">
-                            <p>Ugiat nulla pariatur. Edeserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natu</p>
+                            <p>มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                             <div class="f-contact-info">
                                 <div class="single-f-contact-info">
                                     <i class="fa fa-home"></i>
-                                    <span>Uttara, Dhaka, Bangladesh</span>
+                                    <span>เลขที่ 96 ถ.ปรีดีพนมยงค์ ต.ประตูชัย อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000</span>
                                 </div>
                                 <div class="single-f-contact-info">
                                     <i class="fa fa-envelope-o"></i>
-                                    <span><a href="#">education@email.com</a></span>
+                                    <span><a href="#">saraban@aru.ac.th</a></span>
                                 </div>
                                 <div class="single-f-contact-info">
                                     <i class="fa fa-phone"></i>
-                                    <span> +98 558 547 589</span>
+                                    <span> +66 3527 6555-9</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="footer-widget mb-40">
                         <div class="footer-title">
-                            <h4>QUICK LINK</h4>
+                            <h4>ระบบสารสนเทศ</h4>
                         </div>
                         <div class="footer-list">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="course.html">Courses</a></li>
-                                <li><a href="#">Admission</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer-widget negative-mrg-30 mb-40">
-                        <div class="footer-title">
-                            <h4>COURSES</h4>
-                        </div>
-                        <div class="footer-list">
-                            <ul>
-                                <li><a href="#">Under Graduate Programmes </a></li>
-                                <li><a href="#">Graduate Programmes </a></li>
-                                <li><a href="#">Diploma Courses</a></li>
-                                <li><a href="#">Others Programmes</a></li>
-                                <li><a href="#">Short Courses</a></li>
+                                <li><a href="http://e-uni3.aru.ac.th:81/e-student/">ระบบบริการนักศึกษา</a></li>
+                                <li><a href="http://e-uni8.aru.ac.th:81/e-uni">ระบบบริหารการศึกษา</a></li>
+                                <li><a href="#">ระบบสารบรรณอิเล็กทรอนิกส์</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1407,14 +1382,14 @@
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="footer-widget mb-40">
                         <div class="footer-title">
-                            <h4>GALLERY</h4>
+                            <h4>แผนที่</h4>
                         </div>
                         <div class="footer-gallery">
                             <ul>
-                                <li><a href="#"><img src="assets/img/gallery/gallery-1.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/gallery/gallery-2.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/gallery/gallery-3.png" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/gallery/gallery-4.png" alt=""></a></li>
+                                <li><a href="#"><img src="{{ url('glaxdu') }}/assets/img/gallery/gallery-1.png" alt=""></a></li>
+                                <li><a href="#"><img src="{{ url('glaxdu') }}/assets/img/gallery/gallery-2.png" alt=""></a></li>
+                                <li><a href="#"><img src="{{ url('glaxdu') }}/assets/img/gallery/gallery-3.png" alt=""></a></li>
+                                <li><a href="#"><img src="{{ url('glaxdu') }}/assets/img/gallery/gallery-4.png" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -1422,7 +1397,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-widget mb-40">
                         <div class="footer-title">
-                            <h4>News Latter</h4>
+                            <h4>บริการอื่นๆ</h4>
                         </div>
                         <div class="subscribe-style">
                             <p>Dugiat nulla pariatur. Edeserunt mollit anim id est laborum. Sed ut perspiciatis unde</p>
@@ -1448,16 +1423,15 @@
     <div class="footer-bottom pt-15 pb-15">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-6 col-md-12">
                     <div class="copyright">
                         <p>
                             Copyright ©
-                            <a href="#">GLAXDU</a>
-                            . All Right Reserved.
+                            <a href="#">By Phranakhon Si Ayutthaya Rajabhat University 2025 </a>. All Right Reserved.
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-12">
+                <div class="col-lg-6 col-md-12">
                     <div class="footer-menu-social">
                         <div class="footer-menu">
                             <ul>
@@ -1467,10 +1441,8 @@
                         </div>
                         <div class="footer-social">
                             <ul>
-                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="facebook" href="https://www.facebook.com/pr.aru"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="youtube" href="https://www.youtube.com/@ARURajabhat"><i class="fa fa-youtube-play"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -1479,114 +1451,6 @@
         </div>
     </div>
 </footer>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="tab-content quickview-big-img">
-                            <div id="pro-1" class="tab-pane fade show active">
-                                <img src="assets/img/product/quickview-l1.jpg" alt="">
-                            </div>
-                            <div id="pro-2" class="tab-pane fade">
-                                <img src="assets/img/product/quickview-l2.jpg" alt="">
-                            </div>
-                            <div id="pro-3" class="tab-pane fade">
-                                <img src="assets/img/product/quickview-l3.jpg" alt="">
-                            </div>
-                            <div id="pro-4" class="tab-pane fade">
-                                <img src="assets/img/product/quickview-l2.jpg" alt="">
-                            </div>
-                        </div>
-                        <!-- Thumbnail Large Image End -->
-                        <!-- Thumbnail Image End -->
-                        <div class="product-thumbnail">
-                            <div class="thumb-menu owl-carousel nav nav-style" role="tablist">
-                                <a class="active" data-bs-toggle="tab" href="#pro-1"><img src="assets/img/product/quickview-s1.jpg" alt=""></a>
-                                <a data-bs-toggle="tab" href="#pro-2"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
-                                <a data-bs-toggle="tab" href="#pro-3"><img src="assets/img/product/quickview-s3.jpg" alt=""></a>
-                                <a data-bs-toggle="tab" href="#pro-4"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-details-content quickview-content">
-                            <h2>Product Name</h2>
-                            <div class="pro-details-rating-wrap">
-                                <div class="pro-details-rating">
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                </div>
-                                <span>(1 customer review)</span>
-                            </div>
-                            <h3>$329</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunca augue quis neque ultrices placerat sit amet quis mauris. Integer urna libero, aliquet neque posu ullamcorper fringilla dolor. Maecenas id mattis magna. </p>
-                            <div class="pro-details-size-color2 mt-30">
-                                <div class="pro-details-color2-wrap">
-                                    <span>Color</span>
-                                    <div class="pro-details-color2-content">
-                                        <ul>
-                                            <li class="blue"></li>
-                                            <li class="maroon active"></li>
-                                            <li class="gray"></li>
-                                            <li class="green"></li>
-                                            <li class="yellow"></li>
-                                            <li class="white"></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="pro-details-size2">
-                                    <span>Size</span>
-                                    <div class="pro-details-size2-content">
-                                        <ul>
-                                            <li><a href="#">s</a></li>
-                                            <li><a href="#">m</a></li>
-                                            <li><a href="#">l</a></li>
-                                            <li><a href="#">xl</a></li>
-                                            <li><a href="#">xxl</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pro-details-quality mt-50 mb-45">
-                                <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-                                </div>
-                                <div class="pro-details-cart">
-                                    <a class="default-btn btn-hover" href="#">Add To Cart</a>
-                                </div>
-                                <div class="pro-details-wishlist">
-                                    <a class=" btn-hover" href="#"><i class="fa fa-heart-o"></i></a>
-                                </div>
-                            </div>
-                            <span><i class="fa fa-check"></i> In stock</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal end -->
-
-
-
-
-
-
-
-
-
 
 <!-- JS
 ============================================ -->
