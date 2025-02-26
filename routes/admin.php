@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebaruTabController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\CustomVerificationController;
-
+use App\Models\WebaruTab;
 
 Route::prefix('admin')->middleware(['role:admin','verified'])->group(function () {
 
@@ -23,4 +24,8 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::post('users/{id}/update-status', [UserController::class, 'updateStatus']);
     Route::get('/destroy', [AuthController::class, 'destroy']);
+
+
+    route::get('/webaru-tabs', [WebaruTabController::class, 'index']);
+    Route::post('/webaru-tabs', [WebaruTabController::class, 'store']);
 });

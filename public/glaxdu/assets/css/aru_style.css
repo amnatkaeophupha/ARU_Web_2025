@@ -82,6 +82,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
+  font-family: 'sarabun', sans-serif;
   color: #333;
 }
 
@@ -93,6 +94,7 @@ h5,
 h6 {
   color: #333333;
   font-family: "Roboto", sans-serif;
+  font-family: 'sarabun', sans-serif;
   font-weight: 400;
   margin-top: 0;
 }
@@ -1914,7 +1916,7 @@ textarea:focus {
   line-height: 87px;
 }
 .main-menu nav ul li a i {
-  color: #00a651;
+  /* color: #00a651; */
   color: #A01d29;
   font-size: 12px;
   margin-left: 9px;
@@ -1960,8 +1962,12 @@ textarea:focus {
   padding: 0px;
   margin: 0px;
   padding: 5px;
-  background-color: #fbb040;
-  font-weight: 600;
+  /* background-color: #fbb040;
+  background-color: #00a651;
+  background-color: #D2D3D4; */
+  background-color: #A01d29;
+  color: #f8d7d7;
+  /* font-weight: 600; */
 }
 .main-menu nav ul li.mega-menu-position ul.mega-menu > li ul li.mega-menu-title a {
   color: #242424;
@@ -2852,6 +2858,7 @@ textarea:focus {
   }
 }
 
+/* start choose ------------*/
 .choose-bg-light-blue {
   background-color: #48a7d4;
 }
@@ -2873,6 +2880,7 @@ textarea:focus {
   z-index: 9;
   position: relative;
 }
+
 
 .single-choose-us {
   display: -webkit-box;
@@ -2953,9 +2961,11 @@ textarea:focus {
   transition: all 0.3s ease 0s;
 }
 .single-choose-us .choose-content h3 {
+
   font-weight: bold;
-  font-size: 22px;
+  font-size: 16px;
   color: #fff;
+
   margin: 0 0 12px;
 }
 @media only screen and (min-width: 1366px) and (max-width: 1600px) {
@@ -2993,6 +3003,8 @@ textarea:focus {
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running tada;
           animation: 500ms ease-in-out 0s normal none 1 running tada;
 }
+/* end  choose ------------*/
+
 
 .section-title {
   position: relative;
@@ -3016,20 +3028,20 @@ textarea:focus {
   }
 }
 .section-title h2 {
-  font-size: 48px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 0 0 20px;
+  margin: 0 0 0px;
   line-height: 38px;
 }
 @media only screen and (max-width: 767px) {
   .section-title h2 {
-    font-size: 27px;
-    margin: 0 0 10px;
+    font-size: 20px;
+    margin: 0 0 0px;
   }
 }
 .section-title h2 span {
   color: #00a651;
-  font-weight: 400;
+  font-weight: 600;
 }
 .section-title p {
   font-size: 16px;
