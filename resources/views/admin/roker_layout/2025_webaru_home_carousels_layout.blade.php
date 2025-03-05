@@ -1,15 +1,13 @@
 <!doctype html>
-{{-- <html lang="en" class="minimal-theme color-sidebar sidebarcolor6"> --}}
-<html lang="en" class="minimal-theme">
+<html lang="en">
 
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-    <link rel="icon" href="{{url('rocker');}}/aru_images/favicon-32x32.png" type="image/png" />
+	<link rel="icon" href="{{url('rocker');}}/aru_images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
-	<link href="{{url('rocker');}}/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
 	<link href="{{url('rocker');}}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet"/>
@@ -19,18 +17,21 @@
 	<!-- Bootstrap CSS -->
 	<link href="{{url('rocker');}}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{url('rocker');}}/css/bootstrap-extended.css" rel="stylesheet">
+
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="{{url('rocker');}}/css/app.css" rel="stylesheet">
+	<link href="{{url('rocker');}}/css/icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-
-	<link href="{{url('rocker');}}/css/app.css" rel="stylesheet">
-	<link href="{{url('rocker');}}/css/icons.css" rel="stylesheet">
-	<!-- Theme Style CSS -->
+    <!-- Theme Style CSS -->
 	<link rel="stylesheet" href="{{url('rocker');}}/css/dark-theme.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/header-colors.css"/>
-	<title>@yield('title', 'Default Title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>@yield('title', 'Default Title')</title>
 </head>
 
 <body>
@@ -55,23 +56,16 @@
 	</div>
 	<!--end wrapper-->
 
-
 	<!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="{{url('rocker');}}/js/bootstrap.bundle.min.js"></script>
 	<!--plugins-->
-	<script src="{{url('rocker');}}/js/jquery.min.js"></script>
+	{{-- <script src="{{url('rocker');}}/js/jquery.min.js"></script> --}}
 	<script src="{{url('rocker');}}/plugins/simplebar/js/simplebar.min.js"></script>
 	<script src="{{url('rocker');}}/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="{{url('rocker');}}/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-	<script src="{{url('rocker');}}/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="{{url('rocker');}}/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="{{url('rocker');}}/plugins/chartjs/js/chart.js"></script>
-	<script src="{{url('rocker');}}/js/index.js"></script>
 	<!--app JS-->
+    <script src="{{url('rocker');}}/js/2025_webaru_home_carousels.js"></script>
 	<script src="{{url('rocker');}}/js/app.js"></script>
-	<script>
-		new PerfectScrollbar(".app-container")
-	</script>
 </body>
-
 </html>

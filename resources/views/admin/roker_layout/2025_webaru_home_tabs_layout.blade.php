@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('rocker');}}/images/favicon-32x32.png" type="image/png"/>
+	<link rel="icon" href="{{url('rocker');}}/aru_images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
 	<link href="{{url('rocker');}}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
@@ -28,7 +28,6 @@
 	<link rel="stylesheet" href="{{url('rocker');}}/css/dark-theme.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/header-colors.css"/>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>@yield('title', 'Default Title')</title>
@@ -65,6 +64,7 @@
 	<script src="{{url('rocker');}}/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="{{url('rocker');}}/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 	<!--app JS-->
+    <script src="{{url('rocker');}}/js/2025_webaru_home_tab.js"></script>
 	<script src="{{url('rocker');}}/js/app.js"></script>
 </body>
 </html>

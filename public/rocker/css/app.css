@@ -13,7 +13,10 @@ File: app.css
 
 */
 
-
+/* Amnat Set Swal */
+.swal2-title, .swal-content, .swal-button {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
 
 body {
 
