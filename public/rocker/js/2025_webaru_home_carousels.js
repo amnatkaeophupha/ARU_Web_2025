@@ -1,15 +1,8 @@
 
 "use strict";
 
-function editUser(id, title, type) {
+function EditData(id) {
     $('#data-id').val(id);
-    $('#data-title').val(title);
-    $('#data-type').val(type).trigger('change');
-}
-
-function UploadFile(id, type) {
-    $('#VerifyId').val(id);
-    $('#VerifyType').val(type);
 }
 
 

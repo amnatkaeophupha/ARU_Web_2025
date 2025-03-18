@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\WebaruCarousel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class WebaruCarouselsController extends Controller
 {
@@ -78,23 +79,52 @@ class WebaruCarouselsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        $webaru = WebaruCarousel::find($id);
 
-        if ($webaru) {
+        if ($request->hasFile('image')) {
+
+            $webaru = WebaruCarousel::where('id',$request->id)->first();
+
+            if($webaru->images != null)
+            {
+                $path = '2025_webaru_home_carousels/'.$webaru->images;
+                if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
+            }
+
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $filePath = $image->storeAs('2025_webaru_home_carousels', $imageName, 'public');
+
+            $webaru->images = $imageName;
+            $webaru->updated_by = Auth::user()->name;
+
+            if ($webaru->save()) {
+
+                return back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+
+            }else{
+
+                return back()->with('fail','ไม่สามารถบันทึกข้อมูลได้');
+            }
+        }
+
+        if($request->image_url != null)
+        {
+            $webaru = WebaruCarousel::where('id',$request->id)->first();
             $webaru->image_url = $request->image_url;
             $webaru->updated_by = Auth::user()->name;
 
             if ($webaru->save()) {
 
-                return back()->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว');
+                return back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
 
             }else{
 
-                return back()->with('fail','ไม่สามารถแก้ไขข้อมูลได้');
+                return back()->with('fail','ไม่สามารถบันทึกข้อมูลได้');
             }
         }
+
     }
 
     /**
@@ -121,5 +151,21 @@ class WebaruCarouselsController extends Controller
         }
 
         return response()->json(['error' => 'ไม่พบข้อมูล'], 404);
+    }
+
+    public function status(Request $request)
+    {
+        Cache::flush();
+
+        $webaru = WebaruCarousel::find($request->id);
+        $webaru->status = $request->status;
+        $webaru->updated_by = Auth::user()->name;
+        $webaru->save();
+
+        if ($webaru) {
+            return redirect(url('admin/webaru-carousels'))->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        }else{
+            return back()->with('fail','ไม่สามารถบันทึกข้อมูลได้');
+        }
     }
 }

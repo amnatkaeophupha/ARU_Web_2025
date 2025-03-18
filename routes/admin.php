@@ -35,5 +35,6 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     route::post('webaru-tabs/active', [WebaruTabController::class, 'active']);
 
     Route::resource('webaru-carousels', WebaruCarouselsController::class);
+    route::post('webaru-carousels/status', [WebaruCarouselsController::class, 'status']);
 
 });
