@@ -88,17 +88,17 @@
                     <div class="col-md-4 col-lg-3 col-sm-6">
                         <div class="blog-all mrg-xs">
                             <div class="aru-blog-img clearfix">
-                                <a href="#"><img src="{{url('webaru/symbol_download_1.jpg')}}"></a>
+                                <img src="{{url('webaru/symbol/symbol_download_1.jpg')}}">
                             </div>
                             <div class="blog-details gray-bg">
                                 <h3><a href="#">ตราสัญลักษณ์</a></h3>
                                 <div class="blog-meta">
-                                    <span class="published3">
+                                    {{-- <span class="published3">
                                         <a href="#"><i class="icofont icofont-eye"></i> 34</a>
                                     </span>
                                     <span class="published4">
                                         <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <p>ตราสัญลักษณ์ มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                                 <a class="button extra-small" href="{{url('webaru/symbol/logo-aru.zip')}}">
@@ -110,17 +110,17 @@
                     <div class="col-md-4 col-lg-3 col-sm-6">
                         <div class="blog-all mrg-xs">
                             <div class="aru-blog-img">
-                                <a href="#"><img src="{{url('webaru/symbol_download_2.jpg')}}"></a>
+                                <img src="{{url('webaru/symbol/symbol_download_2.jpg')}}">
                             </div>
                             <div class="blog-details gray-bg">
                                 <h3><a href="#">ตราสัญลักษณ์รอง</a></h3>
                                 <div class="blog-meta">
-                                    <span class="published3">
+                                    {{-- <span class="published3">
                                         <a href="#"><i class="icofont icofont-eye"></i> 34</a>
                                     </span>
                                     <span class="published4">
                                         <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <p>ตราสัญลักษณ์รอง มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                                 <a class="button extra-small" href="{{url('webaru/symbol/ARU_SUB-LOGO-20240723T124923Z-001.zip')}}">
@@ -132,17 +132,17 @@
                     <div class="col-md-4 col-lg-3 col-sm-6">
                         <div class="blog-all mrg-xs">
                             <div class="aru-blog-img">
-                                <a href="#"><img src="{{url('webaru/symbol_download_3.jpg')}}"></a>
+                                <img src="{{url('webaru/symbol/symbol_download_3.jpg')}}">
                             </div>
                             <div class="blog-details gray-bg">
                                 <h3><a href="#">ตราสัญลักษณ์รองหน่วยงาน</a></h3>
                                 <div class="blog-meta">
-                                    <span class="published3">
+                                    {{-- <span class="published3">
                                         <a href="#"><i class="icofont icofont-eye"></i> 34</a>
                                     </span>
                                     <span class="published4">
                                         <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <p>ตราสัญลักษณ์รอง ของหน่วยงานภายในมหาวิทยาลัย</p>
                                 <a class="button extra-small" href="{{url('webaru/symbol/FACALTY LOGO-20240723T124926Z-001.zip')}}">
@@ -154,17 +154,17 @@
                     <div class="col-md-4 col-lg-3 col-sm-6">
                         <div class="blog-all mrg-xs">
                             <div class="aru-blog-img">
-                                <a href="#"><img src="{{url('webaru/symbol_download_4.jpg')}}"></a>
+                                <img src="{{url('webaru/symbol/symbol_download_4.jpg')}}">
                             </div>
                             <div class="blog-details gray-bg">
                                 <h3><a href="#">ชุดตัวอักษร</a></h3>
                                 <div class="blog-meta">
-                                    <span class="published3">
+                                    {{-- <span class="published3">
                                         <a href="#"><i class="icofont icofont-eye"></i> 50</a>
                                     </span>
                                     <span class="published4">
                                         <a href="#"><i class="icofont icofont-comment"></i> 40</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <p>Line seed san / TH Sarabun มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา </p>
                                 <a class="button extra-small" href="{{url('webaru/symbol/FONT-20240723T155613Z-001.zip')}}">
@@ -176,17 +176,17 @@
                     <div class="col-md-4 col-lg-3 col-sm-6">
                         <div class="blog-all mrg-xs">
                             <div class="aru-blog-img">
-                                <a href="#"><img src="{{url('webaru/symbol_download_5.jpg')}}"></a>
+                                <img src="{{url('webaru/symbol/symbol_download_5.jpg')}}">
                             </div>
                             <div class="blog-details gray-bg">
                                 <h3><a href="#">เทมเพลต powerpoint </a></h3>
                                 <div class="blog-meta">
-                                    <span class="published3">
+                                    {{-- <span class="published3">
                                         <a href="#"><i class="icofont icofont-eye"></i> 34</a>
                                     </span>
                                     <span class="published4">
                                         <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <p>เทมเพลต powerpoint มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา </p>
                                 <a class="button extra-small" href="{{url('webaru/symbol/TemplateARU-2568.pptx')}}">
@@ -198,17 +198,17 @@
                     <div class="col-md-4 col-lg-3 col-sm-6">
                         <div class="blog-all mrg-xs">
                             <div class="aru-blog-img">
-                                <a href="#"><img src="{{url('webaru/symbol_download_6.jpg')}}"></a>
+                                <img src="{{url('webaru/symbol/symbol_download_6.jpg')}}">
                             </div>
                             <div class="blog-details gray-bg">
                                 <h3><a href="#">ตราสัญลักษณ์ ครบรอบ 120 ปี</a></h3>
                                 <div class="blog-meta">
-                                    <span class="published3">
+                                    {{-- <span class="published3">
                                         <a href="#"><i class="icofont icofont-eye"></i> 12</a>
                                     </span>
                                     <span class="published4">
                                         <a href="#"><i class="icofont icofont-comment"></i> 32</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <p>ตราสัญลักษณ์ ครบรอบ 120 ปี มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                                 <a class="button extra-small" href="{{url('webaru/symbol/120thARULOGO.ai')}}">

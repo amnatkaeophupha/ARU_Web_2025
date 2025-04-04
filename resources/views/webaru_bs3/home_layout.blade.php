@@ -103,17 +103,50 @@
                                                 <li><a href="{{url('intro')}}">ประวัติมหาวิทยาลัย </a></li>
                                                 <li><a href="{{url('videointro')}}">วีดิทัศน์แนะนำมหาวิทยาลัย</a></li>
                                                 <li><a href="{{url('symbol')}}">สัญลักษณ์ของมหาวิทยาลัย</a></li>
-                                                <li><a href="{{url('')}}">ปรัชญา พันธกิจ วิสัยทัศน์</a></li>
-                                                <li><a href="{{url('')}}">แผนผังมหาวิทยาลัย</a></li>
-                                                <li><a href="{{url('')}}">นโยบาย แผนยุทธศาสตร์</a></li>
+                                                <li><a href="{{url('strategic')}}">ปรัชญา พันธกิจ วิสัยทัศน์</a></li>
+                                                <li><a href="{{url('map')}}">แผนผังมหาวิทยาลัย</a></li>
+                                                <li><a href="{{url('webaru/plans/plans-2566-2570.pdf')}}">นโยบาย แผนยุทธศาสตร์</a></li>
                                                 <li><a href="{{url('')}}"">กฎหมายเกี่ยวกับทรัพยากรบุคคล</a></li>
                                                 <li><a href="{{url('')}}">กฎหมายเกี่ยวกับมหาวิทยาลัย</a></li>
-                                                <li><a href="{{url('')}}">โครงสร้างการแบ่งส่วนราชการภายใน</a></li>
-                                                <li><a href="{{url('')}}">คณะกรรมการสภามหาวิทยาลัย</a></li>
-                                                <li><a href="{{url('')}}">คณะผู้บริหาร</a></li>
+                                                <li><a href="{{url('structure')}}">โครงสร้างการแบ่งส่วนราชการภายใน</a></li>
+                                                <li><a href="https://www.aru.ac.th/council/?page=committee">คณะกรรมการสภามหาวิทยาลัย</a></li>
+                                                <li><a href="{{url('administrators')}}">คณะผู้บริหาร</a></li>
                                             </ul>
                                         </li>
-
+                                        {{-- <li class="level-menu"><a href="#">แนะนำมหาวิทยาลัย  <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                            <ul class="tas">
+                                                <li><a href="{{url('administrators')}}">คณะผู้บริหาร</a></li>
+                                                <li><a href="#">คณะผู้บริหาร <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                    <ul class="tas">
+                                                        <li><a href="header-1.html">คณะกรรมการสภามหาวิทยาลัย</a></li>
+                                                        <li><a href="{{url('administrators')}}">ผู้บริหารมหาวิทยาลัย</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Footer <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                    <ul class="tas">
+                                                        <li><a href="footer-1.html">Footer One</a></li>
+                                                        <li><a href="footer-2.html">Footer Two</a></li>
+                                                        <li><a href="footer-3.html">Footer Three</a></li>
+                                                        <li><a href="footer-4.html">Footer Four</a></li>
+                                                        <li><a href="footer-5.html">Footer Five</a></li>
+                                                        <li><a href="footer-6.html">Footer Six</a></li>
+                                                        <li><a href="footer-7.html">Footer Seven</a></li>
+                                                        <li><a href="footer-8.html">Footer Eight</a></li>
+                                                        <li><a href="footer-9.html">Footer Nine</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Page Title <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                    <ul class="tas">
+                                                        <li><a href="page-title-default.html"> Default Title</a></li>
+                                                        <li><a href="page-title-bg-fixed.html"> Background Fixed</a></li>
+                                                        <li><a href="page-title-dark.html"> Dark Title</a></li>
+                                                        <li><a href="page-title-no-bg.html"> No Background</a></li>
+                                                        <li><a href="page-title-pattern.html"> Pattern Title</a></li>
+                                                        <li><a href="page-title-solid-bg-color.html">solid Title</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>  --}}
                                         <li class="mega-parent"><a href="#">หน่วยงานภายใน <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <div class="mega-menu-area mma-970">
                                                 <ul class="single-mega-item">
@@ -156,68 +189,22 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        {{-- <li class="level-menu"><a href="#">structure <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                            <ul class="tas">
-                                                <li><a href="#">Header <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                                                    <ul class="tas">
-                                                        <li><a href="header-1.html">Header One</a></li>
-                                                        <li><a href="header-2.html">Header Two</a></li>
-                                                        <li><a href="header-3.html">Header Three</a></li>
-                                                        <li><a href="header-4.html">Header Four</a></li>
-                                                        <li><a href="header-5.html">Header Five</a></li>
-                                                        <li><a href="header-6.html">Header Six</a></li>
-                                                        <li><a href="header-7.html">Header Seven</a></li>
-                                                        <li><a href="header-8.html">Header Eight</a></li>
-                                                        <li><a href="header-9.html">Header nine</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Footer <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                                                    <ul class="tas">
-                                                        <li><a href="footer-1.html">Footer One</a></li>
-                                                        <li><a href="footer-2.html">Footer Two</a></li>
-                                                        <li><a href="footer-3.html">Footer Three</a></li>
-                                                        <li><a href="footer-4.html">Footer Four</a></li>
-                                                        <li><a href="footer-5.html">Footer Five</a></li>
-                                                        <li><a href="footer-6.html">Footer Six</a></li>
-                                                        <li><a href="footer-7.html">Footer Seven</a></li>
-                                                        <li><a href="footer-8.html">Footer Eight</a></li>
-                                                        <li><a href="footer-9.html">Footer Nine</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Page Title <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                                                    <ul class="tas">
-                                                        <li><a href="page-title-default.html"> Default Title</a></li>
-                                                        <li><a href="page-title-bg-fixed.html"> Background Fixed</a></li>
-                                                        <li><a href="page-title-dark.html"> Dark Title</a></li>
-                                                        <li><a href="page-title-no-bg.html"> No Background</a></li>
-                                                        <li><a href="page-title-pattern.html"> Pattern Title</a></li>
-                                                        <li><a href="page-title-solid-bg-color.html">solid Title</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li> --}}
                                         <li class="coloumn-one"><a href="#">สำหรับนักศึกษา <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul>
-                                                <li><a href="about-us.html">about us</a></li>
-                                                <li><a href="contact.html">contact</a></li>
-                                                <li><a href="course.html">course</a></li>
-                                                <li><a href="course-details.html">course details</a></li>
-                                                <li><a href="events.html">events</a></li>
-                                                <li><a href="events-details.html">events details</a></li>
-                                                <li><a href="news-details.html">news details</a></li>
-                                                <li><a href="news-page.html">news page</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=tabs&subpage=tab_home2&cid=100&ctid=101" target="_blank">ปฏิทินการศึกษา</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการ</a></li>
+                                                <li><a href="https://mail.google.com/" target="_blank">email@aru</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=graduate" target="_blank">ตรวจรายชื่อผู้สำเร็จการศึกษา</a></li>
                                             </ul>
                                         </li>
                                         <li class="coloumn-one"><a href="#">สำหรับบุคลากร <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul>
-                                                <li><a href="about-us.html">about us</a></li>
-                                                <li><a href="contact.html">contact</a></li>
-                                                <li><a href="course.html">course</a></li>
-                                                <li><a href="course-details.html">course details</a></li>
-                                                <li><a href="events.html">events</a></li>
-                                                <li><a href="events-details.html">events details</a></li>
-                                                <li><a href="news-details.html">news details</a></li>
-                                                <li><a href="news-page.html">news page</a></li>
+                                                <li><a href="http://e-uni8.aru.ac.th:81/e-uni/" target="_blank">ระบบบริหารการศึกษา</a></li>
+                                                <li><a href="https://gmail.com" target="_blank">บริการ gmail@aru.ac.th</a></li>
+                                                <li><a href="https://edoc.aru.ac.th/" target="_blank">ARU DIGITAL WORKFLOW</a></li>
+                                                <li><a href="https://edoc.aru.ac.th/" target="_blank">ระบบการลาออนไลน์</a></li>
+                                                <li><a href="/staff/?page=hr&subpage=hr_form" target="_blank">แบบฟอร์มบุคลากร</a></li>
+                                                <li><a href="https://www.aru.ac.th/arit/index.php?pages=informationsystems" target="_blank">เอกสารวิชาการ</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="news-page.html">ผู้สำเร็จการศึกษา  </a></li>

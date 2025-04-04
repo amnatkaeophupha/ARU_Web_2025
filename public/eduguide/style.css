@@ -415,6 +415,12 @@ h3.blog-title {
     font-weight: 500;
     margin-bottom: 7px;
 }
+h3.strategic-blog-title {
+    font-family: 'sarabun', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
 .event-text-img .published3,
 .event-text-img .published4,
 .blog-meta-2 .published3 {
@@ -423,6 +429,16 @@ h3.blog-title {
     font-size: 14px;
     padding-right: 20px;
 }
+
+.aru-event-text-img .published3,
+.aru-event-text-img .published4 {
+    color: #fff;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    padding-right: 0px;
+}
+
+
 .event-text-img .blog-meta {
     margin: 0px 0 5px;
 }
@@ -430,6 +446,12 @@ h3.blog-title {
   border: 1px solid #c1c1c1;
   padding: 25px 7px 24px 197px;
 }
+
+.aru-visual-inner {
+    border: 1px solid #c1c1c1;
+    padding: 10px 10px 10px 10px;
+}
+
 .blog-content > p {
     margin-bottom: 0;
 }
@@ -474,6 +496,15 @@ h3.blog-title {
     position: absolute;
     width: 300px;
 }
+
+.webaru-home-news-date {
+    bottom: -22px;
+    left: 30px;
+    padding: 4px 0 2px 20px;
+    position: absolute;
+    width: 300px;
+
+}
 .aru-news-date {
     bottom: -35px;
     padding: 10px 10px 10px 10px;
@@ -481,6 +512,7 @@ h3.blog-title {
     position: absolute;
     width: 100%;
 }
+
 .blog-meta-2 .published3 i {
     padding-right: 8px;
 }
@@ -597,10 +629,10 @@ a.button.extra-small.news-btn span {
 }
 .img-title > h3,
 .lecturers-details > h3 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 17px;
     margin-bottom: 0;
-    color: #fff;
+    color: #e9e9e9;
+    font-family:'Chakra Petch', sans-serif;
 }
 .img-title {
     bottom: 0;
@@ -613,9 +645,26 @@ a.button.extra-small.news-btn span {
     transform: translateX(-50%);
     width: 100%;
 }
+
+.img-title > p {
+    color: #ffffff;
+    margin-bottom: 0;
+    font-size: 14px;
+
+    font-family:'Chakra Petch', sans-serif;
+}
+.aru-img-title{
+    margin-top:10px;
+    margin-bottom:5px;
+    font-size: 15px;
+    font-family:'Chakra Petch', sans-serif;
+    color:#FBB040;
+}
+
 .img-title.navy-bg > p {
     color: #fff;
     margin-bottom: 0;
+
 }
 .testimonial-peragraph > p {
     padding: 127px 30px 0;
@@ -845,6 +894,7 @@ a.button.extra-small.news-btn span {
 .slider-active3 li {
     margin: 0 18px 0 5px;
 }
+
 .lecturers-area .separator i {
     background: #fff none repeat scroll 0 0;
 }
@@ -852,19 +902,23 @@ a.button.extra-small.news-btn span {
     overflow: hidden;
     position: relative;
 }
+
 .single-lecturers {
     overflow: hidden;
     position: relative;
 }
+
 .lecturers-details > p {
     color: #fff;
     margin-bottom: 0;
 }
+
 .last-about-details {
   display: inline-block;
   margin: 23px 0 19px;
   text-align: center;
 }
+/*
 .lecturers-details li {
     background-color: transparent;
     border: 1px solid #fff;
@@ -872,9 +926,11 @@ a.button.extra-small.news-btn span {
     margin-right: 17px;
     transition: all 0.3s ease 0s;
 }
+
 .lecturers-details li:last-child {
     margin-right: 0px;
 }
+
 .lecturers-details a {
     color: #fff;
     font-size: 14px;
@@ -884,34 +940,40 @@ a.button.extra-small.news-btn span {
     text-align: center;
     line-height: 30px;
 }
+
 .lecturers-details li:hover a {
     color: #f8b239;
 }
+
 .lecturers-details li:hover {
     background-color: #fff;
 }
+
 .lecturers-details > ul {
     margin: 23px 0 18px;
-}
+} */
+
 .lecturers-area {
     transition: all .3s ease 0s;
 }
+
 .lecturers-area .img-title {
     opacity: 1;
     transition: all .3s ease 0s;
     background-color: rgba(45, 62, 80, 0.8);
 }
 .lecturers-area .img-title > p {
-    color: #fff;
+    color: #c7c7c7;
     margin-bottom: 0;
 }
 .single-lecturers:hover .img-title {
-    opacity: 0;
+    opacity: 1;
 }
+
 .lecturers-img > a::before {
     background: #2d3e50 none repeat scroll 0 0;
     content: "";
-    opacity: 0.8;
+    opacity: 0;  /*** 0.8  By Amnat Kaeophupha ***/
     position: absolute;
     transition: all 0.3s ease 0s;
     width: 0;
@@ -937,7 +999,7 @@ a.button.extra-small.news-btn span {
     opacity: 0;
     transition: all .3s ease 0s;
 }
-.single-lecturers:hover .lecturers-details {
+ .single-lecturers:hover .lecturers-details {
     opacity: 1;
 }
 .about-text {
