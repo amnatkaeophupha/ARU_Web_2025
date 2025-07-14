@@ -25,7 +25,7 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::post('users/{id}/update-status', [UserController::class, 'updateStatus']);
     Route::get('/destroy', [AuthController::class, 'destroy']);
-
+    /* Tabl Dashboard WebARU */
     route::get('webaru-tabs', [WebaruTabController::class, 'index']);
     Route::get('webaru-tabs/{tid}', [WebaruTabController::class, 'show']);
     Route::post('webaru-tabs', [WebaruTabController::class, 'store']);
