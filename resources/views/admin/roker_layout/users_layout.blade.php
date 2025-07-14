@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('rocker');}}/images/favicon-32x32.png" type="image/png"/>
+    <link rel="icon" href="{{url('rocker');}}/aru_images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
 	<link href="{{url('rocker');}}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
@@ -33,6 +33,7 @@
 
     <title>@yield('title', 'Default Title')</title>
 </head>
+
 
 <body>
 	<!--wrapper-->
