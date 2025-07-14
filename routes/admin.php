@@ -26,10 +26,14 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::post('users/{id}/update-status', [UserController::class, 'updateStatus']);
     Route::get('/destroy', [AuthController::class, 'destroy']);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     /* Tabs Dashboard WebARU */
 >>>>>>> 42d9a9c (Comment Route File)
+=======
+    /* Tabs Dashboard WebARU */
+>>>>>>> 42d9a9c27ca3e1f6b7251925ebd2e47e820f6f36
     route::get('webaru-tabs', [WebaruTabController::class, 'index']);
     Route::get('webaru-tabs/{tid}', [WebaruTabController::class, 'show']);
     Route::post('webaru-tabs', [WebaruTabController::class, 'store']);
