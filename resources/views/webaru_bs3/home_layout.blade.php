@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url('webaru/aru_favicon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('webaru_bs3/aru_favicon.png') }}">
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-12 col-xs-12">
                             <div class="logo">
-                                <a href="{{url('/')}}"><img src="{{url('webaru/index_aru_logo.png')}}"></a>
+                                <a href="{{url('/')}}"><img src="{{url('webaru_bs3/index_aru_logo.png')}}"></a>
                             </div>
                         </div>
                         <div class="col-md-8 hidden-sm hidden-xs">
@@ -105,7 +105,7 @@
                                                 <li><a href="{{url('symbol')}}">สัญลักษณ์ของมหาวิทยาลัย</a></li>
                                                 <li><a href="{{url('strategic')}}">ปรัชญา พันธกิจ วิสัยทัศน์</a></li>
                                                 <li><a href="{{url('map')}}">แผนผังมหาวิทยาลัย</a></li>
-                                                <li><a href="{{url('webaru/plans/plans-2566-2570.pdf')}}">นโยบาย แผนยุทธศาสตร์</a></li>
+                                                <li><a href="{{url('webaru_bs3/plans/plans-2566-2570.pdf')}}">นโยบาย แผนยุทธศาสตร์</a></li>
                                                 <li><a href="{{url('')}}"">กฎหมายเกี่ยวกับทรัพยากรบุคคล</a></li>
                                                 <li><a href="{{url('')}}">กฎหมายเกี่ยวกับมหาวิทยาลัย</a></li>
                                                 <li><a href="{{url('structure')}}">โครงสร้างการแบ่งส่วนราชการภายใน</a></li>
@@ -340,7 +340,7 @@
                     <div class="col-md-12 text-center">
                         <div class="footer-logo-address">
                             <div class="footer-logo">
-                                <a href="#"><img src="{{url('webaru')}}/footer_logo.png" alt="" ></a>
+                                <a href="#"><img src="{{url('webaru_bs3/footer_logo.png')}}" alt="" ></a>
                             </div>
                             <div class="footer-address">
                                 <div class="header-top-info">

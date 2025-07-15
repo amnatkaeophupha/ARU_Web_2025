@@ -47,13 +47,13 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ url('2025-01-07-142426.png') }}" alt="First slide">
+            <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ url('webaru_bs5/2024-10-28-161502.gif') }}" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ url('2024-10-28-161502.gif') }}" alt="First slide">
+            <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ url('webaru_bs5/2024-10-28-161502.gif') }}" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ url('2024-10-28-161502.gif') }}" alt="First slide">
+            <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ url('webaru_bs5/2024-10-28-161502.gif') }}" alt="First slide">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplePause" data-bs-slide="prev">

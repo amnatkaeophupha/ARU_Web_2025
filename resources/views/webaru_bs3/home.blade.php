@@ -54,6 +54,7 @@
         </div>
     </div>
 </div>
+
 {{-- <div class="slider-area">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -103,8 +104,100 @@
 </div> --}}
 <!-- End of slider area -->
 
+    <section class="banner-blog-area ptb-110">
+        <div class="container">
+            <div class="row">
+                <div class="hidden-md col-lg-3 col-sm-6">
+                    <div class="blog-img">
+                        <img src="{{url('webaru_bs3/home_banner_1.png')}}" alt="" >
+                    </div>
+                    <div class="blog-details">
+                        <h3><a href="#">ศูนย์รับข้อร้องเรียน</a></h3>
+                        <div class="blog-meta">
+                            <span class="published3">
+                                <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                            </span>
+                            <span class="published4">
+                                <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                            </span>
+                        </div>
+                        {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                        <a class="button extra-small" href="#">
+                            <span>Learn Now</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-sm-6">
+                    <div class="blog-all mrg-xs">
+                        <div class="blog-img">
+                            <a href="#"><img src="{{url('webaru_bs3/home_banner_22.png')}}" alt="" ></a>
+                        </div>
+                        <div class="blog-details">
+                            <h3><a href="#">ร้องเรียนการทุจริต</a></h3>
+                            <div class="blog-meta">
+                                <span class="published3">
+                                    <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                </span>
+                                <span class="published4">
+                                    <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                </span>
+                            </div>
+                            {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                            <a class="button extra-small" href="#">
+                                <span>Learn Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-sm-6">
+                    <div class="blog-all mrg-sm mrg-xs">
+                        <div class="blog-img">
+                            <a href="#"><img src="{{url('webaru_bs3/home_banner_333.png')}}" style="height: 204" ></a>
+                        </div>
+                        <div class="blog-details">
+                            <h3><a href="#">Q&A / รับฟังความคิดเห็น</a></h3>
+                            <div class="blog-meta">
+                                <span class="published3">
+                                    <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                </span>
+                                <span class="published4">
+                                    <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                </span>
+                            </div>
+                            {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                            <a class="button extra-small" href="#">
+                                <span>Learn Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-sm-6">
+                    <div class="blog-all mrg-sm mrg-xs">
+                        <div class="blog-img">
+                            <a href="#"><img src="{{url('eduguide')}}/images/blog/3.jpg" alt="" ></a>
+                        </div>
+                        <div class="blog-details">
+                            <h3><a href="#">สายตรงอธิการบดี</a></h3>
+                            <div class="blog-meta">
+                                <span class="published3">
+                                    <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                </span>
+                                <span class="published4">
+                                    <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                </span>
+                            </div>
+                            {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                            <a class="button extra-small" href="#">
+                                <span>Learn Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    {{-- <section class="service-area gray-bg ptb-110">
+    <section class="service-area gray-bg ptb-110">
         <!-- Demo Section    -->
         <div class="container">
             <div class="row">
@@ -206,9 +299,26 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <section class="banner-blog-area ptb-110">
+<!-- Start ARU NEWS  -->
+    <section class="service-area white-bg ptb-50">
+        <!-- Demo Section    -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="white-bg">
+                        <img src="{{url('webaru_bs3/arunews-2.png')}}" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- End of ARU NEWS -->
+
+
+
+    <section class="banner-blog-area ptb-110">
         <div class="container">
             <div class="row">
                 <div class="hidden-md col-lg-3 col-sm-6">
@@ -284,9 +394,9 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
+    <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-sm-7 col-xs-12 text-center">
@@ -325,7 +435,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div class="event-area ptb-110">
         <div class="container">
@@ -489,7 +599,7 @@
                 <div class="col-md-4 hidden-sm">
                     <div class="news-are mrg-xs">
                         <div class="news-img">
-                            <img src="{{url('webaru/gallery/G1.jpg')}}">
+                            <img src="{{url('webaru_bs3/gallery/G1.jpg')}}">
                             <div class="webaru-home-news-date navy-bg">
                                 <div class="blog-meta-2">
                                     <span class="published3">
@@ -523,7 +633,7 @@
                 <div class="col-md-4 hidden-sm">
                     <div class="news-are mrg-xs">
                         <div class="news-img">
-                            <img src="{{url('webaru/gallery/G2.jpg')}}">
+                            <img src="{{url('webaru_bs3/gallery/G2.jpg')}}">
                             <div class="webaru-home-news-date navy-bg">
                                 <div class="blog-meta-2">
                                     <span class="published3">
@@ -589,6 +699,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 text-center">
                     <a class="button extra-small news-btn mt-60" href="#">
@@ -596,6 +707,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
 

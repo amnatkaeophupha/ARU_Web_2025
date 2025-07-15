@@ -26,7 +26,7 @@
             <div class="col-lg-2 col-md-6 col-4">
                 <div class="logo">
                     <a href="index.html">
-                        <img alt="" src="{{ url('ARU-LOGO-2025-5.png') }}">
+                        <img alt="" src="{{ url('/webaru_bs5/index_aru_logo.png') }}">
                     </a>
                 </div>
             </div>

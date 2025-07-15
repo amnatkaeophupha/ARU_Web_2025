@@ -11,8 +11,8 @@ use App\Http\Controllers\CustomVerificationController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::group([],base_path('routes/webaru.php'));
-
+Route::group([],base_path('routes/webaru_bs3.php'));
+// Route::group([],base_path('routes/webaru_bs5.php'));
 
 Route::get('/signin', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);

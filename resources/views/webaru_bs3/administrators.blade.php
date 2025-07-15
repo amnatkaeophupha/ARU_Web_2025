@@ -39,7 +39,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="single-lecturers">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/chusit.jpg')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/chusit.jpg')}}"></a>
                         <div class="img-title" >
                             <h3>รศ.ดร.ชูสิทธิ์ ประดับเพ็ชร์</h3>
                             <div class="aru-img-title">อธิการบดี</div>
@@ -66,7 +66,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>รศ.ดร.ธาตรี มหันตรัตน์</h3>
                             <div class="aru-img-title">ฝ่ายบริหารทรัพยากร</div>
@@ -79,7 +79,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>อาจารย์จิรศักดิ์ ชุมวรานนท์</h3>
                             <div class="aru-img-title">ฝ่ายยุทธศาสตร์และแผนงาน</div>
@@ -92,7 +92,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.ดร.กรองทิพย์ เนียมถนอม</h3>
                             <div class="aru-img-title">ฝ่ายบริหารงานวิชาการ</div>
@@ -105,7 +105,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.ดร.กมลวรรณ วรรณธนัง</h3>
                             <div class="aru-img-title">ฝ่ายวิจัย นวัตกรรม และพัฒนาท้องถิ่น</div>
@@ -118,7 +118,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.ดร.สุดารัตน์ เกลี้ยงสอาด</h3>
                             <div class="aru-img-title">ฝ่ายพัฒนานักศึกษาและกิจการสภามหาวิทยาลัย</div>
@@ -145,7 +145,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.ยุพิน พวกยะ</h3>
                             <div class="aru-img-title">ฝ่ายประกันคุณภาพการศึกษา</div>
@@ -158,7 +158,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>อาจารย์นรินทร์ อุ่นแก้ว</h3>
                             <div class="aru-img-title">ฝ่ายงานบริหารทั่วไปและกฎหมาย</div>
@@ -171,7 +171,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>อาจารย์ ดร.กันยาลักษณ์ โพธิ์ดง</h3>
                             <div class="aru-img-title">ฝ่ายกิจการพิเศษ</div>
@@ -198,7 +198,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.ดร.บริบูรณ์ ชอบทำดี</h3>
                             <div class="aru-img-title">คณบดีคณะครุศาสตร์</div>
@@ -211,7 +211,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/pakin.jpg')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/pakin.jpg')}}"></a>
                         <div class="img-title">
                             <h3>รศ.ดร.ภาคิน โชติเวศย์ศิลป์</h3>
                             <div class="aru-img-title">คณบดีคณะมนุษยศาสตร์และสังคมศาสตร์</div>
@@ -224,7 +224,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/wimonpan.jpg')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/wimonpan.jpg')}}"></a>
                         <div class="img-title">
                             <h3>รศ.ดร.วิมลพรรณ รุ่งพรหม</h3>
                             <div class="aru-img-title">คณบดีคณะวิทยาศาสตร์และเทคโนโลยี</div>
@@ -237,7 +237,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>รศ.ดร.อภิชาติ พานสุวรรณ</h3>
                             <div class="aru-img-title">คณบดีบัณฑิตวิทยาลัย</div>
@@ -250,7 +250,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/somkiat.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/somkiat.png')}}"></a>
                         <div class="img-title">
                             <h3>อาจารย์ ดร.สมเกียรติ แดงเจริญ</h3>
                             <div class="aru-img-title">คณบดีคณะวิทยาการจัดการ</div>
@@ -277,7 +277,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.ดร.เลิศชาย สถิตย์พนาวงศ์</h3>
                             <div class="aru-img-title">ผู้อำนวยการสถาบันวิจัยและพัฒนา</div>
@@ -290,7 +290,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>ผศ.สาโรช ปุริสังคหะ</h3>
                             <div class="aru-img-title">ผู้อำนวยการสำนักวิทยบริการและเทคโนโลยีสารสนเทศ</div>
@@ -303,7 +303,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>อาจารย์ ดร.สุรินทร์ ศรีสังข์งาม</h3>
                             <div class="aru-img-title">ผู้อำนวยการสถาบันอยุธยาศึกษา</div>
@@ -316,7 +316,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-sm mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>นางลักขณา เตชวงษ์</h3>
                             <div class="aru-img-title">ผู้อำนวยการสำนักงานอธิการบดี</div>
@@ -343,7 +343,7 @@
             <div class="col-md-3 col-sm-6 mb-50">
                 <div class="single-lecturers mrg-xs4">
                     <div class="lecturers-img">
-                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru/administrators/default_img.png')}}"></a>
+                        <a href="#"><img class="img-thumbnail" alt="" src="{{url('webaru_bs3/administrators/default_img.png')}}"></a>
                         <div class="img-title">
                             <h3>อาจารย์ ดร.นพดล ปรางค์ทอง</h3>
                             <div class="aru-img-title">ประธานสภาคณาจารย์และข้าราชการ</div>

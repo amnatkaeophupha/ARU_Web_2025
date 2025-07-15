@@ -38,7 +38,7 @@
             <div class="col-md-6 mb-60 mrg-btm-about col-sm-6">
                 <div class="book-img">
                     {{-- <img alt="#" src="{{url('eduguide')}}/images/banner/1.png" > --}}
-                    <img src="{{'webaru/intro_img_1.jpg'}}" alt="">
+                    <img src="{{'webaru_bs3/intro_img_1.jpg'}}" alt="">
                 </div>
             </div>
         </div>
