@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12 mt-50">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg">
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg">
                     <p>แผนผังมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -43,7 +43,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="aru-event-text-img mb-30">
                     <div class="aru-visual-inner">
-                        <img src="{{url('webaru/2567-map.jpg')}}" class="img-thumbnail">
+                        <img src="{{url('webaru_bs3/2567-map.jpg')}}" class="img-thumbnail">
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center mb-30">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>วีดิทัศน์แนะนำมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>

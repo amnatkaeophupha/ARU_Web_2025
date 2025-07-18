@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>ปรัญชา มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg">
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg">
                     <p>วิสัยทัศน์ มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -77,7 +77,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="aru-event-text-img mb-50">
                     <div class="aru-visual-inner">
-                        <img src="{{url('webaru/plans/2567-vision.png')}}" class="img-thumbnail" alt="2567-vision">
+                        <img src="{{url('webaru_bs3/plans/2567-vision.png')}}" class="img-thumbnail" alt="2567-vision">
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>พันธกิจ มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -107,7 +107,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="aru-event-text-img mb-50">
                     <div class="aru-visual-inner">
-                        <img src="{{url('webaru/plans/2567-mission.png')}}" class="img-thumbnail">
+                        <img src="{{url('webaru_bs3/plans/2567-mission.png')}}" class="img-thumbnail">
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>ปรัชญาการศึกษาของมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -155,7 +155,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>ค่านิยมองค์กร มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -171,7 +171,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="aru-event-text-img mb-50">
                     <div class="aru-visual-inner">
-                        <img src="{{url('webaru/plans/2567-values.png')}}" class="img-thumbnail">
+                        <img src="{{url('webaru_bs3/plans/2567-values.png')}}" class="img-thumbnail">
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>สมรรถนะ มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -201,7 +201,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="aru-event-text-img mb-50">
                     <div class="aru-visual-inner">
-                        <img src="{{url('webaru/plans/2567-performance.png')}}" class="img-thumbnail">
+                        <img src="{{url('webaru_bs3/plans/2567-performance.png')}}" class="img-thumbnail">
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>อัตลักษณ์ มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -231,7 +231,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="aru-event-text-img mb-50">
                     <div class="aru-visual-inner">
-                        <img src="{{url('webaru/plans/2567-identity.jpg')}}" class="img-thumbnail">
+                        <img src="{{url('webaru_bs3/plans/2567-identity.jpg')}}" class="img-thumbnail">
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>คุณลักษณะบัณฑิตที่พึงประสงค์ของมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>
@@ -279,7 +279,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
-                    <img src="{{url('webaru')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
                     <p>วัฒนธรรมองค์กรของมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                     <div class="separator my mtb-15">
                         <i class="icofont icofont-hat-alt" style="background-color:#fff"></i>

@@ -54,6 +54,7 @@
         </div>
     </div>
 </div>
+
 {{-- <div class="slider-area">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -102,6 +103,310 @@
 </div>
 </div> --}}
 <!-- End of slider area -->
+
+
+<!-- Start of Banner Blog Area -->
+<section class="banner-blog-area ptb-50 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="hidden-md col-lg-3 col-sm-6">
+                <div class="blog-img">
+                    <img src="{{url('webaru_bs3/home_banner_1.png')}}" alt="" >
+                </div>
+                <div class="blog-details">
+                    <h3><a href="#">ศูนย์รับข้อร้องเรียน</a></h3>
+                    <div class="blog-meta">
+                        <span class="published3">
+                            <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                        </span>
+                        <span class="published4">
+                            <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                        </span>
+                    </div>
+                    {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                    <a class="button extra-small" href="#">
+                        <span>Learn Now</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 col-sm-6">
+                <div class="blog-all mrg-xs">
+                    <div class="blog-img">
+                        <a href="#"><img src="{{url('webaru_bs3/home_banner_22.png')}}" alt="" ></a>
+                    </div>
+                    <div class="blog-details">
+                        <h3><a href="#">ร้องเรียนการทุจริต</a></h3>
+                        <div class="blog-meta">
+                            <span class="published3">
+                                <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                            </span>
+                            <span class="published4">
+                                <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                            </span>
+                        </div>
+                        {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                        <a class="button extra-small" href="#">
+                            <span>Learn Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 col-sm-6">
+                <div class="blog-all mrg-sm mrg-xs">
+                    <div class="blog-img">
+                        <a href="#"><img src="{{url('webaru_bs3/home_banner_333.png')}}" style="height: 204" ></a>
+                    </div>
+                    <div class="blog-details">
+                        <h3><a href="#">Q&A / รับฟังความคิดเห็น</a></h3>
+                        <div class="blog-meta">
+                            <span class="published3">
+                                <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                            </span>
+                            <span class="published4">
+                                <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                            </span>
+                        </div>
+                        {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                        <a class="button extra-small" href="#">
+                            <span>Learn Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 col-sm-6">
+                <div class="blog-all mrg-sm mrg-xs">
+                    <div class="blog-img">
+                        <a href="#"><img src="{{url('eduguide')}}/images/blog/3.jpg" alt="" ></a>
+                    </div>
+                    <div class="blog-details">
+                        <h3><a href="#">สายตรงอธิการบดี</a></h3>
+                        <div class="blog-meta">
+                            <span class="published3">
+                                <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                            </span>
+                            <span class="published4">
+                                <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                            </span>
+                        </div>
+                        {{-- <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p> --}}
+                        <a class="button extra-small" href="#">
+                            <span>Learn Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Banner Blog Area -->
+
+<!-- Start of ประชาสัมพันธ์ข่าวสาร -->
+<div class="event-area ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center mb-60">
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
+                    <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                    <div class="separator my mtb-15">
+                        <i class="icofont icofont-hat-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="event-text-img">
+                    <div class="aru-public-visual-inner">
+                        <img src="{{url('webaru_bs3/2024-10-28-161502.gif')}}" class="img-fluid img-thumbnail">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="event-text-img mrg-sm2 mrg-xs4">
+                    <div class="aru-public-visual-inner">
+                        <img src="{{url('webaru_bs3/2024-10-28-161502.gif')}}" class="img-fluid img-thumbnail">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="event-text-img mt-40">
+                    <div class="aru-public-visual-inner">
+                        <img src="{{url('webaru_bs3/2024-10-28-161502.gif')}}" class="img-fluid img-thumbnail">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="event-text-img mt-40">
+                    <div class="aru-public-visual-inner">
+                        <img src="{{url('webaru_bs3/2024-10-28-161502.gif')}}" class="img-fluid img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="button extra-small news-btn mt-60" href="#">
+                    <span>View All News</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of ประชาสัมพันธ์ข่าวสาร -->
+
+<!-- Start of Aru News -->
+<section class="service-area gray-bg ptb-110">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const pdfFiles = [
+            { url: "{{url('webaru_bs3/arunews-2.pdf')}}", canvasId: "pdf-canvas-1" },
+            { url: "{{url('webaru_bs3/arunews-3.pdf')}}", canvasId: "pdf-canvas-2" },
+            { url: "{{url('webaru_bs3/arunews-4.pdf')}}", canvasId: "pdf-canvas-3" }
+        ];
+
+        const scale = 2.0;
+
+        pdfFiles.forEach(pdfFile => {
+            const loadingTask = pdfjsLib.getDocument(pdfFile.url);
+            loadingTask.promise.then(function(pdf) {
+            pdf.getPage(1).then(function(page) {
+                const viewport = page.getViewport({ scale: scale });
+                const canvas = document.getElementById(pdfFile.canvasId);
+                const context = canvas.getContext('2d');
+
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                page.render({
+                canvasContext: context,
+                viewport: viewport
+                });
+            });
+            });
+        });
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="service-all white-bg" >
+                    <h2 style="margin-bottom:30px;">ARU NEWS</h2>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="service-left" style="margin:0px;">
+                                <canvas id="pdf-canvas-1" style="border:1px solid #ccc;width:100%;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-from navy-bg" style="padding-top: 35px;">
+                    <h3>Courses Search</h3>
+                    <canvas id="pdf-canvas-2" style="border:1px solid #ccc;width:100%;"></canvas>
+                    {{-- <form class="ordering">
+                        <div class="orderby-wrapper">
+                            <label>Select Degree*</label>
+                            <select name="orderby" class="orderby">
+                                <option value="menu_order">GED</option>
+                                <option value="popularity" selected='selected'>HS Diploma</option>
+                                <option value="rating">Associate Degree</option>
+                                <option value="date">Bachelor's Degree</option>
+                                <option value="price">Master's Degree</option>
+                                <option value="price-desc">Doctorate/Prof Degree</option>
+                            </select>
+                        </div>
+                        <div class="orderby-wrapper mrg-chosen">
+                            <label>Ceategory*</label>
+                            <select name="orderby" class="orderby">
+                                <option value="menu_order">GED</option>
+                                <option value="popularity" selected='selected'>HS Diploma</option>
+                                <option value="rating">Associate Degree</option>
+                                <option value="date">Bachelor's Degree</option>
+                                <option value="price">Master's Degree</option>
+                                <option value="price-desc">Doctorate/Prof Degree</option>
+                            </select>
+                        </div>
+                        <div class="orderby-wrapper">
+                            <label>Subject*</label>
+                            <select name="orderby" class="orderby">
+                                <option value="menu_order">GED</option>
+                                <option value="popularity" selected='selected'>HS Diploma</option>
+                                <option value="rating">Associate Degree</option>
+                                <option value="date">Bachelor's Degree</option>
+                                <option value="price">Master's Degree</option>
+                                <option value="price-desc">Doctorate/Prof Degree</option>
+                            </select>
+                        </div>
+                        <div class="chosen-submit text-center">
+                            <a class="button extra-small" href="#">
+                                <span>search</span>
+                            </a>
+                        </div>
+                    </form> --}}
+                </div>
+                <div class="service-from navy-bg" style="margin-top:25px;padding-top:35px;">
+                    <h3>Courses Search</h3>
+                    <canvas id="pdf-canvas-3" style="border:1px solid #ccc;width:100%;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Aru News -->
+
+
+<!-- Start of Tabs -->
+<div class="event-area ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center mb-20">
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
+                    <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                    <div class="separator my mtb-15">
+                        <i class="icofont icofont-hat-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="event-text-img">
+                    {{-- <div class="aru-public-visual-inner"> --}}
+                        <ul class="nav nav-tabs">
+                            <li><a href="#tab1" data-toggle="tab">ประชาสัมพันธ์ทั่วไป</a></li>
+                            <li ><a href="#tab3" data-toggle="tab">จัดซื้อจัดจ้าง</a></li>
+                            <li class="active"><a href="#tab5" data-toggle="tab">รับสมัครงาน</a></li>
+                            <li><a href="#tab99" data-toggle="tab">ข่าวสารนักศึกษา</a></li>
+                            <li><a href="#tab100" data-toggle="tab">ปฏิทินการศึกษา(ภาคปกติ)</a></li>
+                            <li><a href="#tab101" data-toggle="tab">ปฏิทินการศึกษา(กศ.บป)</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="tab1">
+                                 <article class="has-divider">
+
+                                 </article>
+                            </div>
+                        </div>
+                    {{-- </div> --}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="button extra-small news-btn mt-20" href="#">
+                    <span>View All News</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Tabs -->
 
 
     {{-- <section class="service-area gray-bg ptb-110">
@@ -208,7 +513,7 @@
         </div>
     </section> --}}
 
-    {{-- <section class="banner-blog-area ptb-110">
+    <section class="banner-blog-area ptb-110">
         <div class="container">
             <div class="row">
                 <div class="hidden-md col-lg-3 col-sm-6">
@@ -284,9 +589,9 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
+    <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-sm-7 col-xs-12 text-center">
@@ -325,7 +630,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div class="event-area ptb-110">
         <div class="container">
@@ -489,7 +794,7 @@
                 <div class="col-md-4 hidden-sm">
                     <div class="news-are mrg-xs">
                         <div class="news-img">
-                            <img src="{{url('webaru/gallery/G1.jpg')}}">
+                            <img src="{{url('webaru_bs3/gallery/G1.jpg')}}">
                             <div class="webaru-home-news-date navy-bg">
                                 <div class="blog-meta-2">
                                     <span class="published3">
@@ -523,7 +828,7 @@
                 <div class="col-md-4 hidden-sm">
                     <div class="news-are mrg-xs">
                         <div class="news-img">
-                            <img src="{{url('webaru/gallery/G2.jpg')}}">
+                            <img src="{{url('webaru_bs3/gallery/G2.jpg')}}">
                             <div class="webaru-home-news-date navy-bg">
                                 <div class="blog-meta-2">
                                     <span class="published3">
@@ -589,6 +894,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 text-center">
                     <a class="button extra-small news-btn mt-60" href="#">
@@ -596,10 +902,11 @@
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
 
-    {{-- <div class="counter-area bg-2 bg-opacity bg-relative ptb-110">
+    <div class="counter-area bg-2 bg-opacity bg-relative ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 text-center">
@@ -664,9 +971,9 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    {{-- <section class="testimonial-area ptb-110">
+    <section class="testimonial-area ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3">
@@ -716,6 +1023,6 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 @endsection
