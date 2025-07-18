@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{url('eduguide')}}/css/shortcode/shortcodes.css">
     <!-- Theme main style -->
     <link rel="stylesheet" href="{{url('eduguide')}}/style.css">
+    <link rel="stylesheet" href="{{url('eduguide')}}/css/custom.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{url('eduguide')}}/css/responsive.css">
     <!-- Style customizer (Remove these two lines please) -->

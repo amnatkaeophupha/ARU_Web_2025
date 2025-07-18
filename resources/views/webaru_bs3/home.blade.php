@@ -104,6 +104,8 @@
 </div> --}}
 <!-- End of slider area -->
 
+
+<!-- Start of Banner Blog Area -->
 <section class="banner-blog-area ptb-50 gray-bg">
     <div class="container">
         <div class="row">
@@ -196,8 +198,9 @@
         </div>
     </div>
 </section>
+<!-- End of Banner Blog Area -->
 
-
+<!-- Start of ประชาสัมพันธ์ข่าวสาร -->
 <div class="event-area ptb-80">
     <div class="container">
         <div class="row">
@@ -251,6 +254,7 @@
         </div>
     </div>
 </div>
+<!-- End of ประชาสัมพันธ์ข่าวสาร -->
 
 <!-- Start of Aru News -->
 <section class="service-area gray-bg ptb-110">
@@ -354,6 +358,55 @@
 </section>
 <!-- End of Aru News -->
 
+
+<!-- Start of Tabs -->
+<div class="event-area ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center mb-20">
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
+                    <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                    <div class="separator my mtb-15">
+                        <i class="icofont icofont-hat-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="event-text-img">
+                    {{-- <div class="aru-public-visual-inner"> --}}
+                        <ul class="nav nav-tabs">
+                            <li><a href="#tab1" data-toggle="tab">ประชาสัมพันธ์ทั่วไป</a></li>
+                            <li ><a href="#tab3" data-toggle="tab">จัดซื้อจัดจ้าง</a></li>
+                            <li class="active"><a href="#tab5" data-toggle="tab">รับสมัครงาน</a></li>
+                            <li><a href="#tab99" data-toggle="tab">ข่าวสารนักศึกษา</a></li>
+                            <li><a href="#tab100" data-toggle="tab">ปฏิทินการศึกษา(ภาคปกติ)</a></li>
+                            <li><a href="#tab101" data-toggle="tab">ปฏิทินการศึกษา(กศ.บป)</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="tab1">
+                                 <article class="has-divider">
+
+                                 </article>
+                            </div>
+                        </div>
+                    {{-- </div> --}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="button extra-small news-btn mt-20" href="#">
+                    <span>View All News</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Tabs -->
 
 
     {{-- <section class="service-area gray-bg ptb-110">
@@ -853,7 +906,7 @@
         </div>
     </div>
 
-    {{-- <div class="counter-area bg-2 bg-opacity bg-relative ptb-110">
+    <div class="counter-area bg-2 bg-opacity bg-relative ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 text-center">
@@ -918,9 +971,9 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    {{-- <section class="testimonial-area ptb-110">
+    <section class="testimonial-area ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3">
@@ -970,6 +1023,6 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 @endsection
