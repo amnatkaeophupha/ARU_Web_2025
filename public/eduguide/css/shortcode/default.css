@@ -1745,3 +1745,60 @@ textarea:focus {
     margin: 0 auto;
     width: 100px;
 }
+
+/*************************
+    30. Image popup style   By Amnat K. แบนเนอร์ประชาสัมพันธ์ข่าวสาร
+*************************/
+/* จัดตำแหน่ง popup ให้อยู่กลางจอ */
+#imageModal .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: auto;
+    max-width: 90vw;
+}
+
+#imageModal .modal-content {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#imageModal .modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    max-height: 90vh;
+}
+
+/* 🔹 กรอบสวย ๆ รอบภาพ */
+#imageModal .image-frame {
+    background: #ffffff;
+    padding: 10px 12px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    max-width: 100%;
+    max-height: 90vh;
+    display: inline-block;
+}
+
+#imageModal #modalImage {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh; /* ลดลงเพราะมีกรอบ */
+    border-radius: 8px;
+}
+
+/* ให้ img-fluid ทำงานในธีม BS3 ด้วย */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ไม่ให้หน้าเลื่อนเวลาเปิด modal */
+.modal-open {
+    overflow: hidden;
+}

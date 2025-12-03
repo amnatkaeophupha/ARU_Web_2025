@@ -94,7 +94,7 @@
         margin-left: -40px;
     }
     /* customizer box-layout */
-    
+
     .boxed-layout.wrapper {
         width: 970px;
     }
@@ -293,7 +293,7 @@
         position: inherit;
     }
     /* customizer box-layout */
-    
+
     .boxed-layout.wrapper {
         width: 750px;
     }
@@ -902,7 +902,7 @@
         position: inherit;
     }
     /* customizer box-layout */
-    
+
     .boxed-layout.wrapper {
         width: 300px;
     }
@@ -962,8 +962,29 @@
         font-size: 14px;
     }
     /* customizer box-layout */
-    
+
     .boxed-layout.wrapper {
         width: 450px;
     }
 }
+
+/* Edit Amnat Kaeophupha ตั้งค่า Logo มือถือ*/
+@media (max-width: 767px) {
+    .header-bottom .logo {
+        float: none;              /* กัน float ซ้ายที่ theme เดิมตั้งไว้ */
+        text-align: center;       /* ให้เนื้อหาใน .logo อยู่ตรงกลาง */
+    }
+
+    .header-bottom .logo a {
+        display: inline-block;    /* ให้ลิงก์ห่อรูปแบบก้อนกลาง ๆ */
+    }
+
+    .header-bottom .logo img {
+        display: block;
+        margin: 0 auto;           /* ให้รูปอยู่กลางจริง ๆ */
+        max-width: 100%;          /* กันรูปใหญ่เกินจอมือถือ */
+        height: auto;
+    }
+}
+
+

@@ -13,6 +13,7 @@ NOTE: This is Header style file. All Header related style included in this file.
 .header-top-info a i {
     color: #f8b239;
     padding-right: 8px;
+
 }
 .header-top-info a i:hover {
     color: #fff;
@@ -25,6 +26,7 @@ NOTE: This is Header style file. All Header related style included in this file.
     font-size: 13px;
     font-weight: normal;
     font-family: 'Lato', sans-serif;
+    font-family: 'Prompt', sans-serif;
 }
 .header-top-language ul li a i {
     padding-left: 10px;
@@ -130,7 +132,7 @@ NOTE: This is Header style file. All Header related style included in this file.
 .menu-area nav > ul > li > ul li {
     display: block;
     padding: 0;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     position: relative;
 }
 .menu-area nav > ul > li ul li a {
@@ -138,7 +140,7 @@ NOTE: This is Header style file. All Header related style included in this file.
     display: block;
     line-height: 20px;
     padding: 5px 20px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 .menu-area nav > ul > li > ul li a > i {
     float: right;

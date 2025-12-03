@@ -62,15 +62,22 @@
                         </div>
                         <div class="col-md-6 col-sm-6 hidden-xs">
                             <div class="header-top-right f-right">
-                                <div class="header-top-social f-right">
-                                    <p>Follow Us :</p>
+                                <div class="header-top-language f-right">
                                     <ul>
-                                        <li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
-                                        <li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
-                                        <li><a href="#"><i class="icofont icofont-social-github"></i></a></li>
+                                        <li><a href="#">E-DOC</i></a></li>
                                     </ul>
                                 </div>
                                 <div class="header-top-language f-left">
+                                    <ul>
+                                        <li><a href="#">ระบบบริการนักศึกษา</i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="header-top-language f-left">
+                                    <ul>
+                                        <li><a href="#">ระบบบริหารการศึกษา</i></a></li>
+                                    </ul>
+                                </div>
+                                {{-- <div class="header-top-language f-left">
                                     <ul>
                                         <li><a href="#" data-toggle="dropdown">English<i class="icofont icofont-simple-down"></i></a>
                                             <ul class="dropdown-menu">
@@ -80,7 +87,7 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -193,7 +200,7 @@
                                         <li class="coloumn-one"><a href="#">สำหรับนักศึกษา <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul>
                                                 <li><a href="https://www.aru.ac.th/regis/?page=tabs&subpage=tab_home2&cid=100&ctid=101" target="_blank">ปฏิทินการศึกษา</a></li>
-                                                <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการ</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการนักศึกษา</a></li>
                                                 <li><a href="https://mail.google.com/" target="_blank">email@aru</a></li>
                                                 <li><a href="https://www.aru.ac.th/regis/?page=graduate" target="_blank">ตรวจรายชื่อผู้สำเร็จการศึกษา</a></li>
                                             </ul>
@@ -449,6 +456,7 @@
     <!-- jquery latest version -->
     {{-- <script src="{{url('eduguide')}}/js/vendor/jquery-1.12.0.min.js"></script> --}}
     <script src="{{url('eduguide')}}/js/vendor/jquery-2.2.4.min.js"></script>
+    {{-- <script src="{{ url('glaxdu') }}/assets/js/vendor/jquery-3.7.1.min.js"></script> --}}
 
     <!-- Bootstrap framework js -->
     {{-- <script src="{{url('eduguide')}}/js/bootstrap.min.js"></script> --}}
@@ -460,6 +468,7 @@
     <script src="{{url('eduguide')}}/js/plugins.js"></script>
     <script src="{{url('eduguide')}}/js/main.js"></script>
 
+    {{-- Toggle dropdown when the <a> tag with data-toggle="dropdown" --}}
     <script>
       $(document).ready(function() {
         // Toggle dropdown when the <a> tag with data-toggle="dropdown" is clicked
@@ -475,6 +484,38 @@
           }
         });
       });
+    </script>
+
+    {{-- banner ประชาสัมพันธ์ popup --}}
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('.popup-image');
+
+        images.forEach(img => {
+            img.addEventListener('click', function () {
+                const link = this.getAttribute('data-link');
+
+                // 📱 MOBILE MODE — เปิดลิงก์ทันที
+                if (window.innerWidth <= 767) {
+                    if (link) {
+                        window.open(link, '_blank');
+                    }
+                    return;
+                }
+
+                // 🖥 DESKTOP MODE — เปิด Popup
+                if (link) {
+                    document.getElementById('modalDetailLink').href = link;
+                    document.getElementById('modalDetailLink').style.display = 'block';
+                } else {
+                    document.getElementById('modalDetailLink').style.display = 'none';
+                }
+
+                document.getElementById('modalImage').src = this.src;
+                $('#imageModal').modal('show');
+            });
+        });
+    });
     </script>
 
 </body>
