@@ -10,3 +10,7 @@ Route::get('/strategic', function () { return view('webaru_bs3.strategic');});
 Route::get('/map', function () { return view('webaru_bs3.map');});
 Route::get('/structure', function () { return view('webaru_bs3.structure');});
 Route::get('/administrators', function () { return view('webaru_bs3.administrators');});
+
+
+Route::get('/gallery', [GalleryController::class, 'index']);
+// Route::get('/gallery/{album}', [GalleryController::class, 'show']);

@@ -352,6 +352,18 @@
     </script>
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center mb-60">
+                    <img src="{{url('webaru_bs3')}}/2025_aru_title.png" alt="aru" >
+                    <h1 class="uppercase">ARU NEWS</h1>
+                    <p>เอกสารเพื่อการเผยแพร่และประชาสัมพันธ์ข่าวสาร</p>
+                    <div class="separator my mtb-15">
+                        <i class="icofont icofont-hat-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-8">
                 <div class="service-all white-bg" >
                     <h2 style="margin-bottom:30px;">ARU NEWS</h2>
@@ -433,6 +445,17 @@
         margin-left: 0px;
         flex: 1;
     }
+    .topic-text h4 {
+        margin-top: 0;
+        font-size: 18px;
+        font-family:'sarabun',sans-serif;
+    }
+    .topic-text p {
+
+        font-size: 13px;
+        font-family:'sarabun',sans-serif;
+    }
+
     .dayTopic .day,
     .dayTopic .year {
         padding: 3px 0;
@@ -488,7 +511,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center mb-20">
-                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg" alt="aru" >
+                    <img src="{{url('webaru_bs3')}}/2025_aru_bg_white.jpg">
                     <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
                     <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
                     <div class="separator my mtb-15">
@@ -585,7 +608,6 @@
                                             <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
                                         </div>
                                     </li>
-
                                 </ul>
                                 </article>
                             </div>
@@ -594,29 +616,6 @@
                             <div class="tab-pane" id="tab3">
                                 <article class="has-divider" style="border-bottom: none !important;">
                                 <ul class="list-unstyled">
-                                    <li class="listTopic" style="border-bottom: 1px dashe padding: 10px 0;">
-                                        <div class="dayTopic" style="
-                                            width: 70px;
-                                            float: left;
-                                            text-align: center;
-                                            border: 1px solid #BFDFFF;
-                                            border-radius: 10px;
-                                            overflow: hidden;
-                                            font-size: 16px;
-                                            margin-right: 15px;
-                                            font-family:'sarabun',sans-serif;
-                                        ">
-                                            <div style="padding: 5px 0; font-weight: bold;">05 มี.ค.</div>
-                                            <div style="background-color: #E8F4FF; color: #fff; padding: 5px 0;color: #2B4C7E;">2568</div>
-                                        </div>
-                                        <div style="margin-left: 90px;">
-                                            <h4 style="margin-top: 0;" style="font-family:'sarabun',sans-serif;">
-                                                <a href="#" style="font-family:'sarabun',sans-serif;">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a>
-                                            </h4>
-                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
                                 </ul>
                                 </article>
                             </div>
@@ -641,8 +640,8 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <a class="button extra-small news-btn mt-20" href="#">
-                    <span>View All News</span>
+                <a class="button extra-small news-btn mt-20" href="#" >
+                    <span style="font-family:'sarabun',sans-serif;font-size:14px;">ดูข่าวทั้งหมด</span>
                 </a>
             </div>
         </div>
@@ -755,18 +754,15 @@
         </div>
     </section> --}}
 
-    <section class="banner-blog-area ptb-110">
+
+
+    {{-- <section class="banner-blog-area ptb-110">
         <div class="container">
             <div class="row">
-                <div class="hidden-md col-lg-3 col-sm-6">
-                    <div class="banner-img">
-                        <img src="{{url('eduguide')}}/images/banner/1.jpg" alt="" >
-                    </div>
-                </div>
                 <div class="col-md-4 col-lg-3 col-sm-6">
                     <div class="blog-all mrg-xs">
-                        <div class="blog-img">
-                            <a href="#"><img src="{{url('eduguide')}}/images/blog/1.jpg" alt="" ></a>
+                        <div class="aru-blog-img-gallery">
+                            <a href="#"><img src="{{url('webaru_bs3/G-1.png')}}"></a>
                         </div>
                         <div class="blog-details">
                             <h3><a href="#">Political Science</a></h3>
@@ -778,7 +774,29 @@
                                     <a href="#"><i class="icofont icofont-comment"></i> 20</a>
                                 </span>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+                            <p>ลอยกระทงอยุธยา อนุรักษ์สายน้ำกรุงเก่า ประจำปีงบประมาณ พ.ศ. 2569 </p>
+                            <a class="button extra-small" href="#">
+                                <span>Learn Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-sm-6">
+                    <div class="blog-all mrg-xs">
+                        <div class="aru-blog-img-gallery">
+                            <a href="#"><img src="{{url('webaru_bs3/G-3.png')}}"></a>
+                        </div>
+                        <div class="blog-details">
+                            <h3><a href="#">Political Science</a></h3>
+                            <div class="blog-meta">
+                                <span class="published3">
+                                    <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                </span>
+                                <span class="published4">
+                                    <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                </span>
+                            </div>
+                            <p>อัญเชิญผ้าพระกฐินพระราชทาน ประจำปี 2568 ทอดถวาย ณ วัดไชโยวรวิหาร จังหวัดอ่างทอง </p>
                             <a class="button extra-small" href="#">
                                 <span>Learn Now</span>
                             </a>
@@ -788,7 +806,7 @@
                 <div class="col-md-4 col-lg-3 col-sm-6">
                     <div class="blog-all mrg-sm mrg-xs">
                         <div class="blog-img">
-                            <a href="#"><img src="{{url('eduguide')}}/images/blog/2.jpg" alt="" ></a>
+                            <a href="#"><img src="{{url('webaru_bs3/G-2.png')}}" alt="" ></a>
                         </div>
                         <div class="blog-details">
                             <h3><a href="#">Micro Biology</a></h3>
@@ -800,7 +818,7 @@
                                     <a href="#"><i class="icofont icofont-comment"></i> 20</a>
                                 </span>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+                            <p>พิธีพระราชทานปริญญาบัตรแก่บัณฑิตที่สำเร็จการศึกษาจากมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา ประจำปีการศึกษา 2566 </p>
                             <a class="button extra-small" href="#">
                                 <span>Learn Now</span>
                             </a>
@@ -831,9 +849,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
+    {{-- <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-sm-7 col-xs-12 text-center">
@@ -872,15 +890,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="event-area ptb-110">
+    <div class="event-area gray-bg ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center mb-60">
-                        <h1 class="uppercase">Upcoming Events</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                        <img src="{{url('webaru_bs3')}}/2025_aru_title.png" alt="aru" >
+                        <h1 class="uppercase">Photo Gallery</h1>
+                        <p>ภาพกิจกรรมนักศึกษา บุคลากรมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</p>
                         <div class="separator my mtb-15">
                             <i class="icofont icofont-hat-alt"></i>
                         </div>
@@ -891,11 +910,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="event-text-img">
                         <div class="event-img3">
-                            <a href="#"><img src="{{url('eduguide')}}/images/blog/4.jpg" alt=""></a>
-                            <div class="event-date">
-                                <span class="tb-publish">25</span>
-                                <span class="tb-publish2">Oct</span>
-                            </div>
+                            <a href="#"><img src="{{url('webaru_bs3/APG2-1.png')}}" alt=""></a>
                         </div>
                         <div class="visual-inner">
                             <h3 class="blog-title">
@@ -923,7 +938,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="event-text-img mrg-sm2 mrg-xs4">
                         <div class="event-img3">
-                            <a href="#"><img src="{{url('eduguide')}}/images/blog/5.jpg" alt=""></a>
+                            <a href="#"><img src="{{url('webaru_bs3/APG2-2.png')}}" class="img-fluid"></a>
                             <div class="event-date">
                                 <span class="tb-publish">22</span>
                                 <span class="tb-publish2">Oct</span>
@@ -955,7 +970,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="event-text-img mt-40">
                         <div class="event-img3">
-                            <a href="#"><img src="{{url('eduguide')}}/images/blog/6.jpg" alt=""></a>
+                            <a href="#"><img src="{{url('webaru_bs3/APG2-33.png')}}" class="img-fluid"></a>
                             <div class="event-date">
                                 <span class="tb-publish">27</span>
                                 <span class="tb-publish2">Oct</span>
@@ -987,7 +1002,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="event-text-img mt-40">
                         <div class="event-img3">
-                            <a href="#"><img src="{{url('eduguide')}}/images/blog/7.jpg" alt=""></a>
+                            <a href="#"><img src="{{url('webaru_bs3/340X402.png')}}" alt=""></a>
                             <div class="event-date">
                                 <span class="tb-publish">29</span>
                                 <span class="tb-publish2">Oct</span>
@@ -1018,124 +1033,7 @@
                 </div>
             </div>
 
-            <!-- ส่วนหัวกิจกรรม -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title text-center pt-110 mb-60">
-                        <h1 class="uppercase" style="font-family:'sarabun',sans-serif;">กิจกรรม</h1>
-                        <p>ภาพกิจกรรมนักศึกษา บุคลากรมหาวิทยาลัยราชภัฏพระนครศรีอยุธยา </p>
-                        <div class="separator my mtb-15">
-                            <i class="icofont icofont-hat-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- จบส่วนหัวกิจกรรม -->
 
-            <div class="row">
-                <div class="col-md-4 hidden-sm">
-                    <div class="news-are mrg-xs">
-                        <div class="news-img">
-                            <img src="{{url('webaru_bs3/gallery/G1.jpg')}}">
-                            <div class="webaru-home-news-date navy-bg">
-                                <div class="blog-meta-2">
-                                    <span class="published3">
-                                        <i class="icofont icofont-ui-calendar"></i>
-                                        14 Sep 2016
-                                    </span>
-                                </div>
-                                <div class="blog-meta for-news">
-                                    <span class="published3">
-                                        <a href="#">
-                                            <i class="icofont icofont-eye"></i> 34
-                                        </a>
-                                    </span>
-                                    <span class="published4">
-                                        <a href="#">
-                                            <i class="icofont icofont-comment"></i> 20
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="img-text gray-bg">
-                            {{-- <h3><a href="#">In publishing and graphic desi</a></h3> --}}
-                            <p style="min-height:90px;">สองมหาวิทยาลัยผนึกกำลังกับภาครัฐท้องถิ่น นำโดยนายอำเภออุทัย ขับเคลื่อน “Reinventing University” สู่การพัฒนาท้องถิ่นอย่างยั่งยืน</p>
-                            <a class="button extra-small" href="#">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 hidden-sm">
-                    <div class="news-are mrg-xs">
-                        <div class="news-img">
-                            <img src="{{url('webaru_bs3/gallery/G2.jpg')}}">
-                            <div class="webaru-home-news-date navy-bg">
-                                <div class="blog-meta-2">
-                                    <span class="published3">
-                                        <i class="icofont icofont-ui-calendar"></i>
-                                        14 Sep 2016
-                                    </span>
-                                </div>
-                                <div class="blog-meta for-news">
-                                    <span class="published3">
-                                        <a href="#">
-                                            <i class="icofont icofont-eye"></i> 34
-                                        </a>
-                                    </span>
-                                    <span class="published4">
-                                        <a href="#">
-                                            <i class="icofont icofont-comment"></i> 20
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="img-text gray-bg">
-                            {{-- <h3><a href="#">In publishing and graphic desi</a></h3> --}}
-                            <p style="min-height:90px;">มหกรรมแก้หนี้ ปีที่ 2 สร้างวิถีแห่งความเป็นธรรม ประจำปี 2568” จังหวัดพระนครศรีอยุธยา</p>
-                            <a class="button extra-small" href="#">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 hidden-sm">
-                    <div class="news-are mrg-xs">
-                        <div class="news-img">
-                            <img src="{{url('eduguide')}}/images/blog/10.jpg" alt="" >
-                            <div class="webaru-home-news-date navy-bg">
-                                <div class="blog-meta-2">
-                                    <span class="published3">
-                                        <i class="icofont icofont-ui-calendar"></i>
-                                        14 Sep 2016
-                                    </span>
-                                </div>
-                                <div class="blog-meta for-news">
-                                    <span class="published3">
-                                        <a href="#">
-                                            <i class="icofont icofont-eye"></i> 34
-                                        </a>
-                                    </span>
-                                    <span class="published4">
-                                        <a href="#">
-                                            <i class="icofont icofont-comment"></i> 20
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="img-text gray-bg">
-                            {{-- <h3><a href="#">In publishing and graphic desi</a></h3> --}}
-                            <p style="min-height:90px;">หลักสูตรพัฒนาผู้นำทางการเมืองฯ พนต.1 จัดกิจกรรมวิเคราะห์บทบาทโซเชียลมีเดียในการส่งเสริมประชาธิปไตยและการมีส่วนร่วมของเยาวชน</p>
-                            <a class="button extra-small" href="#">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -1148,7 +1046,7 @@
         </div>
     </div>
 
-    <div class="counter-area bg-2 bg-opacity bg-relative ptb-110">
+    {{-- <div class="counter-area bg-2 bg-opacity bg-relative ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 text-center">
@@ -1213,9 +1111,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <section class="testimonial-area ptb-110">
+    {{-- <section class="testimonial-area ptb-110">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3">
@@ -1265,6 +1163,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 @endsection

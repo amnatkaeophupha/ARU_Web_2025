@@ -201,18 +201,16 @@
                                             <ul>
                                                 <li><a href="https://www.aru.ac.th/regis/?page=tabs&subpage=tab_home2&cid=100&ctid=101" target="_blank">ปฏิทินการศึกษา</a></li>
                                                 <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการนักศึกษา</a></li>
-                                                <li><a href="https://mail.google.com/" target="_blank">email@aru</a></li>
-                                                <li><a href="https://www.aru.ac.th/regis/?page=graduate" target="_blank">ตรวจรายชื่อผู้สำเร็จการศึกษา</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=graduate" target="_blank">รายชื่อผู้สำเร็จการศึกษา</a></li>
                                             </ul>
                                         </li>
                                         <li class="coloumn-one"><a href="#">สำหรับบุคลากร <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul>
                                                 <li><a href="http://e-uni8.aru.ac.th:81/e-uni/" target="_blank">ระบบบริหารการศึกษา</a></li>
-                                                <li><a href="https://gmail.com" target="_blank">บริการ gmail@aru.ac.th</a></li>
-                                                <li><a href="https://edoc.aru.ac.th/" target="_blank">ARU DIGITAL WORKFLOW</a></li>
+                                                <li><a href="https://edoc.aru.ac.th/" target="_blank">ระบบสารบรรณอิเล็กทรอนิกส์</a></li>
                                                 <li><a href="https://edoc.aru.ac.th/" target="_blank">ระบบการลาออนไลน์</a></li>
-                                                <li><a href="/staff/?page=hr&subpage=hr_form" target="_blank">แบบฟอร์มบุคลากร</a></li>
-                                                <li><a href="https://www.aru.ac.th/arit/index.php?pages=informationsystems" target="_blank">เอกสารวิชาการ</a></li>
+                                                <li><a href="/staff/?page=hr&subpage=hr_form" target="_blank">ระบบการประชุมอิเล็กทรอนิกส์</a></li>
+                                                <li><a href="https://www.turnitin.com/" target="_blank">turnitin</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="news-page.html">ผู้สำเร็จการศึกษา  </a></li>
@@ -378,37 +376,36 @@
                     </div>
                     <div class="col-md-2 col-sm-6">
                         <div class="footer-text">
-                            <h3>Courses</h3>
+                            <h3>ตำราการสอนและวิจัย</h3>
                             <ul class="footer-text-all">
-                                <li><a href="#">Computer Science</a></li>
-                                <li><a href="#">Product Manager</a></li>
-                                <li><a href="#">Leader’s  Guide</a></li>
+                                <li><a href="#">โครงการตำรา/หนังสือ</a></li>
+                                <li><a href="#">เอกสารประกอบการสอน (PowerPoint)</a></li>
+                                <li><a href="#">เอกสารวิชาการภายใน</a></li>
                                 <li><a href="#">Micro Biology</a></li>
-                                <li><a href="#">Political Science</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-6">
-                        <div class="footer-text mrg-xs">
-                            <h3>Quick Links</h3>
-                            <ul class="footer-text-all">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Opening Hours</a></li>
-                                <li><a href="#">Our Top Courses</a></li>
-                                <li><a href="#">Choose Eduguide</a></li>
-                                <li><a href="#">Upcoming Events</a></li>
+                                <li><a href="#">กฏหมายมหาวิทยาลัยฯ</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-6">
                         <div class="footer-text mrg-sm3 mrg-xs">
-                            <h3>Quick Links</h3>
+                            <h3>หน่วยงานสำคัญ</h3>
                             <ul class="footer-text-all">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Opening Hours</a></li>
-                                <li><a href="#">Our Top Courses</a></li>
-                                <li><a href="#">Choose Eduguide</a></li>
-                                <li><a href="#">Upcoming Events</a></li>
+                                 <li><a href="#">โรงเรียนสาธิตฯ</a></li>
+                                <li><a href="#">กองบริการการศึกษา</a></li>
+                                <li><a href="#">กองพัฒนานักศึกษา</a></li>
+                                <li><a href="#">กองนโยบายและแผน</a></li>
+                                <li><a href="#">งานทรัพยากรบุคคล</a></li>
+                                <li><a href="#">งานพัสดุ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="footer-text mrg-xs">
+                            <h3>Link ที่เกี่ยวข้อง</h3>
+                            <ul class="footer-text-all">
+                                <li><a href="#">ARU SDGs การขับเคลื่อนเป้าหมายการพัฒาที่ยั่งยืน</a></li>
+                                <li><a href="#">การเปิดเผยข้อมูลสาธารณะ (OpenData)</a></li>
+                                <li><a href="#">นโยบายความเป็นส่วนบุคคล</a></li>
                             </ul>
                         </div>
                     </div>

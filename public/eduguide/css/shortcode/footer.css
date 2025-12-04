@@ -13,10 +13,12 @@ NOTE: This is Footer style file. All footer related style included in this file.
     padding-bottom: 20px;
     margin-bottom: 40px;
 }
+
 .footer-text-all li > a {
     color: #fff;
     display: block;
-    font-family: "Lato", sans-serif;
+    /* font-family: 'Prompt', sans-serif; */
+    font-family: 'sarabun', sans-serif;
     font-size: 14px;
     margin-bottom: 14px;
     transition: all .3s ease 0s;
@@ -31,6 +33,8 @@ NOTE: This is Footer style file. All footer related style included in this file.
     font-weight: 500;
     text-transform: capitalize;
     margin-bottom: 20px;
+    /* font-family: 'Prompt', sans-serif; */
+    font-family: 'sarabun', sans-serif;
 }
 .footer-top form input,
 .footer-top form textarea {
