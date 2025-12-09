@@ -1458,6 +1458,7 @@ textarea:focus {
 }
 /*   24. Image background */
 
+
 .bg-1 {
     background: url(../../images/bg/1.jpg);
 }
@@ -1465,7 +1466,7 @@ textarea:focus {
     background: url(../../images/bg/2.jpg);
 }
 .bg-3 {
-    background: url(../../../webaru/bg3.jpg);
+    background: url(../../../webaru_bs3/bg3.jpg);
 }
 .bg-4 {
     background: url(../../images/bg/4.jpg);

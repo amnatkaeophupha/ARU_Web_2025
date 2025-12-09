@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\CustomVerificationController;
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -41,7 +42,6 @@ Route::group([],base_path('routes/admin.php'));
 
 
 Route::group([],base_path('routes/manager.php'));
-
 
 
 

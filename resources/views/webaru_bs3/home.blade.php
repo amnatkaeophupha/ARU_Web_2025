@@ -910,7 +910,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="event-text-img">
                         <div class="event-img3">
-                            <a href="#"><img src="{{url('webaru_bs3/APG2-1.png')}}" alt=""></a>
+                            <a href="{{url('gallery')}}"><img src="{{url('webaru_bs3/APG2-1.png')}}" alt=""></a>
                         </div>
                         <div class="visual-inner">
                             <h3 class="blog-title">

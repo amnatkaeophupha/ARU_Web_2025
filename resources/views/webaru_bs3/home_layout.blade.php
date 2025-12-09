@@ -26,7 +26,7 @@
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{url('eduguide')}}/css/responsive.css">
     <!-- Style customizer (Remove these two lines please) -->
-    {{-- <link rel="stylesheet" href="{{url('eduguide')}}/css/color/color-aru.css"> --}}
+    <link rel="stylesheet" href="{{url('eduguide')}}/css/color/color-aru.css">
 
     <!-- Modernizr JS -->
     <script src="{{url('eduguide')}}/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -374,7 +374,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text">
                             <h3>ตำราการสอนและวิจัย</h3>
                             <ul class="footer-text-all">
@@ -386,7 +386,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text mrg-sm3 mrg-xs">
                             <h3>หน่วยงานสำคัญ</h3>
                             <ul class="footer-text-all">
@@ -399,17 +399,17 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text mrg-xs">
                             <h3>Link ที่เกี่ยวข้อง</h3>
                             <ul class="footer-text-all">
-                                <li><a href="#">ARU SDGs การขับเคลื่อนเป้าหมายการพัฒาที่ยั่งยืน</a></li>
+                                <li><a href="#">ARU SDGs </a></li>
                                 <li><a href="#">การเปิดเผยข้อมูลสาธารณะ (OpenData)</a></li>
                                 <li><a href="#">นโยบายความเป็นส่วนบุคคล</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text mrg-sm3 mrg-xs">
                             <h3>Contact Us</h3>
                             <form action="#">
