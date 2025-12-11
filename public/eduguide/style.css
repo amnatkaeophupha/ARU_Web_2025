@@ -405,8 +405,10 @@ button.submit:hover::after {
 }
 
 .event-img3 img{
-    width: 170px;
-    height: auto
+   width: 170px;
+    height: auto;
+    display: block;
+    object-fit: cover; /* ถ้าต้องการให้เต็มกรอบแบบสวย */
 }
 
 .event-date {

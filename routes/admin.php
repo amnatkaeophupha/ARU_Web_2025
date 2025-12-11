@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebaruTabController;
 use App\Http\Controllers\WebaruCarouselsController;
+use App\Http\Controllers\WebaruSliderController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -36,5 +37,8 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
 
     Route::resource('webaru-carousels', WebaruCarouselsController::class);
     route::post('webaru-carousels/status', [WebaruCarouselsController::class, 'status']);
+
+    Route::resource('webaru-sliders', WebaruSliderController::class);
+    route::post('webaru-sliders/status', [WebaruSliderController::class, 'status']);
 
 });

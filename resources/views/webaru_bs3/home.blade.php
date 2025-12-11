@@ -938,7 +938,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="event-text-img mrg-sm2 mrg-xs4">
                         <div class="event-img3">
-                            <a href="#"><img src="{{url('webaru_bs3/APG2-2.png')}}" class="img-fluid"></a>
+                            <a href="#"><img src="{{url('webaru_bs3/gallery/170X200.jpg')}}" class="img-fluid"></a>
                             <div class="event-date">
                                 <span class="tb-publish">22</span>
                                 <span class="tb-publish2">Oct</span>
