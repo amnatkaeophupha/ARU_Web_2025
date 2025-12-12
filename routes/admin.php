@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebaruTabController;
+use App\Http\Controllers\WebaruNewsController;
 use App\Http\Controllers\WebaruCarouselsController;
 use App\Http\Controllers\WebaruSliderController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -36,9 +37,12 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     route::post('webaru-tabs/active', [WebaruTabController::class, 'active']);
 
     Route::resource('webaru-carousels', WebaruCarouselsController::class);
-    route::post('webaru-carousels/status', [WebaruCarouselsController::class, 'status']);
+    Route::post('webaru-carousels/status', [WebaruCarouselsController::class, 'status']);
 
     Route::resource('webaru-sliders', WebaruSliderController::class);
-    route::post('webaru-sliders/status', [WebaruSliderController::class, 'status']);
+    Route::post('webaru-sliders/status', [WebaruSliderController::class, 'status']);
+
+    Route::resource('webaru-arunews', WebaruNewsController::class);
+
 
 });
