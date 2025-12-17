@@ -63,10 +63,15 @@
                     <tbody>
                          @foreach($webaruNews as $news)
                         <tr>
-                            <th scope="row">{{ $news->id }}</th>
-                            <td>{{ $news->title }}</td>
-                            <td>{{ $news->files }}</td>
-                            <td>@mdo</td>
+                            <th scope="row" style="text-align: center;">{{ $news->id }}</th>
+                            <td style="vertical-align: middle;">{{ $news->title }}</td>
+                            <td style="vertical-align: middle;">{{ $news->files }}</td>
+                            <td style="text-align: center;">
+                                {{-- <a href="javascript:;" class="btn btn-sm btn-outline-success"><i class='bx bx-upload me-0'></i></a> --}}
+                                <a href="javascript:;" class="btn btn-sm btn-outline-success" onclick="EditFile({{$news->id}})" data-bs-target="#UpdateFileModal" data-bs-toggle="modal"><i class='bx bx-upload me-0'></i></a>
+                                <a href="javascript:;" class="btn btn-sm btn-outline-primary" onclick="EditModal({{$news->id}}, '{{ e($news->title) }}')" data-bs-target="#EditModal" data-bs-toggle="modal"><i class='bx bx-edit me-0'></i></a>
+                                <a href="javascript:;" class="btn btn-sm btn-outline-danger" onclick="confirmDelete({{$news->id}})"><i class='bx bx-trash me-0'></i></a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -75,6 +80,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="AddUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
@@ -115,36 +121,22 @@
     </div>
 </div>
 
-<div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="UpdateFileModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="{{ url('admin/webaru-tabs/update') }}">
+            <form id="updateForm" method="POST" action=""  data-base="{{ url('admin/webaru-arunews') }}" enctype="multipart/form-data">
             @csrf
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">แก้ไข</h5>
+            @method('PUT') <!-- Hidden PUT method -->
+            <div class="modal-header bg-success">
+                <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">เปลี่ยนไฟล์ข่าว</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">ประเภทประกาศ</label>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="input-group" >
-                                <select class="form-select" name="type" style="font-size: 14px;" id="data-type">
-                                    <option value="1">จัดซื้อจัดจ้าง</option>
-                                    <option value="2">สมัครงาน</option>
-                                    <option value="3">ข่าวนักศึกษาภาคปกติ</option>
-                                    <option value="4">ข่าวนักศึกษาภาคพิเศษ</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <label class="col-sm-12 col-form-label mt-2">หัวข้อ</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <textarea class="form-control" name="title" id="data-title" rows="3" style="font-size: 14px;"></textarea>
+                                <input type="file" name="file" class="form-control" style="font-size: 14px;" accept="application/pdf" required>
                             </div>
                         </div>
                     </div>
@@ -153,60 +145,40 @@
             <div class="modal-footer">
                 <input type="hidden" name="id" id="data-id">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
             </form>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="UploadFile" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="EditModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="{{ url('admin/webaru-tabs/upload') }}" enctype="multipart/form-data">
+            <form id="editForm" method="POST" data-base="{{ url('admin/webaru-arunews/updateTitle') }}">
             @csrf
             <div class="modal-header bg-primary">
-                <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">Upload</h5>
+                <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">แก้ไขหัวข้อข่าว</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">Upload File (PDF, Word, Excel)</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input type="file" name="files" class="form-control" style="font-size: 14px;" accept=".pdf,.doc,.docx,.xls,.xlsx">
+                                <input type="text" name="title" id="edit_title" class="form-control" style="font-size: 14px;" required>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="id" id="VerifyId">
-                <input type="hidden" name="type" id="VerifyType">
+                <input type="hidden" name="id" id="edit_id">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
             </form>
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    function IsActive(id, active, type) {
-    $.ajax({
-        url: '/admin/webaru-tabs/active',
-        type: 'POST',
-        data: {
-            id: id,
-            active: active,
-            type: type,
-            _token: '{{ csrf_token() }}'
-        },
-        success: function(data) {
-            location.reload();
-        }
-    });
-}
-</script>
 @endsection

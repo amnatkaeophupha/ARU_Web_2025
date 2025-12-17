@@ -82,6 +82,7 @@ class WebaruCarouselsController extends Controller
      */
     public function update(Request $request)
     {
+
         if ($request->hasFile('image')) {
 
             $webaru = WebaruCarousel::where('id',$request->id)->first();

@@ -7,6 +7,7 @@ use App\Http\Controllers\WebaruTabController;
 use App\Http\Controllers\WebaruNewsController;
 use App\Http\Controllers\WebaruCarouselsController;
 use App\Http\Controllers\WebaruSliderController;
+use App\Http\Controllers\WebaruGalleryController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -43,6 +44,9 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::post('webaru-sliders/status', [WebaruSliderController::class, 'status']);
 
     Route::resource('webaru-arunews', WebaruNewsController::class);
+    Route::post('webaru-arunews/updateTitle/{id}', [WebaruNewsController::class, 'updateTitle']);
+
+    Route::resource('webaru-gallery', WebaruGalleryController::class);
 
 
 });

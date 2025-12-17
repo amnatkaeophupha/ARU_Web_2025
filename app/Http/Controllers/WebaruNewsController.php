@@ -88,9 +88,24 @@ class WebaruNewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request,string $id)
     {
-        //
+
+    }
+
+    public function updateTitle(Request $request, string $id)
+    {
+        //dd($request->all());
+        $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        $news = WebaruNews::findOrFail($id);
+        $news->title = $request->title;
+        $news->updated_by = auth()->user()->name ?? null;
+        $news->save();
+
+        return redirect()->back()->with('success', 'แก้ไขข้อมูลเรียบร้อย');
     }
 
     /**
@@ -98,7 +113,47 @@ class WebaruNewsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //dd($request->all());
+
+            // Define validation rules
+        $rules = ['file' => 'required|mimes:pdf|max:6144']; // 5MB Max
+        // Define custom error messages (optional)
+        $messages = ['file.required' => 'ไฟล์เอกสารต้องเป็นไฟล์ประเภท PDF เท่านั้น.',];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        // Check if validation fails
+        if ($validator->fails()) {
+            // Redirect back with errors and old input
+            return redirect('admin/webaru-arunews')->withErrors($validator)->withInput();
+        }
+
+        if ($request->hasFile('file')) {
+
+            $webaru = WebaruNews::where('id',$request->id)->first();
+
+            if($webaru->files != null)
+            {
+                $path = '2025_webaru_home_arunews/'.$webaru->files;
+                if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
+            }
+
+            $image = $request->file('file');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $filePath = $image->storeAs('2025_webaru_home_arunews', $imageName, 'public');
+
+            $webaru->files = $imageName;
+            $webaru->updated_by = Auth::user()->name;
+
+            if ($webaru->save()) {
+
+                return back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+
+            }else{
+
+                return back()->with('fail','ไม่สามารถบันทึกข้อมูลได้');
+            }
+        }
+
     }
 
     /**
@@ -106,6 +161,24 @@ class WebaruNewsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $data = WebaruNews::where('id',$id)->first();
+
+        if($data->files != null)
+        {
+            $path = '2025_webaru_home_arunews/'.$data->files;
+            if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
+        }
+
+        $webaru = WebaruNews::findOrFail($id);
+
+        if ($webaru) {
+
+            $webaru->delete();
+
+            return response()->json(['success' => 'ลบข้อมูลสำเร็จ']);
+        }
+
+        return response()->json(['error' => 'ไม่พบข้อมูล'], 404);
     }
 }

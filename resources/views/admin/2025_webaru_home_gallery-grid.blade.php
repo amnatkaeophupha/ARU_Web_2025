@@ -1,4 +1,4 @@
-@extends('admin/roker_layout/2025_webaru_home_tabs_layout')
+@extends('admin/roker_layout/2025_webaru_home_gallery_layout')
 @section('title', 'มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา')
 @section('content')
 <div class="page-wrapper">
@@ -52,91 +52,42 @@
                     <h5 class="text-primary rounded mb-0">ข้อมูลประกาศ</h5>
                 </div>
                 <hr/>
-                <ul class="nav nav-tabs nav-danger" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==1) active @endif" data-bs-toggle="tab" href="#danger-1" onclick="window.location.href='{{ url('/admin/webaru-tabs/1') }}';" role="tab" aria-selected="@if($params['tid']==1) true @else false @endif">
-                            <div class="d-flex align-items-center">
-                                <div class="tab-icon"><i class='bx bx-home font-18 me-1'></i>
-                                </div>
-                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">ประชาสัมพันธ์ทั่วไป</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==2) active @endif" data-bs-toggle="tab" href="#danger-2" onclick="window.location.href='{{ url('/admin/webaru-tabs/2') }}';" role="tab" aria-selected="@if($params['tid']==2) true @else false @endif">
-                            <div class="d-flex align-items-center">
-                                <div class="tab-icon"><i class='bx bx-home font-18 me-1'></i>
-                                </div>
-                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">จัดซื้อจัดจ้าง</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==3) active @endif" data-bs-toggle="tab" href="#danger-3" onclick="window.location.href='{{ url('/admin/webaru-tabs/3') }}';" role="tab" aria-selected="@if($params['tid']==2) true @else false @endif">
-                            <div class="d-flex align-items-center">
-                                <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
-                                </div>
-                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">สมัครงาน</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==4) active @endif" data-bs-toggle="tab" href="#danger-4" onclick="window.location.href='{{ url('/admin/webaru-tabs/4') }}';" role="tab" aria-selected="@if($params['tid']==3) true @else false @endif">
-                            <div class="d-flex align-items-center">
-                                <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
-                                </div>
-                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">ประกาศนักศึกษาภาคปกติ</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==5) active @endif" data-bs-toggle="tab" href="#danger-5" onclick="window.location.href='{{ url('/admin/webaru-tabs/5') }}';" role="tab" aria-selected="@if($params['tid']==4) true @else false @endif">
-                            <div class="d-flex align-items-center">
-                                <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
-                                </div>
-                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">ประกาศนักศึกษาภาคพิเศษ</div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
                 <div class="tab-content py-3">
-                    <div class="tab-pane fade show active" id="danger-{{$params['tid']}}" role="tabpanel">
-                        <div class="table-responsive">
-                            <table class="table" style="font-family:'Chakra Petch', sans-serif;">
-                                <thead>
-                                    <tr>
-                                        <th>สถานะ</th>
-                                        <th>รหัส</th>
-                                        <th>ชื่อประกาศ</th>
-                                        <th>ดำเนินการ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($data_tab as $datas)
-                                    <tr>
-                                        <td>
-                                            <button type="button" class="btn @if($datas->active == 1) btn-outline-success @else btn-outline-secondary @endif btn-sm" onclick="IsActive({{ $datas->id }}, @if($datas->active==1) 0 @else 1 @endif, {{ $datas->type }} )"><i class="lni lni-eye me-0"></i></button>
-                                            </td>
-                                        <td>{{ $datas->id }}</td>
-                                        <td>
-                                            <a target="_blank" href="{{ asset('storage/2025_webaru_home_tab/'.$datas->files) }}">{{ $datas->title }}</a>
+                    <div class="table-responsive">
+                        <table class="table" style="font-family:'Chakra Petch', sans-serif;">
+                            <thead>
+                                <tr>
+                                    <th>สถานะ</th>
+                                    <th>รหัส</th>
+                                    <th>ชื่อประกาศ</th>
+                                    <th>ดำเนินการ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($galleries as $datas)
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn @if($datas->active == 1) btn-outline-success @else btn-outline-secondary @endif btn-sm" onclick="IsActive({{ $datas->id }}, @if($datas->active==1) 0 @else 1 @endif, {{ $datas->type }} )"><i class="lni lni-eye me-0"></i></button>
                                         </td>
-                                        <td>
-                                            <button type="button" onclick="UploadFile({{ $datas->id }},'{{ $datas->type }}')" data-bs-target="#UploadFile" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class="lni lni-cloud-upload"></i></button>
-                                            <button type="button" onclick="editUser({{ $datas->id }}, '{{ $datas->title }}','{{ $datas->type }}')" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
-                                            <form id="delete-form-{{ $datas->id }}" method="POST" action="{{ route('webaru-tabs.destroy', $datas->id) }}" class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="confirmDelete({{ $datas->id }})"><i class='bx bx-trash me-0'></i></button>
-                                            </form>
+                                    <td>{{ $datas->id }}</td>
+                                    <td>
+                                        <a target="_blank" href="{{ asset('storage/2025_webaru_home_tab/'.$datas->files) }}">{{ $datas->title }}</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="UploadFile({{ $datas->id }},'{{ $datas->type }}')" data-bs-target="#UploadFile" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class="lni lni-cloud-upload"></i></button>
+                                        <button type="button" onclick="editUser({{ $datas->id }}, '{{ $datas->title }}','{{ $datas->type }}')" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
+                                        <form id="delete-form-{{ $datas->id }}" method="POST" action="{{ route('webaru-tabs.destroy', $datas->id) }}" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="confirmDelete({{ $datas->id }})"><i class='bx bx-trash me-0'></i></button>
+                                        </form>
 
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            {!! $data_tab->withQueryString()->links('pagination::bootstrap-5') !!}
-                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>

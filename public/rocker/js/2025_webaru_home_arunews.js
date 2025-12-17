@@ -1,8 +1,20 @@
 
 "use strict";
 
-function EditData(id) {
+function EditFile(id) {
     $('#data-id').val(id);
+    // update route ของ resource: /admin/webaru-arunews/{id}
+    const base = document.getElementById('updateForm').dataset.base;
+    document.getElementById('updateForm').action = base + '/' + id;
+}
+
+function EditModal(id, title) {
+    // set ค่าใน input
+    $('#edit_id').val(id);
+    $('#edit_title').val(title);
+
+     const base = $('#editForm').data('base');      // ได้ค่า base url จาก blade
+    $('#editForm').attr('action', base + '/' + id);
 }
 
 
