@@ -24,7 +24,8 @@ class WebaruCarouselsController extends Controller
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -33,7 +34,7 @@ class WebaruCarouselsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:6144' // 5MB Max
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif|max:6144' // 5MB Max
         ]);
 
         if ($request->hasFile('image')) {

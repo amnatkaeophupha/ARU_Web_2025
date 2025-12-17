@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebaruTabController;
+use App\Http\Controllers\WebaruNewsController;
 use App\Http\Controllers\WebaruCarouselsController;
+use App\Http\Controllers\WebaruSliderController;
+use App\Http\Controllers\WebaruGalleryController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -43,6 +46,15 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     route::post('webaru-tabs/active', [WebaruTabController::class, 'active']);
     /* carousels Dashboard WebARU */
     Route::resource('webaru-carousels', WebaruCarouselsController::class);
-    route::post('webaru-carousels/status', [WebaruCarouselsController::class, 'status']);
+    Route::post('webaru-carousels/status', [WebaruCarouselsController::class, 'status']);
+
+    Route::resource('webaru-sliders', WebaruSliderController::class);
+    Route::post('webaru-sliders/status', [WebaruSliderController::class, 'status']);
+
+    Route::resource('webaru-arunews', WebaruNewsController::class);
+    Route::post('webaru-arunews/updateTitle/{id}', [WebaruNewsController::class, 'updateTitle']);
+
+    Route::resource('webaru-gallery', WebaruGalleryController::class);
+
 
 });

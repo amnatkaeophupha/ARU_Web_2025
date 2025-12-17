@@ -45,6 +45,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
+
         <div class="card border-primary border-top border-3 border-0">
             <div class="card-body">
                 <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
@@ -57,12 +58,21 @@
                             <div class="d-flex align-items-center">
                                 <div class="tab-icon"><i class='bx bx-home font-18 me-1'></i>
                                 </div>
-                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">จัดซื้อจัดจ้าง</div>
+                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">ประชาสัมพันธ์ทั่วไป</div>
                             </div>
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link @if($params['tid']==2) active @endif" data-bs-toggle="tab" href="#danger-2" onclick="window.location.href='{{ url('/admin/webaru-tabs/2') }}';" role="tab" aria-selected="@if($params['tid']==2) true @else false @endif">
+                            <div class="d-flex align-items-center">
+                                <div class="tab-icon"><i class='bx bx-home font-18 me-1'></i>
+                                </div>
+                                <div class="tab-title" style="font-family:'Chakra Petch', sans-serif;">จัดซื้อจัดจ้าง</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link @if($params['tid']==3) active @endif" data-bs-toggle="tab" href="#danger-3" onclick="window.location.href='{{ url('/admin/webaru-tabs/3') }}';" role="tab" aria-selected="@if($params['tid']==2) true @else false @endif">
                             <div class="d-flex align-items-center">
                                 <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
                                 </div>
@@ -71,7 +81,7 @@
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==3) active @endif" data-bs-toggle="tab" href="#danger-3" onclick="window.location.href='{{ url('/admin/webaru-tabs/3') }}';" role="tab" aria-selected="@if($params['tid']==3) true @else false @endif">
+                        <a class="nav-link @if($params['tid']==4) active @endif" data-bs-toggle="tab" href="#danger-4" onclick="window.location.href='{{ url('/admin/webaru-tabs/4') }}';" role="tab" aria-selected="@if($params['tid']==3) true @else false @endif">
                             <div class="d-flex align-items-center">
                                 <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
                                 </div>
@@ -80,7 +90,7 @@
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link @if($params['tid']==4) active @endif" data-bs-toggle="tab" href="#danger-3" onclick="window.location.href='{{ url('/admin/webaru-tabs/4') }}';" role="tab" aria-selected="@if($params['tid']==4) true @else false @endif">
+                        <a class="nav-link @if($params['tid']==5) active @endif" data-bs-toggle="tab" href="#danger-5" onclick="window.location.href='{{ url('/admin/webaru-tabs/5') }}';" role="tab" aria-selected="@if($params['tid']==4) true @else false @endif">
                             <div class="d-flex align-items-center">
                                 <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
                                 </div>
@@ -150,10 +160,11 @@
                         <div class="col-sm-12">
                             <div class="input-group" >
                                 <select class="form-select" name="type" style="font-size: 14px;">
-                                    <option value="1" selected>จัดซื้อจัดจ้าง</option>
-                                    <option value="2">สมัครงาน</option>
-                                    <option value="3">ข่าวนักศึกษาภาคปกติ</option>
-                                    <option value="4">ข่าวนักศึกษาภาคพิเศษ</option>
+                                    <option value="1" selected>ข่าวประชาสัมพันธ์ทั่วไป</option>
+                                    <option value="2">จัดซื้อจัดจ้าง</option>
+                                    <option value="3">สมัครงาน</option>
+                                    <option value="4">ข่าวนักศึกษาภาคปกติ</option>
+                                    <option value="5">ข่าวนักศึกษาภาคพิเศษ</option>
                                 </select>
                             </div>
                         </div>
@@ -201,10 +212,11 @@
                         <div class="col-sm-12">
                             <div class="input-group" >
                                 <select class="form-select" name="type" style="font-size: 14px;" id="data-type">
-                                    <option value="1">จัดซื้อจัดจ้าง</option>
-                                    <option value="2">สมัครงาน</option>
-                                    <option value="3">ข่าวนักศึกษาภาคปกติ</option>
-                                    <option value="4">ข่าวนักศึกษาภาคพิเศษ</option>
+                                    <option value="1">ข่าวประชาสัมพันธ์ทั่วไป</option>
+                                    <option value="2">จัดซื้อจัดจ้าง</option>
+                                    <option value="3">สมัครงาน</option>
+                                    <option value="4">ข่าวนักศึกษาภาคปกติ</option>
+                                    <option value="5">ข่าวนักศึกษาภาคพิเศษ</option>
                                 </select>
                             </div>
                         </div>

@@ -35,20 +35,17 @@
             </ul>
         </li>
         <li class="menu-label">WebAru 2025</li>
-        <li>
+        <li class="mm-active">
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i></div>
                 <div class="menu-title">Home</div>
             </a>
             <ul>
-                <li> <a href="{{ url('admin/webaru-carousels'); }}"><i class='bx bx-radio-circle'></i>สไลด์ข่าวสาร</a>
-                </li>
-                <li> <a href="{{ url('admin/'); }}"><i class='bx bx-radio-circle'></i>Aru News</a>
-                </li>
-                <li> <a href="{{ url('admin/webaru-tabs'); }}"><i class='bx bx-radio-circle'></i>ประกาศต่างๆ</a>
-                </li>
-                <li> <a href="app-contact-list.html"><i class='bx bx-radio-circle'></i>Gallery</a>
-                </li>
+                <li> <a href="{{ url('admin/webaru-sliders'); }}"><i class='bx bx-radio-circle'></i>ภาพประชาสัมพันธ์</a></li>
+                <li> <a href="{{ url('admin/webaru-carousels'); }}"><i class='bx bx-radio-circle'></i>โฆษณาข่าวสาร</a></li>
+                <li> <a href="{{ url('admin/webaru-arunews'); }}"><i class='bx bx-radio-circle'></i>ข่าวสารประชาสัมพันธ์</a></li>
+                <li> <a href="{{ url('admin/webaru-tabs'); }}"><i class='bx bx-radio-circle'></i>ประกาศต่างๆ</a></li>
+                <li> <a href="{{ url('admin/webaru-gallery'); }}"><i class='bx bx-radio-circle'></i>Gallery</a></li>
             </ul>
         </li>
         {{-- <li class="menu-label">UI Elements</li>

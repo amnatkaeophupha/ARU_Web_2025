@@ -26,7 +26,7 @@
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{url('eduguide')}}/css/responsive.css">
     <!-- Style customizer (Remove these two lines please) -->
-    {{-- <link rel="stylesheet" href="{{url('eduguide')}}/css/color/color-aru.css"> --}}
+    <link rel="stylesheet" href="{{url('eduguide')}}/css/color/color-aru.css">
 
     <!-- Modernizr JS -->
     <script src="{{url('eduguide')}}/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -62,15 +62,22 @@
                         </div>
                         <div class="col-md-6 col-sm-6 hidden-xs">
                             <div class="header-top-right f-right">
-                                <div class="header-top-social f-right">
-                                    <p>Follow Us :</p>
+                                <div class="header-top-language f-right">
                                     <ul>
-                                        <li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
-                                        <li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
-                                        <li><a href="#"><i class="icofont icofont-social-github"></i></a></li>
+                                        <li><a href="#">E-DOC</i></a></li>
                                     </ul>
                                 </div>
                                 <div class="header-top-language f-left">
+                                    <ul>
+                                        <li><a href="#">ระบบบริการนักศึกษา</i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="header-top-language f-left">
+                                    <ul>
+                                        <li><a href="#">ระบบบริหารการศึกษา</i></a></li>
+                                    </ul>
+                                </div>
+                                {{-- <div class="header-top-language f-left">
                                     <ul>
                                         <li><a href="#" data-toggle="dropdown">English<i class="icofont icofont-simple-down"></i></a>
                                             <ul class="dropdown-menu">
@@ -80,7 +87,7 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -193,19 +200,17 @@
                                         <li class="coloumn-one"><a href="#">สำหรับนักศึกษา <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul>
                                                 <li><a href="https://www.aru.ac.th/regis/?page=tabs&subpage=tab_home2&cid=100&ctid=101" target="_blank">ปฏิทินการศึกษา</a></li>
-                                                <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการ</a></li>
-                                                <li><a href="https://mail.google.com/" target="_blank">email@aru</a></li>
-                                                <li><a href="https://www.aru.ac.th/regis/?page=graduate" target="_blank">ตรวจรายชื่อผู้สำเร็จการศึกษา</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการนักศึกษา</a></li>
+                                                <li><a href="https://www.aru.ac.th/regis/?page=graduate" target="_blank">รายชื่อผู้สำเร็จการศึกษา</a></li>
                                             </ul>
                                         </li>
                                         <li class="coloumn-one"><a href="#">สำหรับบุคลากร <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul>
                                                 <li><a href="http://e-uni8.aru.ac.th:81/e-uni/" target="_blank">ระบบบริหารการศึกษา</a></li>
-                                                <li><a href="https://gmail.com" target="_blank">บริการ gmail@aru.ac.th</a></li>
-                                                <li><a href="https://edoc.aru.ac.th/" target="_blank">ARU DIGITAL WORKFLOW</a></li>
+                                                <li><a href="https://edoc.aru.ac.th/" target="_blank">ระบบสารบรรณอิเล็กทรอนิกส์</a></li>
                                                 <li><a href="https://edoc.aru.ac.th/" target="_blank">ระบบการลาออนไลน์</a></li>
-                                                <li><a href="/staff/?page=hr&subpage=hr_form" target="_blank">แบบฟอร์มบุคลากร</a></li>
-                                                <li><a href="https://www.aru.ac.th/arit/index.php?pages=informationsystems" target="_blank">เอกสารวิชาการ</a></li>
+                                                <li><a href="/staff/?page=hr&subpage=hr_form" target="_blank">ระบบการประชุมอิเล็กทรอนิกส์</a></li>
+                                                <li><a href="https://www.turnitin.com/" target="_blank">turnitin</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="news-page.html">ผู้สำเร็จการศึกษา  </a></li>
@@ -369,43 +374,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text">
-                            <h3>Courses</h3>
+                            <h3>ตำราการสอนและวิจัย</h3>
                             <ul class="footer-text-all">
-                                <li><a href="#">Computer Science</a></li>
-                                <li><a href="#">Product Manager</a></li>
-                                <li><a href="#">Leader’s  Guide</a></li>
+                                <li><a href="#">โครงการตำรา/หนังสือ</a></li>
+                                <li><a href="#">เอกสารประกอบการสอน (PowerPoint)</a></li>
+                                <li><a href="#">เอกสารวิชาการภายใน</a></li>
                                 <li><a href="#">Micro Biology</a></li>
-                                <li><a href="#">Political Science</a></li>
+                                <li><a href="#">กฏหมายมหาวิทยาลัยฯ</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6">
-                        <div class="footer-text mrg-xs">
-                            <h3>Quick Links</h3>
-                            <ul class="footer-text-all">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Opening Hours</a></li>
-                                <li><a href="#">Our Top Courses</a></li>
-                                <li><a href="#">Choose Eduguide</a></li>
-                                <li><a href="#">Upcoming Events</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text mrg-sm3 mrg-xs">
-                            <h3>Quick Links</h3>
+                            <h3>หน่วยงานสำคัญ</h3>
                             <ul class="footer-text-all">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Opening Hours</a></li>
-                                <li><a href="#">Our Top Courses</a></li>
-                                <li><a href="#">Choose Eduguide</a></li>
-                                <li><a href="#">Upcoming Events</a></li>
+                                 <li><a href="#">โรงเรียนสาธิตฯ</a></li>
+                                <li><a href="#">กองบริการการศึกษา</a></li>
+                                <li><a href="#">กองพัฒนานักศึกษา</a></li>
+                                <li><a href="#">กองนโยบายและแผน</a></li>
+                                <li><a href="#">งานทรัพยากรบุคคล</a></li>
+                                <li><a href="#">งานพัสดุ</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-text mrg-xs">
+                            <h3>Link ที่เกี่ยวข้อง</h3>
+                            <ul class="footer-text-all">
+                                <li><a href="#">ARU SDGs </a></li>
+                                <li><a href="#">การเปิดเผยข้อมูลสาธารณะ (OpenData)</a></li>
+                                <li><a href="#">นโยบายความเป็นส่วนบุคคล</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
                         <div class="footer-text mrg-sm3 mrg-xs">
                             <h3>Contact Us</h3>
                             <form action="#">
@@ -449,6 +453,7 @@
     <!-- jquery latest version -->
     {{-- <script src="{{url('eduguide')}}/js/vendor/jquery-1.12.0.min.js"></script> --}}
     <script src="{{url('eduguide')}}/js/vendor/jquery-2.2.4.min.js"></script>
+    {{-- <script src="{{ url('glaxdu') }}/assets/js/vendor/jquery-3.7.1.min.js"></script> --}}
 
     <!-- Bootstrap framework js -->
     {{-- <script src="{{url('eduguide')}}/js/bootstrap.min.js"></script> --}}
@@ -460,6 +465,7 @@
     <script src="{{url('eduguide')}}/js/plugins.js"></script>
     <script src="{{url('eduguide')}}/js/main.js"></script>
 
+    {{-- Toggle dropdown when the <a> tag with data-toggle="dropdown" --}}
     <script>
       $(document).ready(function() {
         // Toggle dropdown when the <a> tag with data-toggle="dropdown" is clicked
@@ -475,6 +481,38 @@
           }
         });
       });
+    </script>
+
+    {{-- banner ประชาสัมพันธ์ popup --}}
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('.popup-image');
+
+        images.forEach(img => {
+            img.addEventListener('click', function () {
+                const link = this.getAttribute('data-link');
+
+                // 📱 MOBILE MODE — เปิดลิงก์ทันที
+                if (window.innerWidth <= 767) {
+                    if (link) {
+                        window.open(link, '_blank');
+                    }
+                    return;
+                }
+
+                // 🖥 DESKTOP MODE — เปิด Popup
+                if (link) {
+                    document.getElementById('modalDetailLink').href = link;
+                    document.getElementById('modalDetailLink').style.display = 'block';
+                } else {
+                    document.getElementById('modalDetailLink').style.display = 'none';
+                }
+
+                document.getElementById('modalImage').src = this.src;
+                $('#imageModal').modal('show');
+            });
+        });
+    });
     </script>
 
 </body>

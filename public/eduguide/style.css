@@ -221,6 +221,15 @@
 .blog-img img {
     width: 100%;
 }
+
+.aru-blog-img-gallery img {
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c1c1c1;
+    padding: 2px;
+}
+
 .aru-blog-img img {
     width: 100%;
     border-style: solid;
@@ -394,6 +403,14 @@ button.submit:hover::after {
     float: left;
     position: relative;
 }
+
+.event-img3 img{
+   width: 170px;
+    height: auto;
+    display: block;
+    object-fit: cover; /* ถ้าต้องการให้เต็มกรอบแบบสวย */
+}
+
 .event-date {
     background-color: #f8b239;
     bottom: 0;
