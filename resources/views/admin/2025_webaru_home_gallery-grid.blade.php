@@ -57,26 +57,25 @@
                         <table class="table" style="font-family:'Chakra Petch', sans-serif;">
                             <thead>
                                 <tr>
-                                    <th>สถานะ</th>
-                                    <th>รหัส</th>
-                                    <th>ชื่อประกาศ</th>
-                                    <th>ดำเนินการ</th>
+                                    <th width="10%">รหัส</th>
+                                    <th width="50%">ชื่อประกาศ</th>
+                                    <th width="20%">ชื่อประกาศ</th>
+                                    <th width="20%">ดำเนินการ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($galleries as $datas)
                                 <tr>
-                                    <td>
-                                        <button type="button" class="btn @if($datas->active == 1) btn-outline-success @else btn-outline-secondary @endif btn-sm" onclick="IsActive({{ $datas->id }}, @if($datas->active==1) 0 @else 1 @endif, {{ $datas->type }} )"><i class="lni lni-eye me-0"></i></button>
-                                        </td>
                                     <td>{{ $datas->id }}</td>
                                     <td>
                                         <a target="_blank" href="{{ asset('storage/2025_webaru_home_tab/'.$datas->files) }}">{{ $datas->title }}</a>
                                     </td>
+                                    <td>{{ $datas->by }}</td>
                                     <td>
-                                        <button type="button" onclick="UploadFile({{ $datas->id }},'{{ $datas->type }}')" data-bs-target="#UploadFile" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class="lni lni-cloud-upload"></i></button>
-                                        <button type="button" onclick="editUser({{ $datas->id }}, '{{ $datas->title }}','{{ $datas->type }}')" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
-                                        <form id="delete-form-{{ $datas->id }}" method="POST" action="{{ route('webaru-tabs.destroy', $datas->id) }}" class="d-inline">
+                                        <button type="button" data-id="{{ $datas->id }}" data-bs-target="#UploadFile" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class="lni lni-cloud-upload"></i></button>
+                                        {{-- <button type="button" onclick="editUser({{ $datas->id }}, @json($datas->title), @json($datas->start_date),@json($datas->by))" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button> --}}
+                                        <button type="button" data-id="{{ $datas->id }}" data-title="{{ $datas->title }}" data-start_date="{{ $datas->start_date }}" data-by="{{ $datas->by }}" data-bs-toggle="modal" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
+                                        <form id="delete-form-{{ $datas->id }}" method="POST" action="{{ route('webaru-galleries.destroy', $datas->id) }}" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" class="btn btn-outline-danger btn-sm" onclick="confirmDelete({{ $datas->id }})"><i class='bx bx-trash me-0'></i></button>
@@ -95,10 +94,11 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="AddUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <form method="POST" action="{{ url('admin/webaru-tabs') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url('admin/webaru-galleries') }}" enctype="multipart/form-data">
         @csrf
             <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">เพิ่มข้อมูล</h5>
@@ -106,21 +106,54 @@
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">ประเภทประกาศ</label>
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="input-group" >
-                                <select class="form-select" name="type" style="font-size: 14px;">
-                                    <option value="1" selected>ข่าวประชาสัมพันธ์ทั่วไป</option>
-                                    <option value="2">จัดซื้อจัดจ้าง</option>
-                                    <option value="3">สมัครงาน</option>
-                                    <option value="4">ข่าวนักศึกษาภาคปกติ</option>
-                                    <option value="5">ข่าวนักศึกษาภาคพิเศษ</option>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <label class="col-sm-12 col-form-label">วันที่</label>
+                                <select name="dd" class="form-select">
+                                    @for ($d = 1; $d <= 31; $d++)
+                                    <option value="{{ sprintf('%02d', $d) }}">{{ $d }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <label class="col-sm-12 col-form-label">เดือน</label>
+                                <select name="mm" class="form-select">
+                                    <option value="01">มกราคม</option>
+                                    <option value="02">กุมภาพันธ์</option>
+                                    <option value="03">มีนาคม</option>
+                                    <option value="04">เมษายน</option>
+                                    <option value="05">พฤษภาคม</option>
+                                    <option value="06">มิถุนายน</option>
+                                    <option value="07">กรกฎาคม</option>
+                                    <option value="08">สิงหาคม</option>
+                                    <option value="09">กันยายน</option>
+                                    <option value="10">ตุลาคม</option>
+                                    <option value="11">พฤศจิกายน</option>
+                                    <option value="12">ธันวาคม</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <label class="col-sm-12 col-form-label">ปี</label>
+                                <select name="yy" class="form-select">
+                                <option value="{{now()->year+542}}">{{now()->year+542}}</option>
+                                @for ($y = now()->year; $y <= now()->year + 2; $y++)
+                                    <option
+                                        value="{{ $y + 543 }}"
+                                        {{ old('yy', now()->year + 543) == $y + 543 ? 'selected' : '' }}>
+                                        {{ $y + 543 }}
+                                    </option>
+                                @endfor
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label mt-2">หัวข้อ</label>
+
+                    <label class="col-sm-12 col-form-label mt-2">หัวข้อกิจกรรม</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
@@ -128,11 +161,19 @@
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label mt-2">Upload File (PDF, Word, Excel):</label>
+                    <label class="col-sm-12 col-form-label mt-2">เผยแพร่โดย</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input type="file" name="file" class="form-control" style="font-size: 14px;" accept=".pdf,.doc,.docx,.xls,.xlsx">
+                                <input class="form-control" name="by" rows="3" style="font-size: 14px;" value="ศูนย์ดิจิทัลเพื่อการเรียนรู้และสื่อสารองค์กร">
+                            </div>
+                        </div>
+                    </div>
+                    <label class="col-sm-12 col-form-label mt-2">Upload File Images: กำหนดขนาด 170 X 200</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <input type="file" name="image" class="form-control" style="font-size: 14px;" accept=".jpg,.jpeg,.png">
                             </div>
                         </div>
                     </div>
@@ -150,34 +191,75 @@
 <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="{{ url('admin/webaru-tabs/update') }}">
+            <form method="POST" id="editForm">
             @csrf
+            @method('PUT')
             <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">แก้ไข</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">ประเภทประกาศ</label>
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="input-group" >
-                                <select class="form-select" name="type" style="font-size: 14px;" id="data-type">
-                                    <option value="1">ข่าวประชาสัมพันธ์ทั่วไป</option>
-                                    <option value="2">จัดซื้อจัดจ้าง</option>
-                                    <option value="3">สมัครงาน</option>
-                                    <option value="4">ข่าวนักศึกษาภาคปกติ</option>
-                                    <option value="5">ข่าวนักศึกษาภาคพิเศษ</option>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <label class="col-sm-12 col-form-label">วันที่</label>
+                                <select id="edit-dd" name="dd" class="form-select">
+                                    @for ($d = 1; $d <= 31; $d++)
+                                    <option value="{{ sprintf('%02d', $d) }}">{{ $d }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <label class="col-sm-12 col-form-label">เดือน</label>
+                                <select id="edit-mm" name="mm" class="form-select">
+                                    <option value="01">มกราคม</option>
+                                    <option value="02">กุมภาพันธ์</option>
+                                    <option value="03">มีนาคม</option>
+                                    <option value="04">เมษายน</option>
+                                    <option value="05">พฤษภาคม</option>
+                                    <option value="06">มิถุนายน</option>
+                                    <option value="07">กรกฎาคม</option>
+                                    <option value="08">สิงหาคม</option>
+                                    <option value="09">กันยายน</option>
+                                    <option value="10">ตุลาคม</option>
+                                    <option value="11">พฤศจิกายน</option>
+                                    <option value="12">ธันวาคม</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <label class="col-sm-12 col-form-label">ปี</label>
+                                <select id="edit-yy" name="yy" class="form-select">
+                                <option value="{{now()->year+542}}">{{now()->year+542}}</option>
+                                @for ($y = now()->year; $y <= now()->year + 2; $y++)
+                                    <option
+                                        value="{{ $y + 543 }}"
+                                        {{ old('yy', now()->year + 543) == $y + 543 ? 'selected' : '' }}>
+                                        {{ $y + 543 }}
+                                    </option>
+                                @endfor
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <label class="col-sm-12 col-form-label mt-2">หัวข้อ</label>
+                    <label class="col-sm-12 col-form-label mt-2">หัวข้อกิจกรรม</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <textarea class="form-control" name="title" id="data-title" rows="3" style="font-size: 14px;"></textarea>
+                                <textarea class="form-control" id="edit-title" name="title" rows="3" style="font-size: 14px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="col-sm-12 col-form-label mt-2">เผยแพร่โดย</label>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <input class="form-control" id="edit-by" name="by" rows="3" style="font-size: 14px;" value="ศูนย์ดิจิทัลเพื่อการเรียนรู้และสื่อสารองค์กร">
                             </div>
                         </div>
                     </div>
@@ -196,19 +278,19 @@
 <div class="modal fade" id="UploadFile" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="{{ url('admin/webaru-tabs/upload') }}" enctype="multipart/form-data">
+            <form id="uploadForm" method="POST" data-base="{{ url('admin/webaru-galleries') }}" enctype="multipart/form-data">
             @csrf
-            <div class="modal-header bg-primary">
+            <div class="modal-header bg-info">
                 <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">Upload</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">Upload File (PDF, Word, Excel)</label>
+                    <label class="col-sm-12 col-form-label">Upload Image File ขนาดภาพ 170X200</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input type="file" name="files" class="form-control" style="font-size: 14px;" accept=".pdf,.doc,.docx,.xls,.xlsx">
+                                <input type="file" name="image" class="form-control" style="font-size: 14px;" accept=".jpg,.jpeg,.png">
                             </div>
                         </div>
                     </div>
@@ -216,30 +298,12 @@
             </div>
             <div class="modal-footer">
                 <input type="hidden" name="id" id="VerifyId">
-                <input type="hidden" name="type" id="VerifyType">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" class="btn btn-info">Upload</button>
             </div>
             </form>
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    function IsActive(id, active, type) {
-    $.ajax({
-        url: '/admin/webaru-tabs/active',
-        type: 'POST',
-        data: {
-            id: id,
-            active: active,
-            type: type,
-            _token: '{{ csrf_token() }}'
-        },
-        success: function(data) {
-            location.reload();
-        }
-    });
-}
-</script>
 @endsection

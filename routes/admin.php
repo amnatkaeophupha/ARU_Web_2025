@@ -48,7 +48,7 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::resource('webaru-arunews', WebaruNewsController::class);
     Route::post('webaru-arunews/updateTitle/{id}', [WebaruNewsController::class, 'updateTitle']);
 
-    Route::resource('webaru-gallery', WebaruGalleryController::class);
-
+    Route::resource('webaru-galleries', WebaruGalleryController::class);
+    Route::post('webaru-galleries/{id}/image', [WebaruGalleryController::class, 'updateImage'])->name('webaru-galleries.updateImage');
 
 });

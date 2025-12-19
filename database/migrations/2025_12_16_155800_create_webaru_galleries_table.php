@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->date('start_date')->nullable();
+            $table->string('by')->nullable();
             $table->tinyInteger('status')->default(1);
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }
