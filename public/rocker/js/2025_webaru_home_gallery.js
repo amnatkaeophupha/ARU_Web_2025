@@ -60,3 +60,75 @@ function confirmDelete(Id) {
         }
     });
 }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const modalEl = document.getElementById('galleryModal');
+    const carouselEl = document.getElementById('galleryCarousel');
+    const carousel = new bootstrap.Carousel(carouselEl, { interval: false, ride: false, touch: true });
+
+    const slideInfo = document.getElementById('slideInfo');
+
+    // Zoom state
+    let zoom = 1;
+    const zoomStep = 0.2;
+    const zoomMin = 1;
+    const zoomMax = 3;
+
+    function getActiveImg() {
+        return carouselEl.querySelector('.carousel-item.active .gallery-zoom-img');
+    }
+    function applyZoom() {
+        const img = getActiveImg();
+        if (img) img.style.transform = `scale(${zoom})`;
+    }
+    function resetZoom() {
+        zoom = 1;
+        applyZoom();
+    }
+
+    // เปิด modal แล้วไปยังสไลด์ที่คลิก
+    document.getElementById('galleryGrid')?.addEventListener('click', function(e){
+        const a = e.target.closest('a[data-index]');
+        if (!a) return;
+        const index = parseInt(a.getAttribute('data-index'), 10) || 0;
+
+        // ไปสไลด์นั้น
+        carousel.to(index);
+        resetZoom();
+        updateInfo();
+    });
+
+    // เปลี่ยนสไลด์แล้ว reset zoom + อัปเดตข้อความ
+    carouselEl.addEventListener('slid.bs.carousel', function () {
+        resetZoom();
+        updateInfo();
+    });
+
+    // ปิด modal แล้ว reset zoom
+    modalEl.addEventListener('hidden.bs.modal', function(){
+        resetZoom();
+    });
+
+    // ปุ่มซูม
+    document.getElementById('zoomInBtn')?.addEventListener('click', function(){
+        zoom = Math.min(zoomMax, zoom + zoomStep);
+        applyZoom();
+    });
+    document.getElementById('zoomOutBtn')?.addEventListener('click', function(){
+        zoom = Math.max(zoomMin, zoom - zoomStep);
+        applyZoom();
+    });
+    document.getElementById('zoomResetBtn')?.addEventListener('click', function(){
+        resetZoom();
+    });
+
+    function updateInfo(){
+        const items = carouselEl.querySelectorAll('.carousel-item');
+        const activeIndex = [...items].findIndex(x => x.classList.contains('active'));
+        slideInfo.textContent = `รูปที่ ${activeIndex + 1} จาก ${items.length}`;
+    }
+
+    // init info
+    updateInfo();
+    });

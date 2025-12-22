@@ -11,9 +11,6 @@
 	<link href="{{url('rocker');}}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="{{url('rocker');}}/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet"/>
-	<!-- loader-->
-	<link href="{{url('rocker');}}/css/pace.min.css" rel="stylesheet"/>
-	<script src="{{url('rocker');}}/js/pace.min.js"></script>
 	<!-- Bootstrap CSS -->
 	<link href="{{url('rocker');}}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{url('rocker');}}/css/bootstrap-extended.css" rel="stylesheet">
@@ -29,6 +26,11 @@
 	<link rel="stylesheet" href="{{url('rocker');}}/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/header-colors.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css">
+
+    {{--  render styles จาก child --}}
+    @stack('styles')
 
     <title>@yield('title', 'Default Title')</title>
 </head>
@@ -64,8 +66,21 @@
 	<script src="{{url('rocker');}}/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="{{url('rocker');}}/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 	<!--app JS-->
-    <script src="{{url('rocker');}}/js/2025_webaru_home_gallery.js"></script>
 	<script src="{{url('rocker');}}/js/app.js"></script>
+    {{--  render scripts จาก child (ต้องอยู่ท้ายสุด) --}}
     @stack('scripts')
+
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+<script>
+  // ตั้งค่าเพิ่มเติมได้
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true,
+    albumLabel: "รูปที่ %1 จาก %2"
+  });
+</script>
+
 </body>
+
+
 </html>

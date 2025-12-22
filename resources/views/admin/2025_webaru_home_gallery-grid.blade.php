@@ -68,7 +68,7 @@
                                 <tr>
                                     <td>{{ $datas->id }}</td>
                                     <td>
-                                        <a target="_blank" href="{{ asset('storage/2025_webaru_home_tab/'.$datas->files) }}">{{ $datas->title }}</a>
+                                        <a href="{{ url('admin/webaru-galleries/view/'.$datas->id) }}">{{ $datas->title }}</a>
                                     </td>
                                     <td>{{ $datas->by }}</td>
                                     <td>
