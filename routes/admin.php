@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\CustomVerificationController;
 use App\Models\WebaruTab;
+use App\Http\Controllers\WebaruAdmitController;
 
 Route::prefix('admin')->middleware(['role:admin','verified'])->group(function () {
 
@@ -53,4 +54,10 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::get('webaru-galleries/view/{id}', [WebaruGalleryController::class, 'view'])->name('admin.webaru-galleries.view');
     Route::post('admin/webaru-galleries/upload-images', [WebaruGalleryController::class, 'uploadImagesOnlyFile'])->name('admin.webaru-galleries.upload-images');
     Route::delete('admin/webaru-galleries/delete-image', [WebaruGalleryController::class, 'deleteImage'])->name('admin.webaru-galleries.delete-image');
+
+
+    Route::get('webaru-admit', [WebaruAdmitController::class, 'index']);
+    Route::post('webaru-admit', [WebaruAdmitController::class, 'store']);
+    Route::get('webaru-admit/edit/{id}', [WebaruAdmitController::class, 'edit'])->name('admin.webaru-admit.edit');
+
 });

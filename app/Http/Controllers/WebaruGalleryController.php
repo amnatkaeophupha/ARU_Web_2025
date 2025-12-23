@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Intervention\Image\Laravel\Facades\Image;
 
 class WebaruGalleryController extends Controller
 {
@@ -190,7 +191,20 @@ class WebaruGalleryController extends Controller
             $ext = strtolower($file->getClientOriginalExtension());
             $filename = now()->format('YmdHis') . '_' . Str::random(8) . '.' . $ext;
 
-            $file->storeAs($folderPath, $filename, 'public');
+             // อ่านรูป
+            $image = Image::read($file);
+
+            // ปรับขนาด: ด้านยาวสุด = 1920px (รักษาอัตราส่วน)
+            $image->resize(1920, 1920, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize(); // ป้องกันการขยายภาพเล็ก
+            });
+
+           // บันทึกไฟล์ลง storage/app/public/...
+            $savePath = storage_path("app/public/{$folderPath}/{$filename}");
+            $image->save($savePath, quality: 85);
+
+            //$file->storeAs($folderPath, $filename, 'public');
         }
 
         return redirect()->route('admin.webaru-galleries.view', $id)->with('success', 'อัปโหลดรูปเรียบร้อยแล้ว');
