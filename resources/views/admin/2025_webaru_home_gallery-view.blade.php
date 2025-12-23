@@ -53,52 +53,46 @@
                 </div>
                 <hr/>
                 <div class="tab-content py-3">
+                    @php
+                    $images = collect($files)->map(fn($f) => asset('storage/'.$f))->values();
+                    @endphp
+                    <div class="row g-1 mt-2" id="galleryGrid">
+                    @foreach($images as $i => $url)
+                        @php
+                        $filename = basename($url); // ได้ชื่อไฟล์ xxx.png
+                        @endphp
 
+                        <div class="col-md-2 col-sm-3 col-4">
+                        <div class="position-relative">
 
-@php
-  $images = collect($files)->map(fn($f) => asset('storage/'.$f))->values();
-@endphp
+                            {{-- คลิกเพื่อเปิด modal --}}
+                            <a href="javascript:void(0)"
+                            class="d-block"
+                            data-bs-toggle="modal"
+                            data-bs-target="#galleryModal"
+                            data-index="{{ $i }}">
+                            <img src="{{ $url }}"
+                                class="img-fluid rounded shadow-sm d-block w-100"
+                                style="cursor: zoom-in; aspect-ratio:1/1; object-fit:cover;">
+                            </a>
 
-<div class="row g-1 mt-2" id="galleryGrid">
-  @foreach($images as $i => $url)
-    @php
-      $filename = basename($url); // ได้ชื่อไฟล์ xxx.png
-    @endphp
-
-    <div class="col-md-3 col-sm-4 col-6">
-      <div class="position-relative">
-
-        {{-- คลิกเพื่อเปิด modal --}}
-        <a href="javascript:void(0)"
-           class="d-block"
-           data-bs-toggle="modal"
-           data-bs-target="#galleryModal"
-           data-index="{{ $i }}">
-          <img src="{{ $url }}"
-               class="img-fluid rounded shadow-sm d-block w-100"
-               style="cursor: zoom-in; aspect-ratio:1/1; object-fit:cover;">
-        </a>
-
-        {{-- ปุ่มลบ --}}
-        <form method="POST"
-              action="{{ route('admin.webaru-galleries.delete-image') }}"
-              class="position-absolute top-0 end-0 m-1"
-              onsubmit="return confirm('ต้องการลบรูปนี้ใช่หรือไม่?');">
-          @csrf
-          @method('DELETE')
-          <input type="hidden" name="id" value="{{ $gallery->id }}">
-          <input type="hidden" name="file" value="{{ $filename }}">
-          <button type="submit" class="btn btn-sm btn-danger">
-            <i class="bx bx-trash"></i>
-          </button>
-        </form>
-
-      </div>
-    </div>
-  @endforeach
-</div>
-
-
+                            {{-- ปุ่มลบ --}}
+                            <form method="POST"
+                                action="{{ route('admin.webaru-galleries.delete-image') }}"
+                                class="position-absolute top-0 end-0 m-1"
+                                onsubmit="return confirm('ต้องการลบรูปนี้ใช่หรือไม่?');">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="id" value="{{ $gallery->id }}">
+                            <input type="hidden" name="file" value="{{ $filename }}">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="bx bx-trash"></i>
+                            </button>
+                            </form>
+                        </div>
+                        </div>
+                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>
