@@ -20,4 +20,9 @@ class WebaruAdmitcycle extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function fileDetails()
+{
+    return $this->hasMany(\App\Models\WebaruAdmincycleFileDetail::class,'webaru_admitcycle_id');
+}
 }
