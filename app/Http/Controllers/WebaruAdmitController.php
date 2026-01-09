@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WebaruAdmitcycle;
-use App\Models\WebaruAdmincycleFileDetail;
+use App\Models\WebaruAdmitCycle;
+use App\Models\WebaruAdmitCycleFileDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +18,7 @@ class WebaruAdmitController extends Controller
      */
     public function index()
     {
-         $items = WebaruAdmitcycle::query()
+         $items = WebaruAdmitCycle::query()
             ->where('is_active', true)
             ->orderByDesc('year')
             ->orderByDesc('id')
@@ -72,13 +72,13 @@ class WebaruAdmitController extends Controller
 
         }
 
-        WebaruAdmitcycle::create($data);
+        WebaruAdmitCycle::create($data);
         return redirect()->back()->with('success', 'เพิ่มรอบการรับสมัครเรียบร้อยแล้ว');
     }
 
     public function admitcycle_upload(Request $request, string $id)
     {
-        $item = WebaruAdmitcycle::findOrFail($id);
+        $item = WebaruAdmitCycle::findOrFail($id);
 
         $request->validate([
             'files' => 'required|file|mimes:pdf|max:10240', // 10MB
@@ -119,8 +119,8 @@ class WebaruAdmitController extends Controller
      */
     public function edit(string $id)
     {
-        //$item = WebaruAdmitcycle::findOrFail($id);
-        $item = WebaruAdmitcycle::with('fileDetails')->findOrFail($id);
+        //$item = WebaruAdmitCycle::findOrFail($id);
+        $item = WebaruAdmitCycle::with('fileDetails')->findOrFail($id);
         return view('admin.2025_webaru_home_admit-edit', compact('item'));
     }
 
@@ -129,7 +129,7 @@ class WebaruAdmitController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $item = WebaruAdmitcycle::findOrFail($id);
+        $item = WebaruAdmitCycle::findOrFail($id);
 
         $request->validate([
             'year' => 'required|string|max:4',
@@ -188,7 +188,7 @@ class WebaruAdmitController extends Controller
 
         $path = $file->storeAs('2025_webaru_home_admitcycle_file_detail',$filename,'public');
 
-        WebaruAdmincycleFileDetail::create([
+        WebaruAdmitCycleFileDetail::create([
             'webaru_admitcycle_id' => $id,
             'file_name'  => $request->file_name,
             'file_path'  => $path,
@@ -202,7 +202,7 @@ class WebaruAdmitController extends Controller
 
     public function admincycle_file_detail_destroy(string $id)
     {
-        $file = WebaruAdmincycleFileDetail::findOrFail($id);
+        $file = WebaruAdmitCycleFileDetail::findOrFail($id);
 
         if ($file->file_path && Storage::disk('public')->exists($file->file_path)) {
             Storage::disk('public')->delete($file->file_path);
@@ -218,7 +218,7 @@ class WebaruAdmitController extends Controller
      */
     public function destroy(string $id)
     {
-        $item = WebaruAdmitcycle::with('fileDetails')->findOrFail($id);
+        $item = WebaruAdmitCycle::with('fileDetails')->findOrFail($id);
 
         // 1) ลบไฟล์ PDF หลัก (ถ้ามี)
         if ($item->files && Storage::disk('public')->exists($item->files)) {
@@ -241,6 +241,6 @@ class WebaruAdmitController extends Controller
 
     public function fileDetails()
     {
-        return $this->hasMany(\App\Models\WebaruAdmincycleFileDetail::class, 'webaru_admitcycle_id');
+        return $this->hasMany(\App\Models\WebaruAdmitCycleFileDetail::class, 'webaru_admitcycle_id');
     }
 }

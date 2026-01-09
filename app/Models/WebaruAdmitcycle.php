@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WebaruAdmitcycle extends Model
+class WebaruAdmitCycle extends Model
 {
-    protected $table = 'webaru_admitcycles';
+    protected $table = 'webaru_admit_cycles';
 
     protected $fillable = [
 
@@ -23,6 +23,6 @@ class WebaruAdmitcycle extends Model
 
     public function fileDetails()
 {
-    return $this->hasMany(\App\Models\WebaruAdmincycleFileDetail::class,'webaru_admitcycle_id');
+    return $this->hasMany(\App\Models\WebaruAdmitCycleFileDetail::class, 'webaru_admitcycle_id');
 }
 }

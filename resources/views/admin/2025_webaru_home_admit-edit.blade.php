@@ -131,7 +131,7 @@
                                 {{-- ชื่อปุ่มเปิดไฟล์ --}}
                                 <td>
 
-                                    <a href="{{ asset('storage/'.$file->file_path) }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <a href="{{ asset('storage/'.$file->file_path) }}" target="_blank" class="btn btn-sm btn-outline-success">
                                         {{ $file->file_name}}
                                     </a>
                                 </td>
@@ -168,6 +168,7 @@
             </div>
         </div>
 
+
         <div class="card border-danger border-top border-3 border-0">
             <div class="card-body">
                 <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
@@ -188,7 +189,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">
-                                <button type="submit" class="btn btn-primary px-4">Submit</button>
+                                <button type="submit" class="btn btn-danger px-4">Submit</button>
                                  <a href="{{ url('admin/webaru-admit') }}" class="btn btn-light px-4">Back</a>
                             </div>
                         </div>
@@ -196,8 +197,6 @@
                 </div>
             </div>
         </div>
-
-
 
     </div>
 </div>
