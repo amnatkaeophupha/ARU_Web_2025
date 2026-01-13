@@ -17,10 +17,7 @@ class WebaruAdmitCycleFileDetail extends Model
 
     public function admitCycle()
     {
-        return $this->belongsTo(
-            WebaruAdmitCycle::class,
-            'webaru_admitcycle_id'
-        );
+        return $this->belongsTo(WebaruAdmitCycle::class,'webaru_admitcycle_id');
     }
 }
 

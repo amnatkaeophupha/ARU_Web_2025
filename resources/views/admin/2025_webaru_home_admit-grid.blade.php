@@ -66,40 +66,34 @@
                                 @foreach($items as $datas)
                                 <tr>
                                     <td style="text-align: center;">
-<form method="POST"
-      action="{{ url('admin/webaru-admit/'.$datas->id.'/toggle') }}"
-      class="d-inline toggle-active-form"
-      data-title="{{ $datas->title }}"
-      data-status="{{ $datas->is_active ? 'ปิดการมองเห็น' : 'เปิดการมองเห็น' }}">
-    @csrf
-    @method('PATCH')
+                                        <form method="POST"
+                                            action="{{ url('admin/webaru-admit/'.$datas->id.'/toggle') }}"
+                                            class="d-inline toggle-active-form"
+                                            data-title="{{ $datas->title }}"
+                                            data-status="{{ $datas->is_active ? 'ปิดการมองเห็น' : 'เปิดการมองเห็น' }}">
+                                            @csrf
+                                            @method('PATCH')
 
-    <button type="submit"
-        class="btn btn-sm
-        {{ $datas->is_active ? 'btn-success' : 'btn-secondary' }}"
-        title="{{ $datas->is_active ? 'กำลังแสดงหน้าเว็บ' : 'ปิดการมองเห็น' }}">
+                                            <button type="submit"
+                                                class="btn btn-sm
+                                                {{ $datas->is_active ? 'btn-success' : 'btn-secondary' }}"
+                                                title="{{ $datas->is_active ? 'กำลังแสดงหน้าเว็บ' : 'ปิดการมองเห็น' }}">
 
-        @if($datas->is_active)
-            <i class="bx bx-toggle-right"></i> ON
-        @else
-            <i class="bx bx-toggle-left"></i> OFF
-        @endif
-    </button>
-</form>
+                                                @if($datas->is_active)
+                                                    <i class="bx bx-toggle-right"></i> ON
+                                                @else
+                                                    <i class="bx bx-toggle-left"></i> OFF
+                                                @endif
+                                            </button>
+                                        </form>
                                     </td>
                                     <td>
                                         {{ $datas->created_at->format('d/m/Y') }}
 
                                     </td>
                                     <td>
-                                        @if($datas->files)
-                                            <a href="{{ url('admin/webaru-admit/view/'.$datas->id) }}">{{ $datas->title }}</a>
-                                            <br>
-                                            [ <a href="{{ asset('storage/'.$datas->files) }}" class="text-danger" style="font-size: 12px;" target="_blank">ดูไฟล์ PDF</a> ]
-                                        @else
-                                            {{ $datas->title }}
-                                            <span class="text-danger">(ไม่มีไฟล์ PDF)</span>
-                                        @endif
+                                        <a href="{{ url('admin/webaru-admit/view/'.$datas->id) }}">{{ $datas->title }}</a>
+                                    </td>
                                     <td>
                                         {{-- ปุ่มไปหน้าประกาศผล --}}
                                         <a href="{{ url('admin/webaru-admit/view/'.$datas->id) }}"
@@ -107,14 +101,6 @@
                                         title="ดูผลประกาศ">
                                             <i class="bx bx-list-check"></i>
                                         </a>
-
-                                        <button type="button"
-                                                data-id="{{ $datas->id }}"
-                                                data-bs-target="#UploadFile"
-                                                data-bs-toggle="modal"
-                                                class="btn btn-outline-info btn-sm">
-                                            <i class="lni lni-cloud-upload"></i>
-                                        </button>
 
                                         <a href="{{ url('admin/webaru-admit/edit/'.$datas->id) }}" class="btn btn-outline-primary btn-sm" title="แก้ไข"><i class='bx bx-edit me-0'></i></a>
 
@@ -195,14 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label mt-2">Upload ประกาศ</label>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="input-group">
-                                <input type="file" name="files" class="form-control" style="font-size: 14px;" accept=".pdf">
-                            </div>
-                        </div>
-                    </div>
                     <label class="col-sm-12 col-form-label mt-2">กำหนดการ</label>
                     <div class="row">
                         <div class="col-sm-12">
@@ -244,65 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
 </script>
-
-<div class="modal fade" id="UploadFile" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="uploadForm"
-                  method="POST"
-                  data-base="{{ url('admin/webaru-admit/admitcycle_upload') }}"
-                  enctype="multipart/form-data">
-                @csrf
-                <div class="modal-header bg-info">
-                    <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">Upload PDF</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
-                    <div class="card-body p-2">
-                        <label class="col-sm-12 col-form-label fw-bold">Upload PDF File</label>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="input-group">
-                                    <input type="file"
-                                           name="files"
-                                           class="form-control"
-                                           style="font-size: 14px;"
-                                           accept=".pdf"
-                                           required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <input type="hidden" name="id" id="VerifyId">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-info">Upload</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const uploadModal = document.getElementById('UploadFile');
-    const uploadForm  = document.getElementById('uploadForm');
-    const verifyId    = document.getElementById('VerifyId');
-
-    uploadModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // ปุ่มที่กดเปิด modal
-        const id = button.getAttribute('data-id');
-
-        verifyId.value = id;
-
-        const base = uploadForm.getAttribute('data-base'); // .../admin/webaru-admit/admitcycle_upload
-        uploadForm.action = base + '/' + id;               // .../admitcycle_upload/{id}
-    });
-});
-</script>
-
 <script>
 document.querySelectorAll('.toggle-active-form').forEach(form => {
     form.addEventListener('submit', function (e) {

@@ -59,10 +59,9 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::get('webaru-admit', [WebaruAdmitController::class, 'index']);
     Route::post('webaru-admit', [WebaruAdmitController::class, 'store']);
     Route::get('webaru-admit/edit/{id}', [WebaruAdmitController::class, 'edit'])->name('admin.webaru-admit.edit');
-    Route::put('webaru-admit/update/{id}', [WebaruAdmitController::class, 'update']);
+
     Route::post('webaru-admit/{id}/file-detail',[WebaruAdmitController::class, 'admincycle_file_detail_store']);
     Route::delete('webaru-admit/file-detail/{id}',[WebaruAdmitController::class, 'admincycle_file_detail_destroy']);
-    Route::post('webaru-admit/admitcycle_upload/{id}',[WebaruAdmitController::class, 'admitcycle_upload']);
     Route::delete('webaru-admit/{id}', [WebaruAdmitController::class, 'destroy'])->name('webaru-admit.destroy');
     Route::patch('webaru-admit/{id}/toggle',[WebaruAdmitController::class, 'toggleActive']);
 

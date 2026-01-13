@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebaruGalleryController;
+use App\Http\Controllers\WebaruAdmitController;
 
 Route::get('/', function () { return view('webaru_bs3.home');});
 Route::get('/intro', function () { return view('webaru_bs3.intro');});
@@ -14,4 +15,6 @@ Route::get('/administrators', function () { return view('webaru_bs3.administrato
 
 Route::get('/gallery', [WebaruGalleryController::class, 'index'])->name('gallery');
 
+Route::get('/admit', [WebaruAdmitController::class, 'frontendIndex']);
+Route::get('/admit/{id}', [WebaruAdmitController::class, 'show']);
 

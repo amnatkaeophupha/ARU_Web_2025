@@ -16,9 +16,6 @@
                 </nav>
             </div>
             <div class="ms-auto">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddUserModal">เพิ่มข้อมูล</button>
-                </div>
             </div>
         </div>
         <!--end breadcrumb-->
@@ -81,10 +78,6 @@
                             <input type="text" name="title" class="form-control" style="font-size: 14px;" value="{{ old('title', $item->title) }}">
                         </div>
                         <div class="col-md-12">
-                            <label for="input3" class="form-label fw-bold border-0">ไฟล์คำประกาศ</label>
-                            <input type="file" name="files" class="form-control" style="font-size: 14px;" accept=".pdf">
-                        </div>
-                        <div class="col-md-12">
                             <label for="input3" class="form-label fw-bold border-0">กำหนดการ</label>
                             <input type="text" name="schedules" class="form-control" style="font-size: 14px;" value="{{ old('schedules', $item->schedules) }}">
                         </div>
@@ -98,8 +91,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">
-                                <button type="submit" class="btn btn-primary px-4">Submit</button>
-                                <a href="{{ url('admin/webaru-admit') }}" class="btn btn-light px-4">Back</a>
+                                <button type="submit" class="btn btn-primary px-4">บันทึก</button>
+                                <a href="{{ url('admin/webaru-admit') }}" class="btn btn-light px-4">ย้อนกลับ</a>
                             </div>
                         </div>
                     </form>
@@ -114,31 +107,31 @@
                 </div>
                 <hr/ style="margin-top: 0px; margin-bottom: 0px;">
                 <div class="tab-content py-3">
-                    <table class="table table-bordered mb-0">
+                    <table class="table table-bordered mb-0" style="font-family:'Chakra Petch', sans-serif;">
                         <thead>
                             <tr>
-                                <th scope="col" width="5%">#</th>
-                                <th scope="col" width="70%">ชื่อปุ่มเปิดไฟล์</th>
-                                <th scope="col" width="20%">ชื้อไฟล์</th>
-                                <th scope="col" width="5%">ลบ</th>
+                                <th scope="col" style="text-align: center;" width="5%">ID</th>
+                                <th scope="col" style="text-align: center;" width="70%">ชื่อปุ่มเปิดไฟล์</th>
+                                <th scope="col" style="text-align: center;" width="20%">ชื่อไฟล์</th>
+                                <th scope="col" style="text-align: center;" width="5%">ลบ</th>
                             </tr>
                         </thead>
                         <tbody>
                         @forelse($item->fileDetails as $index => $file)
                             <tr>
-                                <th scope="row">{{ $index + 1 }}</th>
+                                <th scope="row" style="text-align: center;">{{ $file->id }}</th>
 
                                 {{-- ชื่อปุ่มเปิดไฟล์ --}}
                                 <td>
 
-                                    <a href="{{ asset('storage/'.$file->file_path) }}" target="_blank" class="btn btn-sm btn-outline-success">
+                                    <a href="{{ asset('storage/'.$file->file_path) }}" target="_blank" class="btn btn-sm btn-outline-success" style="font-family:'Chakra Petch', sans-serif;">
                                         {{ $file->file_name}}
                                     </a>
                                 </td>
 
                                 {{-- ชื่อไฟล์จริง + ปุ่มเปิด --}}
                                 <td>
-                                    <div class="small text-muted mt-1">
+                                    <div class="small text-muted mt-1" style="font-family:'Chakra Petch', sans-serif;">
                                         {{ basename($file->file_path) }}
                                     </div>
                                 </td>
@@ -189,8 +182,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">
-                                <button type="submit" class="btn btn-danger px-4">Submit</button>
-                                 <a href="{{ url('admin/webaru-admit') }}" class="btn btn-light px-4">Back</a>
+                                <button type="submit" class="btn btn-danger px-4">บันทึก</button>
+                                 <a href="{{ url('admin/webaru-admit') }}" class="btn btn-light px-4">ย้อนกลับ</a>
                             </div>
                         </div>
                     </form>

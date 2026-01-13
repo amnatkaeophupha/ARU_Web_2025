@@ -18,6 +18,31 @@ use Illuminate\Validation\Rule;
 
 class WebaruAdmitController extends Controller
 {
+
+/**  Fontend index home page */
+    public function frontendIndex()
+    {
+        $cycles = WebaruAdmitCycle::query()
+            ->where('is_active', true)
+            ->orderByDesc('year')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('webaru_bs3.admit_index', compact('cycles'));
+    }
+
+    public function show($id)
+    {
+//        $cycle = WebaruAdmitcycle::findOrFail($id);
+        $cycle = WebaruAdmitCycle::with(['fileDetails' => function($q){
+            $q->orderBy('id','desc');
+        }])->findOrFail($id);
+
+        return view('webaru_bs3.admit_show', compact('cycle'));
+    }
+
+/** End FontEnd index Home Page */
+
     /**
      * Display a listing of the resource.
      */
@@ -161,7 +186,6 @@ class WebaruAdmitController extends Controller
         );
     }
 
-
     public function storeFacultyComment(Request $request, $cycleId, $facultyId)
     {
         $request->validate([
@@ -188,14 +212,6 @@ class WebaruAdmitController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -206,7 +222,6 @@ class WebaruAdmitController extends Controller
             'schedules'   => 'nullable|string',
             'head_detail' => 'nullable|string',
             'description' => 'nullable|string',
-            'files'       => 'nullable|file|mimes:pdf',
         ]);
 
         $data = [
@@ -215,65 +230,13 @@ class WebaruAdmitController extends Controller
             'schedules'   => $request->schedules,
             'head_detail' => $request->head_detail,
             'description' => $request->description,
-            'is_active'   => true,
+            'is_active'   => false,
             'created_by'  => Auth::user()->name,
         ];
-
-
-
-        if ($request->hasFile('files')) {
-
-            $file      = $request->file('files');
-            $extension = $file->getClientOriginalExtension();
-
-            $filename = 'cycle_'. $request->year. '_' . now()->format('Ymd_His'). '.' . $extension;
-
-            $data['files'] = $file->storeAs('2025_webaru_home_admitcycle',$filename,'public');
-
-        }
 
         WebaruAdmitCycle::create($data);
         return redirect()->back()->with('success', 'เพิ่มรอบการรับสมัครเรียบร้อยแล้ว');
     }
-
-    public function admitcycle_upload(Request $request, string $id)
-    {
-        $item = WebaruAdmitCycle::findOrFail($id);
-
-        $request->validate([
-            'files' => 'required|file|mimes:pdf|max:10240', // 10MB
-        ]);
-
-        // ลบไฟล์เก่า (ถ้ามี)
-        if ($item->files && Storage::disk('public')->exists($item->files)) {
-            Storage::disk('public')->delete($item->files);
-        }
-
-        $file = $request->file('files');
-        $ext  = $file->getClientOriginalExtension();
-
-        // ตั้งชื่อสั้น
-        $filename = 'cycle_'.$item->year.'_'.now()->format('Ymd_His').'.'.$ext;
-
-        // เก็บไฟล์ (โฟลเดอร์เดียวกับที่คุณใช้ก็ได้)
-        $path = $file->storeAs('2025_webaru_home_admitcycle', $filename, 'public');
-
-        // อัปเดต DB
-        $item->update([
-            'files' => $path,
-        ]);
-
-        return redirect()->back()->with('success', 'อัปโหลดไฟล์ PDF เรียบร้อยแล้ว');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(WebaruAdmit $webaruAdmit)
-    {
-        //
-    }
-
 
     /**
      * course webaru_admit_Program Table
@@ -390,23 +353,6 @@ class WebaruAdmitController extends Controller
             'description' => $request->description,
             'updated_by'  => Auth::user()->name,
         ];
-
-        if ($request->hasFile('files')) {
-
-            if ($item->files && Storage::disk('public')->exists($item->files)) {
-                Storage::disk('public')->delete($item->files);
-            }
-
-            $file      = $request->file('files');
-            $extension = $file->getClientOriginalExtension();
-
-            // ตั้งชื่อไฟล์สั้น
-            // ตัวอย่าง: admit_2569_143522.pdf
-            $filename = 'cycle_'. $request->year. '_' . now()->format('Ymd_His'). '.' . $extension;
-
-            $data['files'] = $file->storeAs('2025_webaru_home_admitcycle',$filename,'public');
-        }
-
         $item->update($data);
         return redirect()->to('admin/webaru-admit/edit/'.$id)->with('success', 'อัปเดตเรียบร้อย');
 

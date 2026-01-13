@@ -22,7 +22,7 @@ class WebaruAdmitCycle extends Model
     ];
 
     public function fileDetails()
-{
-    return $this->hasMany(\App\Models\WebaruAdmitCycleFileDetail::class, 'webaru_admitcycle_id');
-}
+    {
+        return $this->hasMany(\App\Models\WebaruAdmitCycleFileDetail::class, 'webaru_admitcycle_id');
+    }
 }
