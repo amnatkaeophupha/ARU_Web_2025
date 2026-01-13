@@ -17,4 +17,10 @@ class WebaruAdmitFaculty extends Model
     {
         return $this->hasMany(WebaruAdmitProgram::class, 'faculty_id');
     }
+
+    public function viewComments()
+    {
+        return $this->hasMany(\App\Models\WebaruAdmitViewComment::class, 'webaru_admit_faculty_id');
+    }
+
 }

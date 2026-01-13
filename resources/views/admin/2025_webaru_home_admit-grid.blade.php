@@ -72,14 +72,21 @@
                                     </td>
                                     <td>
                                         @if($datas->files)
-                                            <a href="{{ asset('storage/'.$datas->files) }}" target="_blank">
-                                                {{ $datas->title }}
-                                            </a>
+                                            <a href="{{ url('admin/webaru-admit/view/'.$datas->id) }}">{{ $datas->title }}</a>
+                                            <br>
+                                            [ <a href="{{ asset('storage/'.$datas->files) }}" class="text-danger" style="font-size: 12px;" target="_blank">ดูไฟล์ PDF</a> ]
                                         @else
                                             {{ $datas->title }}
                                             <span class="text-danger">(ไม่มีไฟล์ PDF)</span>
                                         @endif
                                     <td>
+                                        {{-- ปุ่มไปหน้าประกาศผล --}}
+                                        <a href="{{ url('admin/webaru-admit/view/'.$datas->id) }}"
+                                        class="btn btn-outline-success btn-sm"
+                                        title="ดูผลประกาศ">
+                                            <i class="bx bx-list-check"></i>
+                                        </a>
+
                                         <button type="button"
                                                 data-id="{{ $datas->id }}"
                                                 data-bs-target="#UploadFile"

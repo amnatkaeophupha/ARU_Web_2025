@@ -65,4 +65,22 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::post('webaru-admit/admitcycle_upload/{id}',[WebaruAdmitController::class, 'admitcycle_upload']);
     Route::delete('webaru-admit/{id}', [WebaruAdmitController::class, 'destroy'])->name('webaru-admit.destroy');
 
+
+    //Route::get('webaru-admit/view/{id}', [WebaruAdmitController::class, 'view'])->name('admin.webaru-admit.view');
+    Route::get('webaru-admit/view/{cycleId}', [WebaruAdmitController::class, 'viewByCycle']);
+    Route::post('webaru-admit/view/{cycleId}/attach-programs', [WebaruAdmitController::class, 'attachProgramsToCycle']);
+    Route::post('webaru-admit/view/{cycleId}/program/{programId}/upload',[WebaruAdmitController::class, 'admitViewUpload']);
+    Route::delete('webaru-admit/view/{id}',[WebaruAdmitController::class, 'destroyView']);
+
+    Route::get('webaru-admit/view/{cycleId}/faculty/{facultyId}/comment',[WebaruAdmitController::class, 'viewComment']);
+    Route::post('webaru-admit/view/{cycle}/faculty/{faculty}/comment',[WebaruAdmitController::class, 'storeFacultyComment']);
+
+    /**  เพิ่มลบหลักสูตรที่จะประกาศผลของแต่ละคณะ */
+    Route::get('webaru-admit/course/{faculty}', [WebaruAdmitController::class,'course'])->name('webaru.admit.course');
+    Route::post('webaru-admit/course/{faculty}/program', [WebaruAdmitController::class, 'programStore']);
+    Route::put('webaru-admit/program/{id}', [WebaruAdmitController::class, 'programUpdate']);
+    Route::delete('webaru-admit/program/{id}',[WebaruAdmitController::class, 'programDestroy'])->name('webaru-admit.program.destroy');
+
+
+
 });

@@ -19,4 +19,10 @@ class WebaruAdmitProgram extends Model
     {
         return $this->belongsTo(WebaruAdmitFaculty::class, 'faculty_id');
     }
+
+
+    public function admitViews()
+    {
+        return $this->hasMany(WebaruAdmitView::class, 'webaru_admit_program_id');
+    }
 }

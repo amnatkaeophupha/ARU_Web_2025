@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\WebaruAdmitCycle;
 use App\Models\WebaruAdmitCycleFileDetail;
+use App\Models\WebaruAdmitFaculty;
+use App\Models\WebaruAdmitView;
+use App\Models\WebaruAdmitProgram;
+use App\Models\WebaruAdmitViewComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Validation\Rule;
 
 
 class WebaruAdmitController extends Controller
@@ -20,11 +25,175 @@ class WebaruAdmitController extends Controller
     {
          $items = WebaruAdmitCycle::query()
             ->where('is_active', true)
-            ->orderByDesc('year')
+            // ->orderByDesc('year')
             ->orderByDesc('id')
             ->get();
 
         return view('admin.2025_webaru_home_admit-grid', compact('items'));
+    }
+
+    public function viewByCycle(string $cycleId)
+    {
+        $cycle = WebaruAdmitCycle::findOrFail($cycleId);
+        // ดึงคณะเรียงจากน้อยไปมาก
+        // และดึง programs พร้อม admitViews เฉพาะ cycle นี้
+        // $faculties = WebaruAdmitFaculty::query()
+        //     ->orderBy('id', 'asc')
+        //     ->with(['programs' => function ($q) use ($cycleId) {
+        //         $q->orderBy('program_code', 'asc')
+        //         ->with(['admitViews' => function ($qq) use ($cycleId) {
+        //             $qq->where('webaru_admit_cycle_id', $cycleId)
+        //                 ->orderBy('id', 'asc');
+        //         }]);
+        //     }])
+        //     ->get();
+
+        $faculties = WebaruAdmitFaculty::query()
+        ->orderBy('id', 'asc')
+        ->with([
+            'programs.admitViews' => function ($q) use ($cycleId) {
+                $q->where('webaru_admit_cycle_id', $cycleId);
+            },
+            'viewComments' => function ($q) use ($cycleId) {
+                $q->where('webaru_admit_cycle_id', $cycleId);
+            }
+        ])
+        ->get();
+
+        return view('admin.2025_webaru_home_admit-view', compact('cycle', 'faculties'));
+    }
+
+
+    public function attachProgramsToCycle(Request $request, string $cycleId)
+    {
+        $request->validate([
+            'programs'   => 'required|array|min:1',
+            'programs.*' => 'integer|exists:webaru_admit_program,id',
+        ]);
+
+        $programIds = $request->input('programs', []);
+
+        foreach ($programIds as $programId) {
+            // กันซ้ำ (สำคัญมาก)
+            WebaruAdmitView::firstOrCreate(
+                [
+                    'webaru_admit_cycle_id'   => $cycleId,
+                    'webaru_admit_program_id' => $programId,
+                ],
+                [
+                    'files'   => null,
+                    'comment' => null,
+                ]
+            );
+        }
+
+       return redirect()->to('admin/webaru-admit/view/'.$cycleId)->with('success', 'บันทึกสาขาที่เลือกเข้ารอบนี้เรียบร้อยแล้ว');
+    }
+
+    public function admitViewUpload(Request $request, string $cycleId, string $programId)
+    {
+        $request->validate([
+            'files'   => 'nullable|file|mimes:pdf|max:10240', // 10MB
+            'comment' => 'nullable|string|max:2000',
+        ]);
+
+        // หา record เดิมของ (cycle_id + program_id) ถ้าไม่มีให้สร้างใหม่
+        $view = WebaruAdmitView::firstOrNew([
+            'webaru_admit_cycle_id'   => $cycleId,
+            'webaru_admit_program_id' => $programId,
+        ]);
+
+        // ถ้ามีไฟล์ใหม่ -> ลบไฟล์เก่าแล้วอัปโหลดใหม่
+        if ($request->hasFile('files')) {
+
+            // ลบไฟล์เดิม
+            if ($view->files && Storage::disk('public')->exists($view->files)) {
+                Storage::disk('public')->delete($view->files);
+            }
+
+            $file = $request->file('files');
+            $ext  = $file->getClientOriginalExtension();
+
+            // ตั้งชื่อไฟล์สั้น
+            // ตัวอย่าง: view_5_3206_20260112_103000.pdf
+            $filename = 'view_'.$cycleId.'_'.$programId.'_'.now()->format('Ymd_His').'.'.$ext;
+
+            $path = $file->storeAs('2025_webaru_home_admit_view', $filename, 'public');
+
+            $view->files = $path;
+        }
+
+        // อัปเดตหมายเหตุ
+        $view->comment = $request->comment;
+
+        // (ถ้าตารางมี uploaded_by ก็เก็บได้)
+        // $view->uploaded_by = Auth::user()->name;
+
+        $view->save();
+
+        // ✅ กลับหน้าเดิมตาม cycle_id
+        return redirect()->to('admin/webaru-admit/view/'.$cycleId)
+            ->with('success', 'อัปโหลด/บันทึกข้อมูลประกาศผลเรียบร้อยแล้ว');
+    }
+
+    public function destroyView(string $id)
+    {
+        $view = WebaruAdmitView::findOrFail($id);
+
+        // ลบไฟล์ PDF ถ้ามี
+        if ($view->files && Storage::disk('public')->exists($view->files)) {
+            Storage::disk('public')->delete($view->files);
+        }
+
+        // ลบ record
+        $view->delete();
+
+        return redirect()->back()->with('success', 'ลบประกาศผลเรียบร้อยแล้ว');
+    }
+
+
+    public function viewComment(string $cycleId, string $facultyId)
+    {
+        $faculty = WebaruAdmitFaculty::with('programs')->findOrFail($facultyId);
+
+        // โหลดข้อมูล admit_view ของ cycle นี้ เฉพาะคณะนี้
+        $views = WebaruAdmitView::where('webaru_admit_cycle_id', $cycleId)
+            ->whereIn(
+                'webaru_admit_program_id',
+                $faculty->programs->pluck('id')
+            )
+            ->with('program')
+            ->get()
+            ->keyBy('webaru_admit_program_id');
+
+        return view(
+            'admin.2025_webaru_home_admit-view-comment',
+            compact('faculty', 'cycleId', 'views')
+        );
+    }
+
+
+
+    public function storeFacultyComment(Request $request, $cycleId, $facultyId)
+    {
+        $request->validate([
+            'comment' => 'nullable|string',
+        ]);
+
+        // create หรือ update ด้วยคู่ (cycle + faculty)
+        WebaruAdmitViewComment::updateOrCreate(
+            [
+                'webaru_admit_cycle_id'   => $cycleId,
+                'webaru_admit_faculty_id' => $facultyId,
+            ],
+            [
+                'comment' => $request->comment,
+            ]
+        );
+
+        return redirect()
+            ->to('admin/webaru-admit/view/'.$cycleId)
+            ->with('success', 'บันทึกคำอธิบายเรียบร้อยแล้ว');
     }
 
     /**
@@ -112,6 +281,88 @@ class WebaruAdmitController extends Controller
     public function show(WebaruAdmit $webaruAdmit)
     {
         //
+    }
+
+
+    /**
+     * course webaru_admit_Program Table
+     */
+    public function course(string $facultyId, Request $request)
+    {
+        $faculty  = WebaruAdmitFaculty::findOrFail($facultyId);
+        $cycleId  = $request->query('cycle_id');
+
+        return view('admin.2025_webaru_home_admit-course',compact('faculty','cycleId'));
+
+    }
+
+    public function programStore(Request $request, string $faculty)
+    {
+        // กัน faculty_id ผิด
+        $facultyObj = WebaruAdmitFaculty::findOrFail($faculty);
+
+        $request->validate([
+            'program_code' => 'required|string|max:20',
+            'program_name' => 'required|string|max:255',
+        ]);
+
+        // กันซ้ำ (กรณีมี unique faculty_id + program_code)
+        $exists = WebaruAdmitProgram::where('faculty_id', $facultyObj->id)
+            ->where('program_code', $request->program_code)
+            ->exists();
+
+        if ($exists) {
+            return redirect()->back()->with('fail', 'รหัสสาขานี้มีอยู่แล้วในคณะนี้');
+        }
+
+        WebaruAdmitProgram::create([
+            'faculty_id'   => $facultyObj->id,
+            'program_code' => $request->program_code,
+            'program_name' => $request->program_name,
+            'is_active'    => true,
+        ]);
+
+        return redirect()->back()->with('success', 'เพิ่มสาขาวิชาเรียบร้อยแล้ว');
+    }
+
+    public function programUpdate(Request $request, string $id)
+    {
+        $program = WebaruAdmitProgram::findOrFail($id);
+
+        // ถ้ามี unique (faculty_id + program_code) และต้องการกันซ้ำ:
+        // ให้ validate แบบนี้แทน (แนะนำ)
+        $request->validate([
+            'program_code' => [
+                'required','string','max:20',
+                Rule::unique('webaru_admit_program', 'program_code')
+                    ->where('faculty_id', $program->faculty_id)
+                    ->ignore($program->id),
+            ],
+            'program_name' => 'required|string|max:255',
+        ]);
+
+        $program->update([
+            'program_code' => $request->program_code,
+            'program_name' => $request->program_name,
+        ]);
+
+        return redirect()->back()->with('success', 'แก้ไขสาขาวิชาเรียบร้อยแล้ว');
+    }
+
+    public function programDestroy(string $id)
+    {
+        $program = WebaruAdmitProgram::findOrFail($id);
+
+        // ถ้ามีความสัมพันธ์ในอนาคต (เช่น admit_view)
+        // ให้เช็คก่อนลบ
+        if ($program->admitViews()->exists()) {
+            return redirect()->back()->with('fail', 'ไม่สามารถลบสาขานี้ได้ เนื่องจากมีข้อมูลประกาศผลผูกอยู่');
+        }
+
+        $program->admitViews()->delete();
+        $program->delete();
+
+        return redirect()->back()->with('success', 'ลบสาขาวิชาเรียบร้อยแล้ว');
     }
 
     /**
