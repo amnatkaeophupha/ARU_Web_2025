@@ -12,6 +12,7 @@ class WebaruAdmitViewComment extends Model
         'webaru_admit_cycle_id',
         'webaru_admit_faculty_id',
         'comment',
+        'created_by',
     ];
 
     public function cycle()

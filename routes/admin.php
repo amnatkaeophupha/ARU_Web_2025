@@ -55,7 +55,7 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::post('admin/webaru-galleries/upload-images', [WebaruGalleryController::class, 'uploadImagesOnlyFile'])->name('admin.webaru-galleries.upload-images');
     Route::delete('admin/webaru-galleries/delete-image', [WebaruGalleryController::class, 'deleteImage'])->name('admin.webaru-galleries.delete-image');
 
-
+/**    Start Database system Student Admit  */
     Route::get('webaru-admit', [WebaruAdmitController::class, 'index']);
     Route::post('webaru-admit', [WebaruAdmitController::class, 'store']);
     Route::get('webaru-admit/edit/{id}', [WebaruAdmitController::class, 'edit'])->name('admin.webaru-admit.edit');
@@ -64,7 +64,7 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::delete('webaru-admit/file-detail/{id}',[WebaruAdmitController::class, 'admincycle_file_detail_destroy']);
     Route::post('webaru-admit/admitcycle_upload/{id}',[WebaruAdmitController::class, 'admitcycle_upload']);
     Route::delete('webaru-admit/{id}', [WebaruAdmitController::class, 'destroy'])->name('webaru-admit.destroy');
-
+    Route::patch('webaru-admit/{id}/toggle',[WebaruAdmitController::class, 'toggleActive']);
 
     //Route::get('webaru-admit/view/{id}', [WebaruAdmitController::class, 'view'])->name('admin.webaru-admit.view');
     Route::get('webaru-admit/view/{cycleId}', [WebaruAdmitController::class, 'viewByCycle']);
@@ -74,13 +74,14 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
 
     Route::get('webaru-admit/view/{cycleId}/faculty/{facultyId}/comment',[WebaruAdmitController::class, 'viewComment']);
     Route::post('webaru-admit/view/{cycle}/faculty/{faculty}/comment',[WebaruAdmitController::class, 'storeFacultyComment']);
-
+    Route::delete('webaru-admit/view-comment/{id}',[WebaruAdmitController::class, 'deleteViewComment']);
     /**  เพิ่มลบหลักสูตรที่จะประกาศผลของแต่ละคณะ */
     Route::get('webaru-admit/course/{faculty}', [WebaruAdmitController::class,'course'])->name('webaru.admit.course');
     Route::post('webaru-admit/course/{faculty}/program', [WebaruAdmitController::class, 'programStore']);
     Route::put('webaru-admit/program/{id}', [WebaruAdmitController::class, 'programUpdate']);
     Route::delete('webaru-admit/program/{id}',[WebaruAdmitController::class, 'programDestroy'])->name('webaru-admit.program.destroy');
 
+/**  End Student Admit */
 
 
 });

@@ -23,11 +23,7 @@ class WebaruAdmitController extends Controller
      */
     public function index()
     {
-         $items = WebaruAdmitCycle::query()
-            ->where('is_active', true)
-            // ->orderByDesc('year')
-            ->orderByDesc('id')
-            ->get();
+         $items = WebaruAdmitCycle::orderByDesc('id')->get();
 
         return view('admin.2025_webaru_home_admit-grid', compact('items'));
     }
@@ -35,28 +31,21 @@ class WebaruAdmitController extends Controller
     public function viewByCycle(string $cycleId)
     {
         $cycle = WebaruAdmitCycle::findOrFail($cycleId);
-        // ดึงคณะเรียงจากน้อยไปมาก
-        // และดึง programs พร้อม admitViews เฉพาะ cycle นี้
-        // $faculties = WebaruAdmitFaculty::query()
-        //     ->orderBy('id', 'asc')
-        //     ->with(['programs' => function ($q) use ($cycleId) {
-        //         $q->orderBy('program_code', 'asc')
-        //         ->with(['admitViews' => function ($qq) use ($cycleId) {
-        //             $qq->where('webaru_admit_cycle_id', $cycleId)
-        //                 ->orderBy('id', 'asc');
-        //         }]);
-        //     }])
-        //     ->get();
 
         $faculties = WebaruAdmitFaculty::query()
         ->orderBy('id', 'asc')
         ->with([
+            'programs' => function ($q) {
+                $q->orderBy('program_code', 'asc'); // แล้วแต่ต้องการ
+            },
             'programs.admitViews' => function ($q) use ($cycleId) {
-                $q->where('webaru_admit_cycle_id', $cycleId);
+                $q->where('webaru_admit_cycle_id', $cycleId)
+                  ->orderByDesc('id');
             },
             'viewComments' => function ($q) use ($cycleId) {
-                $q->where('webaru_admit_cycle_id', $cycleId);
-            }
+                $q->where('webaru_admit_cycle_id', $cycleId)
+                  ->orderByDesc('id'); // ✅ ให้ได้หลาย comment + เรียง
+            },
         ])
         ->get();
 
@@ -173,7 +162,6 @@ class WebaruAdmitController extends Controller
     }
 
 
-
     public function storeFacultyComment(Request $request, $cycleId, $facultyId)
     {
         $request->validate([
@@ -181,19 +169,22 @@ class WebaruAdmitController extends Controller
         ]);
 
         // create หรือ update ด้วยคู่ (cycle + faculty)
-        WebaruAdmitViewComment::updateOrCreate(
-            [
-                'webaru_admit_cycle_id'   => $cycleId,
-                'webaru_admit_faculty_id' => $facultyId,
-            ],
-            [
-                'comment' => $request->comment,
-            ]
-        );
+        WebaruAdmitViewComment::create([
+            'webaru_admit_cycle_id'  => $cycleId,
+            'webaru_admit_faculty_id'=> $facultyId,
+            'comment'                => $request->comment,
+            'created_by'             => Auth::user()->name,
+        ]);
 
-        return redirect()
-            ->to('admin/webaru-admit/view/'.$cycleId)
-            ->with('success', 'บันทึกคำอธิบายเรียบร้อยแล้ว');
+        return redirect()->to("admin/webaru-admit/view/{$cycleId}")->with('success', 'บันทึกคำอธิบายเรียบร้อยแล้ว');
+    }
+
+    public function deleteViewComment($id)
+    {
+        $comment = WebaruAdmitViewComment::findOrFail($id);
+        $comment->delete();
+
+        return back()->with('success', 'ลบคำอธิบายเรียบร้อยแล้ว');
     }
 
     /**
@@ -493,5 +484,17 @@ class WebaruAdmitController extends Controller
     public function fileDetails()
     {
         return $this->hasMany(\App\Models\WebaruAdmitCycleFileDetail::class, 'webaru_admitcycle_id');
+    }
+
+    public function toggleActive(string $id)
+    {
+        $item = WebaruAdmitCycle::findOrFail($id);
+
+        $item->update([
+            'is_active' => !$item->is_active,
+            'updated_by' => auth()->user()->name ?? null,
+        ]);
+
+        return back()->with('success', 'เปลี่ยนสถานะเรียบร้อยแล้ว');
     }
 }

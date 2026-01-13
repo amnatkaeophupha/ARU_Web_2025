@@ -66,6 +66,20 @@
                 4 => 'border-success',
                 default => 'border-secondary',
             };
+            $alertClass = match($faculty->id) {
+                1 => 'alert-primary',
+                2 => 'alert-info',
+                3 => 'alert-warning',
+                4 => 'alert-success',
+                default => 'alert-secondary',
+            };
+            $bgClass = match($faculty->id) {
+                1 => 'bg-primary',
+                2 => 'bg-info',
+                3 => 'bg-warning',
+                4 => 'bg-success',
+                default => 'bg-secondary',
+            };
         @endphp
         <div class="card {{ $borderClass }} border-top border-3 border-0">
             <div class="card-body">
@@ -101,12 +115,25 @@
                     margin-bottom: 0;
                 }
                 </style>
-                @if($facultyComment && $facultyComment->comment)
-                <div class="alert alert-secondary border-0 bg-secondary alert-dismissible fade show" style="margin-bottom: 0px; font-family:'Chakra Petch', sans-serif;">
-                    <div class="text-white faculty-comment">{!! $facultyComment->comment !!}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                @foreach($faculty->viewComments as $c)
+                <div class="alert {{ $alertClass }} border-0 {{$bgClass}} fade show mt-2 p-2"
+                    style="margin-bottom:0; font-family:'Chakra Petch', sans-serif;">
+                    <div class="d-flex justify-content-between align-items-start">
+                        {{-- เนื้อหา comment --}}
+                        <div class="text-white faculty-comment">
+                            {!! $c->comment !!}
+                        </div>
+
+                        {{-- ปุ่มลบ --}}
+                        <button type="button"
+                                class="btn btn-sm btn-outline-light ms-2 btn-delete-comment"
+                                data-id="{{ $c->id }}"
+                                title="ลบคำอธิบาย">
+                            <i class="bx bx-trash"></i>
+                        </button>
+                    </div>
                 </div>
-                @endif
+                @endforeach
                 <div class="tab-content py-3">
 
                         <table class="table table-bordered mb-0" style="font-family:'Chakra Petch', sans-serif;">
@@ -201,6 +228,42 @@
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.btn-delete-comment').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.id;
+
+            Swal.fire({
+                title: 'ยืนยันการลบ?',
+                text: 'ต้องการลบคำอธิบายนี้หรือไม่',
+                icon: 'warning',
+                customClass: { popup: 'swal-chakra' },
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonText: 'ลบ'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = `{{ url('admin/webaru-admit/view-comment') }}/${id}`;
+
+                    form.innerHTML = `
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                    `;
+
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            });
+        });
+    });
+});
+</script>
 
 
 <script>

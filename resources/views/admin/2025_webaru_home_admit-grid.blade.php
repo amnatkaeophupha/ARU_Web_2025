@@ -56,16 +56,37 @@
                         <table class="table table-bordered mb-0" style="font-family:'Chakra Petch', sans-serif;">
                             <thead>
                                 <tr>
-                                    <th width="5%">สถานะ</th>
-                                    <th width="10%">วันที่</th>
-                                    <th width="70%">เนื้อหา</th>
-                                    <th width="15%">ดำเนินการ</th>
+                                    <th style="text-align: center;" width="5%">สถานะ</th>
+                                    <th style="text-align: center;" width="10%">วันที่</th>
+                                    <th style="text-align: center;" width="70%">เนื้อหา</th>
+                                    <th style="text-align: center;" width="15%">ดำเนินการ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($items as $datas)
                                 <tr>
-                                    <td>{{ $datas->id }}</td>
+                                    <td style="text-align: center;">
+<form method="POST"
+      action="{{ url('admin/webaru-admit/'.$datas->id.'/toggle') }}"
+      class="d-inline toggle-active-form"
+      data-title="{{ $datas->title }}"
+      data-status="{{ $datas->is_active ? 'ปิดการมองเห็น' : 'เปิดการมองเห็น' }}">
+    @csrf
+    @method('PATCH')
+
+    <button type="submit"
+        class="btn btn-sm
+        {{ $datas->is_active ? 'btn-success' : 'btn-secondary' }}"
+        title="{{ $datas->is_active ? 'กำลังแสดงหน้าเว็บ' : 'ปิดการมองเห็น' }}">
+
+        @if($datas->is_active)
+            <i class="bx bx-toggle-right"></i> ON
+        @else
+            <i class="bx bx-toggle-left"></i> OFF
+        @endif
+    </button>
+</form>
+                                    </td>
                                     <td>
                                         {{ $datas->created_at->format('d/m/Y') }}
 
@@ -282,4 +303,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+document.querySelectorAll('.toggle-active-form').forEach(form => {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const title = this.dataset.title;
+        const status = this.dataset.status;
+
+        Swal.fire({
+            title: status,
+            text: title,
+            icon: 'question',
+            customClass: { popup: 'swal-chakra' },
+            showCancelButton: true,
+            confirmButtonText: 'ยืนยัน',
+            cancelButtonText: 'ยกเลิก'
+        }).then(result => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+        });
+    });
+});
+</script>
 @endsection
