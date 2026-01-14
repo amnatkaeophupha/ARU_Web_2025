@@ -38,7 +38,24 @@ class WebaruAdmitController extends Controller
             $q->orderBy('id','desc');
         }])->findOrFail($id);
 
-        return view('webaru_bs3.admit_show', compact('cycle'));
+        // return view('webaru_bs3.admit_show', compact('cycle'));
+        $faculties = WebaruAdmitFaculty::query()
+        ->orderBy('id', 'asc')
+        ->with([
+            'programs' => function ($q) use ($id) {
+                $q->orderBy('program_code', 'asc'); // แล้วแต่ต้องการ
+            },
+            'programs.admitViews' => function ($q) use ($id) {
+                $q->where('webaru_admit_cycle_id', $id)
+                  ->orderByDesc('id');
+            },
+            'viewComments' => function ($q) use ($id) {
+                $q->where('webaru_admit_cycle_id', $id)
+                  ->orderByDesc('id'); // ✅ ให้ได้หลาย comment + เรียง
+            },
+        ])
+        ->get();
+        return view('webaru_bs3.admit_show', compact('cycle', 'faculties'));
     }
 
 /** End FontEnd index Home Page */
@@ -326,7 +343,7 @@ class WebaruAdmitController extends Controller
     {
         //$item = WebaruAdmitCycle::findOrFail($id);
         $item = WebaruAdmitCycle::with('fileDetails')->findOrFail($id);
-        return view('admin.2025_webaru_home_admit-edit', compact('item'));
+        return view('admin.2025_webaru_home_admit-edit_tiny', compact('item'));
     }
 
     /**
