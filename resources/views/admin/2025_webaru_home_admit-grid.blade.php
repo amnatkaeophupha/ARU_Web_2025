@@ -153,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-
 <div class="modal fade" id="AddUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -169,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input class="form-control" name="year" rows="3" style="font-size: 14px;"></input>
+                                <input class="form-control" name="year" rows="3" style="font-size: 14px;">
                             </div>
                         </div>
                     </div>
@@ -177,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input class="form-control" name="title" rows="3" style="font-size: 14px;"></input>
+                                <input class="form-control" name="title" rows="3" style="font-size: 14px;">
                             </div>
                         </div>
                     </div>
@@ -185,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input class="form-control" name="schedules" rows="3" style="font-size: 14px;"></input>
+                                <input class="form-control" name="schedules" rows="3" style="font-size: 14px;">
                             </div>
                         </div>
                     </div>
@@ -193,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <input class="form-control" name="head_detail" rows="3" style="font-size: 14px;"></input>
+                                <input class="form-control" name="head_detail" rows="3" style="font-size: 14px;">
                             </div>
                         </div>
                     </div>
@@ -202,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <textarea class="form-control" id="div_editor1" name="description" rows="3" style="font-size: 14px;"></textarea>
+                                <textarea name="description" id="descriptionModal" class="form-control js-tinymce" rows="10">{{ old('description', $item->description ?? '') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -217,11 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </div>
 </div>
-<script>
-	var editor1 = new RichTextEditor("#div_editor1");
 
-//editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
-</script>
 <script>
 document.querySelectorAll('.toggle-active-form').forEach(form => {
     form.addEventListener('submit', function (e) {
@@ -246,4 +241,83 @@ document.querySelectorAll('.toggle-active-form').forEach(form => {
     });
 });
 </script>
+
+
+<script>
+(function () {
+  const modalEl = document.getElementById('AddUserModal');
+  if (!modalEl) return;
+
+  function initTinyInModal() {
+    const selector = '#descriptionModal';
+
+    // กัน init ซ้ำ
+    if (window.tinymce && tinymce.get('descriptionModal')) return;
+
+    tinymce.init({
+      selector,
+      branding: false,
+      promotion: false,
+
+      plugins: [
+        'autoresize',
+        'anchor','autolink','charmap','codesample','emoticons','link','lists',
+        'media','searchreplace','table','visualblocks','wordcount',
+        'checklist','mediaembed','casechange','formatpainter','pageembed',
+        'a11ychecker','tinymcespellchecker','permanentpen','powerpaste',
+        'advtable','advcode','advtemplate','ai','uploadcare','mentions',
+        'tinycomments','tableofcontents','footnotes','mergetags',
+        'autocorrect','typography','inlinecss','markdown',
+        'importword','exportword','exportpdf'
+      ],
+
+      toolbar: 'undo redo | blocks fontfamily fontsize | ' +
+               'bold italic underline strikethrough | ' +
+               'alignleft aligncenter alignright | lineheight | ' +
+               'checklist numlist bullist indent outdent | ' +
+               'link media table mergetags | ' +
+               'emoticons charmap | removeformat | code',
+
+      autoresize_min_height: 320,
+      autoresize_max_height: 700,
+      autoresize_bottom_margin: 18,
+
+      content_style: `
+        body { font-family: "Chakra Petch", sans-serif; font-size: 14px; line-height: 1.65; padding: 10px; }
+        p { margin: 0 0 10px; }
+      `,
+
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Admin',
+
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ],
+
+      ai_request: (request, respondWith) =>
+        respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+
+      uploadcare_public_key: '56770089057eac1803be',
+
+      setup: (editor) => {
+        // sync กลับ textarea กัน submit แล้วไม่ได้ค่าใหม่
+        editor.on('change input undo redo', () => editor.save());
+      }
+    });
+  }
+
+  function destroyTinyInModal() {
+    if (!window.tinymce) return;
+
+    const ed = tinymce.get('descriptionModal');
+    if (ed) ed.remove(); // ลบ instance ออกเมื่อปิด modal
+  }
+
+  // Bootstrap 5 events
+  modalEl.addEventListener('shown.bs.modal', initTinyInModal);
+  modalEl.addEventListener('hidden.bs.modal', destroyTinyInModal);
+})();
+</script>
+
 @endsection
