@@ -29,6 +29,17 @@
 
 @import url('fontgoogle/fonts.css');
 
+/* footer contact links */
+.footer-contact-link {
+    font-size: 14px;
+}
+.footer-contact-chakra {
+    font-family:'Chakra Petch', sans-serif;
+}
+.footer-contact-prompt {
+    font-family:'Prompt', sans-serif;
+}
+
 /*----------------------------------------*/
 /*  5. Home page
 /*----------------------------------------*/
@@ -59,6 +70,17 @@
     font-size: 16px;
     font-weight: 600;
 }
+.offer-text > h3 .service-link {
+    color: #a01d29;
+    font-family:'Chakra Petch', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+.offer-text > h3 .service-link:hover,
+.offer-text > h3 .service-link:focus {
+    color: #7b1620;
+    text-decoration: underline;
+}
 .service-all {
     padding: 60px 30px;
 }
@@ -67,11 +89,28 @@
     font-weight: bold;
     margin-bottom: 45px;
 }
+.service-title-th {
+    font-family:'Chakra Petch', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #a01d29;
+}
 .service-area .col-md-8 {
     padding-right: 0;
 }
 .service-area .col-md-4 {
     padding-left: 0;
+}
+.service-area > .container > .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.service-area > .container > .row > [class*="col-"] {
+    display: flex;
+}
+.service-area > .container > .row > [class*="col-"] > .service-all,
+.service-area > .container > .row > [class*="col-"] > .service-from {
+    width: 100%;
 }
 .service-from > h3 {
     color: #fff;

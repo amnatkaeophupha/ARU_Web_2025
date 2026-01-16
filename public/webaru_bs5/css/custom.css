@@ -24,6 +24,240 @@ nav-tabs
     font-weight: 500;
 }
 
+/*
+================================================
+Complaint center area
+================================================
+*/
+
+.complaint_center-area .col-md-8 {
+    padding-right: 0;
+}
+.complaint_center-area .col-md-4 {
+    padding-left: 0;
+}
+.complaint_center-area > .container > .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.complaint_center-area > .container > .row > [class*="col-"] {
+    display: flex;
+}
+.complaint_center-area > .container > .row > [class*="col-"] > .service-all,
+.complaint_center-area > .container > .row > [class*="col-"] > .service-from {
+    width: 100%;
+}
+
+/*
+================================================
+Aru News area
+================================================
+*/
+
+.arunew-area .arunew-title {
+    color: #a01d29;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.arunew-area .separator i {
+    background: #ffffff;
+}
+
+/*
+================================================
+Aru Tab area
+================================================
+*/
+
+.aru_tab-area {
+    background: #ffffff;
+}
+.aru_tab-area .section-title h1,
+.aru_tab-area .section-title p {
+    color: #2d3e50;
+}
+.aru_tab-area .separator i {
+    background: #ffffff;
+}
+
+.arunew-area .arunew-read-btn {
+    background: #a01d29;
+    border-color: #a01d29;
+    color: #ffffff;
+}
+.arunew-area .arunew-read-btn:hover,
+.arunew-area .arunew-read-btn:focus {
+    background: #7b1620;
+    border-color: #7b1620;
+    color: #ffffff;
+}
+#bannerModal .arunew-read-btn {
+    background: #a01d29;
+    border-color: #a01d29;
+    color: #ffffff;
+}
+#bannerModal .arunew-read-btn:hover,
+#bannerModal .arunew-read-btn:focus {
+    background: #7b1620;
+    border-color: #7b1620;
+    color: #ffffff;
+}
+#bannerModal #bannerModalOpen {
+    background: #b8860b;
+    border-color: #b8860b;
+    color: #1f2a36;
+}
+#bannerModal #bannerModalOpen:hover,
+#bannerModal #bannerModalOpen:focus {
+    background: #996c08;
+    border-color: #996c08;
+    color: #1f2a36;
+}
+.arunew-area .card {
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+.arunew-area .card-body {
+    padding: 15px;
+}
+.arunew-area .card-body canvas {
+    margin: 0;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+.arunew-more {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.arunew-more .arunew-more-btn {
+    background: #2d3e50;
+    border-color: #2d3e50;
+    color: #ffffff;
+}
+.arunew-more .arunew-more-btn:hover,
+.arunew-more .arunew-more-btn:focus {
+    background: #1f2a36;
+    border-color: #1f2a36;
+    color: #ffffff;
+}
+.arunew-area .row {
+    align-items: stretch;
+}
+.arunew-area .arunew-sidebar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.arunew-area .arunew-widget {
+    flex: 1 1 0;
+}
+.arunew-area .arunew-widget .card {
+    height: 100%;
+}
+
+/*
+================================================
+Banner carousel area
+================================================
+*/
+
+.banner_carousel-area {
+    background: #f1f1f1;
+}
+.banner_carousel-area .banner-card {
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.banner_carousel-area .banner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+}
+.banner_carousel-area .banner-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e3e3e3;
+}
+.banner_carousel-area .banner-card-body {
+    padding: 14px 16px;
+}
+.banner_carousel-area .banner-card-title {
+    color: #2d3e50;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.banner_carousel-area .banner-card-meta {
+    color: #777777;
+    font-size: 13px;
+}
+.banner-modal .modal-footer,
+#bannerModal .modal-footer {
+    justify-content: center;
+    gap: 10px;
+    background: #7b1620;
+}
+#bannerModal .banner-modal-close-btn {
+    padding: 0px 15px;
+    min-width: 90px;
+    background: #2d3e50;
+    border-color: #2d3e50;
+    color: #ffffff;
+}
+#bannerModal .banner-modal-close-btn:hover,
+#bannerModal .banner-modal-close-btn:focus {
+    background: #1f2a36;
+    border-color: #1f2a36;
+    color: #ffffff;
+}
+#bannerModal .modal-header.alert-dark .modal-title {
+    color: #ffffff;
+    font-family: 'sarabun', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .arunew-area .arunew-title {
+        font-size: 20px;
+    }
+    .arunew-area .arunew-sidebar {
+        padding-left: 0;
+    }
+    .arunew-area .col-md-8 {
+        margin-bottom: 40px;
+    }
+    .banner_carousel-area .banner-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1169px) {
+    .complaint_center-area .col-md-4 {
+        padding-left: 15px;
+    }
+    .complaint_center-area .col-md-8 {
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .complaint_center-area .col-md-8 {
+        padding-right: 15px;
+    }
+    .complaint_center-area .col-md-4 {
+        padding-left: 15px;
+    }
+}
 .nav>li>a:focus,
 .nav>li>a:hover {
     background: inherit;
@@ -273,7 +507,3 @@ nav-tabs
         padding: 8px 0;
     }
 }
-
-
-
-

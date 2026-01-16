@@ -22,9 +22,10 @@
     <link rel="stylesheet" href="{{ url('webaru_bs5/style.css') }}">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/responsive.css') }}">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{ url('webaru_bs5/css/custom.css') }}">
     <!-- Style customizer (Remove these two lines please) -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/color/color-aru.css') }}">
-
     <!-- Modernizr JS -->
     <script src="{{ url('webaru_bs5/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 </head>
@@ -182,6 +183,7 @@
                 <div class="row">
                     <div class="d-lg-none col-sm-12 col-12">
                         <div class="mobile-menu">
+                            <button class="aru-mobile-toggle" type="button">Menu</button>
                             <nav id="dropdown">
                                 <ul>
                                     <li><a href="#">หน่วยงานภายใน</a>
@@ -257,6 +259,7 @@
         </div>
         <!-- mobile-menu-area end -->
         <!-- End of header area -->
+
         <!-- Start of slider area -->
         <div class="slider-area">
             <div class="slider-active">
@@ -305,56 +308,56 @@
             </div>
         </div>
         <!-- End of slider area -->
-        <!-- Start page content -->
-        <section class="service-area gray-bg ptb-110">
-            <!-- Demo Section    -->
+
+        <!-- Start page complaint_center content -->
+        <section class="complaint_center-area gray-bg ptb-110">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="service-all white-bg">
-                            <h2>We Have 65 Years <br>Experience In This Passion</h2>
+                            <h2 class="service-title-th">ศูนย์รับเรื่องร้องเรียน สายตรงอธิการบดี</h2>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="service-left">
                                         <div class="offer-icon">
-                                            <i class="icofont icofont-support"></i>
+                                            <i class="icofont icofont-ui-message"></i>
                                         </div>
                                         <div class="offer-text">
-                                            <h3>Quick Help</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p>
+                                            <h3><a class="service-link" href="#">รับเรื่องร้องเรียนร้องทุกข์</a></h3>
+                                            <p>เปิดช่องทางให้บุคลากร นักศึกษา และประชาชนทั่วไป เพื่อให้มหาวิทยาลัยรับทราบและดำเนินการอย่างเหมาะสม</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="service-left mrg-xs">
                                         <div class="offer-icon">
-                                            <i class="icofont icofont-world"></i>
+                                            <i class="icofont icofont-ui-chat"></i>
                                         </div>
                                         <div class="offer-text">
-                                            <h3>In Your Country</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p>
+                                            <h3><a class="service-link" href="#">ถามตอบข้อสงสัย</a></h3>
+                                            <p>ให้บริการตอบข้อซักถาม ข้อเสนอแนะ และข้อมูลที่เกี่ยวข้องกับการดำเนินงานของมหาวิทยาลัย  เพื่อสร้างความเข้าใจที่ถูกต้องและโปร่งใส</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="service-left service-mrg mrg-xs">
                                         <div class="offer-icon">
-                                            <i class="icofont icofont-gift"></i>
+                                            <i class="icofont icofont-law-document"></i>
                                         </div>
                                         <div class="offer-text">
-                                            <h3>Scholarship For Students</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p>
+                                            <h3><a class="service-link" href="#">ร้องเรียนการทุจริตและประพฤติมิชอบ</a></h3>
+                                            <p>แจ้งเบาะแสการทุจริต การใช้อำนาจโดยมิชอบ หรือการกระทำที่ไม่ถูกต้องเพื่อส่งเสริมธรรมาภิบาลและความโปร่งใสในองค์กร</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="service-left service-mrg mrg-xs">
                                         <div class="offer-icon">
-                                            <i class="icofont icofont-football-american"></i>
+                                            <i class="icofont icofont-ui-call"></i>
                                         </div>
                                         <div class="offer-text">
-                                            <h3>Sports & Events</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p>
+                                            <h3><a class="service-link" href="#">สายตรงอธิการบดี</a></h3>
+                                            <p> ช่องทางการสื่อสารโดยตรงถึงอธิการบดี สำหรับเสนอข้อคิดเห็น ปัญหา หรือข้อร้องเรียนสำคัญ เพื่อให้ได้รับการพิจารณาอย่างเร่งด่วนและเป็นธรรม</p>
                                         </div>
                                     </div>
                                 </div>
@@ -409,7 +412,183 @@
                 </div>
             </div>
         </section>
-        <section class="banner-blog-area ptb-110">
+        <!-- End page complaint_center content -->
+
+        <!-- Start of arunew area content   -->
+        <section class="arunew-area pt-60 pb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="section-title text-center mb-30">
+                            <img src="{{ url('webaru_bs5/aru_images/logo/2025_aru_Logo_title.png') }}" alt="aru" >
+                            <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
+                            <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                            <div class="separator my mtb-15">
+                                <i class="icofont icofont-hat-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="arunew-pdf-preview-1" style="display:block; width:100%; height:auto;"></canvas>
+                                <div class="text-center mt-3">
+                                    <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/69410916e4350.pdf') }}" target="_blank" rel="noopener">
+                                        <span>ดูฉบับจริง</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="arunew-sidebar pl-20">
+                            <div class="arunew-widget mb-40">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="arunew-pdf-preview-2" style="display:block; width:100%; height:auto;"></canvas>
+                                        <div class="text-center mt-3">
+                                            <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/69410916e4350.pdf') }}" target="_blank" rel="noopener">
+                                                <span>ดูฉบับจริง</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arunew-widget">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="arunew-pdf-preview-3" style="display:block; width:100%; height:auto;"></canvas>
+                                        <div class="text-center mt-3">
+                                            <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/69410916e4350.pdf') }}" target="_blank" rel="noopener">
+                                                <span>ดูฉบับจริง</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arunew-more text-center mt-30 mb-60">
+                    <a class="button extra-small arunew-read-btn arunew-more-btn" href="#">
+                        <span>ดูทั้งหมด</span>
+                    </a>
+                </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    if (!window.pdfjsLib) {
+                        return;
+                    }
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                    var pdfUrl = "{{ asset('storage/2025_webaru_home_arunews/69410916e4350.pdf') }}";
+                    var canvasIds = [
+                        'arunew-pdf-preview-1',
+                        'arunew-pdf-preview-2',
+                        'arunew-pdf-preview-3'
+                    ];
+                    pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+                        return pdf.getPage(1).then(function (page) {
+                            var scale = 1.6;
+                            var viewport = page.getViewport({ scale: scale });
+                            var dpr = window.devicePixelRatio || 1;
+                            canvasIds.forEach(function (canvasId) {
+                                var canvas = document.getElementById(canvasId);
+                                if (!canvas) {
+                                    return;
+                                }
+                                var context = canvas.getContext('2d');
+                                canvas.width = Math.floor(viewport.width * dpr);
+                                canvas.height = Math.floor(viewport.height * dpr);
+                                canvas.style.width = '100%';
+                                canvas.style.height = 'auto';
+                                context.setTransform(dpr, 0, 0, dpr, 0, 0);
+                                page.render({
+                                    canvasContext: context,
+                                    viewport: viewport
+                                });
+                            });
+                        });
+                    });
+                });
+            </script>
+        </section>
+        <!-- End of arunew area content   -->
+
+        <!-- Start of banner carousel area content   -->
+        <section class="banner_carousel-area gray-bg pb-80 pt-50">
+            <div class="container">
+                <div class="row">
+                    {{-- <div class="col-md-12 col-sm-12">
+                        <div class="section-title text-center mb-30">
+                            <img src="{{ url('webaru_bs5/aru_images/logo/2025_aru_Logo_title.png') }}" alt="aru" >
+                            <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
+                            <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                            <div class="separator my mtb-15">
+                                <i class="icofont icofont-hat-alt"></i>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-md-6">
+                        <div class="banner-card">
+                            <a class="banner-modal-trigger" href="{{ asset('storage/2025_webaru_home_carousels/2026-01-06-094810.jpg') }}" data-full="{{ asset('storage/2025_webaru_home_carousels/2026-01-06-094810.jpg') }}">
+                                <img src="{{ asset('storage/2025_webaru_home_carousels/2026-01-06-094810.jpg') }}" alt="ประกาศ">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="banner-card">
+                            <a class="banner-modal-trigger" href="{{ asset('storage/2025_webaru_home_carousels/1765428260.jpg') }}" data-full="{{ asset('storage/2025_webaru_home_carousels/1765428260.jpg') }}">
+                                <img src="{{ asset('storage/2025_webaru_home_carousels/1765428260.jpg') }}" alt="ประกาศ">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="modal fade" id="bannerModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-body text-center" style="padding: 5px;">
+                        <img id="bannerModalImage" src="" alt="ประกาศ" class="img-fluid">
+                    </div>
+                    <div class="modal-footer">
+                        <a id="bannerModalOpen" class="button extra-small" href="#" target="_blank" rel="noopener">
+                            <span>Open link</span>
+                        </a>
+                        <a class="button extra-small banner-modal-close-btn" data-bs-dismiss="modal">
+                            <span>Close</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of banner carousel area content   -->
+
+        <section class="aru_tab-area pb-80 pt-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="section-title text-center mb-30">
+                            <img src="{{ url('webaru_bs5/aru_images/logo/2025_aru_Logo_title.png') }}" alt="aru" >
+                            <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
+                            <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                            <div class="separator my mtb-15">
+                                <i class="icofont icofont-hat-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        {{-- <section class="banner_blog-area ptb-110">
             <div class="container">
                 <div class="row">
                     <div class="d-block d-lg-none d-xl-block col-lg-3 col-sm-6">
@@ -485,7 +664,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
+
         <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
             <div class="container">
                 <div class="row">
@@ -931,19 +1111,19 @@ mlaboris nisi ut aliquip ex ea commodo conseq</p>
                                     <div class="header-top-info">
                                         <ul>
                                             <li>
-                                                <a href="#" style="font-family:'Chakra Petch', sans-serif;font-size:14px;">
+                                                <a href="#" class="footer-contact-link footer-contact-chakra">
                                                     <i class="icofont icofont-ui-call"></i>
                                                     Call us (+66) 035-276-555-9
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-family:'Chakra Petch', sans-serif;font-size:14px;">
+                                                <a href="#" class="footer-contact-link footer-contact-chakra">
                                                     <i class="icofont icofont-envelope"></i>
                                                     saraban@aru.ac.th
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" style="font-family:'Prompt', sans-serif;font-size:14px;">
+                                                <a href="#" class="footer-contact-link footer-contact-prompt">
                                                     <i class="icofont icofont-location-pin"></i>
                                                     ดูแผนที่ตั้งมหาวิทยาลัย.
                                                 </a>
@@ -1042,27 +1222,7 @@ mlaboris nisi ut aliquip ex ea commodo conseq</p>
     <script src="{{ url('webaru_bs5/js/vendor/meanmenu-2.0.8.min.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/vendor/chosen-1.8.7.min.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/main.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var toTopEl = document.getElementById('toTop');
-            if (!toTopEl) {
-                return;
-            }
-            function toggleToTop() {
-                if (window.pageYOffset > 200) {
-                    toTopEl.style.display = 'block';
-                } else {
-                    toTopEl.style.display = 'none';
-                }
-            }
-            toggleToTop();
-            window.addEventListener('scroll', toggleToTop);
-            toTopEl.addEventListener('click', function (e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+    <script src="{{ url('webaru_bs5/js/custom.js') }}"></script>
 
 </body>
 

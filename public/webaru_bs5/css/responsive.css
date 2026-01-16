@@ -1000,3 +1000,26 @@
     }
 }
 
+@media (max-width: 991.98px) {
+    .aru-mobile-fallback .aru-mobile-toggle {
+        background: transparent;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1;
+        margin: 8px 0 8px auto;
+        padding: 10px 12px;
+        text-transform: uppercase;
+        float: right;
+    }
+    .aru-mobile-fallback nav#dropdown {
+        display: none !important;
+    }
+    .aru-mobile-fallback.aru-mobile-open nav#dropdown {
+        display: block !important;
+    }
+}
+.aru-mobile-toggle {
+    display: none;
+}
