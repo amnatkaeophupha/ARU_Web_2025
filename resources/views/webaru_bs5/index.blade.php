@@ -565,7 +565,6 @@
             </div>
         </div>
         <!-- End of banner carousel area content   -->
-
         <section class="aru_tab-area pb-80 pt-50">
             <div class="container">
                 <div class="row">
@@ -580,10 +579,143 @@
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
-
-
+                        <div class="tabs">
+                            <div class="tab-button-outer">
+                                <ul id="tab-button">
+                                <li><a href="#tab01">ประชาสัมพันธ์ทั่วไป</a></li>
+                                <li><a href="#tab02">จัดซื้อจัดจ้าง</a></li>
+                                <li><a href="#tab03">รับสมัครงาน</a></li>
+                                <li><a href="#tab04">ข่าวสารนักศึกษา</a></li>
+                                <li><a href="#tab05">ปฏิทินการศึกษา(ภาคปกติ)</a></li>
+                                <li><a href="#tab06">ปฏิทินการศึกษา(กศ.บป)</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-select-outer">
+                                <select id="tab-select">
+                                <option value="#tab01">ประชาสัมพันธ์ทั่วไป</option>
+                                <option value="#tab02">จัดซื้อจัดจ้าง</option>
+                                <option value="#tab03">รับสมัครงาน</option>
+                                <option value="#tab04">ข่าวสารนักศึกษา</option>
+                                <option value="#tab05">ปฏิทินการศึกษา(ภาคปกติ)</option>
+                                <option value="#tab06">ปฏิทินการศึกษา(กศ.บป)</option>
+                                </select>
+                            </div>
+                            <div id="tab01" class="tab-contents">
+                                <article class="has-divider" style="border-bottom: none !important;">
+                                <ul class="list-unstyled">
+                                    <li class="listTopic day-sun">
+                                        <div class="dayTopic day-sun">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                    <li class="listTopic day-mon">
+                                        <div class="dayTopic day-mon">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                    <li class="listTopic day-tue">
+                                        <div class="dayTopic day-tue">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                    <li class="listTopic day-wed">
+                                        <div class="dayTopic day-wed">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                    <li class="listTopic day-thu">
+                                        <div class="dayTopic day-thu">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                    <li class="listTopic day-fri">
+                                        <div class="dayTopic day-fri">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                    <li class="listTopic day-sat">
+                                        <div class="dayTopic day-sat">
+                                            <div class="day">05 มี.ค.</div>
+                                            <div class="year">2568</div>
+                                        </div>
+                                        <div class="topic-text">
+                                            <h4><a href="#">ประกาศรายชื่อผู้ผ่านการสอบสัมภาษณ์</a></h4>
+                                            <p>รายละเอียดเพิ่มเติมเกี่ยวกับการสอบสัมภาษณ์และการขึ้นทะเบียนนักศึกษา</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                </article>
+                                <div class="tab-view-all">
+                                    <a href="#">ดูทั้งหมด</a>
+                                </div>
+                            </div>
+                            <div id="tab02" class="tab-contents">
+                                <h2>Tab 2</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
+                                <div class="tab-view-all">
+                                    <a href="#">ดูทั้งหมด</a>
+                                </div>
+                            </div>
+                            <div id="tab03" class="tab-contents">
+                                <h2>Tab 3</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
+                                <div class="tab-view-all">
+                                    <a href="#">ดูทั้งหมด</a>
+                                </div>
+                            </div>
+                            <div id="tab04" class="tab-contents">
+                                <h2>Tab 4</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
+                                <div class="tab-view-all">
+                                    <a href="#">ดูทั้งหมด</a>
+                                </div>
+                            </div>
+                            <div id="tab05" class="tab-contents">
+                                <h2>Tab 5</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
+                                <div class="tab-view-all">
+                                    <a href="#">ดูทั้งหมด</a>
+                                </div>
+                            </div>
+                            <div id="tab06" class="tab-contents">
+                                <h2>Tab 6</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
+                                <div class="tab-view-all">
+                                    <a href="#">ดูทั้งหมด</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -1039,63 +1171,6 @@
                 </div>
             </div>
         </div>
-        <section class="testimonial-area ptb-110">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3">
-                        <div class="testimonial-text">
-                            <h2>Our Student Say</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-9">
-                        <div class="slider-active2">
-                            <div class="testimonial-all">
-                                <div class="testimonial-peragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu
-nt ut la et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla
-mlaboris nisi ut aliquip ex ea commodo conseq</p>
-                                </div>
-                                <div class="testimonial-img">
-                                    <img alt="" src="{{ url('webaru_bs5/images/banner/2.jpg') }}" >
-                                    <div class="img-title navy-bg">
-                                        <h3>Al-Rayed</h3>
-                                        <p>Student</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-all">
-                                <div class="testimonial-peragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu
-nt ut la et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla
-mlaboris nisi ut aliquip ex ea commodo conseq</p>
-                                </div>
-                                <div class="testimonial-img">
-                                    <img alt="" src="{{ url('webaru_bs5/images/banner/2.jpg') }}" >
-                                    <div class="img-title navy-bg">
-                                        <h3>Al-Mamun</h3>
-                                        <p>Student</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-all">
-                                <div class="testimonial-peragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu
-nt ut la et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla
-mlaboris nisi ut aliquip ex ea commodo conseq</p>
-                                </div>
-                                <div class="testimonial-img">
-                                    <img alt="" src="{{ url('webaru_bs5/images/banner/2.jpg') }}" >
-                                    <div class="img-title navy-bg">
-                                        <h3>Al-Mamun</h3>
-                                        <p>Student</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- End page content -->
         <!-- Start footer area -->
         <footer class="footer-area">
@@ -1223,7 +1298,6 @@ mlaboris nisi ut aliquip ex ea commodo conseq</p>
     <script src="{{ url('webaru_bs5/js/vendor/chosen-1.8.7.min.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/main.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/custom.js') }}"></script>
-
 </body>
 
 </html>

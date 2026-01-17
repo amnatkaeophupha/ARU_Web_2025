@@ -80,6 +80,216 @@ Aru Tab area
 .aru_tab-area .separator i {
     background: #ffffff;
 }
+.aru_tab-area .listTopic {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 0 0;
+}
+.aru_tab-area .dayTopic {
+    width: 70px;
+    flex: 0 0 70px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 16px;
+    margin-right: 15px;
+    font-family: 'sarabun', sans-serif;
+}
+.aru_tab-area .topic-text {
+    margin-left: 0;
+    flex: 1;
+}
+.aru_tab-area .topic-text h4 {
+    margin-top: 4px;
+    font-size: 18px;
+    font-family: 'sarabun', sans-serif;
+}
+.aru_tab-area .topic-text p {
+    font-size: 13px;
+    font-family: 'sarabun', sans-serif;
+}
+.aru_tab-area .dayTopic .day,
+.aru_tab-area .dayTopic .year {
+    padding: 3px 0;
+    display: block;
+    width: 100%;
+}
+.aru_tab-area .listTopic.day-sun {
+    border-bottom: 1px dashed #F4C4C4;
+}
+.aru_tab-area .dayTopic.day-sun {
+    border: 1px solid #F4C4C4;
+}
+.aru_tab-area .dayTopic.day-sun .year {
+    background: #F0B8B8;
+    color: #fff;
+}
+.aru_tab-area .listTopic.day-mon {
+    border-bottom: 1px dashed #EEDC9F;
+}
+.aru_tab-area .dayTopic.day-mon {
+    border: 1px solid #EEDC9F;
+}
+.aru_tab-area .dayTopic.day-mon .year {
+    background: #E6CD84;
+    color: #fff;
+}
+.aru_tab-area .listTopic.day-tue {
+    border-bottom: 1px dashed #F1BEDA;
+}
+.aru_tab-area .dayTopic.day-tue {
+    border: 1px solid #F1BEDA;
+}
+.aru_tab-area .dayTopic.day-tue .year {
+    background: #E9A9CF;
+    color: #fff;
+}
+.aru_tab-area .listTopic.day-wed {
+    border-bottom: 1px dashed #B7E0BC;
+}
+.aru_tab-area .dayTopic.day-wed {
+    border: 1px solid #B7E0BC;
+}
+.aru_tab-area .dayTopic.day-wed .year {
+    background: #95D29B;
+    color: #fff;
+}
+.aru_tab-area .listTopic.day-thu {
+    border-bottom: 1px dashed #EEC99E;
+}
+.aru_tab-area .dayTopic.day-thu {
+    border: 1px solid #EEC99E;
+}
+.aru_tab-area .dayTopic.day-thu .year {
+    background: #E4B886;
+    color: #fff;
+}
+.aru_tab-area .listTopic.day-fri {
+    border-bottom: 1px dashed #AEDBFA;
+}
+.aru_tab-area .dayTopic.day-fri {
+    border: 1px solid #AEDBFA;
+}
+.aru_tab-area .dayTopic.day-fri .year {
+    background: #90C6F4;
+    color: #fff;
+}
+.aru_tab-area .listTopic.day-sat {
+    border-bottom: 1px dashed #D7C2E8;
+}
+.aru_tab-area .dayTopic.day-sat {
+    border: 1px solid #D7C2E8;
+}
+.aru_tab-area .dayTopic.day-sat .year {
+    background: #C5A6DF;
+    color: #fff;
+}
+.aru_tab-area .tab-view-all {
+    margin-top: 12px;
+    text-align: right;
+}
+.aru_tab-area .tab-view-all a {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: #a01d29;
+    border: 1px solid #a01d29;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+}
+.aru_tab-area .tab-view-all a:hover,
+.aru_tab-area .tab-view-all a:focus {
+    background: #7b1620;
+    border-color: #7b1620;
+    color: #fff;
+    text-decoration: none;
+}
+
+.aru_tab-area .tabs {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+.aru_tab-area #tab-button {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.aru_tab-area #tab-button li {
+    display: table-cell;
+    width: 20%;
+}
+.aru_tab-area #tab-button li a {
+    display: block;
+    padding: .6em .5em .4em;
+    background: #f6eef0;
+    border: 1px solid #d9b4b9;
+    text-align: center;
+    color: #6b5456;
+    text-decoration: none;
+    border-radius: 8px 8px 0 0;
+}
+.aru_tab-area #tab-button li:not(:first-child) a {
+    border-left: none;
+}
+.aru_tab-area #tab-button li a:hover,
+.aru_tab-area #tab-button .is-active a {
+    border-bottom-color: transparent;
+    background: #a01d29;
+    color: #f7f1f1;
+}
+.aru_tab-area .tab-contents {
+    padding: .5em 2em 1em;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(45, 62, 80, 0.08);
+}
+.aru_tab-area .tab-button-outer {
+    display: none;
+    background: #fff;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    padding: 0;
+    border-bottom: 4px solid #fbb040;
+    box-shadow: 0 6px 16px rgba(45, 62, 80, 0.08);
+}
+.aru_tab-area .tab-contents {
+    margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+    .aru_tab-area .tab-button-outer {
+        position: relative;
+        z-index: 2;
+        display: block;
+    }
+    .aru_tab-area .tab-select-outer {
+        display: none;
+    }
+    .aru_tab-area .tab-contents {
+        position: relative;
+        top: -1px;
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 767px) {
+    .aru_tab-area .tab-select-outer {
+        border: 1px solid #d9b4b9;
+        border-radius: 8px;
+        padding: 6px 8px;
+        background: #fff;
+    }
+    .aru_tab-area #tab-select {
+        width: 100%;
+        border: 0;
+        background: transparent;
+    }
+}
 
 .arunew-area .arunew-read-btn {
     background: #a01d29;
