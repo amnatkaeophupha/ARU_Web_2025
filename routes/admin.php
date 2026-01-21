@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebaruExecGroupController;
 use App\Http\Controllers\WebaruTabController;
 use App\Http\Controllers\WebaruNewsController;
+use App\Http\Controllers\WebaruExecPositionController;
+use App\Http\Controllers\WebaruExecExecutiveController;
 use App\Http\Controllers\WebaruCarouselsController;
 use App\Http\Controllers\WebaruSliderController;
 use App\Http\Controllers\WebaruGalleryController;
@@ -82,5 +85,21 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
 
 /**  End Student Admit */
 
+    Route::get('webaru-exec-groups', [WebaruExecGroupController::class, 'index']);
+    Route::patch('webaru-exec-groups/{id}/toggle', [WebaruExecGroupController::class, 'toggleActive'])->name('webaru-exec-groups.toggle');
+    Route::post('webaru-exec-groups', [WebaruExecGroupController::class, 'store_exec_groups'])->name('store_exec_groups');
+    Route::put('webaru-exec-groups/{id}', [WebaruExecGroupController::class, 'update_exec_groups'])->name('update_exec_groups');
+    Route::delete('webaru-exec-groups/{id}', [WebaruExecGroupController::class, 'destroy_exec_groups'])->name('webaru-exec-groups.destroy');
 
+    Route::get('webaru-exec-positions', [WebaruExecPositionController::class, 'index'])->name('webaru-exec-positions.index');
+    Route::post('webaru-exec-positions', [WebaruExecPositionController::class, 'store'])->name('webaru-exec-positions.store');
+    Route::put('webaru-exec-positions/{id}', [WebaruExecPositionController::class, 'update'])->name('webaru-exec-positions.update');
+    Route::patch('webaru-exec-positions/{id}/toggle', [WebaruExecPositionController::class, 'toggleActive'])->name('webaru-exec-positions.toggle');
+    Route::delete('webaru-exec-positions/{id}', [WebaruExecPositionController::class, 'destroy'])->name('webaru-exec-positions.destroy');
+
+    Route::get('webaru-exec-executives', [WebaruExecExecutiveController::class, 'index'])->name('webaru-exec-executives.index');
+    Route::post('webaru-exec-executives', [WebaruExecExecutiveController::class, 'store'])->name('webaru-exec-executives.store');
+    Route::put('webaru-exec-executives/{id}', [WebaruExecExecutiveController::class, 'update'])->name('webaru-exec-executives.update');
+    Route::patch('webaru-exec-executives/{id}/toggle', [WebaruExecExecutiveController::class, 'toggleActive'])->name('webaru-exec-executives.toggle');
+    Route::delete('webaru-exec-executives/{id}', [WebaruExecExecutiveController::class, 'destroy'])->name('webaru-exec-executives.destroy');
 });

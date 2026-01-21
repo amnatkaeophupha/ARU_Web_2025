@@ -41,6 +41,7 @@
                 <div class="menu-title">Home</div>
             </a>
             <ul>
+                <li> <a href="{{ url('admin/webaru-exec-groups'); }}"><i class='bx bx-radio-circle'></i>ผู้บริหารมหาวิทยาลัย</a></li>
                 <li> <a href="{{ url('admin/webaru-sliders'); }}"><i class='bx bx-radio-circle'></i>ภาพประชาสัมพันธ์</a></li>
                 <li> <a href="{{ url('admin/webaru-carousels'); }}"><i class='bx bx-radio-circle'></i>โฆษณาข่าวสาร</a></li>
                 <li> <a href="{{ url('admin/webaru-arunews'); }}"><i class='bx bx-radio-circle'></i>ข่าวสารประชาสัมพันธ์</a></li>

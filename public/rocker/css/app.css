@@ -17,6 +17,13 @@ File: app.css
 .swal2-title, .swal-content, .swal-button {
     font-family: 'Chakra Petch', sans-serif !important;
 }
+.swal2-popup.swal-font,
+.swal2-popup.swal-font * {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+.swal-chakra {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
 
 body {
 

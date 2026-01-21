@@ -65,6 +65,8 @@ NOTE: If you have any note put here.
       centerMode: true,
       dots: true,
       fade: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
       centerPadding: '0',
       slidesToShow: 1,
       arrows: false,
