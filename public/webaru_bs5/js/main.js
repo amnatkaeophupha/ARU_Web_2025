@@ -114,7 +114,7 @@ NOTE: If you have any note put here.
     /*----------------------------
      counter js active
     ------------------------------ */
-    $('.counter').counterUp({
+    $('.counter:not(.cnt-two)').counterUp({
         delay: 10,
         time: 2000
     });

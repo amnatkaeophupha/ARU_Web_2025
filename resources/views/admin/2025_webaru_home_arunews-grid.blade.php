@@ -52,7 +52,7 @@
                 </div>
                 <hr/>
                 <table class="table table-bordered mb-0" style="font-family:'Chakra Petch', sans-serif;">
-                    <thead>
+                    <thead class="table-primary">
                         <tr>
                             <th scope="col" width="5%" style="text-align: center;">ID</th>
                             <th scope="col" width="50%" style="text-align: center;">ฉบับที่ ปีที่ วันที่</th>
@@ -80,7 +80,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="modal fade" id="AddUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">

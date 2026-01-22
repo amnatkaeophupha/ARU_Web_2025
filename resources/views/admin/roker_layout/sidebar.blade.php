@@ -45,7 +45,7 @@
                 <li> <a href="{{ url('admin/webaru-sliders'); }}"><i class='bx bx-radio-circle'></i>ภาพประชาสัมพันธ์</a></li>
                 <li> <a href="{{ url('admin/webaru-carousels'); }}"><i class='bx bx-radio-circle'></i>โฆษณาข่าวสาร</a></li>
                 <li> <a href="{{ url('admin/webaru-arunews'); }}"><i class='bx bx-radio-circle'></i>ข่าวสารประชาสัมพันธ์</a></li>
-                <li> <a href="{{ url('admin/webaru-tabs'); }}"><i class='bx bx-radio-circle'></i>ประกาศต่างๆ</a></li>
+                <li> <a href="{{ url('admin/webaru-tabs/1'); }}"><i class='bx bx-radio-circle'></i>ประกาศต่างๆ</a></li>
                 <li> <a href="{{ url('admin/webaru-galleries'); }}"><i class='bx bx-radio-circle'></i>คลังภาพกิจกรรม</a></li>
                 <li> <a href="{{ url('admin/webaru-admit'); }}"><i class='bx bx-radio-circle'></i>ประกาศผลรับเข้า</a></li>
             </ul>

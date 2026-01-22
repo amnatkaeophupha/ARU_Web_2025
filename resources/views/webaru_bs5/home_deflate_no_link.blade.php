@@ -155,10 +155,6 @@
 
         <!-- Start of arunew area content   -->
         <section class="arunew-area pt-60 pb-20">
-            @php
-                $mainArunews = isset($arunews) ? $arunews->first() : null;
-                $sideArunews = isset($arunews) ? $arunews->slice(1, 2) : collect();
-            @endphp
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
@@ -172,51 +168,43 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-12">
-                        @if($mainArunews && $mainArunews->files)
-                            <div class="card">
-                                <div class="card-body">
-                                    <canvas id="arunew-pdf-preview-main" data-pdf="{{ asset('storage/2025_webaru_home_arunews/'.$mainArunews->files) }}" data-scale="1.6" style="display:block; width:100%; height:auto;"></canvas>
-                                    <div class="text-center mt-3">
-                                        <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/'.$mainArunews->files) }}" target="_blank" rel="noopener">
-                                            <span>ดูฉบับจริง</span>
-                                        </a>
-                                    </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="arunew-pdf-preview-1" style="display:block; width:100%; height:auto;"></canvas>
+                                <div class="text-center mt-3">
+                                    <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/6972037212b81.pdf') }}" target="_blank" rel="noopener">
+                                        <span>ดูฉบับจริง</span>
+                                    </a>
                                 </div>
                             </div>
-                        @else
-                            <div class="card">
-                                <div class="card-body text-center text-muted">
-                                    ไม่มีข้อมูล
-                                </div>
-                            </div>
-                        @endif
+                        </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <div class="arunew-sidebar pl-20">
-                            @if($sideArunews->count())
-                                @foreach($sideArunews as $index => $news)
-                                    <div class="arunew-widget {{ $index === 0 ? 'mb-40' : '' }}">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <canvas id="arunew-pdf-preview-side-{{ $index + 1 }}" data-pdf="{{ asset('storage/2025_webaru_home_arunews/'.$news->files) }}" data-scale="1.2" style="display:block; width:100%; height:auto;"></canvas>
-                                                <div class="text-center mt-3">
-                                                    <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/'.$news->files) }}" target="_blank" rel="noopener">
-                                                        <span>ดูฉบับจริง</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                <div class="arunew-widget">
-                                    <div class="card">
-                                        <div class="card-body text-center text-muted">
-                                            ไม่มีข้อมูล
+                            <div class="arunew-widget mb-40">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="arunew-pdf-preview-2" style="display:block; width:100%; height:auto;"></canvas>
+                                        <div class="text-center mt-3">
+                                            <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/6972037212b81.pdf') }}" target="_blank" rel="noopener">
+                                                <span>ดูฉบับจริง</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            </div>
+                            <div class="arunew-widget">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="arunew-pdf-preview-3" style="display:block; width:100%; height:auto;"></canvas>
+                                        <div class="text-center mt-3">
+                                            <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/6972037212b81.pdf') }}" target="_blank" rel="noopener">
+                                                <span>ดูฉบับจริง</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -233,17 +221,22 @@
                         return;
                     }
                     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-                    var canvases = document.querySelectorAll('canvas[data-pdf]');
-                    canvases.forEach(function (canvas) {
-                        var pdfUrl = canvas.getAttribute('data-pdf');
-                        if (!pdfUrl) {
-                            return;
-                        }
-                        var scale = parseFloat(canvas.getAttribute('data-scale')) || 1.4;
-                        pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
-                            return pdf.getPage(1).then(function (page) {
-                                var viewport = page.getViewport({ scale: scale });
-                                var dpr = window.devicePixelRatio || 1;
+                    var pdfUrl = "{{ asset('storage/2025_webaru_home_arunews/69410916e4350.pdf') }}";
+                    var canvasIds = [
+                        'arunew-pdf-preview-1',
+                        'arunew-pdf-preview-2',
+                        'arunew-pdf-preview-3'
+                    ];
+                    pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+                        return pdf.getPage(1).then(function (page) {
+                            var scale = 1.6;
+                            var viewport = page.getViewport({ scale: scale });
+                            var dpr = window.devicePixelRatio || 1;
+                            canvasIds.forEach(function (canvasId) {
+                                var canvas = document.getElementById(canvasId);
+                                if (!canvas) {
+                                    return;
+                                }
                                 var context = canvas.getContext('2d');
                                 canvas.width = Math.floor(viewport.width * dpr);
                                 canvas.height = Math.floor(viewport.height * dpr);

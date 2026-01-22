@@ -91,4 +91,38 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+    setTimeout(function () {
+        var counters = document.querySelectorAll('.counter.cnt-two');
+        counters.forEach(function (counter) {
+            if (counter.dataset.animated === 'true') {
+                return;
+            }
+            var valueEl = counter.querySelector('h1') || counter;
+            var targetText = counter.dataset.target || valueEl.textContent || '';
+            var target = parseInt(targetText.replace(/[^\d]/g, ''), 10);
+            if (!target) {
+                return;
+            }
+            counter.dataset.target = target.toString();
+            counter.dataset.animated = 'true';
+            var duration = 1200;
+            var startTime = null;
+            valueEl.textContent = '0';
+            function step(timestamp) {
+                if (!startTime) {
+                    startTime = timestamp;
+                }
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var current = Math.floor(progress * target);
+                valueEl.textContent = current.toString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    valueEl.textContent = target.toString();
+                }
+            }
+            window.requestAnimationFrame(step);
+        });
+    }, 50);
 });

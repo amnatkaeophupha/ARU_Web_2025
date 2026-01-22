@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use App\Models\WebaruTab;
+use App\Models\WebaruTabCategory;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,10 +14,14 @@ class WebaruTabController extends Controller
 
     public function index()
     {
-        // $data_tab = WebaruTab::all();
-        // return view('admin.home_tabs-grid', compact('data_tab'));
-        return redirect(url('admin/webaru-tabs/1'));
-
+        $params = ['tid' => 1];
+        $categories = WebaruTabCategory::where('is_active', 1)
+            ->orderBy('sort_order')
+            ->get();
+        $data_tab = WebaruTab::where('type', $params['tid'])
+            ->latest()
+            ->paginate(30);
+        return view('admin.2025_webaru_home_tabs-grid', compact('params', 'data_tab', 'categories'));
     }
 
     public function show(Request $request, $tid)
@@ -24,15 +29,19 @@ class WebaruTabController extends Controller
         $params = $request->route()->parameters();
 
         try {
-            $data_tab = WebaruTab::where('type', $tid)->paginate(20);
-            return view('admin.2025_webaru_home_tabs-grid', compact('params','data_tab'));
+            $categories = WebaruTabCategory::where('is_active', 1)
+                ->orderBy('sort_order')
+                ->get();
+            $data_tab = WebaruTab::where('type', $tid)
+                ->orderBy('id', 'desc')
+                ->latest()
+                ->paginate(30);
+            return view('admin.2025_webaru_home_tabs-grid', compact('params', 'data_tab', 'categories'));
 
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Record not found
             return response()->json(['error' => 'Record not found for type: ' . $tid], 404);
         }
-
-
     }
 
     public function store(Request $request)

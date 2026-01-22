@@ -1,0 +1,37 @@
+/* Styles scoped to executives section */
+.aru-executives .list-inline {
+    margin-bottom: 0;
+}
+
+.aru-executives .list-inline-item {
+    margin-bottom: 10px;
+}
+
+.aru-executives .btn {
+    border-radius: 999px;
+}
+
+.aru-executives .form-select {
+    max-width: 420px;
+    margin: 0 auto;
+    border-radius: 999px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.aru-executives .separator i {
+    background: #fff;
+}
+
+.aru-executives .img-title,
+.aru-executives .webaru-admin_body {
+    opacity: 1;
+    transition: all .3s ease 0s;
+    background-color: rgba(45, 62, 80, 0.8);
+}
+
+.aru-executives .img-title > p,
+.aru-executives .webaru-admin_body > p {
+    color: #c7c7c7;
+    margin-bottom: 0;
+}

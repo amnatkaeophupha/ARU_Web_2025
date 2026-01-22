@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('webaru_tabs', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->string('title');
+            $table->text('title');
             $table->string('files')->nullable();
             $table->string('active');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
+            $table->foreignId('category_id')
+                  ->nullable()
+                  ->after('id')
+                  ->constrained('webaru_tab_categories')
+                  ->nullOnDelete();
             $table->timestamps();
         });
     }

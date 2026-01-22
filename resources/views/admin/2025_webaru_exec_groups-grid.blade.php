@@ -67,7 +67,7 @@
                                 <col width="45%">
                                 <col width="15%">
                             </colgroup>
-                            <thead>
+                            <thead class="table-primary">
                                 <tr>
                                     <th class="text-center">สถานะ</th>
                                     <th class="text-center">ลำดับ</th>

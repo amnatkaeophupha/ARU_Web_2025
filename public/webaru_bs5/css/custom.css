@@ -80,10 +80,73 @@ Aru Tab area
 .aru_tab-area .separator i {
     background: #ffffff;
 }
+.aru_tab-area .tabs {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+.aru_tab-area .tab-button-outer {
+    display: none;
+    background: #fff;
+    border: none;
+    /* border-radius: 5px 5px 0 0; */
+    border-bottom: 4px solid #fbb040;
+    /* box-shadow: 0 6px 16px rgba(45, 62, 80, 0.08); */
+}
+.aru_tab-area #tab-button {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 6px;
+    list-style: none;
+}
+.aru_tab-area #tab-button li {
+    display: block;
+    flex: 1 1 0;
+
+}
+.aru_tab-area #tab-button li a {
+    display: block;
+    padding: .6em .5em .4em;
+    background: #f6eef0;
+    border: 1px solid #d9b4b9;
+    text-align: center;
+    color: #6b5456;
+    text-decoration: none;
+    border-radius: 8px 8px 0 0;
+}
+.aru_tab-area #tab-button li a:hover,
+.aru_tab-area #tab-button .is-active a {
+    border-bottom-color: transparent;
+    background: #a01d29;
+    color: #f7f1f1;
+}
+.aru_tab-area .tab-contents {
+    padding: .5em 2em 1em;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(45, 62, 80, 0.08);
+    margin-top: 20px;
+}
+.aru_tab-area .aru-tab-list {
+    border-bottom: 1px dotted #e8e8e8;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
 .aru_tab-area .listTopic {
     display: flex;
     align-items: flex-start;
-    padding: 10px 0 0;
+    padding-bottom: 10px;
+}
+.aru_tab-area .aru-tab-list .listTopic {
+    gap: 14px;
+    margin-bottom: 16px;
+}
+.aru_tab-area .aru-tab-list .listTopic:last-child {
+    margin-bottom: 0;
 }
 .aru_tab-area .dayTopic {
     width: 70px;
@@ -104,9 +167,19 @@ Aru Tab area
     font-size: 18px;
     font-family: 'sarabun', sans-serif;
 }
+.aru_tab-area .aru-tab-list .topic-text h4 {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2d3e50;
+}
 .aru_tab-area .topic-text p {
     font-size: 13px;
     font-family: 'sarabun', sans-serif;
+}
+.aru_tab-area .aru-tab-list .topic-text p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6c757d;
 }
 .aru_tab-area .dayTopic .day,
 .aru_tab-area .dayTopic .year {
@@ -205,63 +278,6 @@ Aru Tab area
     color: #fff;
     text-decoration: none;
 }
-
-.aru_tab-area .tabs {
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0 20px;
-}
-.aru_tab-area #tab-button {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.aru_tab-area #tab-button li {
-    display: table-cell;
-    width: 20%;
-}
-.aru_tab-area #tab-button li a {
-    display: block;
-    padding: .6em .5em .4em;
-    background: #f6eef0;
-    border: 1px solid #d9b4b9;
-    text-align: center;
-    color: #6b5456;
-    text-decoration: none;
-    border-radius: 8px 8px 0 0;
-}
-.aru_tab-area #tab-button li:not(:first-child) a {
-    border-left: none;
-}
-.aru_tab-area #tab-button li a:hover,
-.aru_tab-area #tab-button .is-active a {
-    border-bottom-color: transparent;
-    background: #a01d29;
-    color: #f7f1f1;
-}
-.aru_tab-area .tab-contents {
-    padding: .5em 2em 1em;
-    border: 1px solid #ddd;
-    border-radius: 0 0 8px 8px;
-    background: #fff;
-    box-shadow: 0 8px 18px rgba(45, 62, 80, 0.08);
-}
-.aru_tab-area .tab-button-outer {
-    display: none;
-    background: #fff;
-    border: none;
-    border-radius: 5px 5px 0 0;
-    padding: 0;
-    border-bottom: 4px solid #fbb040;
-    box-shadow: 0 6px 16px rgba(45, 62, 80, 0.08);
-}
-.aru_tab-area .tab-contents {
-    margin-top: 20px;
-}
 @media screen and (min-width: 768px) {
     .aru_tab-area .tab-button-outer {
         position: relative;
@@ -284,11 +300,47 @@ Aru Tab area
         padding: 6px 8px;
         background: #fff;
     }
-    .aru_tab-area #tab-select {
-        width: 100%;
-        border: 0;
-        background: transparent;
-    }
+.aru_tab-area #tab-select {
+    width: 100%;
+    border: 0;
+    background: transparent;
+}
+}
+
+/*
+================================================
+Counter area
+================================================
+*/
+
+.counter-area .counter-next2 > h2 {
+    font-family: 'sarabun', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #f7f1f1;
+}
+.counter-area .counter-next2 > h2::before {
+    background: #fbb040;
+}
+.counter-area .cnt-two h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+.counter-area .cnt-two {
+    display: inline-flex;
+    align-items: center;
+}
+.counter-area .cnt-two::after {
+    content: "+";
+    color: #ffffff;
+    opacity: 0.85;
+    font-size: 22px;
+    margin-left: 6px;
+    font-weight: 700;
 }
 
 .arunew-area .arunew-read-btn {
@@ -807,4 +859,48 @@ Banner carousel area
 .webaru-admin_link:focus .webaru-admin_image {
     transform: scale(1.02);
     filter: brightness(1.03);
+}
+
+/*
+================================================
+Intro area
+================================================
+*/
+
+.aru-intro .about-text {
+    margin-top: 0;
+}
+.aru-intro .aru-intro-title {
+    padding-top: 0;
+    color: #2f5d50;
+    font-family: 'sarabun', sans-serif;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+.aru-intro .aru-intro-text p {
+    font-family: 'sarabun', sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    text-indent: 30px;
+    color: #2d3e50;
+    margin-bottom: 18px;
+}
+.aru-intro .aru-intro-image {
+    margin: 18px auto 24px;
+}
+.aru-intro .aru-intro-image img {
+    border-radius: 6px;
+    box-shadow: 0 10px 28px rgba(45, 62, 80, 0.18), 0 2px 8px rgba(45, 62, 80, 0.12);
+    max-width: 100%;
+    width: 50%;
+}
+@media (max-width: 767px) {
+    .aru-intro .aru-intro-title {
+        font-size: 20px;
+    }
+    .aru-intro .aru-intro-text p {
+        font-size: 15px;
+        line-height: 1.8;
+        text-indent: 24px;
+    }
 }

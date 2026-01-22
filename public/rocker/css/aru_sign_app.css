@@ -3016,11 +3016,15 @@ form select.error:focus {
 
 
 .nav-danger.nav-tabs .nav-link.active {
+  
+  	color: #f41127;
+  
+  	border-color: #f41127 #f41127 #fff
+  
+  }
 
-	color: #f41127;
-
-	border-color: #f41127 #f41127 #fff
-
+.nav-danger.nav-tabs .nav-link.active {
+  border-color: var(--bs-secondary-border-subtle) var(--bs-secondary-border-subtle) #fff;
 }
 
 

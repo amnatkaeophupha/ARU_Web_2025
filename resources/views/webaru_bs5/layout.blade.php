@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/responsive.css') }}">
     <!-- Custom css -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/custom.css') }}">
+    <!-- Executives css -->
+    <link rel="stylesheet" href="{{ url('webaru_bs5/css/aru-executives.css') }}">
     <!-- Style customizer (Remove these two lines please) -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/color/color-aru.css') }}">
     <!-- Modernizr JS -->

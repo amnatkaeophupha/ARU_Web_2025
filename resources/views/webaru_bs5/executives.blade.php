@@ -17,8 +17,40 @@
         </div>
     </div>
 </section>
-
-<section class="lecturers-area ptb-80">
+{{-- <section class="aru-executives pt-50 pb-50">
+    <div class="container">
+        @if($execGroups->count())
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="d-block d-md-none">
+                        <select class="form-select w-100"
+                                onchange="if (this.value) { window.location = this.value; }">
+                            @foreach($execGroups as $group)
+                                <option value="{{ route('executives.index', ['group' => $group->id]) }}"
+                                    {{ $selectedGroupId === $group->id ? 'selected' : '' }}>
+                                    {{ $group->title_th }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <ul class="list-inline mb-0">
+                            @foreach($execGroups as $group)
+                                <li class="list-inline-item mb-20">
+                                    <a class="btn btn-sm {{ $selectedGroupId === $group->id ? 'btn-primary' : 'btn-outline-primary' }}"
+                                       href="{{ route('executives.index', ['group' => $group->id]) }}">
+                                        {{ $group->title_th }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
+</section> --}}
+<section class="aru-executives ptb-80">
     <div class="container">
 
         @foreach($positions as $pos)
