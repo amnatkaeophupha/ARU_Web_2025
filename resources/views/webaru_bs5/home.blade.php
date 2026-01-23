@@ -3,48 +3,37 @@
         <!-- Start of slider area -->
         <div class="slider-area">
             <div class="slider-active">
-                <div class="slider-all">
-                    <img src="{{ url('webaru_bs5/images/slider/1.jpg') }}" alt="">
-                    <div class="slider-text-wrapper">
-                        <div class="d-flex h-100 align-items-center justify-content-center">
-                            <div class="slider-text animated">
-                                <h1>Education For Everyone</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <br> aliqua.  minim veniam, quis nostrud exercitation ullamco </p>
-                                <a class="button extra-small mb-20" href="#">
-                                    <span>Apply Now</span>
-                                </a>
+                @forelse($sliders as $slider)
+                    @php
+                        $sliderImagePath = str_starts_with($slider->images ?? '', '2025_webaru_home_sliders/')
+                            ? $slider->images
+                            : '2025_webaru_home_sliders/'.($slider->images ?? '');
+                    @endphp
+                    <div class="slider-all">
+                        <img src="{{ asset('storage/'.$sliderImagePath) }}" alt="">
+                        <div class="slider-text-wrapper">
+                            <div class="d-flex h-100 align-items-center justify-content-center">
+                                <div class="slider-text animated" >
+                                    @if(!empty($slider->topic))
+                                        <h1 style="font-family:'Sarabun', sans-serif;">{{ $slider->topic }}</h1>
+                                    @endif
+                                    @if(!empty($slider->title))
+                                        <p style="font-family: 'Sarabun', sans-serif; margin-top: 15px;">{{ $slider->title }}</p>
+                                    @endif
+                                    @if(!empty($slider->link_url))
+                                        <a class="button extra-small mb-20" href="{{ $slider->link_url }}">
+                                            <span>เพิ่มเติม</span>
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slider-all">
-                    <img src="{{ url('webaru_bs5/images/slider/1.jpg') }}" alt="">
-                    <div class="slider-text-wrapper">
-                        <div class="d-flex h-100 align-items-center justify-content-center">
-                            <div class="slider-text animated">
-                                <h1>Education For Everyone</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <br> aliqua.  minim veniam, quis nostrud exercitation ullamco </p>
-                                <a class="button extra-small mb-20" href="#">
-                                    <span>Apply Now</span>
-                                </a>
-                            </div>
-                        </div>
+                @empty
+                    <div class="slider-all">
+                        <img src="{{ url('webaru_bs5/images/slider/1.jpg') }}" alt="">
                     </div>
-                </div>
-                <div class="slider-all">
-                    <img src="{{ url('webaru_bs5/images/slider/1.jpg') }}" alt="">
-                    <div class="slider-text-wrapper">
-                        <div class="d-flex h-100 align-items-center justify-content-center">
-                            <div class="slider-text animated">
-                                <h1>Education For Everyone</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <br> aliqua.  minim veniam, quis nostrud exercitation ullamco </p>
-                                <a class="button extra-small mb-20" href="#">
-                                    <span>Apply Now</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
         <!-- End of slider area -->
@@ -276,20 +265,26 @@
                             </div>
                         </div>
                     </div> --}}
-                    <div class="col-md-6">
-                        <div class="banner-card">
-                            <a class="banner-modal-trigger" href="{{ asset('storage/2025_webaru_home_carousels/2026-01-06-094810.jpg') }}" data-full="{{ asset('storage/2025_webaru_home_carousels/2026-01-06-094810.jpg') }}">
-                                <img src="{{ asset('storage/2025_webaru_home_carousels/2026-01-06-094810.jpg') }}" alt="ประกาศ">
-                            </a>
+                    @forelse($carousels as $carousel)
+                        @php
+                            $imagePath = str_starts_with($carousel->images ?? '', '2025_webaru_home_carousels/')
+                                ? $carousel->images
+                                : '2025_webaru_home_carousels/'.($carousel->images ?? '');
+                        @endphp
+                        <div class="col-md-6">
+                            <div class="banner-card" style="margin-bottom: 20px;">
+                                <a class="banner-modal-trigger" href="{{ asset('storage/'.$imagePath) }}" data-full="{{ asset('storage/'.$imagePath) }}" data-link="{{ $carousel->image_url ?? '' }}">
+                                    <img src="{{ asset('storage/'.$imagePath) }}" alt="ประกาศ">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="banner-card">
-                            <a class="banner-modal-trigger" href="{{ asset('storage/2025_webaru_home_carousels/1765428260.jpg') }}" data-full="{{ asset('storage/2025_webaru_home_carousels/1765428260.jpg') }}">
-                                <img src="{{ asset('storage/2025_webaru_home_carousels/1765428260.jpg') }}" alt="ประกาศ">
-                            </a>
+                    @empty
+                        <div class="col-md-12">
+                            <div class="banner-card">
+                                <div class="p-4 text-center text-muted">ไม่มีข้อมูล</div>
+                            </div>
                         </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -381,6 +376,7 @@
                                                     </div>
                                                     <div class="topic-text">
                                                         <h4><a href="{{ $fileUrl }}" target="_blank">{{ $item->title }}</a></h4>
+                                            <p>โดย. งานทรัพยากรบุคคล เวลา {{ $date ? $date->setTimezone('Asia/Bangkok')->format('H:i:s').' น.' : '' }}</p>
                                                     </div>
                                                 </li>
                                             @empty

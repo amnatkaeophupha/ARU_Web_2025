@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\WebaruTabCategory;
 use App\Models\WebaruTab;
 use App\Models\WebaruNews;
+use App\Models\WebaruCarousel;
+use App\Models\WebaruSlider;
 
 class WebaruHomePublicController extends Controller
 {
@@ -26,6 +28,15 @@ class WebaruHomePublicController extends Controller
             ->take(3)
             ->get();
 
-        return view('webaru_bs5.home', compact('tabCategories', 'tabsByCategory', 'arunews'));
+        $carousels = WebaruCarousel::where('status', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+
+        $sliders = WebaruSlider::where('status', 1)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('webaru_bs5.home', compact('tabCategories', 'tabsByCategory', 'arunews', 'carousels', 'sliders'));
     }
 }

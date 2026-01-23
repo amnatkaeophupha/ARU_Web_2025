@@ -43,11 +43,18 @@ document.addEventListener('DOMContentLoaded', function () {
             trigger.addEventListener('click', function (e) {
                 e.preventDefault();
                 var imgSrc = trigger.getAttribute('data-full') || trigger.getAttribute('href');
+                var linkUrl = trigger.getAttribute('data-link') || '';
                 if (bannerModalImage) {
                     bannerModalImage.src = imgSrc;
                 }
                 if (bannerModalOpen) {
-                    bannerModalOpen.href = imgSrc;
+                    if (linkUrl) {
+                        bannerModalOpen.href = linkUrl;
+                        bannerModalOpen.style.display = '';
+                    } else {
+                        bannerModalOpen.removeAttribute('href');
+                        bannerModalOpen.style.display = 'none';
+                    }
                 }
                 bannerModal.show();
             });

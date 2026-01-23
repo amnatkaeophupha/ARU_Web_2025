@@ -42,11 +42,11 @@
             </a>
             <ul>
                 <li> <a href="{{ url('admin/webaru-exec-groups'); }}"><i class='bx bx-radio-circle'></i>ผู้บริหารมหาวิทยาลัย</a></li>
-                <li> <a href="{{ url('admin/webaru-sliders'); }}"><i class='bx bx-radio-circle'></i>ภาพประชาสัมพันธ์</a></li>
-                <li> <a href="{{ url('admin/webaru-carousels'); }}"><i class='bx bx-radio-circle'></i>โฆษณาข่าวสาร</a></li>
-                <li> <a href="{{ url('admin/webaru-arunews'); }}"><i class='bx bx-radio-circle'></i>ข่าวสารประชาสัมพันธ์</a></li>
+                <li> <a href="{{ url('admin/webaru-sliders'); }}"><i class='bx bx-radio-circle'></i>ประชาสัมพันธ์หลัก</a></li>
+                <li> <a href="{{ url('admin/webaru-carousels'); }}"><i class='bx bx-radio-circle'></i>ข่าวสารหน่วยงาน</a></li>
+                <li> <a href="{{ url('admin/webaru-arunews'); }}"><i class='bx bx-radio-circle'></i>ARU News</a></li>
                 <li> <a href="{{ url('admin/webaru-tabs/1'); }}"><i class='bx bx-radio-circle'></i>ประกาศต่างๆ</a></li>
-                <li> <a href="{{ url('admin/webaru-galleries'); }}"><i class='bx bx-radio-circle'></i>คลังภาพกิจกรรม</a></li>
+                <li> <a href="{{ url('admin/webaru-galleries'); }}"><i class='bx bx-radio-circle'></i>กิจกรรม</a></li>
                 <li> <a href="{{ url('admin/webaru-admit'); }}"><i class='bx bx-radio-circle'></i>ประกาศผลรับเข้า</a></li>
             </ul>
         </li>

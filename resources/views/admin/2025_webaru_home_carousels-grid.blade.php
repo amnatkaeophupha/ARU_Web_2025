@@ -52,7 +52,7 @@
             @foreach($carousels as $carousel)
             <div class="col">
                 <div class="card border-primary border-bottom border-3 border-0">
-                    <img src="{{ asset('storage/2025_webaru_home_carousels/'.$carousel->images) }}" class="card-img-top">
+                    <img src="{{ asset('storage/'.$carousel->images) }}" class="card-img-top">
                     <div class="card-body" style="font-family:'Chakra Petch', sans-serif;">
                         <h5 class="card-title text-primary">Edit Link</h5>
                         <form method="POST" action="{{ url('admin/webaru-carousels/update') }}" enctype="multipart/form-data">

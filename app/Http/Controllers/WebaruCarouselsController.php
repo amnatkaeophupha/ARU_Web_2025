@@ -45,7 +45,7 @@ class WebaruCarouselsController extends Controller
 
             $webaru = WebaruCarousel::create([
                 'image_url' => $request->image_url,
-                'images' => $imageName,
+                'images' => $filePath,
                 'status' => 0,
                 'created_by' => Auth::user()->name
             ]);
@@ -89,7 +89,9 @@ class WebaruCarouselsController extends Controller
 
             if($webaru->images != null)
             {
-                $path = '2025_webaru_home_carousels/'.$webaru->images;
+                $path = str_starts_with($webaru->images, '2025_webaru_home_carousels/')
+                    ? $webaru->images
+                    : '2025_webaru_home_carousels/'.$webaru->images;
                 if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
             }
 
@@ -97,7 +99,7 @@ class WebaruCarouselsController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $filePath = $image->storeAs('2025_webaru_home_carousels', $imageName, 'public');
 
-            $webaru->images = $imageName;
+            $webaru->images = $filePath;
             $webaru->updated_by = Auth::user()->name;
 
             if ($webaru->save()) {
