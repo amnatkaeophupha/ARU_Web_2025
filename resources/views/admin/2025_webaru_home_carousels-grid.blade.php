@@ -11,7 +11,7 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">ภาพสไลด์มหาวิทยาลัย</li>
+                        <li class="breadcrumb-item active" aria-current="page">ภาพโฆษณามหาวิทยาลัยและหน่วยงาน</li>
                     </ol>
                 </nav>
             </div>
@@ -46,7 +46,7 @@
         </div>
         @endif
 
-        <h4 class="mb-0" style="font-family:'Chakra Petch', sans-serif;">ภาพประกาศ</h4>
+        <h4 class="mb-0 text-danger" style="font-family:'Chakra Petch', sans-serif; font-size: 18px;">ภาพโฆษณามหาวิทยาลัยและหน่วยงาน ปรับจาก 1920X700 เหลือ 1140X4++</h4>
         <hr/>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4">
             @foreach($carousels as $carousel)

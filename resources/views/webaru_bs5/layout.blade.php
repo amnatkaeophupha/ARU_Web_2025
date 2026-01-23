@@ -43,7 +43,7 @@
             <div class="header-top aru-darkred-bg ptb-20">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 col-12">
+                        <div class="col-md-6 col-sm-12 col-12 d-none d-sm-block">
                             <div class="header-top-info">
                                 <ul>
                                     <li>
@@ -61,7 +61,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6 d-none d-sm-block">
+                        <div class="col-md-6 col-sm-12 d-none d-sm-block">
                             <div class="header-top-right f-right">
                                 <div class="header-top-language f-right">
                                     <ul>
@@ -185,7 +185,7 @@
                 <div class="row">
                     <div class="d-lg-none col-sm-12 col-12">
                         <div class="mobile-menu">
-                            <button class="aru-mobile-toggle" type="button">Menu</button>
+                            <button class="aru-mobile-toggle" type="button" style="font-size: 10px;">Menu</button>
                             <nav id="dropdown">
                                 <ul>
                                     <li><a href="#">หน่วยงานภายใน</a>

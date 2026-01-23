@@ -904,3 +904,17 @@ Intro area
         text-indent: 24px;
     }
 }
+
+/* Mobile menu tweaks */
+/* Force meanmenu reveal button away from the right edge */
+.mean-container a.meanmenu-reveal {
+    right: 20px !important;
+    left: auto !important;
+    transform: translateX(-10px);
+}
+
+/* Shift meanmenu icon lines to the left */
+.mean-container a.meanmenu-reveal::before {
+    margin-left: -10px !important;
+    transform: translateX(-4px);
+}

@@ -6,7 +6,7 @@ use App\Http\Controllers\WebaruAdmitController;
 use App\Http\Controllers\WebaruExecutivePublicController;
 use App\Http\Controllers\WebaruHomePublicController;
 
-// Route::get('/', function () { return view('webaru_bs5.home');});
+// Route::get('/', function () { return view('webaru_bs5.default.index');});
 // Route::get('/intro', function () { return view('webaru_bs5.intro');});
 // Route::get('/videointro', function () { return view('webaru_bs5.videointro');});
 // Route::get('/symbol', function () { return view('webaru_bs5.symbol');});

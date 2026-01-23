@@ -44,7 +44,7 @@ class WebaruSliderController extends Controller
             $filePath = $image->storeAs('2025_webaru_home_sliders', $imageName, 'public');
 
             $webaru = WebaruSlider::create([
-                'images' => $imageName,
+                'images' => $filePath,
                 'link_url' => $request->link_url,
                 'topic' => $request->topic,
                 'title' => $request->title,
@@ -65,22 +65,6 @@ class WebaruSliderController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
@@ -92,7 +76,9 @@ class WebaruSliderController extends Controller
 
             if($webaru->images != null)
             {
-                $path = '2025_webaru_home_sliders/'.$webaru->images;
+                $path = str_starts_with($webaru->images, '2025_webaru_home_sliders/')
+                    ? $webaru->images
+                    : '2025_webaru_home_sliders/'.$webaru->images;
                 if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
             }
 
@@ -100,7 +86,7 @@ class WebaruSliderController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $filePath = $image->storeAs('2025_webaru_home_sliders', $imageName, 'public');
 
-            $webaru->images = $imageName;
+            $webaru->images = $filePath;
             $webaru->updated_by = Auth::user()->name;
 
             if ($webaru->save()) {
@@ -113,21 +99,21 @@ class WebaruSliderController extends Controller
             }
         }
 
-        if($request->link_url != null)
-        {
-            $webaru = WebaruSlider::where('id',$request->id)->first();
+        $webaru = WebaruSlider::where('id',$request->id)->first();
+        if ($webaru) {
+            $webaru->topic = $request->topic;
+            $webaru->title = $request->title;
             $webaru->link_url = $request->link_url;
             $webaru->updated_by = Auth::user()->name;
 
             if ($webaru->save()) {
-
                 return back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
-
-            }else{
-
-                return back()->with('fail','ไม่สามารถบันทึกข้อมูลได้');
             }
+
+            return back()->with('fail','ไม่สามารถบันทึกข้อมูลได้');
         }
+
+        return back()->with('fail','ไม่พบข้อมูล');
     }
 
     /**

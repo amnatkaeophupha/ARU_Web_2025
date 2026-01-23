@@ -9,7 +9,7 @@ a.meanmenu-reveal{display:none}
   z-index: 999999;
 }
 .mean-container a.meanmenu-reveal{
-    width:22px;height:22px;padding:13px 0px 11px 13px;top:0;right:0;cursor:pointer;color:#fff;text-decoration:none;font-size:16px;text-indent:-9999em;line-height:22px;font-size:1px;display:block;font-family:Arial,Helvetica,sans-serif;font-weight:700;float: right;
+    width:22px;height:22px;padding:13px 0px 11px 13px;top:0;right:0;cursor:pointer;color:#fff;text-decoration:none;font-size:16px;text-indent:-9999em;line-height:20px;font-size:1px;display:block;font-family:Chakra Petch,Helvetica,sans-serif;font-weight:700;float: right;
 }
 .mean-container a.meanmenu-reveal span{display:block;background:#fff;height:3px;margin-top:3px}
 .mean-container .mean-nav{float:left;width:100%;background:#0c1923}
@@ -86,3 +86,70 @@ a.meanmenu-reveal{display:none}
   position: absolute;
   top: 12px;
 }
+
+/* === MeanMenu ใช้ฟอนต์ Chakra Petch === */
+.mean-container,
+.mean-container .mean-bar,
+.mean-container .mean-nav,
+.mean-container .mean-nav ul li a,
+.mean-container .mean-nav ul li li a,
+.mean-container a.meanmenu-reveal,
+.mean-container .mean-bar::after {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.mean-container .mean-bar::after {
+  content: "MENU";
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 20px;
+  color: #ffffff;
+  left: 5%;
+  position: absolute;
+  top: 12px;
+}
+
+/* ===== หัวข้อหมวดเมนู (Main Menu) ===== */
+.mean-container .mean-nav > ul > li > a {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;          /* ปรับได้ เช่น 17–18px */
+    font-weight: 500;         /* 500–700 แล้วแต่ชอบ */
+    letter-spacing: 0.5px;
+    color: #222;
+    background: #f8f8f8;
+}
+
+/* เมนูย่อย */
+.mean-container .mean-nav ul li li a {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.mean-container a.meanmenu-reveal span {
+    background: #fff;
+    height: 3px;
+    width: 22px;
+    margin-top: 8px;
+    position: relative;
+}
+
+.mean-container a.meanmenu-reveal span::before,
+.mean-container a.meanmenu-reveal span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 3px;
+    background: #fff;
+}
+
+.mean-container a.meanmenu-reveal span::before {
+    top: -7px;
+}
+
+.mean-container a.meanmenu-reveal span::after {
+    top: 7px;
+}
+

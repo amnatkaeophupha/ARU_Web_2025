@@ -3097,6 +3097,36 @@ form select.error:focus {
   font-family: 'Chakra Petch', sans-serif;
 }
 
+.aru-font-chakra {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.aru-slider-note {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #d63384;
+}
+
+.aru-slider-card-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.aru-slider-card-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.aru-slider-textarea {
+  font-size: 14px;
+}
+
+.aru-slider-action-btn {
+  font-size: 12px;
+}
+
 
 
 .nav-success.nav-tabs .nav-link.active {
