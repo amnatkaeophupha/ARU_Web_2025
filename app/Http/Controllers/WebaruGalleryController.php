@@ -183,8 +183,10 @@ class WebaruGalleryController extends Controller
 
     // folder ตาม id
     $folderPath = "2025_webaru_home_gallery_view/{$id}";
+    $thumbFolderPath = "{$folderPath}/thumbs";
 
     Storage::disk('public')->makeDirectory($folderPath);
+    Storage::disk('public')->makeDirectory($thumbFolderPath);
 
         foreach ($request->file('files') as $file) {
             // ตั้งชื่อไฟล์กันชน
@@ -192,27 +194,21 @@ class WebaruGalleryController extends Controller
             $filename = now()->format('YmdHis') . '_' . Str::random(8) . '.' . $ext;
 
             // อ่านรูป
-            $image = Image::read($file);
+            $image = Image::read($file)->orient();
 
-            // ปรับขนาด: ด้านยาวสุด = 1920px และรักษาอัตราส่วน (กว้างสัมพันธ์กับสูง)
+            // ปรับขนาด: ด้านยาวสุด = 1200px และรักษาอัตราส่วน
             $maxSide = 1200;
-            $width = $image->width();
-            $height = $image->height();
-            if ($width >= $height) {
-                $image->resize($maxSide, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize(); // ป้องกันการขยายภาพเล็ก
-                });
-            } else {
-                $image->resize(null, $maxSide, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize(); // ป้องกันการขยายภาพเล็ก
-                });
-            }
+            $image->scaleDown($maxSide, $maxSide);
 
            // บันทึกไฟล์ลง storage/app/public/...
             $savePath = storage_path("app/public/{$folderPath}/{$filename}");
             $image->save($savePath, quality: 85);
+
+            // สร้าง thumbnail เพื่อลดน้ำหนักหน้าแกลเลอรี
+            $thumb = clone $image;
+            $thumb->scaleDown(400, 400);
+            $thumbSavePath = storage_path("app/public/{$thumbFolderPath}/{$filename}");
+            $thumb->save($thumbSavePath, quality: 80);
 
             //$file->storeAs($folderPath, $filename, 'public');
         }
@@ -233,10 +229,47 @@ class WebaruGalleryController extends Controller
         $filename = basename($request->file);
 
         $path = "2025_webaru_home_gallery_view/{$id}/{$filename}";
+        $thumbPath = "2025_webaru_home_gallery_view/{$id}/thumbs/{$filename}";
 
         if (Storage::disk('public')->exists($path)) {
             Storage::disk('public')->delete($path);
+            if (Storage::disk('public')->exists($thumbPath)) {
+                Storage::disk('public')->delete($thumbPath);
+            }
             return back()->with('success', 'ลบรูปเรียบร้อยแล้ว');
+        }
+
+        return back()->with('fail', 'ไม่พบไฟล์รูปที่ต้องการลบ');
+    }
+
+    public function deleteImages(Request $request)
+    {
+        $request->validate([
+            'id' => ['required', 'integer'],
+            'files' => ['required', 'array'],
+            'files.*' => ['required', 'string'],
+        ]);
+
+        $id = (int) $request->id;
+        $deleted = 0;
+        $files = $request->input('files', []);
+
+        foreach ($files as $file) {
+            $filename = basename($file);
+            $path = "2025_webaru_home_gallery_view/{$id}/{$filename}";
+            $thumbPath = "2025_webaru_home_gallery_view/{$id}/thumbs/{$filename}";
+
+            if (Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+                $deleted++;
+            }
+            if (Storage::disk('public')->exists($thumbPath)) {
+                Storage::disk('public')->delete($thumbPath);
+            }
+        }
+
+        if ($deleted > 0) {
+            return back()->with('success', "ลบรูปที่เลือกเรียบร้อยแล้ว ({$deleted} รูป)");
         }
 
         return back()->with('fail', 'ไม่พบไฟล์รูปที่ต้องการลบ');

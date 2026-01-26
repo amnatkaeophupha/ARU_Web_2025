@@ -9,6 +9,13 @@
                             <img src="{{ url('webaru_bs5/aru_images/logo/2025_aru_Logo_title.png') }}" alt="aru" >
                             <h1 style="font-family:'sarabun',sans-serif;">กิจกรรม</h1>
                             <p>กิจกรรมมหาวิทยาลัยและหน่วยงานต่างๆ </p>
+                            <div class="mt-2 text-muted" style="font-family:'sarabun',sans-serif;">
+                                <strong>หัวข้อกิจกรรม:</strong> {{ $gallery->title ?? '-' }}
+                                <span class="ms-2">
+                                    <strong>วันที่:</strong>
+                                    {{ $gallery->start_date ? \Carbon\Carbon::parse($gallery->start_date)->format('d/m/Y') : '-' }}
+                                </span>
+                            </div>
                             <div class="separator my mtb-15">
                                 <i class="icofont icofont-camera"></i>
                             </div>
@@ -19,16 +26,75 @@
                     <div class="col-md-12">
                         <div class="service-all white-bg">
                             @php
-                                $images = collect($files ?? [])->map(fn($f) => asset('storage/'.$f))->values();
+                                $images = collect($files ?? [])
+                                    ->reject(function ($f) {
+                                        return str_contains($f, '/thumbs/');
+                                    })
+                                    ->map(function ($f) {
+                                    $path = ltrim($f, '/');
+                                    $filename = basename($path);
+                                    $thumbPath = dirname($path) . '/thumbs/' . $filename;
+                                    $thumbExists = \Illuminate\Support\Facades\Storage::disk('public')->exists($thumbPath);
+                                    $fullUrl = asset('storage/' . $path);
+                                    $thumbUrl = $thumbExists ? asset('storage/' . $thumbPath) : $fullUrl;
+
+                                    return [
+                                        'url' => $fullUrl,
+                                        'thumb_url' => $thumbUrl,
+                                        'caption' => pathinfo($path, PATHINFO_FILENAME),
+                                    ];
+                                })->values();
                             @endphp
-                            <div class="row g-3">
-                                @forelse($images as $url)
+                            <style>
+                                .aru-gallery-grid .aru-card {
+                                    background: #fff;
+                                    border: 1px solid #e6e9ef;
+                                    border-radius: 12px;
+                                    overflow: hidden;
+                                    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+                                    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+                                    height: 100%;
+                                }
+                                .aru-gallery-grid .aru-thumb {
+                                    background: #f6f7f9;
+                                    aspect-ratio: 4 / 3;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    overflow: hidden;
+                                }
+                                .aru-gallery-grid .aru-thumb img {
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    width: auto;
+                                    height: auto;
+                                    object-fit: contain;
+                                }
+                                .aru-gallery-grid a:hover .aru-card {
+                                    transform: translateY(-3px);
+                                    border-color: #c9d3e1;
+                                    box-shadow: 0 10px 20px rgba(0,0,0,.10);
+                                }
+                                .aru-gallery-grid .aru-caption {
+                                    padding: 10px 12px;
+                                    font-size: 13px;
+                                    color: #586270;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+                            </style>
+                            <div class="row g-3 aru-gallery-grid">
+                                @forelse($images as $image)
                                     <div class="col-md-4 col-sm-6">
-                                        <div class="webaru_gallery-area">
-                                            <div class="news-img">
-                                                <img src="{{ $url }}" alt="gallery image" style="width: 100%; height: auto; object-fit: contain;">
+                                        <a href="{{ $image['url'] }}" data-fancybox="aru-gallery" data-caption="{{ $image['caption'] }}" class="d-block">
+                                            <div class="aru-card">
+                                                <div class="aru-thumb">
+                                                    <img src="{{ $image['thumb_url'] }}" alt="gallery image" loading="lazy" decoding="async" fetchpriority="low">
+                                                </div>
+                                                <div class="aru-caption">{{ $image['caption'] }}</div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 @empty
                                     <div class="col-md-12 text-center text-muted">ไม่มีข้อมูล</div>

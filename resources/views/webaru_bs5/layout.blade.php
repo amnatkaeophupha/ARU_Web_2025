@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/custom.css') }}">
     <!-- Executives css -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/aru-executives.css') }}">
+    <!-- Fancybox v5 css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <!-- Style customizer (Remove these two lines please) -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/color/color-aru.css') }}">
     <!-- Modernizr JS -->
@@ -45,14 +47,14 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12 col-12 d-none d-sm-block">
                             <div class="header-top-info">
-                                <ul>
+                                <ul class="d-flex flex-wrap align-items-center gap-3">
                                     <li>
                                         <a href="#">
                                             <i class="icofont icofont-ui-call"></i>
                                             Call us (+66) 035-276-555-9
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="d-none d-lg-block">
                                         <a href="#">
                                             <i class="icofont icofont-envelope"></i>
                                             saraban@aru.ac.th
@@ -61,7 +63,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12 d-none d-sm-block">
+                        <div class="col-md-6 col-sm-12 d-none d-lg-block">
                             <div class="header-top-right f-right">
                                 <div class="header-top-language f-right">
                                     <ul>
@@ -388,6 +390,41 @@
     <script src="{{ url('webaru_bs5/js/vendor/slick-1.8.1.min.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/vendor/meanmenu-2.0.8.min.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/vendor/chosen-1.8.7.min.js') }}"></script>
+    <!-- Fancybox v5 -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.Fancybox) {
+                Fancybox.bind('[data-fancybox="aru-gallery"]', {
+                    Thumbs: { autoStart: true },
+                    Toolbar: { display: ['zoom', 'slideshow', 'thumbs', 'close'] }
+                });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('click', function (e) {
+            var trigger = e.target.closest('[data-fancybox="aru-gallery"]');
+            if (!trigger || !window.Fancybox) {
+                return;
+            }
+            var items = Array.prototype.slice.call(document.querySelectorAll('[data-fancybox="aru-gallery"]'));
+            var startIndex = items.indexOf(trigger);
+            if (startIndex === -1) {
+                return;
+            }
+            e.preventDefault();
+            e.stopPropagation();
+            var slides = items.map(function (el) {
+                return {
+                    src: el.getAttribute('href'),
+                    type: 'image',
+                    caption: el.getAttribute('data-caption') || ''
+                };
+            });
+            Fancybox.show(slides, { startIndex: startIndex });
+        }, true);
+    </script>
     <script src="{{ url('webaru_bs5/js/main.js') }}"></script>
     <script src="{{ url('webaru_bs5/js/custom.js') }}"></script>
 </body>

@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::get('webaru-galleries/view/{id}', [WebaruGalleryController::class, 'view'])->name('admin.webaru-galleries.view');
     Route::post('admin/webaru-galleries/upload-images', [WebaruGalleryController::class, 'uploadImagesOnlyFile'])->name('admin.webaru-galleries.upload-images');
     Route::delete('admin/webaru-galleries/delete-image', [WebaruGalleryController::class, 'deleteImage'])->name('admin.webaru-galleries.delete-image');
+    Route::delete('admin/webaru-galleries/delete-images', [WebaruGalleryController::class, 'deleteImages'])->name('admin.webaru-galleries.delete-images');
 
 /**    Start Database system Student Admit  */
     Route::get('webaru-admit', [WebaruAdmitController::class, 'index']);
