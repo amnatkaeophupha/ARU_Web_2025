@@ -7,6 +7,7 @@ use App\Models\WebaruTab;
 use App\Models\WebaruNews;
 use App\Models\WebaruCarousel;
 use App\Models\WebaruSlider;
+use App\Models\WebaruGallery;
 
 class WebaruHomePublicController extends Controller
 {
@@ -37,6 +38,12 @@ class WebaruHomePublicController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('webaru_bs5.home', compact('tabCategories', 'tabsByCategory', 'arunews', 'carousels', 'sliders'));
+        $galleries = WebaruGallery::where('status', 1)
+            ->orderBy('start_date', 'desc')
+            ->orderBy('id', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('webaru_bs5.home', compact('tabCategories', 'tabsByCategory', 'arunews', 'carousels', 'sliders', 'galleries'));
     }
 }

@@ -530,107 +530,45 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="webaru_gallery-area">
-                            <div class="news-img">
-                                <img src="{{ asset('storage/2025_webaru_home_gallery/pg-1.png') }}" alt="" >
-                                <div class="news-date navy-bg">
-                                    <div class="blog-meta-2">
-                                        <span class="published3">
-                                            <i class="icofont icofont-ui-calendar"></i>
-                                            14 Sep 2016
-                                        </span>
-                                    </div>
-                                    <div class="blog-meta for-news">
-                                        <span class="published3">
-                                            <a href="#">
-                                                <i class="icofont icofont-eye"></i> 34
-                                            </a>
-                                        </span>
-                                        <span class="published4">
-                                            <a href="#">
-                                                <i class="icofont icofont-comment"></i> 20
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="img-text gray-bg">
-
-                                <p>พิธีทำบุญตักบาตรข้าวสารอาหารแห้งต้อนรับปีใหม่ 2569</p>
-                                <a class="button extra-small" href="#">
-                                    <span>ดูเพิ่มเติม</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="webaru_gallery-area mrg-xs">
-                            <div class="news-img">
-                                <img src="{{ asset('storage/2025_webaru_home_gallery/pg-2.png') }}" alt="" >
-                                <div class="news-date navy-bg">
-                                    <div class="blog-meta-2">
-                                        <span class="published3">
-                                            <i class="icofont icofont-ui-calendar"></i>
-                                            14 Sep 2016
-                                        </span>
-                                    </div>
-                                    <div class="blog-meta for-news">
-                                        <span class="published3">
-                                            <a href="#">
-                                                <i class="icofont icofont-eye"></i> 34
-                                            </a>
-                                        </span>
-                                        <span class="published4">
-                                            <a href="#">
-                                                <i class="icofont icofont-comment"></i> 20
-                                            </a>
-                                        </span>
+                    @forelse($galleries as $gallery)
+                        @php
+                            $galleryImagePath = str_starts_with($gallery->image ?? '', '2025_webaru_home_gallery/')
+                                ? $gallery->image
+                                : '2025_webaru_home_gallery/'.($gallery->image ?? '');
+                            $galleryDate = $gallery->start_date ? \Carbon\Carbon::parse($gallery->start_date) : null;
+                            $thaiMonths = [
+                                1 => 'มกราคม', 2 => 'กุมภาพันธ์', 3 => 'มีนาคม', 4 => 'เมษายน',
+                                5 => 'พฤษภาคม', 6 => 'มิถุนายน', 7 => 'กรกฎาคม', 8 => 'สิงหาคม',
+                                9 => 'กันยายน', 10 => 'ตุลาคม', 11 => 'พฤศจิกายน', 12 => 'ธันวาคม',
+                            ];
+                            $galleryDateText = $galleryDate
+                                ? $galleryDate->format('d') . ' ' . ($thaiMonths[(int) $galleryDate->format('m')] ?? '') . ' พ.ศ. ' . ($galleryDate->year >= 2500 ? $galleryDate->year : $galleryDate->year + 543)
+                                : '';
+                        @endphp
+                        <div class="col-md-4 col-sm-6">
+                            <div class="webaru_gallery-area">
+                                <div class="news-img">
+                                    <img src="{{ asset('storage/'.$galleryImagePath) }}" alt="{{ $gallery->title ?? '' }}" >
+                                    <div class="news-date navy-bg">
+                                        <div class="blog-meta-2">
+                                            <span class="published3">
+                                                <i class="icofont icofont-ui-calendar"></i>
+                                                {{ $galleryDateText }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="img-text gray-bg">
-                                <p>พิธีบวงสรวงสิ่งศักดิ์สิทธิ์และงานแถลงข่าว เพื่อความเป็นสิริมงคลก่อนการจัดงานมหกรรมศิลปวัฒนธรรม งานมหกรรมศิลปวัฒนธรรม “อยุธยา เฟสติวัล”และรำลึก ๒๕๙ ปี “วีระมหากษัตราพระเจ้าตากสินกู้แผ่นดิน” </p>
-                                <a class="button extra-small" href="#">
-                                    <span>ดูเพิ่มเติม</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-block d-md-none d-lg-block">
-                        <div class="webaru_gallery-area mrg-xs">
-                            <div class="news-img">
-                                <img src="{{ url('webaru_bs5/images/blog/10.jpg') }}" alt="" >
-                                <div class="news-date navy-bg">
-                                    <div class="blog-meta-2">
-                                        <span class="published3">
-                                            <i class="icofont icofont-ui-calendar"></i>
-                                            14 Sep 2016
-                                        </span>
-                                    </div>
-                                    <div class="blog-meta for-news">
-                                        <span class="published3">
-                                            <a href="#">
-                                                <i class="icofont icofont-eye"></i> 34
-                                            </a>
-                                        </span>
-                                        <span class="published4">
-                                            <a href="#">
-                                                <i class="icofont icofont-comment"></i> 20
-                                            </a>
-                                        </span>
-                                    </div>
+                                <div class="img-text gray-bg">
+                                    <p>{{ $gallery->title }}</p>
+                                    <a class="button extra-small" href="{{ route('gallery.view', $gallery->id) }}">
+                                        <span>ดูเพิ่มเติม</span>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="img-text gray-bg">
-                                <h3><a href="#">In publishing and graphic desi</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
-                                <a class="button extra-small" href="#">
-                                    <span>ดูเพิ่มเติม</span>
-                                </a>
-                            </div>
                         </div>
-                    </div>
+                    @empty
+                        <div class="col-md-12 text-center text-muted">ไม่มีข้อมูล</div>
+                    @endforelse
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">

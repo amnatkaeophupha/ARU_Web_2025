@@ -30,3 +30,4 @@ Route::get('/map', function () { return view('webaru_bs5.map');});
 Route::get('/structure', function () { return view('webaru_bs5.structure');});
 Route::get('/executives', [WebaruExecutivePublicController::class, 'index'])->name('executives.index');
 Route::get('/administrators', function () { return view('webaru_bs5.administrators');});
+Route::get('/gallery/{id}', [WebaruGalleryController::class, 'publicView'])->name('gallery.view');

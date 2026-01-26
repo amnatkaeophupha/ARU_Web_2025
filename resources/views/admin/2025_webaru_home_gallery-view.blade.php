@@ -49,7 +49,7 @@
         <div class="card border-primary border-top border-3 border-0">
             <div class="card-body">
                 <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
-                    <h5 class="text-primary rounded mb-0">ข้อมูลประกาศ</h5>
+                    <h5 class="text-primary rounded mb-0">คลังภาพ</h5>
                 </div>
                 <hr/>
                 <div class="tab-content py-3">
@@ -66,15 +66,18 @@
                         <div class="position-relative">
 
                             {{-- คลิกเพื่อเปิด modal --}}
-                            <a href="javascript:void(0)"
-                            class="d-block"
-                            data-bs-toggle="modal"
-                            data-bs-target="#galleryModal"
-                            data-index="{{ $i }}">
-                            <img src="{{ $url }}"
-                                class="img-fluid rounded shadow-sm d-block w-100"
-                                style="cursor: zoom-in; aspect-ratio:1/1; object-fit:cover;">
-                            </a>
+                                <a href="javascript:void(0)"
+                                class="d-block"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal"
+                                data-index="{{ $i }}">
+                                    <div class="rounded shadow-sm d-flex align-items-center justify-content-center"
+                                        style="cursor: zoom-in; height: 150px; background: #f8f9fa; overflow: hidden;">
+                                        <img src="{{ $url }}"
+                                            class="img-fluid d-block"
+                                            style="max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;">
+                                    </div>
+                                </a>
 
                             {{-- ปุ่มลบ --}}
                             <form method="POST"
@@ -158,7 +161,7 @@
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
                   <img src="{{ $url }}"
                        class="d-block img-fluid gallery-zoom-img"
-                       style="max-height: 70vh; transform: scale(1); transition: transform .15s ease;"
+                       style="max-height: 80vh; max-width: 100%; height: auto; width: auto; object-fit: contain; transform: scale(1); transition: transform .15s ease;"
                        alt="image-{{ $i }}">
                 </div>
               </div>

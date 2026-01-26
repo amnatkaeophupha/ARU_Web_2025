@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::post('webaru-arunews/updateTitle/{id}', [WebaruNewsController::class, 'updateTitle']);
 
     Route::resource('webaru-galleries', WebaruGalleryController::class);
+    Route::post('webaru-galleries/status', [WebaruGalleryController::class, 'status']);
     Route::post('webaru-galleries/{id}/image', [WebaruGalleryController::class, 'updateImage'])->name('webaru-galleries.updateImage');
     Route::get('webaru-galleries/view/{id}', [WebaruGalleryController::class, 'view'])->name('admin.webaru-galleries.view');
     Route::post('admin/webaru-galleries/upload-images', [WebaruGalleryController::class, 'uploadImagesOnlyFile'])->name('admin.webaru-galleries.upload-images');

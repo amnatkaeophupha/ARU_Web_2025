@@ -49,45 +49,56 @@
         <div class="card border-primary border-top border-3 border-0">
             <div class="card-body">
                 <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
-                    <h5 class="text-primary rounded mb-0">ข้อมูลประกาศ</h5>
+                    <h5 class="text-primary rounded mb-0">ข้อมูลประกาศ <span class="text-danger">ขนาดภาพกำหนด 370 X 250</span></h5>
                 </div>
                 <hr/>
                 <div class="tab-content py-3">
-                    <div class="table-responsive">
-                        <table class="table" style="font-family:'Chakra Petch', sans-serif;">
-                            <thead>
-                                <tr>
-                                    <th width="10%">รหัส</th>
-                                    <th width="50%">ชื่อประกาศ</th>
-                                    <th width="20%">ชื่อประกาศ</th>
-                                    <th width="20%">ดำเนินการ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($galleries as $datas)
-                                <tr>
-                                    <td>{{ $datas->id }}</td>
-                                    <td>
-                                        <a href="{{ url('admin/webaru-galleries/view/'.$datas->id) }}">{{ $datas->title }}</a>
-                                    </td>
-                                    <td>{{ $datas->by }}</td>
-                                    <td>
-                                        <button type="button" data-id="{{ $datas->id }}" data-bs-target="#UploadFile" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class="lni lni-cloud-upload"></i></button>
-                                        {{-- <button type="button" onclick="editUser({{ $datas->id }}, @json($datas->title), @json($datas->start_date),@json($datas->by))" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button> --}}
-                                        <button type="button" data-id="{{ $datas->id }}" data-title="{{ $datas->title }}" data-start_date="{{ $datas->start_date }}" data-by="{{ $datas->by }}" data-bs-toggle="modal" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
-                                        <form id="delete-form-{{ $datas->id }}" method="POST" action="{{ route('webaru-galleries.destroy', $datas->id) }}" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="confirmDelete({{ $datas->id }})"><i class='bx bx-trash me-0'></i></button>
-                                        </form>
+                    <table class="table" style="font-family:'Chakra Petch', sans-serif;">
+                        <thead>
+                            <tr>
+                                <th width="5%">แสดงผล</th>
+                                <th width="5%">รหัส</th>
+                                <th width="10%">ภาพ</th>
+                                <th width="50%">ชื่อประกาศ</th>
+                                <th width="20%">ชื่อประกาศ</th>
+                                <th width="10%">ดำเนินการ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($galleries as $datas)
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-sm @if($datas->status == 1) btn-outline-success @else btn-outline-secondary @endif" onclick="IsActive({{ $datas->id }}, @if($datas->status==1) 0 @else 1 @endif)">
+                                        <i class="lni lni-eye me-0"></i>
+                                    </button>
+                                </td>
+                                <td>{{ $datas->id }}</td>
+                                <td>
+                                    @if(!empty($datas->image))
+                                        <img src="{{ asset('storage/2025_webaru_home_gallery/'.$datas->image) }}" alt="{{ $datas->title }}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;">
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ url('admin/webaru-galleries/view/'.$datas->id) }}">{{ $datas->title }}</a>
+                                </td>
+                                <td>{{ $datas->by }}</td>
+                                <td>
+                                    <button type="button" data-id="{{ $datas->id }}" data-bs-target="#UploadFile" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class="lni lni-cloud-upload"></i></button>
+                                    {{-- <button type="button" onclick="editUser({{ $datas->id }}, @json($datas->title), @json($datas->start_date),@json($datas->by))" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button> --}}
+                                    <button type="button" data-id="{{ $datas->id }}" data-title="{{ $datas->title }}" data-start_date="{{ $datas->start_date }}" data-by="{{ $datas->by }}" data-bs-toggle="modal" data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
+                                    <form id="delete-form-{{ $datas->id }}" method="POST" action="{{ route('webaru-galleries.destroy', $datas->id) }}" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-outline-danger btn-sm" onclick="confirmDelete({{ $datas->id }})"><i class='bx bx-trash me-0'></i></button>
+                                    </form>
 
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -169,7 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label mt-2">Upload File Images: กำหนดขนาด 170 X 200</label>
+                    <label class="col-sm-12 col-form-label mt-2">Upload File Images: กำหนดขนาด 370 X 250</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
@@ -305,5 +316,22 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function IsActive(id, status) {
+        $.ajax({
+            url: '/admin/webaru-galleries/status',
+            type: 'POST',
+            data: {
+                id: id,
+                status: status,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function() {
+                location.reload();
+            }
+        });
+    }
+</script>
 
 @endsection

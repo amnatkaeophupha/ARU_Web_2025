@@ -44,14 +44,14 @@ document.getElementById('UploadFile').addEventListener('show.bs.modal', function
 
 function confirmDelete(Id) {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "This action cannot be undone!",
+        title: 'ยืนยันการลบข้อมูล',
+        text: "การลบนี้ไม่สามารถกู้คืนได้",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'Cancel'
+        confirmButtonText: 'ลบข้อมูล',
+        cancelButtonText: 'ยกเลิก'
     }).then((result) => {
         if (result.isConfirmed) {
             // Submit the hidden form

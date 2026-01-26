@@ -17,7 +17,7 @@ class WebaruGalleryController extends Controller
 
     public function index()
     {
-         $galleries = Webarugallery::orderBy('id', 'desc')->paginate(20);
+         $galleries = Webarugallery::orderBy('start_date', 'desc')->orderBy('id', 'desc')->paginate(20);
          return view('admin.2025_webaru_home_gallery-grid', compact('galleries'));
     }
 
@@ -191,14 +191,24 @@ class WebaruGalleryController extends Controller
             $ext = strtolower($file->getClientOriginalExtension());
             $filename = now()->format('YmdHis') . '_' . Str::random(8) . '.' . $ext;
 
-             // อ่านรูป
+            // อ่านรูป
             $image = Image::read($file);
 
-            // ปรับขนาด: ด้านยาวสุด = 1920px (รักษาอัตราส่วน)
-            $image->resize(1920, 1920, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize(); // ป้องกันการขยายภาพเล็ก
-            });
+            // ปรับขนาด: ด้านยาวสุด = 1920px และรักษาอัตราส่วน (กว้างสัมพันธ์กับสูง)
+            $maxSide = 1200;
+            $width = $image->width();
+            $height = $image->height();
+            if ($width >= $height) {
+                $image->resize($maxSide, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize(); // ป้องกันการขยายภาพเล็ก
+                });
+            } else {
+                $image->resize(null, $maxSide, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize(); // ป้องกันการขยายภาพเล็ก
+                });
+            }
 
            // บันทึกไฟล์ลง storage/app/public/...
             $savePath = storage_path("app/public/{$folderPath}/{$filename}");
@@ -230,5 +240,37 @@ class WebaruGalleryController extends Controller
         }
 
         return back()->with('fail', 'ไม่พบไฟล์รูปที่ต้องการลบ');
+    }
+
+    public function publicView($id)
+    {
+        $folder = "2025_webaru_home_gallery_view/$id";
+
+        $files = Storage::disk('public')->exists($folder) ? Storage::disk('public')->files($folder) : [];
+
+        $gallery = Webarugallery::where('id', $id)->first();
+
+        return view('webaru_bs5.gallery_view', compact('gallery', 'files'));
+    }
+
+    public function status(Request $request)
+    {
+        Cache::flush();
+
+        $request->validate([
+            'id' => ['required', 'integer'],
+            'status' => ['required', 'integer', 'in:0,1'],
+        ]);
+
+        $gallery = Webarugallery::find($request->id);
+        if (!$gallery) {
+            return back()->with('fail','ไม่พบข้อมูล');
+        }
+
+        $gallery->status = $request->status;
+        $gallery->updated_by = Auth::user()->name;
+        $gallery->save();
+
+        return redirect(url('admin/webaru-galleries'))->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 }

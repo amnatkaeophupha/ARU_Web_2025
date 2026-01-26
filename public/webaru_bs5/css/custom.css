@@ -536,6 +536,14 @@ Banner carousel area
     margin: 0;
 }
 
+/*
+================================================
+Gallery view area
+================================================
+*/
+
+
+
 @media (max-width: 767px) {
     .arunew-area .arunew-title {
         font-size: 20px;
