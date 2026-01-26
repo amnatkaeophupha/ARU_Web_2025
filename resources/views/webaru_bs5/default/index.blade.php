@@ -106,7 +106,6 @@
                                                 <li><a href="{{ url('') }}">กฎหมายเกี่ยวกับมหาวิทยาลัย</a></li>
                                                 <li><a href="{{ url('structure') }}">โครงสร้างการแบ่งส่วนราชการภายใน</a></li>
                                                 <li><a href="https://www.aru.ac.th/council/?page=committee">คณะกรรมการสภามหาวิทยาลัย</a></li>
-                                                <li><a href="{{ url('administrators') }}">คณะผู้บริหาร</a></li>
                                             </ul>
                                         </li>
                                         <li class="mega-parent"><a href="#">หน่วยงานภายใน <i class="fa fa-caret-down" aria-hidden="true"></i></a>

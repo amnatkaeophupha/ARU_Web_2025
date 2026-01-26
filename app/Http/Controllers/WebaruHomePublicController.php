@@ -7,7 +7,10 @@ use App\Models\WebaruTab;
 use App\Models\WebaruNews;
 use App\Models\WebaruCarousel;
 use App\Models\WebaruSlider;
-use App\Models\WebaruGallery;
+use App\Models\WebaruAdmitCycle;
+use App\Models\WebaruAdmitFaculty;
+use App\Models\Webarugallery;
+use Illuminate\Support\Facades\Storage;
 
 class WebaruHomePublicController extends Controller
 {
@@ -38,12 +41,61 @@ class WebaruHomePublicController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        $galleries = WebaruGallery::where('status', 1)
+        $galleries = Webarugallery::where('status', 1)
             ->orderBy('start_date', 'desc')
             ->orderBy('id', 'desc')
             ->take(3)
             ->get();
 
         return view('webaru_bs5.home', compact('tabCategories', 'tabsByCategory', 'arunews', 'carousels', 'sliders', 'galleries'));
+    }
+
+    public function admitIndex()
+    {
+        $cycles = WebaruAdmitCycle::query()
+            ->where('is_active', true)
+            ->orderByDesc('year')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('webaru_bs5.admit_index', compact('cycles'));
+    }
+
+    public function admitShow($id)
+    {
+        $cycle = WebaruAdmitCycle::with(['fileDetails' => function ($q) {
+            $q->orderBy('id', 'desc');
+        }])->findOrFail($id);
+
+        $faculties = WebaruAdmitFaculty::query()
+            ->orderBy('id', 'asc')
+            ->with([
+                'programs' => function ($q) use ($id) {
+                    $q->orderBy('program_code', 'asc');
+                },
+                'programs.admitViews' => function ($q) use ($id) {
+                    $q->where('webaru_admit_cycle_id', $id)
+                      ->orderByDesc('id');
+                },
+                'viewComments' => function ($q) use ($id) {
+                    $q->where('webaru_admit_cycle_id', $id)
+                      ->orderByDesc('id');
+                },
+            ])
+            ->get();
+
+        return view('webaru_bs5.admit_view', compact('cycle', 'faculties'));
+    }
+
+    public function galleryView($id)
+    {
+        $folder = "2025_webaru_home_gallery_view/{$id}";
+        $files = Storage::disk('public')->exists($folder)
+            ? Storage::disk('public')->files($folder)
+            : [];
+
+        $gallery = Webarugallery::where('id', $id)->first();
+
+        return view('webaru_bs5.gallery_view', compact('gallery', 'files'));
     }
 }

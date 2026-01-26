@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -10,6 +12,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -47,11 +50,11 @@ class UserController extends Controller
 
         if ($rec) {
 
-            return back()->with('success','You have Registered successfuly');
+            return back()->with('success','บันทึกผู้ใช้งานเรียบร้อยแล้ว');
 
         }else{
 
-            return back()->with('fail','You have Registered fail');
+            return back()->with('fail','ไม่สามารถบันทึกผู้ใช้งานได้');
         }
 
     }
@@ -75,7 +78,7 @@ class UserController extends Controller
             $user->role = trim($request->role);
             $user->save();
 
-            return back()->with('success','You have Updated successfuly');
+            return back()->with('success','อัปเดตผู้ใช้งานเรียบร้อยแล้ว');
 
         }else{
 
@@ -88,7 +91,7 @@ class UserController extends Controller
             $user->role = trim($request->role);
             $user->save();
 
-            return back()->with('success','You have Updated successfuly');
+            return back()->with('success','อัปเดตผู้ใช้งานเรียบร้อยแล้ว');
         }
     }
 
@@ -116,7 +119,7 @@ class UserController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'User status updated successfully!',
+            'message' => 'อัปเดตสถานะผู้ใช้งานเรียบร้อยแล้ว',
         ]);
     }
 
@@ -126,12 +129,12 @@ class UserController extends Controller
 
         if($user->avatar != null)
         {
-            $path = 'avatars/'.$user->avatar;
-            if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
+            $path = public_path('webaru_bs5/avatars/'.$user->avatar);
+            if (File::exists($path)) { File::delete($path); }
         }
 
         $user = User::findOrFail($id);
         $user->delete();
-        return back()->with('success','You have Deleted successfuly');
+        return back()->with('success','ลบผู้ใช้งานเรียบร้อยแล้ว');
     }
 }

@@ -36,9 +36,9 @@
             <div class="user-box dropdown px-3" style="font-family:'Chakra Petch', sans-serif;">
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     @if(Auth::user()->avatar <> null)
-                    <img src="{{ asset('storage/avatars/'.Auth::user()->avatar) }}" alt="user avatar" class="user-img">
+                    <img src="{{ asset('webaru_bs5/avatars/' . Auth::user()->avatar) }}" alt="user avatar" class="user-img">
                     @else
-                    <img src="{{url('rocker');}}/images/avatars/avatar-0.png" alt="user avatar" class="user-img">
+                    <img src="{{ asset('webaru_bs5/avatars/avatar-0.png') }}" alt="user avatar" class="user-img">
                     @endif
                     <div class="user-info">
                         <p class="user-name mb-0">{{ Auth::user()->name; }}</p>

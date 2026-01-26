@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\File;
 
 class AuthController extends Controller
 {
@@ -161,21 +162,25 @@ class AuthController extends Controller
 
         if($user->avatar != null)
         {
-            $path = 'avatars/'.$user->avatar;
-            if (Storage::disk('public')->exists($path)) { Storage::disk('public')->delete($path);}
+            $path = public_path('webaru_bs5/avatars/'.$user->avatar);
+            if (File::exists($path)) { File::delete($path); }
             User::where('id', Auth::user()->id)->update(['avatar' => null]);
         }
 
         $avatar = $request->file('avatars');
         $avatar_name = 'userid-'.$user->id.'.'.$request->avatars->extension();
-        $avatar_path = $avatar->storeAs('avatars', $avatar_name, 'public'); // Upload to storage/app/public/avatars
-        //dd($avatar_path);
+        $avatar_dir = public_path('webaru_bs5/avatars');
+        if (!File::exists($avatar_dir)) {
+            File::makeDirectory($avatar_dir, 0755, true);
+        }
+        $avatar->move($avatar_dir, $avatar_name);
+        $avatar_path = $avatar_dir.DIRECTORY_SEPARATOR.$avatar_name;
         $manager = new ImageManager(new Driver());
-        $image = $manager->read(Storage::disk('public')->get($avatar_path));
+        $image = $manager->read($avatar_path);
         $image->cover(100,100,'center');
-        $image->save(Storage::disk('public')->path($avatar_path));
+        $image->save($avatar_path);
         User::where('id', Auth::user()->id)->update(['avatar' => $avatar_name]);
-        return back()->with('success', 'Profile image uploaded successfully.');
+        return back()->with('success', 'อัปโหลดรูปโปรไฟล์เรียบร้อยแล้ว');
     }
 
     public function profile_update(Request $request)
@@ -194,26 +199,26 @@ class AuthController extends Controller
         $user->role = $request->role;
         $user->save();
 
-        return back()->with('data_success', 'Profile updated successfully.');
+        return back()->with('data_success', 'อัปเดตโปรไฟล์เรียบร้อยแล้ว');
     }
 
     public function resize(Request $request)
     {
         $user = User::where('id', Auth::user()->id)->first();
 
-        $path = $user->avatar;
+        $path = public_path('webaru_bs5/avatars/'.$user->avatar);
 
-        if (!Storage::disk('public')->exists($path)) {
+        if (!File::exists($path)) {
             abort(404, 'Image not found.');
         }
 
         $manager = new ImageManager(new Driver());
 
-        $image = $manager->read(Storage::disk('public')->get($path));
+        $image = $manager->read($path);
 
         $image->scale(100);
 
-        $image->save(Storage::disk('public')->path($path));
+        $image->save($path);
     }
 
     public function signout(Request $request)
@@ -242,4 +247,3 @@ class AuthController extends Controller
         // return redirect('signin');
     }
 }
-

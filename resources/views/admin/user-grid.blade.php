@@ -63,32 +63,76 @@
                 <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
                     <h5 class="text-primary rounded mb-0">ข้อมูลผู้ใช้งานระบบ</h5>
                 </div>
+                <style>
+                    .user-table thead th {
+                        background: #eef2f7;
+                        font-weight: 600;
+                        color: #334155;
+                        white-space: nowrap;
+                    }
+                    .user-table tbody tr:hover {
+                        background: #f3f6fb;
+                    }
+                    .user-table td,
+                    .user-table th {
+                        vertical-align: middle;
+                    }
+                    .user-name {
+                        font-weight: 600;
+                        color: #1f2d3d;
+                    }
+                    .user-email {
+                        font-size: 12px;
+                        color: #6b7280;
+                    }
+                </style>
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-2" style="font-family:'Chakra Petch', sans-serif;">
+                    <button type="button" class="btn btn-outline-success btn-sm" id="bulkActivateBtn" disabled>
+                        เปิดใช้งานที่เลือก
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="bulkDeactivateBtn" disabled>
+                        ปิดใช้งานที่เลือก
+                    </button>
+                    <span class="text-muted small" id="selectedUsersCount">(0)</span>
+                </div>
                 <hr/>
-                <div class="table-responsive">
-                    <table class="table" style="font-family:'Chakra Petch', sans-serif;">
+                    <table class="table table-bordered table-hover align-middle mb-0 user-table" style="font-family:'Chakra Petch', sans-serif;">
                         <thead>
                             <tr>
-                                <th><i class='bx bx-key me-0'></i></th>
-                                <th>ID</th>
-                                <th>FullName</th>
-                                <th>email</th>
-                                <th>Mobile</th>
-                                <th>Role</th>
-                                <th>Actions</th>
+                                <th style="width: 44px;">
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="checkbox" id="selectAllUsers">
+                                    </div>
+                                </th>
+                                <th class="text-center" style="width: 80px;">ID</th>
+                                <th style="width: 36%;">ผู้ใช้งาน</th>
+                                <th style="width: 18%;">เบอร์โทร</th>
+                                <th class="text-center" style="width: 14%;">Role</th>
+                                <th class="text-center" style="width: 18%;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $user)
                             <tr>
                                 @if(Auth::user()->id <> $user->id)
-                                <td><input type="checkbox" onchange="editUserActive({{ $user->id }}, this.checked)"  {{ $user->active ? 'checked' : '' }}></td>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->mobile }}</td>
-                                <td>{{ $user->role }}</td>
                                 <td>
-                                    <button type="button" class="btn {{ $user->active ? 'btn-outline-success' : 'btn-outline-secondary' }}  btn-sm"><i class='bx bx-key me-0'></i></button>
+                                    <div class="form-check m-0 d-flex align-items-center gap-2">
+                                        <input class="form-check-input user-select" type="checkbox" data-id="{{ $user->id }}">
+                                        <span class="badge {{ $user->active ? 'bg-success' : 'bg-secondary' }}">
+                                            {{ $user->active ? 'ON' : 'OFF' }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="text-center">{{ $user->id }}</td>
+                                <td>
+                                    <div class="user-name">{{ $user->name }}</div>
+                                    <div class="user-email">{{ $user->email }}</div>
+                                </td>
+                                <td>{{ $user->mobile }}</td>
+                                <td class="text-center">
+                                    <span class="badge bg-light text-dark border">{{ $user->role }}</span>
+                                </td>
+                                <td>
                                     <button type="button" onclick="editUser({{ $user->id }}, '{{ $user->name }}', '{{ $user->email }}','{{ $user->mobile }}','{{ $user->role }}')"
                                         data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
                                     <button type="button" onclick="VerifyEmail({{ $user->id }},'{{ $user->email }}')" data-bs-target="#VerifyEmailModal" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class='bx bx-envelope-open me-0'></i></button>
@@ -103,7 +147,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
 
@@ -291,31 +334,81 @@
 </div>
 
 <script>
-function editUserActive(id, isActive) {
-        const csrfToken = "{{ csrf_token() }}"; // For CSRF protection in Laravel
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectAll = document.getElementById('selectAllUsers');
+        const checks = Array.from(document.querySelectorAll('.user-select'));
+        const bulkOn = document.getElementById('bulkActivateBtn');
+        const bulkOff = document.getElementById('bulkDeactivateBtn');
+        const countEl = document.getElementById('selectedUsersCount');
+        const csrfToken = "{{ csrf_token() }}";
 
-        fetch(`users/${id}/update-status`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrfToken // Include CSRF token in the request headers
-            },
-            body: JSON.stringify({ active: isActive ? 1 : 0 }) // Send the active status as 1 or 0
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message); // Notify the user
-                location.reload();
-            } else {
-                alert('Failed to update status.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Something went wrong.');
+        function updateControls() {
+            const selected = checks.filter(c => c.checked);
+            const count = selected.length;
+            countEl.textContent = `(${count})`;
+            bulkOn.disabled = count === 0;
+            bulkOff.disabled = count === 0;
+            selectAll.checked = count > 0 && count === checks.length;
+        }
+
+        function updateStatus(ids, active) {
+            const requests = ids.map(id => fetch(`users/${id}/update-status`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({ active: active ? 1 : 0 })
+            }).then(r => r.json()));
+
+            return Promise.all(requests);
+        }
+
+        if (selectAll) {
+            selectAll.addEventListener('change', function () {
+                checks.forEach(c => c.checked = selectAll.checked);
+                updateControls();
+            });
+        }
+
+        checks.forEach(c => c.addEventListener('change', updateControls));
+
+        bulkOn.addEventListener('click', function () {
+            const ids = checks.filter(c => c.checked).map(c => c.dataset.id);
+            if (ids.length === 0) return;
+            Swal.fire({
+                title: 'เปิดใช้งานผู้ใช้ที่เลือก?',
+                text: `จำนวน ${ids.length} ราย`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    updateStatus(ids, true).then(() => location.reload());
+                }
+            });
         });
-    }
+
+        bulkOff.addEventListener('click', function () {
+            const ids = checks.filter(c => c.checked).map(c => c.dataset.id);
+            if (ids.length === 0) return;
+            Swal.fire({
+                title: 'ปิดใช้งานผู้ใช้ที่เลือก?',
+                text: `จำนวน ${ids.length} ราย`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    updateStatus(ids, false).then(() => location.reload());
+                }
+            });
+        });
+
+        updateControls();
+    });
 </script>
 
 <script>

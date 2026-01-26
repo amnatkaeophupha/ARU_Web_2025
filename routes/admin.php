@@ -2,21 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WebaruExecGroupController;
-use App\Http\Controllers\WebaruTabController;
-use App\Http\Controllers\WebaruNewsController;
-use App\Http\Controllers\WebaruExecPositionController;
-use App\Http\Controllers\WebaruExecExecutiveController;
-use App\Http\Controllers\WebaruCarouselsController;
-use App\Http\Controllers\WebaruSliderController;
-use App\Http\Controllers\WebaruGalleryController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WebaruExecGroupController;
+use App\Http\Controllers\Admin\WebaruTabController;
+use App\Http\Controllers\Admin\WebaruNewsController;
+use App\Http\Controllers\Admin\WebaruExecPositionController;
+use App\Http\Controllers\Admin\WebaruExecExecutiveController;
+use App\Http\Controllers\Admin\WebaruCarouselsController;
+use App\Http\Controllers\Admin\WebaruSliderController;
+use App\Http\Controllers\Admin\WebaruGalleryController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\CustomVerificationController;
 use App\Models\WebaruTab;
-use App\Http\Controllers\WebaruAdmitController;
+use App\Http\Controllers\Admin\WebaruAdmitController;
 
 Route::prefix('admin')->middleware(['role:admin','verified'])->group(function () {
 

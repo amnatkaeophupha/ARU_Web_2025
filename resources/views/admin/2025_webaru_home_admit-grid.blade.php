@@ -50,6 +50,13 @@
                 <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
                     <h5 class="text-primary rounded mb-0">ข้อมูลประกาศ</h5>
                 </div>
+                <style>
+                    .btn-xs {
+                        padding: 2px 6px;
+                        font-size: 11px;
+                        line-height: 1.2;
+                    }
+                </style>
                 <hr/>
                 <div class="tab-content py-3">
                     <div class="table-responsive">
@@ -75,7 +82,7 @@
                                             @method('PATCH')
 
                                             <button type="submit"
-                                                class="btn btn-sm
+                                                class="btn btn-xs
                                                 {{ $datas->is_active ? 'btn-success' : 'btn-secondary' }}"
                                                 title="{{ $datas->is_active ? 'กำลังแสดงหน้าเว็บ' : 'ปิดการมองเห็น' }}">
 

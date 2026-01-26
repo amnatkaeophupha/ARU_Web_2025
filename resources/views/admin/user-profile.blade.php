@@ -13,62 +13,72 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profilep</li>
+                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                     </ol>
                 </nav>
             </div>
         </div>
         <!--end breadcrumb-->
         <div class="container">
+            <style>
+                .profile-card {
+                    border: 1px solid #e6e9ef;
+                    border-radius: 14px;
+                    box-shadow: 0 10px 24px rgba(0,0,0,.06);
+                }
+                .profile-title {
+                    font-weight: 600;
+                    color: #1f2d3d;
+                }
+                .profile-muted {
+                    color: #6b7280;
+                }
+                .swal-chakra {
+                    font-family: 'Chakra Petch', sans-serif;
+                }
+            </style>
             <div class="main-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body" style="font-family:'Chakra Petch', sans-serif;">
-                                <div class="d-flex flex-column align-items-center text-center">
+                <div class="row g-3">
+                    <div class="col-lg-4">
+                        <div class="card profile-card">
+                            <div class="card-body text-center" style="font-family:'Chakra Petch', sans-serif;">
+                                <div class="d-flex flex-column align-items-center">
                                     @if(Auth::user()->avatar <> null)
-                                    <img src="{{ asset('storage/avatars/'.Auth::user()->avatar) }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                    <img src="{{ asset('webaru_bs5/avatars/' . Auth::user()->avatar) }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                     @else
-                                    <img src="{{url('rocker');}}/images/avatars/avatar-0.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                    <img src="{{ asset('webaru_bs5/avatars/avatar-0.png') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                     @endif
                                     <div class="mt-3">
-                                        <h4>{{ Auth::user()->name; }}</h4>
-                                        <p class="text-secondary mb-1">{{ Auth::user()->role; }}</p>
-                                        <p class="text-muted font-size-sm">{{ Auth::user()->email; }}</p>
+                                        <h4 class="profile-title mb-1">{{ Auth::user()->name; }}</h4>
+                                        <div class="profile-muted mb-1">{{ Auth::user()->role; }}</div>
+                                        <div class="profile-muted small">{{ Auth::user()->email; }}</div>
                                     </div>
                                     @error('avatars')
-                                    <p class="text-danger rounded pt-2">{{$message}}</p>
+                                    @php($avatarError = $message)
                                     @enderror
                                     @if(session('success'))
-                                    <p class="text-success rounded pt-2">{{session('success')}}</p>
+                                    @php($avatarSuccess = session('success'))
                                     @endif
                                     <form action="{{ url('admin/profile_images') }}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <div>
+                                    <div class="mt-3">
                                         <input class="form-control" name="avatars" type="file" id="formFile">
                                     </div>
-                                    <div class="mt-3">
-                                        <button type="submit" class="btn btn-primary">Change</button>
+                                    <div class="mt-3 d-grid">
+                                        <button type="submit" class="btn btn-primary">Change Avatar</button>
                                     </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
+                    <div class="col-lg-8">
+                        <div class="card profile-card">
                             <div class="card-body" style="font-family:'Chakra Petch', sans-serif;">
                             <form action="{{url('admin/profile_update')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @if(session('data_success'))
-                                <div class="row mb-3">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9">
-                                    <p class="text-success rounded pt-2">{{session('data_success')}}</p>
-                                    </div>
-                                </div>
+                                @php($profileSuccess = session('data_success'))
                                 @endif
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
@@ -123,7 +133,7 @@
                                         <h6 class="mb-0">Agency</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="Phranakhon Si Ayutthaya Rajabhat University" />
+                                        <input type="text" class="form-control" value="Phranakhon Si Ayutthaya Rajabhat University" readonly />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -138,14 +148,15 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
+                <div class="row g-3 mt-1">
+                    <div class="col-lg-12">
+                        <div class="card profile-card border-danger">
                             <div class="card-body" style="font-family:'Chakra Petch', sans-serif;">
                                 <div>
 									<h5 class="card-title">Delete your Account</h5>
 								</div>
-								<p class="card-text">{{ Auth::user()->name; }} </p>	<a href="{{ url('admin/destroy') }}" class="btn btn-danger">Delete your entier account</a>
+								<p class="card-text">{{ Auth::user()->name; }} </p>
+                                <a href="{{ url('admin/destroy') }}" class="btn btn-danger">Delete your entire account</a>
                             </div>
                         </div>
                     </div>
@@ -155,3 +166,33 @@
     </div>
 </div>
 @endsection
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if(!empty($avatarError))
+            Swal.fire({
+                icon: 'error',
+                title: 'อัปโหลดไม่สำเร็จ',
+                text: @json($avatarError),
+                customClass: { popup: 'swal-chakra' }
+            });
+        @endif
+        @if(!empty($avatarSuccess))
+            Swal.fire({
+                icon: 'success',
+                title: 'สำเร็จ',
+                text: @json($avatarSuccess),
+                customClass: { popup: 'swal-chakra' }
+            });
+        @endif
+        @if(!empty($profileSuccess))
+            Swal.fire({
+                icon: 'success',
+                title: 'สำเร็จ',
+                text: @json($profileSuccess),
+                customClass: { popup: 'swal-chakra' }
+            });
+        @endif
+    });
+</script>

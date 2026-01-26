@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\WebaruAdmitCycle;
 use App\Models\WebaruAdmitCycleFileDetail;
@@ -56,6 +58,32 @@ class WebaruAdmitController extends Controller
         ])
         ->get();
         return view('webaru_bs3.admit_show', compact('cycle', 'faculties'));
+    }
+
+    public function showBs5($id)
+    {
+        $cycle = WebaruAdmitCycle::with(['fileDetails' => function ($q) {
+            $q->orderBy('id', 'desc');
+        }])->findOrFail($id);
+
+        $faculties = WebaruAdmitFaculty::query()
+            ->orderBy('id', 'asc')
+            ->with([
+                'programs' => function ($q) use ($id) {
+                    $q->orderBy('program_code', 'asc');
+                },
+                'programs.admitViews' => function ($q) use ($id) {
+                    $q->where('webaru_admit_cycle_id', $id)
+                      ->orderByDesc('id');
+                },
+                'viewComments' => function ($q) use ($id) {
+                    $q->where('webaru_admit_cycle_id', $id)
+                      ->orderByDesc('id');
+                },
+            ])
+            ->get();
+
+        return view('webaru_bs5.admit_view', compact('cycle', 'faculties'));
     }
 
 /** End FontEnd index Home Page */
