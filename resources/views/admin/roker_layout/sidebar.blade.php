@@ -48,6 +48,7 @@
                 <li> <a href="{{ url('admin/webaru-tabs/1'); }}"><i class='bx bx-radio-circle'></i>ประกาศต่างๆ</a></li>
                 <li> <a href="{{ url('admin/webaru-galleries'); }}"><i class='bx bx-radio-circle'></i>กิจกรรม</a></li>
                 <li> <a href="{{ url('admin/webaru-admit'); }}"><i class='bx bx-radio-circle'></i>ประกาศผลรับเข้า</a></li>
+                <li> <a href="{{ url('admin/webaru-faq'); }}"><i class='bx bx-radio-circle'></i>ถามตอบข้อสงสัย</a></li>
             </ul>
         </li>
         {{-- <li class="menu-label">UI Elements</li>

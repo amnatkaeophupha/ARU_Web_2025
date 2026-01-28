@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\WebaruGalleryController;
 use App\Http\Controllers\WebaruExecutivePublicController;
+use App\Http\Controllers\WebaruFaqQuestionController;
 use App\Http\Controllers\WebaruHomePublicController;
 
 Route::get('/', [WebaruHomePublicController::class, 'index'])->name('home.index');
@@ -16,3 +18,10 @@ Route::get('/executives', [WebaruExecutivePublicController::class, 'index'])->na
 Route::get('/gallery/{id}', [WebaruHomePublicController::class, 'galleryView'])->name('gallery.view');
 Route::get('/admit', [WebaruHomePublicController::class, 'admitIndex'])->name('admit.index');
 Route::get('/admit/{id}', [WebaruHomePublicController::class, 'admitShow'])->name('admit.show');
+
+
+Route::get('/faq', [WebaruFaqQuestionController::class, 'index'])->name('faq.index');
+Route::get('/faq/view/{id}', [WebaruFaqQuestionController::class, 'show'])->name('faq.view');
+Route::get('/faq/ask', function () { return view('webaru_bs5.faq_create'); })->name('faq.create');
+
+Route::post('/faq/ask', [WebaruFaqQuestionController::class, 'store'])->middleware('throttle:10,1');

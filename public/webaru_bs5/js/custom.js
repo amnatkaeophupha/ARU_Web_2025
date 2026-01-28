@@ -132,4 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
             window.requestAnimationFrame(step);
         });
     }, 50);
+
+    var faqItems = document.querySelectorAll('.board-item');
+    if (faqItems.length) {
+        var colors = ['item-blue', 'item-green', 'item-orange', 'item-purple'];
+        faqItems.forEach(function (el) {
+            el.classList.remove.apply(el.classList, colors);
+            var picked = colors[Math.floor(Math.random() * colors.length)];
+            el.classList.add(picked);
+        });
+    }
 });

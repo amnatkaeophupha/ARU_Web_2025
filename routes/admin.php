@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\WebaruExecExecutiveController;
 use App\Http\Controllers\Admin\WebaruCarouselsController;
 use App\Http\Controllers\Admin\WebaruSliderController;
 use App\Http\Controllers\Admin\WebaruGalleryController;
+use App\Http\Controllers\WebaruFaqQuestionController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -104,4 +105,17 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::put('webaru-exec-executives/{id}', [WebaruExecExecutiveController::class, 'update'])->name('webaru-exec-executives.update');
     Route::patch('webaru-exec-executives/{id}/toggle', [WebaruExecExecutiveController::class, 'toggleActive'])->name('webaru-exec-executives.toggle');
     Route::delete('webaru-exec-executives/{id}', [WebaruExecExecutiveController::class, 'destroy'])->name('webaru-exec-executives.destroy');
+
+    Route::get('webaru-faq', [WebaruFaqQuestionController::class, 'adminIndex'])->name('admin.webaru-faq.index');
+    Route::get('webaru-faq/{id}/answer', [WebaruFaqQuestionController::class, 'adminShow'])->name('admin.webaru-faq.answer');
+    Route::post('webaru-faq/{id}/answer', [WebaruFaqQuestionController::class, 'adminStoreAnswer'])->name('admin.webaru-faq.answers.store');
+    Route::patch('webaru-faq/{id}/answers/{answerId}/publish', [WebaruFaqQuestionController::class, 'adminPublishAnswer'])->name('admin.webaru-faq.answers.publish');
+    Route::patch('webaru-faq/{id}/answers/{answerId}/hide', [WebaruFaqQuestionController::class, 'adminHideAnswer'])->name('admin.webaru-faq.answers.hide');
+    Route::patch('webaru-faq/{id}/answers/{answerId}/spam', [WebaruFaqQuestionController::class, 'adminToggleSpamAnswer'])->name('admin.webaru-faq.answers.spam');
+    Route::put('webaru-faq/{id}/answers/{answerId}', [WebaruFaqQuestionController::class, 'adminUpdateAnswer'])->name('admin.webaru-faq.answers.update');
+    Route::delete('webaru-faq/{id}/answers/{answerId}', [WebaruFaqQuestionController::class, 'adminDestroyAnswer'])->name('admin.webaru-faq.answers.destroy');
+    Route::patch('webaru-faq/{id}/publish', [WebaruFaqQuestionController::class, 'adminPublish'])->name('admin.webaru-faq.publish');
+    Route::patch('webaru-faq/{id}/hide', [WebaruFaqQuestionController::class, 'adminHide'])->name('admin.webaru-faq.hide');
+    Route::patch('webaru-faq/{id}/spam', [WebaruFaqQuestionController::class, 'adminToggleSpam'])->name('admin.webaru-faq.spam');
+    Route::delete('webaru-faq/{id}', [WebaruFaqQuestionController::class, 'adminDestroy'])->name('admin.webaru-faq.destroy');
 });
