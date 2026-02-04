@@ -1,0 +1,218 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\WebaruComplaintDocument;
+
+class WebaruComplaintDocumentsSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $documents = [
+            [
+                'category' => 'manual',
+                'title' => 'คู่มือการปฏิบัติงานกรณีร้องเรียนการทุจริตและประพฤติมิชอบของเจ้าหน้าที่ในหน่วยงาน ประจำปี 2568',
+                'fiscal_year' => 2568,
+                'file_url' => '2025_webaru_complaints/documents/manual-2568.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 1,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'manual',
+                'title' => 'คู่มือร้องเรียนทุจริตและประพฤติมิชอบ',
+                'file_url' => '2025_webaru_complaints/documents/manual-corruption.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 2,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'manual',
+                'title' => 'คู่มือปฏิบัติงานการจัดการข้อร้องเรียนประจำปี 2566',
+                'fiscal_year' => 2566,
+                'file_url' => '2025_webaru_complaints/documents/manual-2566.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 3,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'manual',
+                'title' => 'คู่มือปฏิบัติงานการจัดการข้อร้องเรียนประจำปี 2565',
+                'fiscal_year' => 2565,
+                'file_url' => '2025_webaru_complaints/documents/manual-2565.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 4,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'manual',
+                'title' => 'คู่มือปฏิบัติงานการจัดการข้อร้องเรียนประจำปี 2564',
+                'fiscal_year' => 2564,
+                'file_url' => '2025_webaru_complaints/documents/manual-2564.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 5,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'form',
+                'title' => 'แบบฟอร์มร้องเรียนของงานนิติการ',
+                'file_url' => '2025_webaru_complaints/documents/complaint-form.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 1,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'ข้อมูลเชิงสถิติเรื่องร้องเรียนการทุจริตและประพฤติชอบของเจ้าหน้าที่ ประจำปีงบประมาณ 2567',
+                'fiscal_year' => 2567,
+                'file_url' => '2025_webaru_complaints/documents/report-2567.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 1,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'ข้อมูลเชิงสถิติเรื่องร้องเรียนการทุจริตและประพฤติชอบของเจ้าหน้าที่ ประจำปีงบประมาณ 2566',
+                'fiscal_year' => 2566,
+                'file_url' => '2025_webaru_complaints/documents/report-2566.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 2,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานการฝ่าฝืนหรือไม่ปฏิบัติตามมาตรฐานทางจริยธรรม และประมวลจริยธรรมสำหรับเจ้าหน้าที่ของรัฐ ประจำปี พ.ศ. ๒๕๖๖ มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา',
+                'fiscal_year' => 2566,
+                'agency' => 'มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา',
+                'file_url' => '2025_webaru_complaints/documents/ethics-2566.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 3,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานสรุปผลการจัดการข้อร้องเรียนประจำปีงบประมาณ ๒๕๖๖',
+                'fiscal_year' => 2566,
+                'file_url' => '2025_webaru_complaints/documents/summary-2566.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 4,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานสรุปผลการจัดการข้อร้องเรียน ประจำปีงบประมาณ ๒๕๖๕ (หน่วยงานนิติการ สำนักงานอธิการบดี)',
+                'fiscal_year' => 2565,
+                'agency' => 'หน่วยงานนิติการ สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/summary-2565.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 5,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานสรุปผลการจัดการข้อร้องเรียน ประจำปีงบประมาณ ๒๕๖๔ (หน่วยงานนิติการ สำนักงานอธิการบดี)',
+                'fiscal_year' => 2564,
+                'agency' => 'หน่วยงานนิติการ สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/summary-2564.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 6,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานสรุปผลการจัดการข้อร้องเรียน ประจำปีงบประมาณ ๒๕๖๓ (หน่วยงานนิติการ สำนักงานอธิการบดี)',
+                'fiscal_year' => 2563,
+                'agency' => 'หน่วยงานนิติการ สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/summary-2563.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 7,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานสรุปผลการจัดการข้อร้องเรียน ประจำปีงบประมาณ ๒๕๖๒ (หน่วยงานนิติการ สำนักงานอธิการบดี)',
+                'fiscal_year' => 2562,
+                'agency' => 'หน่วยงานนิติการ สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/summary-2562.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 8,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานสรุปผลการจัดการข้อร้องเรียน ประจำปีงบประมาณ ๒๕๖๑ (หน่วยงานนิติการ สำนักงานอธิการบดี)',
+                'fiscal_year' => 2561,
+                'agency' => 'หน่วยงานนิติการ สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/summary-2561.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 9,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'รายงานการจัดการข้อร้องเรียนประจำปี ๒๕๖๐ (หน่วยงานนิติการ สำนักงานอธิการบดี)',
+                'fiscal_year' => 2560,
+                'agency' => 'หน่วยงานนิติการ สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/summary-2560.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 10,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'แบบรายงานการสรุปการจัดการข้อร้องเรียน ประจำไตรมาสที่ ๑ (เม.ย.-มิ.ย.๒๕๕๙) หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'fiscal_year' => 2559,
+                'report_quarter' => 1,
+                'agency' => 'หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/quarterly-2559-q1.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 11,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'แบบรายงานการสรุปการจัดการข้อร้องเรียน ประจำไตรมาสที่ ๒ (ก.ค.-ก.ย.๒๕๕๙) หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'fiscal_year' => 2559,
+                'report_quarter' => 2,
+                'agency' => 'หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/quarterly-2559-q2.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 12,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'แบบรายงานการสรุปการจัดการข้อร้องเรียน ประจำไตรมาสที่ ๓ (ต.ค.-ธ.ค.๒๕๕๙) หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'fiscal_year' => 2559,
+                'report_quarter' => 3,
+                'agency' => 'หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/quarterly-2559-q3.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 13,
+                'is_active' => 1,
+            ],
+            [
+                'category' => 'report',
+                'title' => 'แบบรายงานการสรุปการจัดการข้อร้องเรียน ประจำไตรมาสที่ ๔ (ม.ค.-มี.ค.๒๕๖๐) หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'fiscal_year' => 2559,
+                'report_quarter' => 4,
+                'agency' => 'หน่วยงาน งานนิติกร สำนักงานอธิการบดี',
+                'file_url' => '2025_webaru_complaints/documents/quarterly-2559-q4.pdf',
+                'file_type' => 'pdf',
+                'sort_order' => 14,
+                'is_active' => 1,
+            ],
+        ];
+
+        foreach ($documents as $document) {
+            WebaruComplaintDocument::updateOrCreate(
+                [
+                    'category' => $document['category'],
+                    'title' => $document['title'],
+                ],
+                $document
+            );
+        }
+    }
+}

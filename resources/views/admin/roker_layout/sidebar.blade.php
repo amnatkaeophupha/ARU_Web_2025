@@ -51,6 +51,20 @@
                 <li> <a href="{{ url('admin/webaru-faq'); }}"><i class='bx bx-radio-circle'></i>ถามตอบข้อสงสัย</a></li>
             </ul>
         </li>
+
+        <li class="menu-label">ศูนย์รับเรื่องร้องเรียน</li>
+        <li class="mm-active">
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i></div>
+                <div class="menu-title">เรื่องร้องเรียน</div>
+            </a>
+            <ul>
+                <li> <a href="{{ url('admin/webaru-complaints-dashboard'); }}"><i class='bx bx-radio-circle'></i>Dashboard</a></li>
+                <li> <a href="{{ url('admin/webaru-complaint-direct-grid'); }}"><i class='bx bx-radio-circle'></i>สายตรงอธิการ</a></li>
+                <li> <a href="{{ url('admin/webaru-complaints-grid'); }}"><i class='bx bx-radio-circle'></i>เรื่องร้องเรียนทั่วไป</a></li>
+                <li> <a href="{{ url('admin/webaru-complaint-documents'); }}"><i class='bx bx-radio-circle'></i>จัดการเอกสาร</a></li>
+            </ul>
+        </li>
         {{-- <li class="menu-label">UI Elements</li>
         <li>
             <a href="widgets.html">

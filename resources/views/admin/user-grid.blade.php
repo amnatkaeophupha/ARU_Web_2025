@@ -167,51 +167,51 @@
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">Enter Your Name</label>
+                    <label class="col-sm-12 col-form-label">ชื่อผู้ใช้งาน</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-user'></i></span>
-                                <input type="text" name="name" class="form-control" placeholder="Your Name">
+                                <input type="text" name="name" class="form-control" placeholder="ชื่อผู้ใช้งาน">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Phone No</label>
+                    <label class="col-sm-12 col-form-label">เบอร์โทร</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-microphone'></i></span>
-                                <input type="text" name="mobile" class="form-control" placeholder="Phone No">
+                                <input type="text" name="mobile" class="form-control" placeholder="เบอร์โทร">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Email Address</label>
+                    <label class="col-sm-12 col-form-label">อีเมล</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-envelope'></i></span>
-                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" class="form-control" placeholder="อีเมล">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Choose Password</label>
+                    <label class="col-sm-12 col-form-label">ตั้งรหัสผ่าน</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-lock-open'></i></span>
-                                <input type="password" name="password" class="form-control" placeholder="Choose Password">
+                                <input type="password" name="password" class="form-control" placeholder="ตั้งรหัสผ่าน">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Role</label>
+                    <label class="col-sm-12 col-form-label">บทบาท</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-flag'></i></span>
                                 <select class="form-select" name="role">
-                                    <option selected>Open this select Role</option>
-                                    <option {{ old('role')=='manager'? 'selected' : '' }} value="manager">Manager</option>
-                                    <option {{ old('role')=='admin'? 'selected' : '' }} value="admin">Admin</option>
+                                    <option selected>เลือกบทบาท</option>
+                                    <option {{ old('role')=='manager'? 'selected' : '' }} value="manager">ผู้จัดการ</option>
+                                    <option {{ old('role')=='admin'? 'selected' : '' }} value="admin">ผู้ดูแลระบบ</option>
                                 </select>
                             </div>
                         </div>
@@ -221,15 +221,15 @@
                         <div class="col-sm-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="active_users">
-                                <label class="form-check-label">Check Active</label>
+                                <label class="form-check-label">เปิดใช้งาน</label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                <button type="submit" class="btn btn-primary">บันทึก</button>
             </div>
         </form>
         </div>
@@ -244,47 +244,47 @@
             <form method="POST" action="{{ url('admin/users/update') }}">
             @csrf
             <div class="modal-header bg-primary">
-                <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">เพิ่มผู้ใช้งานระบบ</h5>
+                <h5 class="modal-title text-white" style="font-family:'Chakra Petch', sans-serif;">แก้ไขผู้ใช้งานระบบ</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="font-family:'Chakra Petch', sans-serif;">
                 <div class="card-body p-2">
-                    <label class="col-sm-12 col-form-label">Enter Your Name</label>
+                    <label class="col-sm-12 col-form-label">ชื่อผู้ใช้งาน</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-user'></i></span>
-                                <input type="text" name="name" id="user-name" class="form-control" placeholder="Your Name">
+                                <input type="text" name="name" id="user-name" class="form-control" placeholder="ชื่อผู้ใช้งาน">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Phone No</label>
+                    <label class="col-sm-12 col-form-label">เบอร์โทร</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-microphone'></i></span>
-                                <input type="text" name="mobile" id="user-mobile" class="form-control" placeholder="Phone No">
+                                <input type="text" name="mobile" id="user-mobile" class="form-control" placeholder="เบอร์โทร">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Email Address</label>
+                    <label class="col-sm-12 col-form-label">อีเมล</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-envelope'></i></span>
-                                <input type="email" name="email" id="user-email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" id="user-email" class="form-control" placeholder="อีเมล">
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label">Role</label>
+                    <label class="col-sm-12 col-form-label">บทบาท</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-flag'></i></span>
                                 <select class="form-select" id="user-role" name="role">
-                                    <option selected>Open this select Role</option>
-                                    <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                                    <option value="manager" {{ $user->role == 'manager' ? 'selected' : '' }}>Manager</option>
+                                    <option selected>เลือกบทบาท</option>
+                                    <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>ผู้ดูแลระบบ</option>
+                                    <option value="manager" {{ $user->role == 'manager' ? 'selected' : '' }}>ผู้จัดการ</option>
                                 </select>
                             </div>
                         </div>
@@ -293,8 +293,8 @@
             </div>
             <div class="modal-footer">
                 <input type="hidden" name="id" id="user-id">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                <button type="submit" class="btn btn-primary">บันทึก</button>
             </div>
             </form>
         </div>

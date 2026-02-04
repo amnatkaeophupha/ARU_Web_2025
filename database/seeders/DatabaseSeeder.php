@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call([
             WebaruAdmitFacultySeeder::class,
-            WebaruAdmitProgramSeeder::class
+            WebaruAdmitProgramSeeder::class,
+            WebaruComplaintDocumentsSeeder::class,
         ]);
 
         // User::factory()->create([

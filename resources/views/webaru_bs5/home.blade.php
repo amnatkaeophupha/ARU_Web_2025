@@ -62,7 +62,7 @@
                                             <i class="icofont icofont-ui-chat"></i>
                                         </div>
                                         <div class="offer-text">
-                                            <h3><a class="service-link" href="#">ถามตอบข้อสงสัย</a></h3>
+                                            <h3><a class="service-link" href="{{ route('faq.index') }}">ถามตอบข้อสงสัย</a></h3>
                                             <p>ให้บริการตอบข้อซักถาม ข้อเสนอแนะ และข้อมูลที่เกี่ยวข้องกับการดำเนินงานของมหาวิทยาลัย  เพื่อสร้างความเข้าใจที่ถูกต้องและโปร่งใส</p>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                             <i class="icofont icofont-ui-call"></i>
                                         </div>
                                         <div class="offer-text">
-                                            <h3><a class="service-link" href="#">สายตรงอธิการบดี</a></h3>
+                                            <h3><a class="service-link" href="{{ route('complaint.index') }}">สายตรงอธิการบดี</a></h3>
                                             <p> ช่องทางการสื่อสารโดยตรงถึงอธิการบดี สำหรับเสนอข้อคิดเห็น ปัญหา หรือข้อร้องเรียนสำคัญ เพื่อให้ได้รับการพิจารณาอย่างเร่งด่วนและเป็นธรรม</p>
                                         </div>
                                     </div>

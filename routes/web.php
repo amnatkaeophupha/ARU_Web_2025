@@ -37,9 +37,8 @@ Route::post('/email/verification-notification', function (Request $request) {
     return redirect('signin')->with('message', 'Verification link sent!');
 })->middleware(['throttle:6,1']);
 
+
 Route::group([],base_path('routes/admin.php'));
-
-
 
 Route::group([],base_path('routes/manager.php'));
 

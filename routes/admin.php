@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\WebaruCarouselsController;
 use App\Http\Controllers\Admin\WebaruSliderController;
 use App\Http\Controllers\Admin\WebaruGalleryController;
 use App\Http\Controllers\WebaruFaqQuestionController;
+use App\Http\Controllers\Admin\WebaruComplaintController;
+use App\Http\Controllers\Admin\WebaruComplaintDirectController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -25,6 +27,22 @@ Route::prefix('admin')->middleware(['role:admin','verified'])->group(function ()
     Route::get('/profile', function () { return view('admin.user-profile'); });
     Route::post('/profile_images', [AuthController::class,'profile_images']);
     Route::post('/profile_update', [AuthController::class,'profile_update']);
+
+    Route::get('webaru-complaints-grid', [WebaruComplaintController::class, 'index']);
+    Route::get('webaru-complaints-dashboard', [WebaruComplaintController::class, 'dashboard']);
+    Route::get('webaru-complaint-documents', [WebaruComplaintController::class, 'documentIndex']);
+    Route::get('webaru-complaint-direct-grid', [WebaruComplaintDirectController::class, 'index']);
+    Route::get('webaru-complaint-direct-grid/{case}', [WebaruComplaintDirectController::class, 'show'])->name('admin.webaru-complaints.direct.show');
+    Route::post('webaru-complaint-direct-grid/{case}/store', [WebaruComplaintDirectController::class, 'store'])->name('admin.webaru-complaints.direct.store');
+    Route::delete('webaru-complaint-direct-grid/{case}/logs/{log}', [WebaruComplaintDirectController::class, 'deleteLog'])->name('admin.webaru-complaints.direct.logs.delete');
+    Route::delete('webaru-complaints/{case}/logs/{log}', [WebaruComplaintController::class, 'deleteLog'])->name('admin.webaru-complaints.logs.delete');
+    Route::post('webaru-complaint-documents', [WebaruComplaintController::class, 'documentStore']);
+    Route::put('webaru-complaint-documents/{document}', [WebaruComplaintController::class, 'documentUpdate']);
+    Route::delete('webaru-complaint-documents/{document}', [WebaruComplaintController::class, 'documentDestroy']);
+
+    Route::get('webaru-complaints/{case}', [WebaruComplaintController::class, 'show'])->name('admin.webaru-complaints.show');
+    Route::put('webaru-complaints/{case}', [WebaruComplaintController::class, 'update'])->name('admin.webaru-complaints.update');
+    Route::delete('webaru-complaints/{case}', [WebaruComplaintController::class, 'destroy'])->name('admin.webaru-complaints.destroy');
 
     Route::get('/users', [UserController::class,'index']);
     Route::post('/users/store', [UserController::class,'store']);
