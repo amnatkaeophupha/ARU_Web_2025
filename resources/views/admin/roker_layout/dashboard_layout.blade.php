@@ -1,6 +1,6 @@
 <!doctype html>
 {{-- <html lang="en" class="minimal-theme color-sidebar sidebarcolor6"> --}}
-<html lang="en" class="minimal-theme">
+<html lang="en">
 
 <head>
 	<!-- Required meta tags -->

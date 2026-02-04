@@ -29,15 +29,12 @@
 	<link rel="stylesheet" href="{{url('rocker');}}/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/header-colors.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="{{ url('richtexteditor/richtexteditor/rte_theme_default.css') }}">
-    <script src="https://cdn.tiny.cloud/1/157zswg6uu3qsa09g91mi9nm0bbejl0ulil5nqpy3zrvf5mb/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
 
     <title>@yield('title', 'Default Title')</title>
 </head>
 
 <body>
-    <script src="{{ url('richtexteditor/richtexteditor/rte.js') }}"></script>
-    <script src="{{ url('richtexteditor/richtexteditor/plugins/all_plugins.js') }}"></script>
+
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->

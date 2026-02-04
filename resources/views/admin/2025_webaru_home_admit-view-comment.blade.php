@@ -59,7 +59,7 @@
                         @csrf
                         <div class="col-md-12">
                             <label for="input11" class="form-label fw-bold border-0">คำอธิบาย</label>
-                            <textarea name="comment" class="form-control editor-large" id="div_editor1">{{ old('comment', $comment->comment ?? '') }}</textarea>
+                            <textarea name="comment" class="form-control editor-large">{{ old('comment', $comment->comment ?? '') }}</textarea>
                         </div>
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">
@@ -74,8 +74,4 @@
     </div>
 </div>
 
-<script>
-	var editor1 = new RichTextEditor("#div_editor1");
-//editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
-</script>
 @endsection

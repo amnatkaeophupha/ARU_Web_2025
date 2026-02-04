@@ -22,7 +22,7 @@
                 </nav>
             </div>
             <div class="ms-auto">
-
+                <a href="{{ url('admin/webaru-admit') }}" class="btn btn-outline-secondary btn-sm">ย้อนกลับ</a>
             </div>
         </div>
         <!--end breadcrumb-->

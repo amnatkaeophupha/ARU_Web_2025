@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <textarea name="description" id="descriptionModal" class="form-control js-tinymce" rows="10">{{ old('description', $item->description ?? '') }}</textarea>
+                            <textarea name="description" id="descriptionModal" class="form-control js-summernote" rows="10">{{ old('description', $item->description ?? '') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -250,81 +250,5 @@ document.querySelectorAll('.toggle-active-form').forEach(form => {
 </script>
 
 
-<script>
-(function () {
-  const modalEl = document.getElementById('AddUserModal');
-  if (!modalEl) return;
-
-  function initTinyInModal() {
-    const selector = '#descriptionModal';
-
-    // กัน init ซ้ำ
-    if (window.tinymce && tinymce.get('descriptionModal')) return;
-
-    tinymce.init({
-      selector,
-      branding: false,
-      promotion: false,
-
-      plugins: [
-        'autoresize',
-        'anchor','autolink','charmap','codesample','emoticons','link','lists',
-        'media','searchreplace','table','visualblocks','wordcount',
-        'checklist','mediaembed','casechange','formatpainter','pageembed',
-        'a11ychecker','tinymcespellchecker','permanentpen','powerpaste',
-        'advtable','advcode','advtemplate','ai','uploadcare','mentions',
-        'tinycomments','tableofcontents','footnotes','mergetags',
-        'autocorrect','typography','inlinecss','markdown',
-        'importword','exportword','exportpdf'
-      ],
-
-      toolbar: 'undo redo | blocks fontfamily fontsize | ' +
-               'bold italic underline strikethrough | ' +
-               'alignleft aligncenter alignright | lineheight | ' +
-               'checklist numlist bullist indent outdent | ' +
-               'link media table mergetags | ' +
-               'emoticons charmap | removeformat | code',
-
-      autoresize_min_height: 320,
-      autoresize_max_height: 700,
-      autoresize_bottom_margin: 18,
-
-      content_style: `
-        body { font-family: "Chakra Petch", sans-serif; font-size: 14px; line-height: 1.65; padding: 10px; }
-        p { margin: 0 0 10px; }
-      `,
-
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Admin',
-
-      mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-      ],
-
-      ai_request: (request, respondWith) =>
-        respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
-
-      uploadcare_public_key: '56770089057eac1803be',
-
-      setup: (editor) => {
-        // sync กลับ textarea กัน submit แล้วไม่ได้ค่าใหม่
-        editor.on('change input undo redo', () => editor.save());
-      }
-    });
-  }
-
-  function destroyTinyInModal() {
-    if (!window.tinymce) return;
-
-    const ed = tinymce.get('descriptionModal');
-    if (ed) ed.remove(); // ลบ instance ออกเมื่อปิด modal
-  }
-
-  // Bootstrap 5 events
-  modalEl.addEventListener('shown.bs.modal', initTinyInModal);
-  modalEl.addEventListener('hidden.bs.modal', destroyTinyInModal);
-})();
-</script>
 
 @endsection

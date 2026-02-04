@@ -17,6 +17,12 @@
 	<!-- Bootstrap CSS -->
 	<link href="{{url('rocker');}}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{url('rocker');}}/css/bootstrap-extended.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+	<style>
+		.note-editor.note-frame {
+			width: 100%;
+		}
+	</style>
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{url('rocker');}}/css/app.css" rel="stylesheet">
@@ -29,15 +35,13 @@
 	<link rel="stylesheet" href="{{url('rocker');}}/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{url('rocker');}}/css/header-colors.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="{{ url('richtexteditor/richtexteditor/rte_theme_default.css') }}">
-    <script src="https://cdn.tiny.cloud/1/157zswg6uu3qsa09g91mi9nm0bbejl0ulil5nqpy3zrvf5mb/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+
 
     <title>@yield('title', 'Default Title')</title>
 </head>
 
 <body>
-    <script src="{{ url('richtexteditor/richtexteditor/rte.js') }}"></script>
-    <script src="{{ url('richtexteditor/richtexteditor/plugins/all_plugins.js') }}"></script>
+
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
@@ -70,6 +74,22 @@
 	<!--app JS-->
     <script src="{{url('rocker');}}/js/2025_webaru_home_admit.js"></script>
 	<script src="{{url('rocker');}}/js/app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			if (!window.jQuery || !jQuery.fn || !jQuery.fn.summernote) return;
+			jQuery('.js-summernote').summernote({
+				height: 320,
+				minHeight: 200,
+				toolbar: [
+					['style', ['bold', 'italic', 'underline', 'clear']],
+					['para', ['ul', 'ol', 'paragraph']],
+					['insert', ['link', 'picture']],
+					['view', ['fullscreen', 'codeview']]
+				]
+			});
+		});
+	</script>
 
 </body>
 </html>

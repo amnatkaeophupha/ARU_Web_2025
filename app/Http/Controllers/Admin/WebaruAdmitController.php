@@ -371,7 +371,7 @@ class WebaruAdmitController extends Controller
     {
         //$item = WebaruAdmitCycle::findOrFail($id);
         $item = WebaruAdmitCycle::with('fileDetails')->findOrFail($id);
-        return view('admin.2025_webaru_home_admit-edit_tiny', compact('item'));
+        return view('admin.2025_webaru_home_admit-edit', compact('item'));
     }
 
     /**
@@ -408,7 +408,7 @@ class WebaruAdmitController extends Controller
         // ตรวจสอบว่ารอบรับเข้ามีจริง
         $request->validate([
             'file_name' => 'nullable|string|max:255',
-            'files'     => 'required|file|mimes:pdf|max:5120', // 5MB
+            'files'     => 'required|file|mimes:pdf|max:15360', // 15MB
         ]);
 
         $file = $request->file('files');
@@ -458,7 +458,19 @@ class WebaruAdmitController extends Controller
             Storage::disk('public')->delete($item->files);
         }
 
-        // 2) ลบไฟล์ย่อย + record ลูก
+        // 2) ลบไฟล์/ข้อมูล view ที่ผูกกับรอบนี้
+        $views = WebaruAdmitView::where('webaru_admit_cycle_id', $item->id)->get();
+        foreach ($views as $view) {
+            if ($view->files && Storage::disk('public')->exists($view->files)) {
+                Storage::disk('public')->delete($view->files);
+            }
+            $view->delete();
+        }
+
+        // 3) ลบคำอธิบายคณะของรอบนี้
+        WebaruAdmitViewComment::where('webaru_admit_cycle_id', $item->id)->delete();
+
+        // 4) ลบไฟล์ย่อย + record ลูก
         foreach ($item->fileDetails as $detail) {
             if ($detail->file_path && Storage::disk('public')->exists($detail->file_path)) {
                 Storage::disk('public')->delete($detail->file_path);
@@ -466,7 +478,7 @@ class WebaruAdmitController extends Controller
             $detail->delete(); // ลบ record ลูก
         }
 
-        // 3) ลบ record แม่
+        // 5) ลบ record แม่
         $item->delete();
 
         return redirect()->back()->with('success', 'ลบข้อมูลและไฟล์ที่เกี่ยวข้องเรียบร้อยแล้ว');

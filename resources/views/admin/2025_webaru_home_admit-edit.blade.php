@@ -61,8 +61,9 @@
         </style>
         <div class="card border-primary border-top border-3 border-0">
             <div class="card-body">
-                <div class="card-title" style="font-family:'Chakra Petch', sans-serif;">
+                <div class="card-title d-flex align-items-center justify-content-between" style="font-family:'Chakra Petch', sans-serif;">
                     <h5 class="text-primary rounded mb-0">แก้ไขข้อมูลประกาศ</h5>
+                    <a href="{{ url('admin/webaru-admit') }}" class="btn btn-outline-secondary btn-sm">ย้อนกลับ</a>
                 </div>
                 <hr/>
                 <div class="tab-content py-3">
@@ -87,7 +88,7 @@
                         </div>
                         <div class="col-md-12">
                             <label for="input11" class="form-label fw-bold border-0">คำอธิบาย</label>
-                            <textarea name="description" class="form-control editor-large" id="div_editor1">{{ old('description', $item->description) }}</textarea>
+                                    <textarea name="description" class="form-control editor-large js-summernote">{{ old('description', $item->description) }}</textarea>
                         </div>
                         <div class="col-md-12">
                             <div class="d-md-flex d-grid align-items-center gap-3">
@@ -193,10 +194,7 @@
 
     </div>
 </div>
-<script>
-	var editor1 = new RichTextEditor("#div_editor1");
-//editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
-</script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
