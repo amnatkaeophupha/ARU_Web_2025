@@ -19,7 +19,7 @@ class WebaruComplaintController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['role:admin', 'verified']);
+        $this->middleware(['auth', 'verified']);
     }
 
     public function index()

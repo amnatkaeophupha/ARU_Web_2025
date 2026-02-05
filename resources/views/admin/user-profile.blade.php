@@ -50,7 +50,9 @@
                                     @endif
                                     <div class="mt-3">
                                         <h4 class="profile-title mb-1">{{ Auth::user()->name; }}</h4>
-                                        <div class="profile-muted mb-1">{{ Auth::user()->role; }}</div>
+                                        <div class="profile-muted mb-1">
+                                            {{ Auth::user()->getRoleNames()->map(fn($r) => config('roles.'.$r, $r))->implode(', ') ?: '-' }}
+                                        </div>
                                         <div class="profile-muted small">{{ Auth::user()->email; }}</div>
                                     </div>
                                     @error('avatars')
@@ -107,12 +109,15 @@
                                         <h6 class="mb-0">Role</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <select class="form-select" name="role" id="inputSelectCountry" aria-label="Default select example">
+                                        <select class="form-select" name="role_name" id="inputSelectCountry" aria-label="Default select example">
                                             <option value="">Select Role</option>
-                                            <option {{ Auth::user()->role=='manager'? 'selected' : '' }} value="manager">Manager</option>
-                                            <option {{ Auth::user()->role=='admin'? 'selected' : '' }} value="admin">Admin</option>
+                                            @foreach($roles as $role)
+                                                <option value="{{ $role->name }}" {{ Auth::user()->hasRole($role->name) ? 'selected' : '' }}>
+                                                    {{ config('roles.'.$role->name, $role->name) }}
+                                                </option>
+                                            @endforeach
                                         </select>
-                                        @error('role')
+                                        @error('role_name')
                                         <div class="text-danger rounded pt-2">{{ $message }}</div>
                                         @enderror
                                     </div>

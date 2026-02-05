@@ -45,9 +45,15 @@
 										<p class="mb-0">Please fill the below details to create your account</p>
 									</div>
 									<div class="form-body">
-                                        @if(session('fail'))
+                                        @if(session('success'))
                                         <div class="alert alert-success border-0 bg-success alert-dismissible fade show">
                                             <div class="text-white">{{ session('success') }}</div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
+                                        @if(session('fail'))
+                                        <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show">
+                                            <div class="text-white">{{ session('fail') }}</div>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                         @endif
@@ -84,13 +90,16 @@
                                                 @enderror
 											</div>
 											<div class="col-12">
-												<label for="inputSelectCountry" class="form-label">Country</label>
-												<select class="form-select" name="role" id="inputSelectCountry" aria-label="Default select example">
+												<label for="inputSelectCountry" class="form-label">Role</label>
+												<select class="form-select" name="role_name" id="inputSelectCountry" aria-label="Default select example">
 													<option value="">Select Role</option>
-													<option {{ old('role')=='manager'? 'selected' : '' }} value="manager">Manager</option>
-													<option {{ old('role')=='admin'? 'selected' : '' }} value="admin">Admin</option>
+                                                    @foreach($roles as $role)
+                                                        <option value="{{ $role->name }}" {{ old('role_name') == $role->name ? 'selected' : '' }}>
+                                                            {{ config('roles.'.$role->name, $role->name) }}
+                                                        </option>
+                                                    @endforeach
 												</select>
-                                                @error('role')
+                                                @error('role_name')
                                                     <div class="text-danger rounded pt-2">{{ $message }}</div>
                                                 @enderror
 											</div>

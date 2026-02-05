@@ -13,13 +13,16 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
     public function index()
     {
         $users = User::all();
-        return view('admin.user-grid',compact('users'));
+        $roles = Role::orderBy('name')->get();
+        return view('admin.user-grid', compact('users', 'roles'));
     }
 
     public function store(Request $request)
@@ -30,7 +33,7 @@ class UserController extends Controller
             'email'=> 'required|email|unique:users',
             'mobile' =>'required|string|min:10|max:10',
             'password' =>'required|string|min:6',
-            'role'=>'required|in:admin,manager',
+            'role_name'=>'required|exists:roles,name',
         ]);
 
         if($request->active_users == 'on'){ $active = 1; }else{ $active = 0;}
@@ -42,13 +45,14 @@ class UserController extends Controller
         $user->email = trim($request->email);
         $user->mobile = trim($request->mobile);
         $user->password = trim($request->password); //Hash::make(password) in model User;
-        $user->role = trim($request->role);
         $user->active = $active;
         $rec = $user->save();
 
-        event(new Registered($user));
-
         if ($rec) {
+            // assign role (Spatie)
+            $user->assignRole($request->role_name);
+
+            event(new Registered($user));
 
             return back()->with('success','บันทึกผู้ใช้งานเรียบร้อยแล้ว');
 
@@ -59,13 +63,14 @@ class UserController extends Controller
 
     }
 
+
     public function update(Request $request)
     {
         $request->validate([
             'name'=> 'required',
             'email' => 'required|email',
             'mobile' =>'required|string|min:10|max:10',
-            'role'=>'required|in:admin,manager'
+            'role_name'=>'required|exists:roles,name'
         ]);
 
         $user = User::where('id',$request->id)->first();
@@ -75,8 +80,8 @@ class UserController extends Controller
             $user = User::find($request->id);
             $user->name = trim($request->name);
             $user->mobile = trim($request->mobile);
-            $user->role = trim($request->role);
             $user->save();
+            $user->syncRoles([$request->role_name]);
 
             return back()->with('success','อัปเดตผู้ใช้งานเรียบร้อยแล้ว');
 
@@ -88,8 +93,8 @@ class UserController extends Controller
             $user->name = trim($request->name);
             $user->email = trim($request->email);
             $user->mobile = trim($request->mobile);
-            $user->role = trim($request->role);
             $user->save();
+            $user->syncRoles([$request->role_name]);
 
             return back()->with('success','อัปเดตผู้ใช้งานเรียบร้อยแล้ว');
         }
@@ -125,6 +130,10 @@ class UserController extends Controller
 
     public function destroy(string $id)
     {
+        if (Auth::id() == $id) {
+            return back()->with('fail', 'ไม่สามารถลบผู้ใช้ตัวเองได้');
+        }
+
         $user = User::where('id',$id)->first();
 
         if($user->avatar != null)

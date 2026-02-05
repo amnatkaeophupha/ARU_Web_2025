@@ -19,6 +19,7 @@ use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\File;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -30,6 +31,18 @@ class AuthController extends Controller
         return view('auth.signin');
     }
 
+    public function signup()
+    {
+        $roles = Role::where('name', '!=', 'admin')->orderBy('name')->get();
+        return view('auth.signup', compact('roles'));
+    }
+
+    public function profile()
+    {
+        $roles = Role::orderBy('name')->get();
+        return view('admin.user-profile', compact('roles'));
+    }
+
     public function store(Request $request)
     {
         //dd($request->all());
@@ -38,7 +51,7 @@ class AuthController extends Controller
             'email'=> 'required|email|unique:users',
             'mobile' =>'required|string|min:10|max:10',
             'password' =>'required|string|min:6',
-            'role'=>'required|in:admin,manager'
+            'role_name' => 'required|exists:roles,name'
         ]);
 
         $user = new User();
@@ -46,13 +59,13 @@ class AuthController extends Controller
         $user->email = trim($request->email);
         $user->mobile = trim($request->mobile);
         $user->password = trim($request->password); //Hash::make(password) in model User;
-        $user->role = trim($request->role);
         $user->active = 0;
 
         //$user->remember_token = Str::random(50);
         $rec = $user->save();
 
         if ($rec) {
+            $user->assignRole($request->role_name);
 
             event(new Registered($user));
             //return redirect('signin')->with('success','You have Registered successfuly');
@@ -76,25 +89,34 @@ class AuthController extends Controller
         if (!Hash::check($credentials['password'], $user->password)){ return back()->with('fail', 'The provided password is incorrect.'); }
         if($user->active == 0){ return back()->with('fail', 'User is not Active.'); }
 
-        if (Auth::attempt($credentials,$remember, true))
-        {
-            if(Auth::user()->role=='admin'){
+        if (Auth::attempt($credentials, $remember)) {
 
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+
+            if ($user->hasAnyRole([
+                'admin',
+                'public_relations',
+                'procurement',
+                'human_resources',
+                'student_affairs',
+                'legal_affairs',
+                'quality_assurance',
+                'president_secretariat',
+            ])) {
                 return redirect()->intended('admin');
-                //return view('admin.dashboard');
-
-            }elseif(Auth::user()->role=='manager'){
-
-                //echo Auth::user()->role;
-                return redirect()->intended('manager');
-                //return view('manager.dashboard');
-
-            }else{
-
-                Auth::logout();
-                $request->session()->invalidate();
             }
+
+            Auth::logout();
+            $request->session()->invalidate(); //ล้าง session เดิมทั้งหมด และสร้าง CSRF token ใหม่ ป้องกันการใช้ session เก่า/การโจมตีแบบ fixation
+            $request->session()->regenerateToken(); // ลดปัญหา 419: ช่วยแก้กรณี token เก่าค้างหลัง logout แล้วไป submit form
+            return back()->with('fail', 'บัญชีนี้ยังไม่มีสิทธิ์การใช้งาน (role) กรุณาติดต่อผู้ดูแล');
         }
+
+        return back()->with('fail', 'อีเมลหรือรหัสผ่านไม่ถูกต้อง');
+
+
     }
 
     public function sendResetLinkEmail(Request $request)
@@ -186,18 +208,20 @@ class AuthController extends Controller
     public function profile_update(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'mobile' => 'required|string|min:10|max:10',
-            'role'=>'required|in:admin,manager'
+            'name'  =>  'required',
+            'email' =>  'required|email',
+            'mobile'=>  'required|string|min:10|max:10',
+            'role_name'  =>  'required|exists:roles,name'
         ]);
 
         $user = User::where('id', Auth::user()->id)->first();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
-        $user->role = $request->role;
         $user->save();
+
+        // ใช้ Spatie
+        $user->syncRoles([$request->role_name]);
 
         return back()->with('data_success', 'อัปเดตโปรไฟล์เรียบร้อยแล้ว');
     }

@@ -42,15 +42,13 @@
                     @endif
                     <div class="user-info">
                         <p class="user-name mb-0">{{ Auth::user()->name; }}</p>
-                        <p class="designattion mb-0">{{ Auth::user()->role; }}</p>
+                        <p class="designattion mb-0">
+                            {{ Auth::user()->getRoleNames()->map(fn($r) => config('roles.'.$r, $r))->implode(', ') ?: '-' }}
+                        </p>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ url('admin/profile') }}"><i class="bx bx-user fs-5"></i><span>Profile</span></a></li>
-                    @if(Auth::user()->role = 'admin')
-                    <li><a class="dropdown-item d-flex align-items-center" href="{{ url('admin/users') }}"><i class="bx bx-cog fs-5"></i><span>Users Settings</span></a></li>
-                    @endif
-                    <li><a class="dropdown-item d-flex align-items-center" href="{{ url('admin')}}"><i class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a></li>
                     <li><div class="dropdown-divider mb-0"></div></li>
                     <li><a class="dropdown-item d-flex align-items-center" href="{{route('signout')}}"><i class="bx bx-log-out-circle"></i><span>Logout</span></a></li>
                 </ul>

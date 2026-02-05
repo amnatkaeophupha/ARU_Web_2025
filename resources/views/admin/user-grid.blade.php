@@ -95,20 +95,21 @@
                     </button>
                     <span class="text-muted small" id="selectedUsersCount">(0)</span>
                 </div>
+
                 <hr/>
                     <table class="table table-bordered table-hover align-middle mb-0 user-table" style="font-family:'Chakra Petch', sans-serif;">
                         <thead>
                             <tr>
-                                <th style="width: 44px;">
+                                <th style="width: 5%;" style="text-align: center">
                                     <div class="form-check m-0">
                                         <input class="form-check-input" type="checkbox" id="selectAllUsers">
                                     </div>
                                 </th>
-                                <th class="text-center" style="width: 80px;">ID</th>
-                                <th style="width: 36%;">ผู้ใช้งาน</th>
-                                <th style="width: 18%;">เบอร์โทร</th>
-                                <th class="text-center" style="width: 14%;">Role</th>
-                                <th class="text-center" style="width: 18%;">Actions</th>
+                                <th class="text-center" style="width: 5%;">ID</th>
+                                <th style="width: 40%;">ผู้ใช้งาน</th>
+                                <th style="width: 20%;">เบอร์โทร</th>
+                                <th class="text-center" style="width: 15%;">Role</th>
+                                <th class="text-center" style="width: 15%;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,10 +131,12 @@
                                 </td>
                                 <td>{{ $user->mobile }}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-light text-dark border">{{ $user->role }}</span>
+                                    <span class="badge bg-light text-dark border">
+                                        {{ $user->getRoleNames()->implode(', ') ?: '-' }}
+                                    </span>
                                 </td>
                                 <td>
-                                    <button type="button" onclick="editUser({{ $user->id }}, '{{ $user->name }}', '{{ $user->email }}','{{ $user->mobile }}','{{ $user->role }}')"
+                                    <button type="button" onclick="editUser({{ $user->id }}, '{{ $user->name }}', '{{ $user->email }}','{{ $user->mobile }}','{{ $user->getRoleNames()->first() ?? '' }}')"
                                         data-bs-target="#editUserModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm"><i class='bx bx-edit me-0'></i></button>
                                     <button type="button" onclick="VerifyEmail({{ $user->id }},'{{ $user->email }}')" data-bs-target="#VerifyEmailModal" data-bs-toggle="modal" class="btn btn-outline-info btn-sm"><i class='bx bx-envelope-open me-0'></i></button>
                                     <form id="delete-form-{{ $user->id }}" method="POST" action="{{ route('users.destroy', $user->id) }}" class="d-inline">
@@ -172,7 +175,7 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-user'></i></span>
-                                <input type="text" name="name" class="form-control" placeholder="ชื่อผู้ใช้งาน">
+                                <input type="text" name="name" class="form-control" placeholder="ชื่อผู้ใช้งาน" required>
                             </div>
                         </div>
                     </div>
@@ -181,7 +184,7 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-microphone'></i></span>
-                                <input type="text" name="mobile" class="form-control" placeholder="เบอร์โทร">
+                                <input type="text" name="mobile" class="form-control" placeholder="เบอร์โทร" required>
                             </div>
                         </div>
                     </div>
@@ -190,7 +193,7 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-envelope'></i></span>
-                                <input type="email" name="email" class="form-control" placeholder="อีเมล">
+                                <input type="email" name="email" class="form-control" placeholder="อีเมล" required>
                             </div>
                         </div>
                     </div>
@@ -199,7 +202,7 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-lock-open'></i></span>
-                                <input type="password" name="password" class="form-control" placeholder="ตั้งรหัสผ่าน">
+                                <input type="password" name="password" class="form-control" placeholder="ตั้งรหัสผ่าน" required>
                             </div>
                         </div>
                     </div>
@@ -208,20 +211,24 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-flag'></i></span>
-                                <select class="form-select" name="role">
-                                    <option selected>เลือกบทบาท</option>
-                                    <option {{ old('role')=='manager'? 'selected' : '' }} value="manager">ผู้จัดการ</option>
-                                    <option {{ old('role')=='admin'? 'selected' : '' }} value="admin">ผู้ดูแลระบบ</option>
+                                <select name="role_name" id="user-role" class="form-control" required>
+                                    <option value="">-- เลือกสิทธิ์ --</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->name }}">
+                                            {{ config('roles.' . $role->name, ucfirst(str_replace('_',' ', $role->name))) }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <label class="col-sm-12 col-form-label"></label>
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col-sm-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="active_users">
-                                <label class="form-check-label">เปิดใช้งาน</label>
+                                <input class="form-check-input" type="checkbox" id="active_users" name="active_users" checked>
+                                <label class="form-check-label" for="active_users">
+                                    เปิดใช้งานผู้ใช้งานทันที
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -281,10 +288,13 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-flag'></i></span>
-                                <select class="form-select" id="user-role" name="role">
-                                    <option selected>เลือกบทบาท</option>
-                                    <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>ผู้ดูแลระบบ</option>
-                                    <option value="manager" {{ $user->role == 'manager' ? 'selected' : '' }}>ผู้จัดการ</option>
+                                <select name="role_name" class="form-control" required>
+                                    <option value="">-- เลือกสิทธิ์ --</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->name }}">
+                                            {{ config('roles.' . $role->name, ucfirst(str_replace('_',' ', $role->name))) }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
