@@ -155,6 +155,77 @@
 
                 <div class="row g-3 mt-1">
                     <div class="col-lg-12">
+                        <div class="card profile-card">
+                            <div class="card-body" style="font-family:'Chakra Petch', sans-serif;">
+                                <h5 class="card-title">Two-Factor Authentication (2FA)</h5>
+                                <p class="profile-muted mb-3">เพิ่มความปลอดภัยด้วยการยืนยันตัวตนด้วยรหัสจากแอป</p>
+
+                                @if(session('status'))
+                                    <div class="alert alert-success">{{ session('status') }}</div>
+                                @endif
+
+                                @if(Auth::user()->two_factor_secret)
+                                    @if(!Auth::user()->two_factor_confirmed_at)
+                                        <div class="alert alert-warning">
+                                            2FA ถูกเปิดแล้ว แต่ยังไม่ได้ยืนยันรหัส
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-outline-primary" id="btn-show-qr">
+                                                แสดง QR Code
+                                            </button>
+                                            <div id="twofa-qr" class="mt-3"></div>
+                                        </div>
+                                        <form method="POST" action="{{ url('user/confirmed-two-factor-authentication') }}">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="twofa-code" class="form-label">รหัสยืนยัน (6 หลัก)</label>
+                                                <input id="twofa-code" type="text" name="code" class="form-control" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">ยืนยัน 2FA</button>
+                                        </form>
+                                    @else
+                                        <div class="mb-3">
+                                            <span class="badge bg-success">เปิดใช้งานแล้ว</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-outline-primary" id="btn-show-qr">
+                                                แสดง QR Code
+                                            </button>
+                                            <div id="twofa-qr" class="mt-3"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-outline-secondary" id="btn-show-recovery">
+                                                แสดง Recovery Codes
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary ms-2" id="btn-regenerate-recovery">
+                                                สร้างใหม่
+                                            </button>
+                                            <div class="small profile-muted mt-2">
+                                                Recovery Codes คือรหัสสำรองใช้แทนรหัส 2FA เมื่อเข้าแอปไม่ได้ และแต่ละรหัสใช้ได้ครั้งเดียว
+                                            </div>
+                                            <pre id="twofa-recovery" class="mt-2 small bg-light p-2 rounded"></pre>
+                                        </div>
+                                    @endif
+
+                                    <form method="POST" action="{{ url('user/two-factor-authentication') }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">ปิด 2FA</button>
+                                    </form>
+                                @else
+                                    <p class="profile-muted">ยังไม่ได้เปิดใช้งาน 2FA</p>
+                                    <form method="POST" action="{{ url('user/two-factor-authentication') }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary">เปิด 2FA</button>
+                                    </form>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-1">
+                    <div class="col-lg-12">
                         <div class="card profile-card border-danger">
                             <div class="card-body" style="font-family:'Chakra Petch', sans-serif;">
                                 <div>
@@ -175,6 +246,75 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const qrBtn = document.getElementById('btn-show-qr');
+        const qrContainer = document.getElementById('twofa-qr');
+        const recoveryBtn = document.getElementById('btn-show-recovery');
+        const regenBtn = document.getElementById('btn-regenerate-recovery');
+        const recoveryContainer = document.getElementById('twofa-recovery');
+
+        async function fetchJson(url, options = {}) {
+            const res = await fetch(url, {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                credentials: 'same-origin',
+                ...options
+            });
+            if (res.redirected) {
+                window.location = res.url;
+                return null;
+            }
+            if (res.status === 401 || res.status === 403 || res.status === 409 || res.status === 423) {
+                window.location = "{{ url('user/confirm-password') }}";
+                return null;
+            }
+            if (!res.ok) throw new Error('Request failed');
+            return res.json();
+        }
+
+        if (qrBtn && qrContainer) {
+            qrBtn.addEventListener('click', async function () {
+                try {
+                    const data = await fetchJson("{{ url('user/two-factor-qr-code') }}");
+                    qrContainer.innerHTML = data.svg || '';
+                } catch (e) {
+                    qrContainer.innerHTML = '<div class="text-danger">โหลด QR Code ไม่สำเร็จ (กรุณายืนยันรหัสผ่าน)</div>';
+                }
+            });
+        }
+
+        if (recoveryBtn && recoveryContainer) {
+            recoveryBtn.addEventListener('click', async function () {
+                try {
+                    const data = await fetchJson("{{ url('user/two-factor-recovery-codes') }}");
+                    recoveryContainer.textContent = (data || []).join("\n");
+                } catch (e) {
+                    recoveryContainer.textContent = 'โหลด Recovery Codes ไม่สำเร็จ (กรุณายืนยันรหัสผ่าน)';
+                }
+            });
+        }
+
+        if (regenBtn && recoveryContainer) {
+            regenBtn.addEventListener('click', async function () {
+                try {
+                    const data = await fetchJson("{{ url('user/two-factor-recovery-codes') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                        }
+                    });
+                    if (data) {
+                        recoveryContainer.textContent = (data || []).join("\n");
+                    }
+                } catch (e) {
+                    recoveryContainer.textContent = 'สร้าง Recovery Codes ไม่สำเร็จ (กรุณายืนยันรหัสผ่าน)';
+                }
+            });
+        }
+
         @if(!empty($avatarError))
             Swal.fire({
                 icon: 'error',

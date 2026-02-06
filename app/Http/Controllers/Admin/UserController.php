@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Fortify\Actions\EnableTwoFactorAuthentication;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -52,9 +53,18 @@ class UserController extends Controller
             // assign role (Spatie)
             $user->assignRole($request->role_name);
 
+            if ($request->has('enable_2fa')) {
+                app(EnableTwoFactorAuthentication::class)($user);
+            }
+
             event(new Registered($user));
 
-            return back()->with('success','บันทึกผู้ใช้งานเรียบร้อยแล้ว');
+            $successMessage = 'บันทึกผู้ใช้งานเรียบร้อยแล้ว';
+            if ($request->has('enable_2fa')) {
+                $successMessage .= ' (เปิด 2FA แล้ว รอผู้ใช้ยืนยัน)';
+            }
+
+            return back()->with('success', $successMessage);
 
         }else{
 

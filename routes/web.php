@@ -16,7 +16,6 @@ Route::group([],base_path('routes/webaru_bs5.php'));
 // Route::group([],base_path('routes/webaru_bs5.php'));
 
 Route::get('/signin', [AuthController::class, 'index']);
-Route::post('/login', [AuthController::class, 'login']);
 Route::get('/signup', [AuthController::class, 'signup']);
 Route::post('/store', [AuthController::class, 'store']);
 Route::get('/forgot-password', function () { return view('auth.forgot-password'); });
@@ -24,6 +23,14 @@ Route::post('/forgot-password', [AuthController::class, 'sendResetLinkEmail']);
 Route::get('/reset-password/{token}', function (string $token) { return view('auth.reset-password', ['token' => $token]);})->name('password.reset');
 Route::post('/reset-password', [AuthController::class,'resetPassword']);
 Route::get('/signout', [AuthController::class, 'signout'])->name('signout');
+
+Route::get('/two-factor-setup', function () {
+    $user = auth()->user();
+    if (!$user || !$user->two_factor_secret || $user->two_factor_confirmed_at) {
+        return redirect('admin');
+    }
+    return view('auth.two-factor-setup');
+})->middleware(['auth', 'verified'])->name('two-factor.setup');
 
 
 /* login not Email Verification Notice table users email_verified_at date-time goto verify-email.blade.php */
@@ -38,8 +45,6 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['throttle:6,1']);
 
 Route::group([],base_path('routes/admin.php'));
-
-
 
 
 

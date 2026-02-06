@@ -106,9 +106,10 @@
                                     </div>
                                 </th>
                                 <th class="text-center" style="width: 5%;">ID</th>
-                                <th style="width: 40%;">ผู้ใช้งาน</th>
-                                <th style="width: 20%;">เบอร์โทร</th>
+                                <th style="width: 30%;">ผู้ใช้งาน</th>
+                                <th style="width: 15%;">เบอร์โทร</th>
                                 <th class="text-center" style="width: 15%;">Role</th>
+                                <th class="text-center" style="width: 10%;">2FA</th>
                                 <th class="text-center" style="width: 15%;">Actions</th>
                             </tr>
                         </thead>
@@ -134,6 +135,15 @@
                                     <span class="badge bg-light text-dark border">
                                         {{ $user->getRoleNames()->implode(', ') ?: '-' }}
                                     </span>
+                                </td>
+                                <td class="text-center">
+                                    @if($user->two_factor_secret && $user->two_factor_confirmed_at)
+                                        <span class="badge bg-success">เปิดใช้งานแล้ว</span>
+                                    @elseif($user->two_factor_secret)
+                                        <span class="badge bg-warning text-dark">รอยืนยัน</span>
+                                    @else
+                                        <span class="badge bg-secondary">ยังไม่เปิด</span>
+                                    @endif
                                 </td>
                                 <td>
                                     <button type="button" onclick="editUser({{ $user->id }}, '{{ $user->name }}', '{{ $user->email }}','{{ $user->mobile }}','{{ $user->getRoleNames()->first() ?? '' }}')"
@@ -229,6 +239,19 @@
                                 <label class="form-check-label" for="active_users">
                                     เปิดใช้งานผู้ใช้งานทันที
                                 </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="enable_2fa" name="enable_2fa" checked>
+                                <label class="form-check-label" for="enable_2fa">
+                                    เปิด 2FA ทันที (ผู้ใช้ต้องยืนยันเอง)
+                                </label>
+                                <div class="small text-muted mt-1">
+                                    ระบบจะสร้าง QR และ Recovery Codes ให้ผู้ใช้ไปยืนยันในหน้าโปรไฟล์
+                                </div>
                             </div>
                         </div>
                     </div>

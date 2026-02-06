@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\WebaruAdmitController;
 |--------------------------------------------------------------------------
 */
 Route::prefix('admin')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'two_factor'])
     ->group(function () {
 
     // ===============================
