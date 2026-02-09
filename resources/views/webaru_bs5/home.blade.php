@@ -210,7 +210,7 @@
                     </div>
                 </div>
                 <div class="arunew-more text-center mt-30 mb-60">
-                    <a class="button extra-small arunew-read-btn arunew-more-btn" href="#">
+                    <a class="button extra-small arunew-read-btn arunew-more-btn" href="{{ route('aru_news') }}">
                         <span>ดูทั้งหมด</span>
                     </a>
                 </div>
@@ -255,16 +255,6 @@
         <section class="banner_carousel-area gray-bg pb-80 pt-50">
             <div class="container">
                 <div class="row">
-                    {{-- <div class="col-md-12 col-sm-12">
-                        <div class="section-title text-center mb-30">
-                            <img src="{{ url('webaru_bs5/aru_images/logo/2025_aru_Logo_title.png') }}" alt="aru" >
-                            <h1 style="font-family:'sarabun',sans-serif;">ประชาสัมพันธ์</h1>
-                            <p>ประชาสัมพันธ์ข่าวสารมหาวิทยาลัยและหน่วยงานต่างๆ </p>
-                            <div class="separator my mtb-15">
-                                <i class="icofont icofont-hat-alt"></i>
-                            </div>
-                        </div>
-                    </div> --}}
                     @forelse($carousels as $carousel)
                         @php
                             $imagePath = str_starts_with($carousel->images ?? '', '2025_webaru_home_carousels/')
@@ -389,7 +379,7 @@
                                         </ul>
                                     </article>
                                     <div class="tab-view-all">
-                                        <a href="#">ดูทั้งหมด</a>
+                                        <a href="{{ route('announcement.index', ['category' => $category->id]) }}">ดูทั้งหมด</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -550,10 +540,14 @@
                                 <div class="news-img">
                                     <img src="{{ asset('storage/'.$galleryImagePath) }}" alt="{{ $gallery->title ?? '' }}" >
                                     <div class="news-date navy-bg">
-                                        <div class="blog-meta-2">
+                                        <div class="blog-meta-2 d-flex justify-content-between align-items-center">
                                             <span class="published3">
                                                 <i class="icofont icofont-ui-calendar"></i>
                                                 {{ $galleryDateText }}
+                                            </span>
+                                            <span class="published3">
+                                                <i class="icofont icofont-eye-alt"></i>
+                                                {{ number_format((int) ($gallery->view_count ?? $gallery->views ?? 0)) }}
                                             </span>
                                         </div>
                                     </div>
@@ -572,8 +566,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <a class="button extra-small news-btn mt-60" href="#">
-                            <span>View All News</span>
+                        <a class="button extra-small news-btn mt-60" href="{{ route('gallery.past') }}">
+                            <span>ดูทั้งหมด</span>
                         </a>
                     </div>
                 </div>

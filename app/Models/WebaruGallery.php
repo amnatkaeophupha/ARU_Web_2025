@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class WebaruGallery extends Model
 {
-    protected $fillable = ['title', 'image' , 'start_date', 'status','created_by','updated_by'];
+    protected $fillable = ['title', 'image' , 'start_date', 'status', 'view_count', 'created_by', 'updated_by'];
 }

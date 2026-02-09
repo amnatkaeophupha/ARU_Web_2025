@@ -15,6 +15,9 @@ Route::get('/symbol', function () { return view('webaru_bs5.symbol');});
 Route::get('/strategic', function () { return view('webaru_bs5.strategic');});
 Route::get('/map', function () { return view('webaru_bs5.map');});
 Route::get('/structure', function () { return view('webaru_bs5.structure');});
+Route::get('/aru_news', [WebaruHomePublicController::class, 'aruNews'])->name('aru_news');
+Route::get('/announcement', [WebaruHomePublicController::class, 'announcementIndex'])->name('announcement.index');
+Route::get('/gallery_past', [WebaruHomePublicController::class, 'galleryPast'])->name('gallery.past');
 
 Route::get('/executives', [WebaruExecutivePublicController::class, 'index'])->name('executives.index');
 Route::get('/gallery/{id}', [WebaruHomePublicController::class, 'galleryView'])->name('gallery.view');
