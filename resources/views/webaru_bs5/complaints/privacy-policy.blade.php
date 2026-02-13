@@ -18,7 +18,7 @@
         <div class="row g-4">
             {{-- Main content --}}
             <div class="col-lg-8">
-                <div class="aru-form-wrap">
+                <div class="aru-form-wrap privacy-policy-card">
                     <div class="d-flex align-items-start gap-3 mb-3">
                         <div class="aru-privacy-icon">
                             <i class="icofont icofont-shield"></i>
@@ -103,7 +103,7 @@
 
             {{-- Side card --}}
             <div class="col-lg-4">
-                <div class="card h-100">
+                <div class="card h-100 privacy-policy-sidecard">
                     <div class="card-header" style="font-weight:700;">เกี่ยวกับการไม่เปิดเผยตัวตน</div>
                     <div class="card-body">
                         <p class="mb-2" style="font-size:14px;">

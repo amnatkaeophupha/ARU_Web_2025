@@ -1,4 +1,4 @@
-@extends('webaru_bs3/home_layout')
+@extends('webaru_bs5/layout')
 
 @section('content')
 <style>

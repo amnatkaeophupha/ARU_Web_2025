@@ -30,7 +30,7 @@ class WebaruAdmitController extends Controller
             ->orderByDesc('id')
             ->get();
 
-        return view('webaru_bs3.admit_index', compact('cycles'));
+        return view('webaru_bs5.admit_index', compact('cycles'));
     }
 
     public function show($id)
@@ -40,7 +40,7 @@ class WebaruAdmitController extends Controller
             $q->orderBy('id','desc');
         }])->findOrFail($id);
 
-        // return view('webaru_bs3.admit_show', compact('cycle'));
+        // return view('webaru_bs5.admit_view', compact('cycle'));
         $faculties = WebaruAdmitFaculty::query()
         ->orderBy('id', 'asc')
         ->with([
@@ -57,7 +57,7 @@ class WebaruAdmitController extends Controller
             },
         ])
         ->get();
-        return view('webaru_bs3.admit_show', compact('cycle', 'faculties'));
+        return view('webaru_bs5.admit_view', compact('cycle', 'faculties'));
     }
 
     public function showBs5($id)

@@ -101,7 +101,7 @@
                                                 <li><a href="{{ url('symbol') }}">สัญลักษณ์ของมหาวิทยาลัย</a></li>
                                                 <li><a href="{{ url('strategic') }}">ปรัชญา พันธกิจ วิสัยทัศน์</a></li>
                                                 <li><a href="{{ url('map') }}">แผนผังมหาวิทยาลัย</a></li>
-                                                <li><a href="{{ url('webaru_bs3/plans/plans-2566-2570.pdf') }}">นโยบาย แผนยุทธศาสตร์</a></li>
+                                                <li><a href="{{ url('webaru_bs5/aru_images/plans/plans-2566-2570.pdf') }}">นโยบาย แผนยุทธศาสตร์</a></li>
                                                 <li><a href="{{ url('') }}">กฎหมายเกี่ยวกับทรัพยากรบุคคล</a></li>
                                                 <li><a href="{{ url('') }}">กฎหมายเกี่ยวกับมหาวิทยาลัย</a></li>
                                                 <li><a href="{{ url('structure') }}">โครงสร้างการแบ่งส่วนราชการภายใน</a></li>

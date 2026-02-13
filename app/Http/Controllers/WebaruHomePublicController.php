@@ -10,7 +10,10 @@ use App\Models\WebaruSlider;
 use App\Models\WebaruAdmitCycle;
 use App\Models\WebaruAdmitFaculty;
 use App\Models\Webarugallery;
+use App\Models\WebaruComplaintCase;
+use App\Models\WebaruFaqQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,10 +32,9 @@ class WebaruHomePublicController extends Controller
             ->get()
             ->groupBy('type');
 
-        $arunews = WebaruNews::where('status', 1)
+        $mainArunews = WebaruNews::where('status', 1)
             ->orderBy('created_at', 'desc')
-            ->take(3)
-            ->get();
+            ->first();
 
         $carousels = WebaruCarousel::where('status', 1)
             ->orderBy('created_at', 'desc')
@@ -49,7 +51,43 @@ class WebaruHomePublicController extends Controller
             ->take(3)
             ->get();
 
-        return view('webaru_bs5.home', compact('tabCategories', 'tabsByCategory', 'arunews', 'carousels', 'sliders', 'galleries'));
+        $complaintNewCounts = [];
+        $faqPendingCount = 0;
+
+        $user = auth()->user();
+        $canSeeComplaintBadges = $user && ($user->can('complaints.dashboard.view') || $user->can('complaints.general.manage'));
+        $canSeeFaqBadges = $user && $user->can('webaru.faq.manage');
+
+        if ($canSeeComplaintBadges) {
+            $complaintNewCounts = WebaruComplaintCase::query()
+                ->where('status', 'NEW')
+                ->whereDoesntHave('logs', function ($q) {
+                    $q->where('action', '!=', 'created');
+                })
+                ->whereIn('type_code', ['GRIEVANCE', 'CORRUPTION', 'OPINION'])
+                ->select('type_code', DB::raw('COUNT(*) as total'))
+                ->groupBy('type_code')
+                ->pluck('total', 'type_code')
+                ->toArray();
+        }
+
+        if ($canSeeFaqBadges) {
+            $faqPendingCount = WebaruFaqQuestion::query()
+                ->where('status', 'pending')
+                ->where('is_spam', false)
+                ->count();
+        }
+
+        return view('webaru_bs5.home', compact(
+            'tabCategories',
+            'tabsByCategory',
+            'mainArunews',
+            'carousels',
+            'sliders',
+            'galleries',
+            'complaintNewCounts',
+            'faqPendingCount'
+        ));
     }
 
     public function admitIndex()

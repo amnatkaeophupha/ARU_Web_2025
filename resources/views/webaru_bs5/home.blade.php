@@ -1,5 +1,7 @@
 @extends('webaru_bs5/layout')
 @section('content')
+
+
         <!-- Start of slider area -->
         <div class="slider-area">
             <div class="slider-active">
@@ -35,106 +37,185 @@
                     </div>
                 @endforelse
             </div>
+            <div class="slider-vision-area">
+                <div class="container-fluid">
+                    <p class="slider-vision mb-0 text-center">
+                        <strong>วิสัยทัศน์:</strong>
+                        เป็นมหาวิทยาลัยราชภัฏที่มีความเป็นเลิศด้านการพัฒนานวัตกรรมที่สอดคล้องกับการศึกษา และพัฒนาท้องถิ่นอย่างยั่งยืนด้วยทุนทางวัฒนธรรมแห่งเมืองมรดกโลก
+                        <span class="slider-vision__year">ภายในปี 2570</span>
+                    </p>
+                </div>
+            </div>
         </div>
         <!-- End of slider area -->
+
         <!-- Start page complaint_center content -->
-        <section class="complaint_center-area gray-bg ptb-110">
+        <section class="complaint_center-area gray-bg ptb-100">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="service-all white-bg">
-                            <h2 class="service-title-th">ศูนย์รับเรื่องร้องเรียน สายตรงอธิการบดี</h2>
-                            <div class="row">
+                    <div class="col-md-9" style="padding:0;">
+                        <div class="service-all white-bg" style="padding-bottom:40px;">
+                            <div class="complaint-head">
+                                <div>
+                                    <h2 class="service-title-th" style="margin-bottom: 6px;">ศูนย์รับเรื่องร้องเรียนและข้อเสนอแนะ</h2>
+                                    <p class="complaint-sub">เข้าสู่หน้าหลักเพื่อดูรายละเอียดทั้งหมดและ<strong class="complaint-sub-highlight">ติดตามสถานะเรื่องร้องเรียน</strong></p>
+                                </div>
+                                <a class="button extra-small complaint-home-btn" href="{{ route('complaint.index') }}">
+                                    <span>ไปหน้าหลัก</span>
+                                </a>
+                            </div>
+                            @php
+                                $complaintNewCounts = $complaintNewCounts ?? [];
+                                $faqPendingCount = (int) ($faqPendingCount ?? 0);
+                                $formatBadgeCount = function ($count) {
+                                    $count = (int) $count;
+                                    return $count > 99 ? '99+' : (string) $count;
+                                };
+                            @endphp
+                            <div class="row complaint-cards">
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="service-left">
-                                        <div class="offer-icon">
+                                    <a class="complaint-card" href="{{ route('complaint.create', ['type' => 'grievance']) }}">
+                                        @canany(['complaints.dashboard.view', 'complaints.general.manage'])
+                                            @php $newCount = (int) ($complaintNewCounts['GRIEVANCE'] ?? 0); @endphp
+                                            @if($newCount > 0)
+                                                <span class="complaint-card-badge complaint-card-badge--grievance" title="เรื่องร้องเรียนร้องทุกข์เข้าใหม่ {{ $newCount }} เรื่อง" aria-label="เรื่องร้องเรียนร้องทุกข์เข้าใหม่ {{ $newCount }} เรื่อง">
+                                                    ใหม่ {{ $formatBadgeCount($newCount) }}
+                                                </span>
+                                            @endif
+                                        @endcanany
+                                        <div class="complaint-card-icon">
                                             <i class="icofont icofont-ui-message"></i>
                                         </div>
-                                        <div class="offer-text">
-                                            <h3><a class="service-link" href="#">รับเรื่องร้องเรียนร้องทุกข์</a></h3>
-                                            <p>เปิดช่องทางให้บุคลากร นักศึกษา และประชาชนทั่วไป เพื่อให้มหาวิทยาลัยรับทราบและดำเนินการอย่างเหมาะสม</p>
+                                        <div class="complaint-card-body">
+                                            <h3>รับเรื่องร้องเรียนร้องทุกข์</h3>
+                                            <p>แจ้งปัญหา/ข้อร้องเรียนสำคัญ เพื่อให้มหาวิทยาลัยรับทราบและดำเนินการอย่างเหมาะสม</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="service-left mrg-xs">
-                                        <div class="offer-icon">
+                                    <a class="complaint-card" href="{{ route('faq.index') }}">
+                                        @can('webaru.faq.manage')
+                                            @if($faqPendingCount > 0)
+                                                <span class="complaint-card-badge complaint-card-badge--faq" title="คำถามเข้าใหม่ (รอตรวจสอบ) {{ $faqPendingCount }} รายการ" aria-label="คำถามเข้าใหม่ (รอตรวจสอบ) {{ $faqPendingCount }} รายการ">
+                                                    ใหม่ {{ $formatBadgeCount($faqPendingCount) }}
+                                                </span>
+                                            @endif
+                                        @endcan
+                                        <div class="complaint-card-icon">
                                             <i class="icofont icofont-ui-chat"></i>
                                         </div>
-                                        <div class="offer-text">
-                                            <h3><a class="service-link" href="{{ route('faq.index') }}">ถามตอบข้อสงสัย</a></h3>
-                                            <p>ให้บริการตอบข้อซักถาม ข้อเสนอแนะ และข้อมูลที่เกี่ยวข้องกับการดำเนินงานของมหาวิทยาลัย  เพื่อสร้างความเข้าใจที่ถูกต้องและโปร่งใส</p>
+                                        <div class="complaint-card-body">
+                                            <h3>ถามตอบข้อสงสัย</h3>
+                                            <p>ค้นหาคำตอบ หรือส่งคำถาม เพื่อให้ข้อมูลที่ถูกต้องและโปร่งใสเกี่ยวกับการดำเนินงาน</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="service-left service-mrg mrg-xs">
-                                        <div class="offer-icon">
+                                    <a class="complaint-card" href="{{ route('complaint.create', ['type' => 'corruption']) }}">
+                                        @canany(['complaints.dashboard.view', 'complaints.general.manage'])
+                                            @php $newCount = (int) ($complaintNewCounts['CORRUPTION'] ?? 0); @endphp
+                                            @if($newCount > 0)
+                                                <span class="complaint-card-badge complaint-card-badge--corruption" title="เรื่องร้องเรียนทุจริตเข้าใหม่ {{ $newCount }} เรื่อง" aria-label="เรื่องร้องเรียนทุจริตเข้าใหม่ {{ $newCount }} เรื่อง">
+                                                    ใหม่ {{ $formatBadgeCount($newCount) }}
+                                                </span>
+                                            @endif
+                                        @endcanany
+                                        <div class="complaint-card-icon">
                                             <i class="icofont icofont-law-document"></i>
                                         </div>
-                                        <div class="offer-text">
-                                            <h3><a class="service-link" href="#">ร้องเรียนการทุจริตและประพฤติมิชอบ</a></h3>
-                                            <p>แจ้งเบาะแสการทุจริต การใช้อำนาจโดยมิชอบ หรือการกระทำที่ไม่ถูกต้องเพื่อส่งเสริมธรรมาภิบาลและความโปร่งใสในองค์กร</p>
+                                        <div class="complaint-card-body">
+                                            <h3>ร้องเรียนทุจริตและประพฤติมิชอบ</h3>
+                                            <p>แจ้งเบาะแสทุจริต/ใช้อำนาจโดยมิชอบ เพื่อส่งเสริมธรรมาภิบาลและความโปร่งใส</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="service-left service-mrg mrg-xs">
-                                        <div class="offer-icon">
+                                    <a class="complaint-card" href="{{ route('complaint.create', ['type' => 'opinion']) }}">
+                                        @canany(['complaints.dashboard.view', 'complaints.general.manage'])
+                                            @php $newCount = (int) ($complaintNewCounts['OPINION'] ?? 0); @endphp
+                                            @if($newCount > 0)
+                                                <span class="complaint-card-badge complaint-card-badge--opinion" title="ความคิดเห็นเข้าใหม่ {{ $newCount }} เรื่อง" aria-label="ความคิดเห็นเข้าใหม่ {{ $newCount }} เรื่อง">
+                                                    ใหม่ {{ $formatBadgeCount($newCount) }}
+                                                </span>
+                                            @endif
+                                        @endcanany
+                                        <div class="complaint-card-icon">
                                             <i class="icofont icofont-ui-call"></i>
                                         </div>
-                                        <div class="offer-text">
-                                            <h3><a class="service-link" href="{{ route('complaint.index') }}">สายตรงอธิการบดี</a></h3>
-                                            <p> ช่องทางการสื่อสารโดยตรงถึงอธิการบดี สำหรับเสนอข้อคิดเห็น ปัญหา หรือข้อร้องเรียนสำคัญ เพื่อให้ได้รับการพิจารณาอย่างเร่งด่วนและเป็นธรรม</p>
+                                        <div class="complaint-card-body">
+                                            <h3>รับฟังความคิดเห็น</h3>
+                                            <p>ส่งข้อเสนอแนะและความคิดเห็น เพื่อร่วมพัฒนาการบริการและการดำเนินงานของมหาวิทยาลัย</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="complaint-contact-card" aria-label="ข้อมูลติดต่อศูนย์รับเรื่องร้องเรียน">
+                                        <div class="complaint-contact-card__title">
+                                            <span class="complaint-contact-card__title-icon" aria-hidden="true">
+                                                <i class="icofont icofont-support"></i>
+                                            </span>
+                                            <span>ติดต่อศูนย์รับเรื่องร้องเรียน</span>
+                                        </div>
+                                        <div class="complaint-contact-card__items">
+                                            <div class="complaint-contact-card__item">
+                                                <span class="complaint-contact-card__item-icon" aria-hidden="true">
+                                                    <i class="icofont icofont-phone"></i>
+                                                </span>
+                                                <div class="complaint-contact-card__item-body">
+                                                    <div class="complaint-contact-card__label">โทร.</div>
+                                                    <div class="complaint-contact-card__value">
+                                                        <a class="complaint-contact-card__link" href="tel:0355276555">035-527-6555</a>
+                                                        <span class="complaint-contact-card__meta">ต่อ 1321</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="complaint-contact-card__item">
+                                                <span class="complaint-contact-card__item-icon" aria-hidden="true">
+                                                    <i class="icofont icofont-email"></i>
+                                                </span>
+                                                <div class="complaint-contact-card__item-body">
+                                                    <div class="complaint-contact-card__label">อีเมล</div>
+                                                    <div class="complaint-contact-card__value">
+                                                        <a class="complaint-contact-card__link" href="mailto:complaint@aru.ac.th">complaint@aru.ac.th</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="complaint-contact-card__item">
+                                                <span class="complaint-contact-card__item-icon" aria-hidden="true">
+                                                    <i class="icofont icofont-clock-time"></i>
+                                                </span>
+                                                <div class="complaint-contact-card__item-body">
+                                                    <div class="complaint-contact-card__label">เวลาทำการ</div>
+                                                    <div class="complaint-contact-card__value">
+                                                        <span class="complaint-contact-card__meta">วันจันทร์–ศุกร์ เวลา 08:30–16:30 น.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="service-from navy-bg">
-                            <h3>Courses Search</h3>
-                            <form class="ordering">
-                                <div class="orderby-wrapper">
-                                    <label>Select Degree*</label>
-                                    <select name="orderby" class="orderby">
-                                        <option value="menu_order">GED</option>
-                                        <option value="popularity" selected='selected'>HS Diploma</option>
-                                        <option value="rating">Associate Degree</option>
-                                        <option value="date">Bachelor's Degree</option>
-                                        <option value="price">Master's Degree</option>
-                                        <option value="price-desc">Doctorate/Prof Degree</option>
-                                    </select>
+                    <div class="col-md-3" style="padding:0;">
+                        <div class="service-from navy-bg text-center" style="padding: 17px 15px;">
+                            <div class="cp-font" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 20px 14px;">
+                                <h3 style="margin: 0 0 10px; font-size: 24px; line-height: 1.35;">สายตรงอธิการบดี</h3>
+                                <div style="margin-bottom: 16px;">
+                                    <img
+                                        src="{{ url('webaru_bs5/aru_images/executives_default.png') }}"
+                                        alt="สายตรงอธิการบดี"
+                                        class="img-fluid"
+                                        style="max-width: 180px; width: 100%; border-radius: 12px; border: 3px solid rgba(255, 255, 255, 0.7); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);"
+                                    >
                                 </div>
-                                <div class="orderby-wrapper mrg-chosen">
-                                    <label>Ceategory*</label>
-                                    <select name="orderby" class="orderby">
-                                        <option value="menu_order">GED</option>
-                                        <option value="popularity" selected='selected'>HS Diploma</option>
-                                        <option value="rating">Associate Degree</option>
-                                        <option value="date">Bachelor's Degree</option>
-                                        <option value="price">Master's Degree</option>
-                                        <option value="price-desc">Doctorate/Prof Degree</option>
-                                    </select>
-                                </div>
-                                <div class="orderby-wrapper">
-                                    <label>Subject*</label>
-                                    <select name="orderby" class="orderby">
-                                        <option value="menu_order">GED</option>
-                                        <option value="popularity" selected='selected'>HS Diploma</option>
-                                        <option value="rating">Associate Degree</option>
-                                        <option value="date">Bachelor's Degree</option>
-                                        <option value="price">Master's Degree</option>
-                                        <option value="price-desc">Doctorate/Prof Degree</option>
-                                    </select>
-                                </div>
-                                <div class="chosen-submit text-center">
-                                    <a class="button extra-small" href="#">
-                                        <span>search</span>
-                                    </a>
-                                </div>
-                            </form>
+                                <p class="president-name">
+                                    รศ.ดร.ชูสิทธิ์ ประดับเพ็ชร์
+                                </p>
+                                <a class="button extra-small" href="{{ route('complaint.create', ['type' => 'direct']) }}" style="padding: 8px 10px; border-radius: 10px;">
+                                    <span class="president-cta">ส่งข้อความถึงอธิการบดี</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,10 +225,6 @@
 
         <!-- Start of arunew area content   -->
         <section class="arunew-area pt-60 pb-20">
-            @php
-                $mainArunews = isset($arunews) ? $arunews->first() : null;
-                $sideArunews = isset($arunews) ? $arunews->slice(1, 2) : collect();
-            @endphp
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
@@ -160,14 +237,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8 col-sm-12">
+                    <div class="col-md-12 col-sm-12 arunew-main">
                         @if($mainArunews && $mainArunews->files)
                             <div class="card">
                                 <div class="card-body">
-                                    <canvas id="arunew-pdf-preview-main" data-pdf="{{ asset('storage/2025_webaru_home_arunews/'.$mainArunews->files) }}" data-scale="1.6" style="display:block; width:100%; height:auto;"></canvas>
+                                    <canvas id="arunew-pdf-preview-main" data-pdf="{{ asset('storage/2025_webaru_home_arunews/'.$mainArunews->files) }}" data-scale="1.6" style="display:block; width:100%; height:auto; margin:0 auto;"></canvas>
                                     <div class="text-center mt-3">
                                         <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/'.$mainArunews->files) }}" target="_blank" rel="noopener">
-                                            <span>ดูฉบับจริง</span>
+                                            <span>Download</span>
                                         </a>
                                     </div>
                                 </div>
@@ -180,38 +257,10 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="arunew-sidebar pl-20">
-                            @if($sideArunews->count())
-                                @foreach($sideArunews as $index => $news)
-                                    <div class="arunew-widget {{ $index === 0 ? 'mb-40' : '' }}">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <canvas id="arunew-pdf-preview-side-{{ $index + 1 }}" data-pdf="{{ asset('storage/2025_webaru_home_arunews/'.$news->files) }}" data-scale="1.2" style="display:block; width:100%; height:auto;"></canvas>
-                                                <div class="text-center mt-3">
-                                                    <a class="button extra-small arunew-read-btn" href="{{ asset('storage/2025_webaru_home_arunews/'.$news->files) }}" target="_blank" rel="noopener">
-                                                        <span>ดูฉบับจริง</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                <div class="arunew-widget">
-                                    <div class="card">
-                                        <div class="card-body text-center text-muted">
-                                            ไม่มีข้อมูล
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
                 </div>
                 <div class="arunew-more text-center mt-30 mb-60">
                     <a class="button extra-small arunew-read-btn arunew-more-btn" href="{{ route('aru_news') }}">
-                        <span>ดูทั้งหมด</span>
+                        <span>ดูย้อนหลัง</span>
                     </a>
                 </div>
             </div>
@@ -252,7 +301,7 @@
         <!-- End of arunew area content   -->
 
         <!-- Start of banner carousel area content   -->
-        <section class="banner_carousel-area gray-bg pb-80 pt-50">
+        <section class="banner_carousel-area gray-bg pb-50 pt-50">
             <div class="container">
                 <div class="row">
                     @forelse($carousels as $carousel)
@@ -277,25 +326,26 @@
                     @endforelse
                 </div>
             </div>
-        </section>
-
-        <div class="modal fade" id="bannerModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-body text-center" style="padding: 5px;">
-                        <img id="bannerModalImage" src="" alt="ประกาศ" class="img-fluid">
-                    </div>
-                    <div class="modal-footer">
-                        <a id="bannerModalOpen" class="button extra-small" href="#" target="_blank" rel="noopener">
-                            <span>Open link</span>
-                        </a>
-                        <a class="button extra-small banner-modal-close-btn" data-bs-dismiss="modal">
-                            <span>Close</span>
-                        </a>
+            <div class="modal fade" id="bannerModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-body text-center" style="padding: 5px;">
+                            <img id="bannerModalImage" src="" alt="ประกาศ" class="img-fluid">
+                        </div>
+                        <div class="modal-footer">
+                            <a id="bannerModalOpen" class="button extra-small" href="#" target="_blank" rel="noopener">
+                                <span>Open link</span>
+                            </a>
+                            <a class="button extra-small banner-modal-close-btn" data-bs-dismiss="modal">
+                                <span>Close</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- end of banner carousel area content   -->
+
 
         <!-- End of banner carousel area content   -->
         <section class="aru_tab-area pb-80 pt-50">
@@ -389,115 +439,28 @@
             </div>
         </section>
 
-        {{-- <section class="banner_blog-area ptb-110">
-            <div class="container">
-                <div class="row">
-                    <div class="d-block d-lg-none d-xl-block col-lg-3 col-sm-6">
-                        <div class="banner-img">
-                            <img src="{{ url('webaru_bs5/images/banner/1.jpg') }}" alt="" >
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 col-sm-6">
-                        <div class="blog-all mrg-xs">
-                            <div class="blog-img">
-                                <a href="#"><img src="{{ url('webaru_bs5/images/blog/1.jpg') }}" alt="" ></a>
-                            </div>
-                            <div class="blog-details">
-                                <h3><a href="#">Political Science</a></h3>
-                                <div class="blog-meta">
-                                    <span class="published3">
-                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
-                                    </span>
-                                    <span class="published4">
-                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
-                                <a class="button extra-small" href="#">
-                                    <span>Learn Now</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 col-sm-6">
-                        <div class="blog-all mrg-sm mrg-xs">
-                            <div class="blog-img">
-                                <a href="#"><img src="{{ url('webaru_bs5/images/blog/2.jpg') }}" alt="" ></a>
-                            </div>
-                            <div class="blog-details">
-                                <h3><a href="#">Micro Biology</a></h3>
-                                <div class="blog-meta">
-                                    <span class="published3">
-                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
-                                    </span>
-                                    <span class="published4">
-                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
-                                <a class="button extra-small" href="#">
-                                    <span>Learn Now</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 col-sm-6">
-                        <div class="blog-all mrg-sm mrg-xs">
-                            <div class="blog-img">
-                                <a href="#"><img src="{{ url('webaru_bs5/images/blog/3.jpg') }}" alt="" ></a>
-                            </div>
-                            <div class="blog-details">
-                                <h3><a href="#">Computer Science</a></h3>
-                                <div class="blog-meta">
-                                    <span class="published3">
-                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
-                                    </span>
-                                    <span class="published4">
-                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
-                                    </span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
-                                <a class="button extra-small" href="#">
-                                    <span>Learn Now</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-
         <div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-sm-7 col-12 text-center">
                         <div class="webaru_video-content">
-                            <iframe src="https://www.youtube.com/embed/G8LDCq2rbrc?si=7yAtsQbwMdamfLgl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/ylFuHaxHIs8?si=NsR-7OHf5yS-W5hQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-5 col-12">
-                        <div class="register-from" style="height: 420px;">
-                            <h3>Fil The Register Form</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicng elit, sed do eiusmod tempor </p>
-                            <form class="ordering">
-                                <input required="" placeholder="Your Name*" type="text">
-                                <input class="form-control2" required="" placeholder="Email Address*" type="email">
-                                <div class="orderby-wrapper">
-                                    <select name="orderby" class="orderby">
-                                        <option value="menu_order">Courses*</option>
-                                        <option value="popularity" selected='selected'>HS Diploma</option>
-                                        <option value="rating">Associate Degree</option>
-                                        <option value="date">Bachelor's Degree</option>
-                                        <option value="price">Master's Degree</option>
-                                        <option value="price-desc">Doctorate/Prof Degree</option>
-                                    </select>
-                                </div>
-                                <div class="sent text-center">
-                                    <button class="submit" type="submit">
-                                        submit
-                                    </button>
-                                </div>
-                            </form>
+                        <div class="register-from aru-official-card" style="height: 420px;">
+                            <div class="aru-official-card_icon" aria-hidden="true">
+                                <i class="icofont icofont-social-youtube-play"></i>
+                            </div>
+                            <h3 class="aru-official-card_title">ARU Official Channel</h3>
+                            <p class="aru-official-card_desc">ติดตามช่องทาง YouTube ทางการของมหาวิทยาลัย</p>
+                            <a class="button extra-small aru-official-card_btn" href="https://www.youtube.com/@ARU-Official-Channel" target="_blank" rel="noopener noreferrer">
+                                <span>ไปที่ YouTube</span>
+                            </a>
+                            <div class="aru-official-card_url" aria-label="ลิงก์ช่อง YouTube">
+                                <i class="icofont icofont-link" aria-hidden="true"></i>
+                                <span>https://www.youtube.com/@ARU-Official-Channel</span>
+                            </div>
                         </div>
                     </div>
                 </div>

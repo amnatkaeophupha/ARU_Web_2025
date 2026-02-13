@@ -26,6 +26,56 @@ nav-tabs
 
 /*
 ================================================
+Header quick links
+================================================
+*/
+
+.header-top-quicklinks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 13px;
+}
+.header-top-quicklinks a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.header-top-quicklinks a:hover,
+.header-top-quicklinks a:focus {
+    color: #f8b239;
+    text-decoration: underline;
+}
+.header-top-quicklinks__sep {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* header top contact */
+.header-top-info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.header-top-info a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    letter-spacing: 0.1px;
+}
+.header-top-info a:hover,
+.header-top-info a:focus {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.header-top-info a i {
+    color: #f8b239;
+}
+
+/*
+================================================
 Complaint center area
 ================================================
 */
@@ -46,6 +96,334 @@ Complaint center area
 .complaint_center-area > .container > .row > [class*="col-"] > .service-all,
 .complaint_center-area > .container > .row > [class*="col-"] > .service-from {
     width: 100%;
+}
+
+.complaint_center-area .complaint-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.complaint_center-area .complaint-sub {
+    margin: 0;
+    color: #5b6778;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.complaint_center-area .complaint-sub-highlight {
+    color: #a01d29;
+    font-weight: 800;
+    padding: 0 4px;
+    border-radius: 6px;
+    background: rgba(251, 176, 64, 0.22);
+    box-decoration-break: clone;
+}
+
+.complaint_center-area .complaint-home-btn span {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    text-shadow: none;
+}
+
+.complaint_center-area .complaint-home-btn {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(160, 29, 41, 0.28);
+    background: linear-gradient(135deg, #b61f2e 0%, #a01d29 55%, #8f1723 100%);
+    box-shadow: 0 12px 20px rgba(31, 41, 55, 0.10);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, filter .15s ease;
+}
+
+.complaint_center-area .complaint-home-btn span::after {
+    content: "→";
+    font-weight: 800;
+    opacity: 0.95;
+    transition: transform .15s ease;
+}
+
+.complaint_center-area .complaint-home-btn:hover,
+.complaint_center-area .complaint-home-btn:focus {
+    border-color: rgba(160, 29, 41, 0.45);
+    box-shadow: 0 16px 26px rgba(31, 41, 55, 0.14);
+    transform: translateY(-1px);
+    filter: brightness(1.02);
+}
+
+.complaint_center-area .complaint-home-btn:hover span::after,
+.complaint_center-area .complaint-home-btn:focus span::after {
+    transform: translateX(2px);
+}
+
+.complaint_center-area .complaint-home-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(251, 176, 64, 0.25), 0 16px 26px rgba(31, 41, 55, 0.14);
+}
+
+.complaint_center-area .complaint-cards {
+    row-gap: 14px;
+}
+
+.complaint_center-area .complaint-card {
+    display: flex;
+    gap: 14px;
+    height: 100%;
+    padding: 18px 16px;
+    border: 1px solid #e9eef5;
+    border-radius: 16px;
+    background: #ffffff;
+    position: relative;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.complaint_center-area .complaint-card:hover,
+.complaint_center-area .complaint-card:focus {
+    border-color: rgba(160, 29, 41, 0.25);
+    box-shadow: 0 14px 30px rgba(31, 41, 55, 0.10);
+    transform: translateY(-1px);
+}
+
+.complaint_center-area .complaint-card-icon {
+    flex: 0 0 auto;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(160, 29, 41, 0.08);
+    color: #a01d29;
+}
+
+.complaint_center-area .complaint-card-icon i {
+    font-size: 20px;
+}
+
+.complaint_center-area .complaint-card-body h3 {
+    margin: 0 0 6px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.complaint_center-area .complaint-card-body p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.complaint_center-area .complaint-card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    box-shadow: 0 10px 18px rgba(31, 41, 55, 0.10);
+    z-index: 1;
+}
+
+.complaint_center-area .complaint-card-badge::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.9;
+}
+
+.complaint_center-area .complaint-card-badge--grievance {
+    color: #b42318;
+    background: #ffe4e8;
+    border-color: #fecdd6;
+}
+
+.complaint_center-area .complaint-card-badge--corruption {
+    color: #6b21a8;
+    background: #f3e8ff;
+    border-color: #e9d5ff;
+}
+
+.complaint_center-area .complaint-card-badge--opinion {
+    color: #1d4ed8;
+    background: #dbeafe;
+    border-color: #bfdbfe;
+}
+
+.complaint_center-area .complaint-card-badge--faq {
+    color: #047857;
+    background: #d1fae5;
+    border-color: #a7f3d0;
+}
+
+.complaint_center-area .complaint-contact-card {
+    padding: 16px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(251, 176, 64, 0.45);
+    border-left: 6px solid #fbb040;
+    background: linear-gradient(180deg, #fff7ed 0%, #ffffff 70%);
+    box-shadow: 0 14px 28px rgba(31, 41, 55, 0.08);
+}
+
+.complaint_center-area .complaint-contact-card__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.complaint_center-area .complaint-contact-card__title-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: rgba(251, 176, 64, 0.20);
+    color: #b45309;
+    flex: 0 0 auto;
+}
+
+.complaint_center-area .complaint-contact-card__title-icon i {
+    font-size: 15px;
+}
+
+.complaint_center-area .complaint-contact-card__items {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.complaint_center-area .complaint-contact-card__item {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.complaint_center-area .complaint-contact-card__item-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: rgba(160, 29, 41, 0.08);
+    color: #a01d29;
+    flex: 0 0 auto;
+    margin-top: 1px;
+}
+
+.complaint_center-area .complaint-contact-card__item-icon i {
+    font-size: 13px;
+}
+
+.complaint_center-area .complaint-contact-card__item-body {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: baseline;
+    column-gap: 6px;
+    min-width: 0;
+}
+
+.complaint_center-area .complaint-contact-card__label {
+    font-weight: 700;
+    color: #374151;
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.complaint_center-area .complaint-contact-card__value {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: baseline;
+    color: #4b5563;
+    font-size: 12px;
+    line-height: 1.6;
+    min-width: 0;
+    white-space: normal;
+}
+
+.complaint_center-area .complaint-contact-card__link {
+    color: #a01d29;
+    font-weight: 400;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.complaint_center-area .complaint-contact-card__link:hover,
+.complaint_center-area .complaint-contact-card__link:focus {
+    text-decoration: underline;
+}
+
+.complaint_center-area .complaint-contact-card__meta {
+    color: #4b5563;
+    white-space: normal;
+}
+
+@media (max-width: 575px) {
+    .complaint_center-area .complaint-home-btn span {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .complaint_center-area .complaint-card-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 11px;
+        padding: 4px 9px;
+    }
+
+    .complaint_center-area .complaint-contact-card {
+        padding: 14px 14px;
+    }
+
+    .complaint_center-area .complaint-contact-card__items {
+        flex-wrap: wrap;
+        gap: 10px 14px;
+    }
+
+    .complaint_center-area .complaint-contact-card__item {
+        flex: 1 1 100%;
+    }
+
+    .complaint_center-area .complaint-contact-card__item-body {
+        grid-template-columns: 1fr;
+        row-gap: 2px;
+    }
+
+    .complaint_center-area .complaint-contact-card__label {
+        margin-bottom: 0;
+    }
+
+    .complaint_center-area .complaint-contact-card__value,
+    .complaint_center-area .complaint-contact-card__meta {
+        white-space: normal;
+    }
 }
 
 /*
@@ -384,8 +762,19 @@ Counter area
 .arunew-area .card-body {
     padding: 15px;
 }
+.arunew-area .arunew-main {
+    display: flex;
+    justify-content: center;
+}
+.arunew-area .arunew-main > .card {
+    width: 100%;
+    max-width: 980px;
+}
 .arunew-area .card-body canvas {
-    margin: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
     border: 1px solid #e8e8e8;
     border-radius: 6px;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
@@ -427,9 +816,6 @@ Banner carousel area
 ================================================
 */
 
-.banner_carousel-area {
-    background: #f1f1f1;
-}
 .banner_carousel-area .banner-card {
     background: #ffffff;
     border: 1px solid #dcdcdc;
@@ -457,6 +843,7 @@ Banner carousel area
     font-weight: 600;
     margin-bottom: 6px;
 }
+
 .event-area .webaru_gallery-area {
     height: 100%;
     display: flex;
@@ -1192,4 +1579,122 @@ FAQ view (faq_view)
     color: #6b7280;
     font-size: 12px;
     margin-top: 8px;
+}
+
+.cp-font,
+.cp-font * {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
+.cp-font {
+    color: #eef3ff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.20);
+}
+
+.cp-font h1,
+.cp-font h2,
+.cp-font h3,
+.cp-font h4,
+.cp-font h5,
+.cp-font h6 {
+    color: #f7f9ff;
+}
+
+.cp-font p {
+    color: #e6ecfb;
+}
+
+.cp-font a {
+    color: #f2f6ff;
+}
+
+.cp-font .president-name {
+    margin: 0 0 14px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.2px;
+    color: #f4f7ff;
+}
+
+.service-from .cp-font a.button.extra-small span.president-cta {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    color: #1b1f2a !important;
+    text-shadow: none;
+}
+
+.service-from .cp-font a.button.extra-small {
+    background: linear-gradient(135deg, #ffe08a 0%, #f8b239 55%, #f39a2a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+    text-shadow: none;
+}
+
+.service-from .cp-font a.button.extra-small:hover,
+.service-from .cp-font a.button.extra-small:focus {
+    background: linear-gradient(135deg, #ffe8a9 0%, #f9c15a 55%, #f5a23a 100%) !important;
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.28);
+    transform: translateY(-1px);
+}
+
+.service-from .cp-font a.button.extra-small:active {
+    transform: translateY(0);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.cookie-banner{
+position: fixed;
+left: 0; right: 0; bottom: 0;
+background: rgba(33,37,41,.95);
+color: #fff;
+padding: 12px 0;
+z-index: 99999;
+}
+.cookie-banner a{ color:#fff; }
+
+.cookie-policy-area {
+    background: #f8fafc;
+}
+
+.cookie-policy-card {
+    border-color: #e5e7eb;
+    border-radius: 16px;
+    padding: 26px 24px;
+}
+
+.cookie-policy-content,
+.cookie-policy-content * {
+    font-family: 'Sarabun', sans-serif;
+}
+
+.cookie-policy-content h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.cookie-policy-content h5 {
+    font-weight: 700;
+    color: #111827;
+}
+
+.cookie-policy-content p {
+    line-height: 1.85;
+    color: #374151;
+}
+
+@media (max-width: 576px) {
+    .cookie-policy-card {
+        padding: 18px 16px;
+    }
+}
+
+.privacy-policy-card,
+.privacy-policy-card *,
+.privacy-policy-sidecard,
+.privacy-policy-sidecard * {
+    font-family: 'Sarabun', sans-serif;
 }

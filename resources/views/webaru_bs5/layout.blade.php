@@ -11,11 +11,18 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('webaru_bs5/aru_images/logo/aru_favicon.png') }}">
 
+    <!-- Google Fonts fallback (Chakra Petch) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- All css files are included here. -->
     <!-- Bootstrap 5.3 main css -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/bootstrap-5.3.3/css/bootstrap.min.css') }}">
     <!-- This core.css file contents all plugings css file. -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/core.css') }}">
+    <!-- Local font faces (Chakra Petch) -->
+    <link rel="stylesheet" href="{{ asset('webaru_bs5/fontgoogle/fonts.css') }}">
     <!-- Theme shortcodes/elements style -->
     <link rel="stylesheet" href="{{ url('webaru_bs5/css/shortcode/shortcodes.css') }}">
     <!-- Theme main style -->
@@ -45,17 +52,17 @@
             <div class="header-top aru-darkred-bg ptb-20">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 col-12 d-none d-sm-block">
+                        <div class="col-md-6 col-sm-12 col-12 d-none d-sm-block" style="padding-left:10px;">
                             <div class="header-top-info">
                                 <ul class="d-flex flex-wrap align-items-center gap-3">
                                     <li>
-                                        <a href="#">
+                                        <a href="tel:+660352765559" aria-label="โทรศัพท์ 035-276-555-9">
                                             <i class="icofont icofont-ui-call"></i>
                                             Call us (+66) 035-276-555-9
                                         </a>
                                     </li>
                                     <li class="d-none d-lg-block">
-                                        <a href="#">
+                                        <a href="mailto:saraban@aru.ac.th" aria-label="อีเมล saraban@aru.ac.th">
                                             <i class="icofont icofont-envelope"></i>
                                             saraban@aru.ac.th
                                         </a>
@@ -64,22 +71,18 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 d-none d-lg-block">
-                            <div class="header-top-right f-right">
-                                <div class="header-top-language f-right">
-                                    <ul>
-                                        <li><a href="https://edoc.aru.ac.th/" target="_blank">E-DOC</a></li>
-                                    </ul>
-                                </div>
-                                <div class="header-top-language f-left">
-                                    <ul>
-                                        <li><a href="https://www.aru.ac.th/regis/?page=euni" target="_blank">ระบบบริการนักศึกษา</a></li>
-                                    </ul>
-                                </div>
-                                <div class="header-top-language f-left">
-                                    <ul>
-                                        <li><a href="http://e-uni8.aru.ac.th:81/e-uni/" target="_blank">ระบบบริหารการศึกษา</a></li>
-                                    </ul>
-                                </div>
+                            <div class="header-top-right f-right header-top-quicklinks">
+                                <a href="https://edoc.aru.ac.th/" target="_blank" rel="noopener noreferrer">
+                                    ระบบสารบรรณอิเล็กทรอนิกส์
+                                </a>
+                                <span class="header-top-quicklinks__sep" aria-hidden="true">|</span>
+                                <a href="https://www.aru.ac.th/regis/?page=euni" target="_blank" rel="noopener noreferrer">
+                                    ระบบบริการนักศึกษา
+                                </a>
+                                <span class="header-top-quicklinks__sep" aria-hidden="true">|</span>
+                                <a href="http://e-uni8.aru.ac.th:81/e-uni/" target="_blank" rel="noopener noreferrer">
+                                    ระบบบริหารการศึกษา
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -88,12 +91,12 @@
             <div class="header-bottom stick-h2">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-12 col-12">
+                        <div class="col-md-3 col-sm-12 col-12" style="padding-left:5px;">
                             <div class="logo">
                                 <a href="{{ url('') }}"><img src="{{ url('webaru_bs5/aru_images/logo/index_aru_logo.png') }}" alt=""> </a>
                             </div>
                         </div>
-                        <div class="col-md-8 d-none d-lg-block">
+                        <div class="col-md-9 d-none d-lg-block">
                             <div class="menu-area f-right">
                                 <nav>
                                     <ul>
@@ -172,6 +175,8 @@
                                             </ul>
                                         </li>
                                         <li><a href="news-page.html">ผู้สำเร็จการศึกษา  </a></li>
+                                        <li><a href="news-page.html">OpenData  </a></li>
+                                        <li><a href="news-page.html">SDGs  </a></li>
                                         <li><a href="contact.html">ITA </a></li>
                                     </ul>
                                 </nav>
@@ -329,23 +334,22 @@
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="footer-text mrg-xs">
-                                <h3>Link ที่เกี่ยวข้อง</h3>
+                                <h3>ความยั่งยืนและข้อมูลสาธารณะ</h3>
                                 <ul class="footer-text-all">
                                     <li><a href="#">ARU SDGs </a></li>
                                     <li><a href="#">การเปิดเผยข้อมูลสาธารณะ (OpenData)</a></li>
-                                    <li><a href="#">นโยบายความเป็นส่วนบุคคล</a></li>
+                                    <li><a href="#">ITA / ความโปร่งใส</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
-                            <div class="footer-text mrg-sm3 mrg-xs">
-                                <h3>Contact Us</h3>
-                                <form action="#">
-                                    <input placeholder="Name*" type="text">
-                                    <input class="in-mrg" placeholder="Email*" type="email">
-                                    <textarea placeholder="Massage*"></textarea>
-                                    <button class="submit" type="submit">send</button>
-                                </form>
+                            <div class="footer-text mrg-xs">
+                                <h3>นโยบายเว็บไซต์</h3>
+                                <ul class="footer-text-all">
+                                    <li><a href="{{ route('privacy.policy') }}">นโยบายความเป็นส่วนบุคคล</a></li>
+                                    <li><a href="{{ route('cookie.policy') }}">นโยบายคุกกี้</a></li>
+                                    <li><a href="{{ route('terms.of.use') }}">ข้อกำหนดการใช้งาน</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -375,6 +379,35 @@
     </div>
     <!-- Body main wrapper end -->
 
+    <div id="cookieBanner" class="cookie-banner" style="display:none;">
+        <div class="container d-flex flex-column flex-md-row gap-2 align-items-md-center justify-content-between">
+            <div class="small">
+            เว็บไซต์นี้ใช้คุกกี้ที่จำเป็นเพื่อให้เว็บไซต์ทำงานได้ตามปกติ
+            และช่วยยกระดับประสบการณ์ใช้งาน
+            <a href="{{ route('cookie.policy') }}" class="text-decoration-underline text-white">นโยบายคุกกี้</a>
+            และ
+            <a href="{{ route('privacy.policy') }}" class="text-decoration-underline text-white">นโยบายความเป็นส่วนตัว</a>
+            </div>
+            <div class="d-flex gap-2">
+            <button type="button" class="btn btn-light btn-sm" onclick="acceptCookieNotice()">รับทราบ</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    const COOKIE_NOTICE_KEY = "aru_cookie_notice_v1";
+
+    function acceptCookieNotice(){
+        localStorage.setItem(COOKIE_NOTICE_KEY, "ack");
+        document.getElementById("cookieBanner").style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!localStorage.getItem(COOKIE_NOTICE_KEY)) {
+        document.getElementById("cookieBanner").style.display = "block";
+        }
+    });
+    </script>
+
     <!-- Placed js at the end of the document so the pages load faster -->
     <!-- jquery latest version -->
     <script src="{{ url('webaru_bs5/js/vendor/jquery-3.7.1.min.js') }}"></script>
@@ -392,6 +425,9 @@
     <script src="{{ url('webaru_bs5/js/vendor/chosen-1.8.7.min.js') }}"></script>
     <!-- Fancybox v5 -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (window.Fancybox) {
